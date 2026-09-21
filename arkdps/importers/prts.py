@@ -30,9 +30,9 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from collections.abc import Iterator
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Iterator
 
 from ..mapping import SKILL_LEVEL_FIELDS
 from ..recognizer import Clause, Recognition, analyze, summarize
