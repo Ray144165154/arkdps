@@ -24,7 +24,6 @@ from arkdps import cli
 from arkdps.cli import _disp_width, _pad, _render_table, build_parser, format_effects, main
 from arkdps.model import DamageType, Effects
 
-
 # --------------------------------------------------------------------------
 # 合成数据
 # --------------------------------------------------------------------------

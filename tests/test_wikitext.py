@@ -36,8 +36,11 @@ from __future__ import annotations
 
 import unittest
 
-from fixtures import operator  # noqa: F401  （导入以设定 sys.path）
-from fixtures import multi_talent_wikitext, sample_wikitext
+from fixtures import (
+    multi_talent_wikitext,
+    operator,  # noqa: F401  （导入以设定 sys.path）
+    sample_wikitext,
+)
 
 from arkdps.importers import wikitext
 from arkdps.importers.wikitext import (

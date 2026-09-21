@@ -25,10 +25,10 @@ from pathlib import Path
 from fixtures import operator  # noqa: F401  （导入以设定 sys.path）
 
 from arkdps import (
-    Clause,
-    ChargeType,
-    DamageType,
     DEFAULT_RULES,
+    ChargeType,
+    Clause,
+    DamageType,
     Effects,
     Enemy,
     GameRules,
@@ -36,11 +36,11 @@ from arkdps import (
     Recognition,
     Skill,
     Triple,
+    __version__,
     analyze,
     map_clauses,
     summarize,
 )
-from arkdps import __version__
 from arkdps.loader import load_operators, operator_from_dict
 from arkdps.rotation import solve_operator, solve_skill
 
