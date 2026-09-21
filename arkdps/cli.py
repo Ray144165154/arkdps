@@ -628,10 +628,16 @@ def _cmd_coverage(args: argparse.Namespace) -> int:
         out.append(f"  完全解析      {exact:>5}  ({exact / skills:.0%})")
         out.append(f"  有无关的未知  {partial:>5}  ({partial / skills:.0%})")
         out.append(f"  需人工复核    {low:>5}  ({low / skills:.0%})")
-    out.append(
-        f"  缓存命中      {report.get('cache_hits', 0)}"
-        f"   实际请求 {report.get('requests', 0)}"
-    )
+
+    # 运行遥测（缓存命中、请求数）**不在报告文件里**——它每次跑都不一样，
+    # 写进受版本控制的文件只会制造无意义的 diff。只有旧版本的文件才带这些键，
+    # 所以这里存在才显示。
+    if "cache_hits" in report:
+        out.append(
+            f"  缓存命中      {report['cache_hits']}"
+            f"   实际请求 {report.get('requests', 0)}"
+        )
+        out.append("  （缓存与耗时属于运行时信息，重新导入时会变化）")
 
     top = report.get("top_unresolved_risky") or []
     if top:

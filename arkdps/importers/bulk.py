@@ -104,6 +104,14 @@ class ImportReport:
 
         键名保持不变，``data/_coverage.json`` 的格式是稳定的——
         覆盖率报告会被别的工具读，改字段名等于破坏接口。
+
+        ⚠️ 这里**只放描述数据的字段**，不放运行遥测。``elapsed``、
+        ``cache_hits``、``requests`` 每次跑都不一样（缓存冷热、机器快慢），
+        写进受版本控制的文件会让每次导入都产生无意义的 diff——
+        而这个文件是提交进仓库的。
+
+        运行遥测由调用方直接读 :class:`ImportReport` 的字段来展示，
+        它属于"这次运行"而不属于"这份数据"。
         """
         return {
             "operators": self.operators,
@@ -112,9 +120,6 @@ class ImportReport:
             "skills_needing_review": self.skills_needing_review,
             "confidence": dict(self.confidence),
             "top_unresolved_risky": self.unresolved_risky.most_common(top),
-            "cache_hits": self.cache_hits,
-            "requests": self.requests,
-            "elapsed": round(self.elapsed, 1),
         }
 
 
