@@ -1,0 +1,134 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "斯卡蒂"
+ },
+ "name": "斯卡蒂",
+ "class": "近卫",
+ "branch": "无畏者",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡一个敌人",
+ "attack_interval": 1.5,
+ "atk": 1015.0,
+ "atk_trust": 80.0,
+ "atk_potential": 33.0,
+ "skills": [
+  {
+   "name": "迅捷打击·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 15.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 45.0,
+    "aspd": 45.0
+   },
+   "_source": "攻击力+45%，攻击速度+45",
+   "_parsed": [
+    {
+     "text": "攻击力+45%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+45",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "跃浪击",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 30.0
+   },
+   "_source": "部署后30秒内攻击力+170%",
+   "_parsed": [
+    {
+     "text": "部署后30秒内攻击力+170%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 30.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "涌潮悲歌",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 90.0,
+   "init_sp": 70.0,
+   "duration": 50.0,
+   "effects": {},
+   "_source": "攻击力、防御力和生命上限各+130%",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击力",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "防御力和生命上限各+130%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 14.0
+ },
+ "_talent_meta": [
+  {
+   "name": "深海掠食者",
+   "condition": "精英2",
+   "text": "编入队伍时，所有【深海猎人】干员的攻击力+14%"
+  },
+  {
+   "name": "迅捷出击",
+   "condition": "精英2",
+   "text": "自身再部署时间-10秒"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "所有【深海猎人】干员的攻击力+14%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 14.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "编入队伍时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

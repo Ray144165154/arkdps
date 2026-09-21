@@ -1,0 +1,145 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "阿"
+ },
+ "name": "阿",
+ "class": "特种",
+ "branch": "怪杰",
+ "rarity": 6.0,
+ "trait_text": "自身生命会不断流失",
+ "attack_interval": 1.3,
+ "atk": 703.0,
+ "atk_trust": 50.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "快速射击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 100.0
+   },
+   "_source": "攻击速度+100",
+   "_parsed": [
+    {
+     "text": "攻击速度+100",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "爆发剂·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 25.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_mult": 5.0
+   },
+   "_source": "立即对前方最近（优先选取正前方）的一名友方单位用500的攻击力攻击15次，之后持续时间内使自身和目标防御力和生命上限+80%",
+   "_parsed": [
+    {
+     "text": "立即对前方最近（优先选取正前方）的一名友方单位用500的攻击力攻击15次",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 500.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "之后持续时间内使自身和目标防御力和生命上限+80%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "爆发剂·榴莲味",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 30.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_mult": 5.0,
+    "aspd": 50.0
+   },
+   "_source": "立即对前方最近（优先选取正前方）的一名友方单位用500的攻击力攻击15次，之后持续时间内使自身和目标攻击力+50%，攻击速度+50",
+   "_parsed": [
+    {
+     "text": "立即对前方最近（优先选取正前方）的一名友方单位用500的攻击力攻击15次",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 500.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "之后持续时间内使自身和目标攻击力+50%",
+     "attribute": "duration",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "duration"
+    },
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "自身生命会不断流失",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_mult": 1.5
+ },
+ "_talent_meta": [
+  {
+   "name": "混合药物射击",
+   "condition": "精英2",
+   "text": "每次攻击时会随机触发下列效果之一：回复自身生命15%；当次攻击力提升至150%；目标停顿1.4秒；目标晕眩1秒"
+  },
+  {
+   "name": "药剂扩散",
+   "condition": "精英2",
+   "text": "自身受到的治疗量+20%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "当次攻击力提升至150%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 150.0,
+   "field": "atk_mult"
+  }
+ ]
+}

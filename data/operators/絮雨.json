@@ -1,0 +1,99 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "絮雨"
+ },
+ "name": "絮雨",
+ "class": "医疗",
+ "branch": "疗养师",
+ "rarity": 5.0,
+ "trait_text": "拥有较大治疗范围，但在治疗较远目标时治疗量变为80%",
+ "attack_interval": 2.85,
+ "atk": 492.0,
+ "atk_trust": 40.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "定向诊断",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 5.0,
+   "effects": {
+    "atk_mult": 1.3
+   },
+   "_source": "下次治疗时的治疗量提升至攻击力的130%，额外治疗一名单位（优先选择处于异常状态中的单位）并使其获得抵抗，持续5秒",
+   "_parsed": [
+    {
+     "text": "下次治疗时的治疗量提升至攻击力的130%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 130.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续5秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "痛觉抑制",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 55.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "interval_flat": -20.0
+   },
+   "_source": "攻击间隔缩短(-20%)，天赋生命回复效果提升至200%，每次治疗使目标获得4秒抵抗，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击间隔缩短(-20%)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -20.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "生命塔台",
+   "condition": "精英2",
+   "text": "攻击范围内拥有抵抗状态的友方单位每秒恢复相当于絮雨攻击力6%的生命（不受特性影响）"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内拥有抵抗状态的友方单位每秒恢复相当于絮雨攻击力6%的生命（不受特性影响）",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "子句同时含有「治疗与回复」与影响伤害的属性词，无法确定数值属于哪一个"
+  }
+ ],
+ "_talent_needs_review": true
+}

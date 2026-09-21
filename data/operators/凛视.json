@@ -1,0 +1,150 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "凛视"
+ },
+ "name": "凛视",
+ "class": "辅助",
+ "branch": "巫役",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，可以造成元素损伤",
+ "attack_interval": 1.6,
+ "atk": 447.0,
+ "atk_trust": 30.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "我见崩毁之前",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 7.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.3
+   },
+   "_source": "下一次攻击造成相当于攻击力130%的法术伤害并附带80%攻击力的凋亡损伤，可充能2次",
+   "_parsed": [
+    {
+     "text": "下一次攻击造成相当于攻击力130%的法术伤害并附带80%攻击力的凋亡损伤",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 130.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "我见枯朽之后",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 20.0,
+   "effects": {
+    "aspd": 50.0
+   },
+   "_source": "攻击速度+50，额外攻击一名目标，每次攻击附带35%攻击力的凋亡损伤",
+   "_parsed": [
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    },
+    {
+     "text": "额外攻击一名目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "每次攻击附带35%攻击力的凋亡损伤",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以造成元素损伤",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_mult": 0.3,
+  "atk_pct": 6.0,
+  "aspd": 6.0
+ },
+ "_talent_meta": [
+  {
+   "name": "揭示者",
+   "condition": "精英2",
+   "text": "在【探索者的银凇止境】中，攻击附带相当于30%攻击力的凋亡损伤"
+  },
+  {
+   "name": "隐居者",
+   "condition": "精英2",
+   "text": "攻击力+6%，攻击速度+6"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击附带相当于30%攻击力的凋亡损伤",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 30.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "攻击力+6%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 6.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "攻击速度+6",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 6.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在【探索者的银凇止境】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

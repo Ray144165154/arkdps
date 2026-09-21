@@ -1,0 +1,80 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "THRM-EX"
+ },
+ "name": "THRM-EX",
+ "class": "特种",
+ "branch": "处决者",
+ "rarity": 1.0,
+ "trait_text": "不进行攻击，且不受部署数量限制，但再部署时间极长",
+ "attack_interval": 0.93,
+ "atk": 260.0,
+ "atk_trust": 90.0,
+ "atk_potential": 0.0,
+ "skills": [],
+ "_warnings": [],
+ "_atk_from": "精英0_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "不进行攻击",
+   "attribute": "atk",
+   "relation": "stop",
+   "value": null,
+   "field": "attacks"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "不受部署数量限制",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_mult": 0.08
+ },
+ "_talent_meta": [
+  {
+   "name": "延迟引爆·VI",
+   "condition": "潜能6",
+   "text": "部署经过3秒后，对周围8格内的所有敌人造成相当于攻击力400%的物理伤害，并令其获得8秒30%的脆弱，之后自身强制退出战场",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "对周围8格内的所有敌人造成相当于攻击力400%的物理伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 8.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "部署经过3秒后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "并令其获得8秒30%的脆弱",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "之后自身强制退出战场",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

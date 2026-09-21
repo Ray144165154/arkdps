@@ -1,0 +1,54 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "空爆"
+ },
+ "name": "空爆",
+ "class": "狙击",
+ "branch": "炮手",
+ "rarity": 3.0,
+ "trait_text": "攻击造成群体物理伤害",
+ "attack_interval": 2.8,
+ "atk": 617.0,
+ "atk_trust": 55.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "爆破范围提升·α型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "",
+   "_parsed": [],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "_atk_from": "精英1_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体物理伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "轻量化",
+   "condition": "精英1",
+   "text": "自身部署费用-1",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": []
+}

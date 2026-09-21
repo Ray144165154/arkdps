@@ -1,0 +1,283 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "圣聆初雪"
+ },
+ "name": "圣聆初雪",
+ "class": "术师",
+ "branch": "阵法术师",
+ "rarity": 6.0,
+ "trait_text": "通常时不攻击且防御力和法术抗性大幅度提升，技能开启时攻击造成群体法术伤害",
+ "attack_interval": 2.0,
+ "atk": 836.0,
+ "atk_trust": 80.0,
+ "atk_potential": 34.0,
+ "skills": [
+  {
+   "name": "铃音吹雪",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 12.0,
+   "init_sp": 12.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 5.2
+   },
+   "_source": "立即对范围内所有敌人造成相当于攻击力520%的法术伤害及3.5秒寒冷并将其中等力度地朝部署方向推动，之后积雪向前方地面扩散（最多向前扩散5格），可充能2次",
+   "_parsed": [
+    {
+     "text": "立即对范围内所有敌人造成相当于攻击力520%的法术伤害及3.5秒寒冷并将其中等力度地朝部署方向推动",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 520.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "之后积雪向前方地面扩散（最多向前扩散5格）",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "霜涛覆岭",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 45.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.8,
+    "targets": 5
+   },
+   "_source": "每次攻击造成相当于攻击力380%的法术伤害，积雪超过5层时会向周围扩散一层（最多向外扩散20格），处于积雪上的地面敌人每秒受到攻击力20%的法术伤害，敌人离开积雪时获得5秒寒冷，积雪在目标点积累至5层时，使目标点变为冻结状态，持续时间无限，可主动关闭技能（期间可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "每次攻击造成相当于攻击力380%的法术伤害",
+     "attribute": "per_hit_mult",
+     "relation": "proportional",
+     "value": 380.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "敌人离开积雪时获得5秒寒冷",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "targets"
+    },
+    {
+     "text": "积雪在目标点积累至5层时",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "targets"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    },
+    {
+     "text": "可主动关闭技能（期间可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "low",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "使目标点变为冻结状态",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "处于积雪上的地面敌人每秒受到攻击力20%的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "积雪超过5层时会向周围扩散一层（最多向外扩散20格）",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "群山俯首",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 42.0,
+   "duration": 35.0,
+   "effects": {
+    "targets_scope": "all_in_range",
+    "atk_pct": 100.0,
+    "aspd": 30.0,
+    "res_ignore": 10.0,
+    "atk_mult": 2.6
+   },
+   "_source": "攻击范围扩大，立即诱导攻击范围内的所有敌人至自身周围的可达地面，持续10秒，积雪生成速度加快，攻击力+100%，攻击速度+30，攻击无视目标10点法术抗性，每次攻击造成相当于攻击力260%的法术伤害",
+   "_parsed": [
+    {
+     "text": "立即诱导攻击范围内的所有敌人至自身周围的可达地面",
+     "attribute": "range",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    },
+    {
+     "text": "持续10秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 10.0,
+     "field": "duration"
+    },
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+30",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 30.0,
+     "field": "aspd"
+    },
+    {
+     "text": "攻击无视目标10点法术抗性",
+     "attribute": "res",
+     "relation": "ignore",
+     "value": 10.0,
+     "field": "res_ignore"
+    },
+    {
+     "text": "每次攻击造成相当于攻击力260%的法术伤害",
+     "attribute": "per_hit_mult",
+     "relation": "proportional",
+     "value": 260.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "积雪生成速度加快",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "通常时不攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "防御力和法术抗性大幅度提升",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "技能开启时攻击造成群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_mult": 0.75,
+  "targets": 5
+ },
+ "_talent_meta": [
+  {
+   "name": "无垠的雪景",
+   "condition": "精英2",
+   "text": "攻击范围内的地面每隔5.5秒产生一层积雪，地面敌人经过时立即受到相当于攻击力75%的法术伤害，每层积雪使经过的所有敌人移动速度下降12%，最多叠加5层（首个敌人离开该地块时积雪消失）"
+  },
+  {
+   "name": "圣山的祝福",
+   "condition": "精英2",
+   "text": "受到伤害时使敌人寒冷1.5秒，若受到致命伤害，仅一次立刻回复所有生命值并使自身冻结4秒，使攻击范围内所有敌方单位冻结8秒"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "地面敌人经过时立即受到相当于攻击力75%的法术伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 75.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "最多叠加5层（首个敌人离开该地块时积雪消失）",
+   "attribute": "targets",
+   "relation": "max_of",
+   "value": 5.0,
+   "field": "targets"
+  },
+  {
+   "text": "受到伤害时使敌人寒冷1.5秒",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 1.5,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的地面每隔5.5秒产生一层积雪",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / per」，但没能映射到引擎字段"
+  },
+  {
+   "text": "每层积雪使经过的所有敌人移动速度下降12%",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「movement」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  },
+  {
+   "text": "若受到致命伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "使攻击范围内所有敌方单位冻结8秒",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

@@ -1,0 +1,145 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "宴"
+ },
+ "name": "宴",
+ "class": "近卫",
+ "branch": "武者",
+ "rarity": 4.0,
+ "trait_text": "不成为其他角色的治疗目标，每次攻击到敌人后回复自身30生命（精英1后更新）",
+ "attack_interval": 1.2,
+ "atk": 693.0,
+ "atk_trust": 30.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "分神",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 10.0,
+   "duration": 8.0,
+   "effects": {},
+   "_source": "停止攻击，阻挡数变为0，防御力+200%，每秒恢复10%的最大生命值",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "exact",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "防御力+200%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "落地斩·破门",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 16.0,
+    "damage_type": "arts"
+   },
+   "_source": "部署后立即流失50%当前生命，并在16秒内攻击力+110%，伤害类型变为法术",
+   "_parsed": [
+    {
+     "text": "并在16秒内攻击力+110%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 16.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "伤害类型变为法术",
+     "attribute": "damage_type",
+     "relation": "set_to",
+     "value": null,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "部署后立即流失50%当前生命",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 100.0,
+  "atk_pct": 4.0
+ },
+ "_talent_meta": [
+  {
+   "name": "认真模式",
+   "condition": "精英2",
+   "text": "在场时，自身获得最高+100攻击速度的坚忍（损失70%生命值时达到最大加成）"
+  },
+  {
+   "name": "冷血",
+   "condition": "精英2 X模组3级",
+   "text": "生命值低于50%时，攻击力+4%，防御力+4%",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "自身获得最高+100攻击速度的坚忍（损失70%生命值时达到最大加成）",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 100.0,
+   "field": "aspd"
+  },
+  {
+   "text": "攻击力+4%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 4.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "生命值低于50%时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "防御力+4%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

@@ -1,0 +1,270 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "斩业星熊"
+ },
+ "name": "斩业星熊",
+ "class": "重装",
+ "branch": "驭法铁卫",
+ "rarity": 6.0,
+ "trait_text": "技能开启时普通攻击会造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 667.0,
+ "atk_trust": 55.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "恶业苦果",
+   "charge": "hit",
+   "trigger": "自动触发",
+   "sp_cost": 15.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 70.0,
+    "atk_mult": 1.75
+   },
+   "_source": "攻击力+70%，防御力+70%，每次受到攻击时对目标造成相当于斩业星熊攻击力175%的法术伤害，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "每次受到攻击时对目标造成相当于斩业星熊攻击力175%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 175.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "防御力+70%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "无始无明",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 6.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "投出盾牌并以攻击力90%的三连击攻击所有阻挡的敌人，盾牌会环绕斩业星熊飞行一圈；盾牌碰到敌人时使目标停顿，每0.5秒对其造成攻击力130%的法术伤害，自身回复盾牌造成伤害15%的生命",
+   "_parsed": [
+    {
+     "text": "投出盾牌并以攻击力90%的三连击攻击所有阻挡的敌人",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 90.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_conditional": {
+    "atk_mult": 0.9
+   },
+   "_conditions": [
+    {
+     "text": "投出盾牌并以攻击力90%的三连击攻击所有阻挡的敌人",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "atk_mult": 0.9
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "每0.5秒对其造成攻击力130%的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "盾牌会环绕斩业星熊飞行一圈",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "地狱变相",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 45.0,
+   "init_sp": 37.0,
+   "duration": 32.0,
+   "effects": {
+    "atk_pct": 230.0,
+    "targets": 3,
+    "hits_override": 4.0
+   },
+   "_source": "攻击范围扩大，生命上限+100%，攻击力+230%，以二连击攻击最多3名敌人；主动关闭技能后11秒内保留技能加成且不会被击倒，攻击变为四连击，承担攻击范围内我方干员受到的致命伤害，11秒后强制退出战场，可主动关闭（期间可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击力+230%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 230.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "以二连击攻击最多3名敌人",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 3.0,
+     "field": "targets"
+    },
+    {
+     "text": "主动关闭技能后11秒内保留技能加成",
+     "attribute": "termination",
+     "relation": "increase",
+     "value": 11.0,
+     "field": "end_condition"
+    },
+    {
+     "text": "攻击变为四连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 4.0,
+     "field": "hits_override"
+    },
+    {
+     "text": "可主动关闭（期间可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "不会被击倒",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "11秒后强制退出战场",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "生命上限+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "承担攻击范围内我方干员受到的致命伤害",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "技能开启时普通攻击会造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_conditional": {
+  "damage_type": "arts"
+ },
+ "_trait_conditions": [
+  {
+   "text": "技能开启时普通攻击会造成法术伤害",
+   "condition": "开启时",
+   "fields": {
+    "damage_type": "arts"
+   },
+   "reason": "含条件标记「开启时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "业火",
+   "condition": "精英2",
+   "text": "生命降至0时进入“我执”：期间不成为其他角色的治疗目标，受到的伤害会继续积累，积累至生命上限的200%时被击倒，5秒内未受到伤害时，每秒回复5%生命，生命大于0时退出“我执”"
+  },
+  {
+   "name": "鬼之架势",
+   "condition": "精英2",
+   "text": "在场时，自身获得最高+50法术抗性和35%攻击力的坚忍（损失70%生命值时达到最大加成）"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "受到的伤害会继续积累",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "积累至生命上限的200%时被击倒",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "5秒内未受到伤害时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "生命大于0时退出“我执”",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "自身获得最高+50法术抗性和35%攻击力的坚忍（损失70%生命值时达到最大加成）",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「res / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

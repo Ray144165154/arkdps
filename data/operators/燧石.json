@@ -1,0 +1,107 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "燧石"
+ },
+ "name": "燧石",
+ "class": "近卫",
+ "branch": "斗士",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡一个敌人",
+ "attack_interval": 0.78,
+ "atk": 545.0,
+ "atk_trust": 75.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "不息",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.3
+   },
+   "_source": "下次攻击的攻击力提高至230%，将目标朝攻击方向以小力度推开并造成1秒停顿",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至230%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 230.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "锋芒毕露",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 55.0,
+    "aspd": 55.0
+   },
+   "_source": "阻挡数变为0，攻击力+55%，攻击速度+55，每次攻击对目标造成0.3秒停顿",
+   "_parsed": [
+    {
+     "text": "攻击力+55%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 55.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+55",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 55.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "身轻无痕",
+   "condition": "精英2",
+   "text": "对未被自身阻挡的敌人造成的伤害提升40%",
+   "conditional": {
+    "targets": 40
+   },
+   "conditions": [
+    {
+     "text": "对未被自身阻挡的敌人造成的伤害提升40%",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "targets": 40
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    }
+   ]
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "对未被自身阻挡的敌人造成的伤害提升40%",
+   "attribute": "targets",
+   "relation": "increase",
+   "value": 40.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_conditional": {
+  "targets": 40
+ }
+}

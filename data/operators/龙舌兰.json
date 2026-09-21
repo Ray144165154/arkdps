@@ -1,0 +1,172 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "龙舌兰"
+ },
+ "name": "龙舌兰",
+ "class": "近卫",
+ "branch": "解放者",
+ "rarity": 5.0,
+ "trait_text": "通常不攻击且阻挡数为0，技能未开启时40秒内攻击力逐渐提升至最高+200%且技能结束时重置攻击力",
+ "attack_interval": 1.2,
+ "atk": 302.0,
+ "atk_trust": 50.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "当机立断",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 0.0,
+   "duration": 20.0,
+   "effects": {
+    "aspd": 50.0,
+    "atk_mult": 1.7
+   },
+   "_source": "攻击速度+50，每次攻击造成相当于攻击力170%的物理伤害",
+   "_parsed": [
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    },
+    {
+     "text": "每次攻击造成相当于攻击力170%的物理伤害",
+     "attribute": "per_hit_mult",
+     "relation": "proportional",
+     "value": 170.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "剑走偏锋",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 12.0,
+   "duration": 15.0,
+   "effects": {
+    "targets": 3,
+    "atk_mult": 2.3
+   },
+   "_source": "攻击范围扩大，同时攻击2名敌人，每次攻击造成相当于攻击力230%的物理伤害，蓄力额外效果：改为同时攻击3名敌人，持续时间延长为30秒，可主动关闭技能（期间可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "同时攻击2名敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "每次攻击造成相当于攻击力230%的物理伤害",
+     "attribute": "per_hit_mult",
+     "relation": "proportional",
+     "value": 230.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "蓄力额外效果：改为同时攻击3名敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 3.0,
+     "field": "targets"
+    },
+    {
+     "text": "持续时间延长为30秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 30.0,
+     "field": "duration"
+    },
+    {
+     "text": "可主动关闭技能（期间可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "技能未开启时40秒内攻击力逐渐提升至最高+200%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 40.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.4
+ },
+ "_trait_conditions": [
+  {
+   "text": "技能未开启时40秒内攻击力逐渐提升至最高+200%",
+   "condition": "未开启时",
+   "fields": {
+    "atk_mult": 0.4
+   },
+   "reason": "含条件标记「未开启时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "通常不攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "技能结束时重置攻击力",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "伺机而动",
+   "condition": "精英2",
+   "text": "技能未开启时每次受到攻击时对目标造成相当于龙舌兰攻击力20%的法术伤害",
+   "conditional": {
+    "atk_mult": 0.2
+   },
+   "conditions": [
+    {
+     "text": "技能未开启时每次受到攻击时对目标造成相当于龙舌兰攻击力20%的法术伤害",
+     "condition": "未开启时",
+     "fields": {
+      "atk_mult": 0.2
+     },
+     "reason": "含条件标记「未开启时」，是否生效取决于战场情况"
+    }
+   ]
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "技能未开启时每次受到攻击时对目标造成相当于龙舌兰攻击力20%的法术伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 20.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_conditional": {
+  "atk_mult": 0.2
+ }
+}

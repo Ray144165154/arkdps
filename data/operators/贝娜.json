@@ -1,0 +1,144 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "贝娜"
+ },
+ "name": "贝娜",
+ "class": "特种",
+ "branch": "傀儡师",
+ "rarity": 5.0,
+ "trait_text": "受到致命伤时不撤退，切换成作战（替身阻挡数为0），持续20s后自身再次替换",
+ "attack_interval": 1.2,
+ "atk": 682.0,
+ "atk_trust": 60.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "奋力修剪",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 100.0,
+    "def_ignore_pct": 35.0
+   },
+   "_source": "生命上限-50%，攻击力+100%，无视攻击目标35%的防御力",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "无视攻击目标35%的防御力",
+     "attribute": "defense",
+     "relation": "ignore",
+     "value": 35.0,
+     "field": "def_ignore_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "生命上限-50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "快速修剪",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 18.0,
+   "duration": 22.0,
+   "effects": {
+    "atk_pct": 90.0,
+    "aspd": 80.0,
+    "targets": 4
+   },
+   "_source": "攻击力+90%，攻击速度+80，每次攻击到敌人时使自身流失4%的生命",
+   "_parsed": [
+    {
+     "text": "攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+80",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "aspd"
+    },
+    {
+     "text": "每次攻击到敌人时使自身流失4%的生命",
+     "attribute": "targets",
+     "relation": "per",
+     "value": 4.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "持续20s后自身再次替换",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 20.0,
+   "field": "duration"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "受到致命伤时不撤退",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "damage_type": "arts"
+ },
+ "_talent_meta": [
+  {
+   "name": "贝娜的量角器",
+   "condition": "精英2",
+   "text": "攻击造成法术伤害且受到的物理与法术伤害减少40%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "受到的物理与法术伤害减少40%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

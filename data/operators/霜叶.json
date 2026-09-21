@@ -1,0 +1,124 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "霜叶"
+ },
+ "name": "霜叶",
+ "class": "近卫",
+ "branch": "领主",
+ "rarity": 4.0,
+ "trait_text": "可以进行远程攻击，但此时攻击力降低至80%",
+ "attack_interval": 1.3,
+ "atk": 660.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "寒霜枪刃",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.5
+   },
+   "_source": "下次攻击造成攻击力150%的物理伤害，令命中目标在3秒内移动速度-50%",
+   "_parsed": [
+    {
+     "text": "下次攻击造成攻击力150%的物理伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 150.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "令命中目标在3秒内移动速度-50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「movement / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "凝冰枪刃",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 0.0,
+   "duration": 25.0,
+   "effects": {
+    "aspd": 50.0
+   },
+   "_source": "攻击速度+50；每次攻击使命中目标移动速度-50%，并有40%的几率使其束缚2秒",
+   "_parsed": [
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "每次攻击使命中目标移动速度-50%",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「movement」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 80.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.8
+ },
+ "_trait_conditions": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "condition": "但此时",
+   "fields": {
+    "atk_mult": 0.8
+   },
+   "reason": "含条件标记「但此时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "interval_flat": 0.15
+ },
+ "_talent_meta": [
+  {
+   "name": "掩护打击",
+   "condition": "精英2",
+   "text": "攻击范围扩大，但攻击间隔略微增大(+0.15s)"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "但攻击间隔略微增大(+0.15s)",
+   "attribute": "interval",
+   "relation": "increase",
+   "value": 0.15,
+   "field": "interval_flat"
+  }
+ ]
+}

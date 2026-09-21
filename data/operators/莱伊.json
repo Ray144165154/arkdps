@@ -1,0 +1,215 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "莱伊"
+ },
+ "name": "莱伊",
+ "class": "狙击",
+ "branch": "猎手",
+ "rarity": 6.0,
+ "trait_text": "攻击时需要消耗子弹且攻击力提升至120%，不攻击时会缓慢地装填子弹（最多4发，精英1后更新）",
+ "attack_interval": 1.6,
+ "atk": 1072.0,
+ "atk_trust": 120.0,
+ "atk_potential": 37.0,
+ "skills": [
+  {
+   "name": "脱身矢",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 10.0,
+   "init_sp": 10.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 4.5
+   },
+   "_source": "立即用额外特殊子弹攻击目标，造成相当于攻击力450%的物理伤害并将其较大力地推开，若将其击倒则使下次装填额外加装2发子弹，可充能2次",
+   "_parsed": [
+    {
+     "text": "造成相当于攻击力450%的物理伤害并将其较大力地推开",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 450.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "立即用额外特殊子弹攻击目标",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "若将其击倒则使下次装填额外加装2发子弹",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "广域警觉",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 16.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 120.0
+   },
+   "_source": "被动效果：沙地兽撤退时回收命中该区域的子弹，自动开启：攻击范围扩大，攻击力+120%，沙地兽的再部署时间-40%，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+120%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 120.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "partial",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "被动效果：沙地兽撤退时回收命中该区域的子弹",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "“得见光芒”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 16.0,
+   "effects": {
+    "atk_mult": 3.3
+   },
+   "_source": "立即停止攻击直至子弹装满，装填间隔大幅缩短(-1.2)，攻击范围扩大，攻击造成相当于攻击力330%的物理伤害并使目标束缚2秒，技能期间若击倒敌人，技能结束时获得10点技力",
+   "_parsed": [
+    {
+     "text": "立即停止攻击直至子弹装满",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "攻击造成相当于攻击力330%的物理伤害并使目标束缚2秒",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 330.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "装填间隔大幅缩短(-1.2)",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能期间若击倒敌人",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "技能结束时获得10点技力",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「sp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "atk_mult": 1.2
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击力提升至120%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 120.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "攻击时需要消耗子弹",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "不攻击时会缓慢地装填子弹（最多4发，精英1后更新）",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "巡哨伙伴",
+   "condition": "精英2",
+   "text": "可以在攻击范围内部署沙地兽于25秒内侦察一片区域延伸攻击范围，自身优先攻击该区域内的目标且对其造成的物理伤害提高15%"
+  },
+  {
+   "name": "入神",
+   "condition": "精英2",
+   "text": "攻击相同目标时每次攻击提高自身攻击力8%，最多3层"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "可以在攻击范围内部署沙地兽于25秒内侦察一片区域延伸攻击范围",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "对其造成的物理伤害提高15%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "攻击相同目标时每次攻击提高自身攻击力8%",
+   "kind": "unmapped",
+   "affects_damage": true,
+   "reason": "识别为「atk / per」，但没能映射到引擎字段"
+  },
+  {
+   "text": "最多3层",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

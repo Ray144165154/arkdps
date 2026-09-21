@@ -1,0 +1,86 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "猎蜂"
+ },
+ "name": "猎蜂",
+ "class": "近卫",
+ "branch": "斗士",
+ "rarity": 4.0,
+ "trait_text": "能够阻挡一个敌人",
+ "attack_interval": 0.78,
+ "atk": 513.0,
+ "atk_trust": 60.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "高机动",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "获得60%的物理闪避",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "急速拳",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 0.0,
+   "duration": 10.0,
+   "effects": {
+    "interval_flat": -60.0
+   },
+   "_source": "攻击间隔大幅度减小(-60%)",
+   "_parsed": [
+    {
+     "text": "攻击间隔大幅度减小(-60%)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -60.0,
+     "field": "interval_flat"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "竞技专注",
+   "condition": "精英2",
+   "text": "攻击相同目标时每次攻击可提高自身攻击力5%，最多可叠加5层。更换目标会失去之前叠加的效果"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击相同目标时每次攻击可提高自身攻击力5%",
+   "kind": "unmapped",
+   "affects_damage": true,
+   "reason": "识别为「atk / per」，但没能映射到引擎字段"
+  },
+  {
+   "text": "最多可叠加5层",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "更换目标会失去之前叠加的效果",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

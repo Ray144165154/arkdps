@@ -1,0 +1,123 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "梅尔"
+ },
+ "name": "梅尔",
+ "class": "辅助",
+ "branch": "召唤师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，可以使用召唤物协助作战",
+ "attack_interval": 1.6,
+ "atk": 443.0,
+ "atk_trust": 35.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "迷惑装置",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "所有机械水獭获得35%的物理和法术闪避，机械水獭周围四格的友军也获得同样的效果",
+   "_parsed": [],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "机械水獭周围四格的友军也获得同样的效果",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "爆破回收",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 6.0
+   },
+   "_source": "立即引爆所有配置的机械水獭，爆炸时对周围敌人造成相当于梅尔攻击力600%的法术伤害，并使所有命中目标晕眩2秒，被引爆的机械水獭会被回收",
+   "_parsed": [
+    {
+     "text": "爆炸时对周围敌人造成相当于梅尔攻击力600%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 600.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "立即引爆所有配置的机械水獭",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "被引爆的机械水獭会被回收",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以使用召唤物协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "机械水獭",
+   "condition": "精英2",
+   "text": "可以使用5个机械水獭召唤物。被机械水獭阻挡的敌人攻击速度-25"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "可以使用5个机械水獭召唤物",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "被机械水獭阻挡的敌人攻击速度-25",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「aspd」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  }
+ ],
+ "_talent_needs_review": true
+}

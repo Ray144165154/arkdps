@@ -1,0 +1,245 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "司霆惊蛰"
+ },
+ "name": "司霆惊蛰",
+ "class": "近卫",
+ "branch": "解放者",
+ "rarity": 6.0,
+ "trait_text": "通常不攻击且阻挡数为0，技能未开启时40秒内攻击力逐渐提升至最高+200%且技能结束时重置攻击力",
+ "attack_interval": 1.2,
+ "atk": 360.0,
+ "atk_trust": 30.0,
+ "atk_potential": 29.0,
+ "skills": [
+  {
+   "name": "浩气长存",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 11.0,
+   "init_sp": 17.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.55
+   },
+   "_source": "攻击范围朝前方和两侧扩大。对三个方向的地面敌人各造成相当于攻击力355%的物理伤害，可充能3次，充能耗尽前特性不重置",
+   "_parsed": [
+    {
+     "text": "对三个方向的地面敌人各造成相当于攻击力355%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 355.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "攻击范围朝前方和两侧扩大",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "正霆摄威",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 43.0,
+   "init_sp": 22.0,
+   "duration": 36.0,
+   "effects": {
+    "atk_mult": 0.04
+   },
+   "_source": "攻击范围沿近战地块扩展至最远三格，攻击对4个目标造成相当于攻击力150%的物理伤害。技能期间每次落雷使攻击力+10%（最多可叠加25次）",
+   "_parsed": [
+    {
+     "text": "攻击对4个目标造成相当于攻击力150%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 4.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "技能期间每次落雷使攻击力+10%（最多可叠加25次）",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / max_of」，但没能映射到引擎字段"
+    },
+    {
+     "text": "攻击范围沿近战地块扩展至最远三格",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "天地通明",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 36.0,
+   "init_sp": 21.0,
+   "duration": 24.0,
+   "effects": {
+    "interval_flat": 1.7,
+    "atk_mult": 3.0,
+    "targets": 3
+   },
+   "_source": "攻击范围扩大，攻击间隔大幅延长(+1.7)，攻击造成攻击力300%的范围物理伤害，目标位置产生朝四周流动三格的电流。电流碰到自身或高台时反弹，电流所在地块上所有敌人每0.6秒受到司霆惊蛰攻击力70%的法术伤害，且有15%概率战栗3秒",
+   "_parsed": [
+    {
+     "text": "攻击间隔大幅延长(+1.7)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 1.7,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击造成攻击力300%的范围物理伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 300.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "目标位置产生朝四周流动三格的电流",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 3.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "电流所在地块上所有敌人每0.6秒受到司霆惊蛰攻击力70%的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "电流碰到自身或高台时反弹",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "有15%概率战栗3秒",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "技能未开启时40秒内攻击力逐渐提升至最高+200%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 40.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.4
+ },
+ "_trait_conditions": [
+  {
+   "text": "技能未开启时40秒内攻击力逐渐提升至最高+200%",
+   "condition": "未开启时",
+   "fields": {
+    "atk_mult": 0.4
+   },
+   "reason": "含条件标记「未开启时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "通常不攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "技能结束时重置攻击力",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "targets_scope": "all_in_range",
+  "atk_mult": 1.07
+ },
+ "_talent_meta": [
+  {
+   "name": "明断",
+   "condition": "精英2",
+   "text": "攻击范围内每个地块每秒有10%的概率落雷对所有敌人造成相当于攻击力100%的法术伤害。未开启技能时起飞；技能期间攻击时攻击力提升至107%"
+  },
+  {
+   "name": "追责",
+   "condition": "精英2",
+   "text": "开启技能时，使攻击范围内所有地面地块落雷，对所有敌人造成相当于攻击力100%的法术伤害和2秒战栗"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击范围内每个地块每秒有10%的概率落雷对所有敌人造成相当于攻击力100%的法术伤害",
+   "attribute": "range",
+   "relation": "proportional",
+   "value": 10.0,
+   "field": "targets_scope"
+  },
+  {
+   "text": "技能期间攻击时攻击力提升至107%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 107.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "对所有敌人造成相当于攻击力100%的法术伤害和2秒战栗",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 100.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "未开启技能时起飞",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "开启技能时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "使攻击范围内所有地面地块落雷",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

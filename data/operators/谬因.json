@@ -1,0 +1,247 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "谬因"
+ },
+ "name": "谬因",
+ "class": "术师",
+ "branch": "轰击术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成超远距离的群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 876.0,
+ "atk_trust": 110.0,
+ "atk_potential": 35.0,
+ "skills": [
+  {
+   "name": "连续映射",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 35.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 165.0
+   },
+   "_source": "攻击力+165%，“中继器”持续时间变为无限，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+165%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 165.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "“中继器”持续时间变为无限",
+     "attribute": "duration",
+     "relation": "set_to",
+     "value": Infinity,
+     "field": "infinite_duration"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true
+  },
+  {
+   "name": "临界瞬爆",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 18.0,
+   "init_sp": 16.0,
+   "duration": 8.0,
+   "effects": {},
+   "_source": "向前发射一道无限长直线的光束，每0.5秒造成攻击力150%的法术伤害，光束可被我方干员改变方向",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "向前发射一道无限长直线的光束",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "每0.5秒造成攻击力150%的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "光束可被我方干员改变方向",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "混沌的本质",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 33.0,
+   "duration": 0.0,
+   "effects": {
+    "interval_flat": -1.1,
+    "atk_pct": 145.0,
+    "atk_mult": 0.3
+   },
+   "_source": "技能开启后停止攻击3秒，撤回已部署的“中继器”并清空再部署；攻击间隔较大幅度缩短(-1.1)，攻击力+145%，攻击造成200%的法术伤害，并使目标停顿0.4秒；攻击经过“中继器”后，额外造成一次攻击力30%的法术伤害，且停顿时间延长0.4秒，技能期间可额外部署2个“中继器”，“中继器”不会撤退，技能结束时自动撤退，攻击装有20发弹药，打完后结束（可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "技能开启后停止攻击3秒",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "攻击间隔较大幅度缩短(-1.1)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -1.1,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+145%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 145.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "额外造成一次攻击力30%的法术伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 30.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "打完后结束（可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "low",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "攻击造成200%的法术伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "攻击经过“中继器”后",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能期间可额外部署2个“中继器”",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "“中继器”不会撤退",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能结束时自动撤退",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成超远距离的群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_pct": 25.0,
+  "res_ignore": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "链路协议",
+   "condition": "精英2",
+   "text": "可以使用一个持续时间25秒的“中继器”，能改变自身的攻击方向，且使该次攻击距离+2；“中继器”在场时，自身攻击力+25%"
+  },
+  {
+   "name": "取样优化",
+   "condition": "精英2",
+   "text": "攻击范围内的友方干员攻击时无视敌方10点法术抗性"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "可以使用一个持续时间25秒的“中继器”",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 25.0,
+   "field": "duration"
+  },
+  {
+   "text": "自身攻击力+25%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 25.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "攻击范围内的友方干员攻击时无视敌方10点法术抗性",
+   "attribute": "res",
+   "relation": "ignore",
+   "value": 10.0,
+   "field": "res_ignore"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "能改变自身的攻击方向",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "使该次攻击距离+2",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "“中继器”在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

@@ -1,0 +1,213 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "佩佩"
+ },
+ "name": "佩佩",
+ "class": "近卫",
+ "branch": "撼地者",
+ "rarity": 6.0,
+ "trait_text": "攻击使目标周围的其他敌人受到相当于攻击力50%的群体物理伤害",
+ "attack_interval": 1.8,
+ "atk": 1290.0,
+ "atk_trust": 70.0,
+ "atk_potential": 35.0,
+ "skills": [
+  {
+   "name": "盖戳！",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.9
+   },
+   "_source": "下次攻击造成相当于攻击力290%的物理伤害，处于异常状态时可以释放技能并清除异常状态，可充能2次",
+   "_parsed": [
+    {
+     "text": "下次攻击造成相当于攻击力290%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 290.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "阻遏混乱锤",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 18.0,
+   "duration": 18.0,
+   "effects": {
+    "atk_pct": 90.0,
+    "aspd": 120.0,
+    "targets_scope": "all_in_range"
+   },
+   "_source": "攻击范围扩大，攻击力+90%，攻击速度+80，随机攻击范围内的目标，每次使用时，使后续开启技能的攻击速度额外+40，最多叠加2层",
+   "_parsed": [
+    {
+     "text": "攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+80",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "aspd"
+    },
+    {
+     "text": "随机攻击范围内的目标",
+     "attribute": "range",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    },
+    {
+     "text": "使后续开启技能的攻击速度额外+40",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "每次使用时",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "最多叠加2层",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "时光震荡",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 45.0,
+   "init_sp": 35.0,
+   "duration": 40.0,
+   "effects": {
+    "interval_flat": 0.2,
+    "atk_pct": 265.0
+   },
+   "_source": "攻击间隔略微增大(+0.2)，攻击力+240%，攻击使命中的目标晕眩0.8秒，对主目标提升至1.5秒，每次攻击后使溅射范围扩大且攻击力额外+25%，最多叠加4层",
+   "_parsed": [
+    {
+     "text": "攻击间隔略微增大(+0.2)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 0.2,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+240%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 240.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "对主目标提升至1.5秒",
+     "attribute": "targets",
+     "relation": "set_to",
+     "value": 1.5,
+     "field": "targets"
+    },
+    {
+     "text": "攻击力额外+25%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 25.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "最多叠加4层",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "atk_mult": 0.5
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击使目标周围的其他敌人受到相当于攻击力50%的群体物理伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 50.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 16.0
+ },
+ "_talent_meta": [
+  {
+   "name": "往昔传承",
+   "condition": "精英2",
+   "text": "技能期间每击倒1名敌人，技能结束时获得1点技力，至多回复14点"
+  },
+  {
+   "name": "弥漫莲香",
+   "condition": "精英2",
+   "text": "在场时，所有【近卫】干员的攻击力+16%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "技能期间每击倒1名敌人",
+   "attribute": "targets",
+   "relation": "per",
+   "value": 1.0,
+   "field": "targets"
+  },
+  {
+   "text": "所有【近卫】干员的攻击力+16%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 16.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "技能结束时获得1点技力",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「sp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

@@ -1,0 +1,110 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "图耶"
+ },
+ "name": "图耶",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 5.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 493.0,
+ "atk_trust": 75.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "水流环",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 12.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.05
+   },
+   "_source": "立即进行一次治疗并使目标获得一个持续5秒的屏障（可以吸收相当于图耶攻击力200%的伤害）",
+   "_parsed": [
+    {
+     "text": "立即进行一次治疗并使目标获得一个持续5秒的屏障（可以吸收相当于图耶攻击力200%的伤害）",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 5.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "强心剂",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 50.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 60.0,
+    "atk_mult": 0.2
+   },
+   "_source": "攻击力+60%，仅治疗生命低于一半的干员。范围内干员生命低于20%时立即治疗其相当于攻击力300%的生命，触发3次后技能立即结束。持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "范围内干员生命低于20%时立即治疗其相当于攻击力300%的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 20.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "low",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "触发3次后技能立即结束",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 1.5
+ },
+ "_talent_meta": [
+  {
+   "name": "蓄水",
+   "condition": "精英2",
+   "text": "4秒内未进行治疗后，下次治疗时的治疗量提升至攻击力的150%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "下次治疗时的治疗量提升至攻击力的150%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 150.0,
+   "field": "atk_mult"
+  }
+ ]
+}

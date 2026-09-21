@@ -1,0 +1,115 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "亚叶"
+ },
+ "name": "亚叶",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 5.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 479.0,
+ "atk_trust": 50.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "最大剂量输注",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击范围+2格，攻击力+80%",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "攻击范围+2格",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "复合型药物弹片",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_mult": 3.0
+   },
+   "_source": "攻击变为射出复合药剂弹片（优先选择敌人），弹片击中时回复周围友方单位相当于攻击力150%的生命，并对敌人造成相当于攻击力200%的法术伤害",
+   "_parsed": [
+    {
+     "text": "弹片击中时回复周围友方单位相当于攻击力150%的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 150.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "并对敌人造成相当于攻击力200%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 200.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击变为射出复合药剂弹片（优先选择敌人）",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "药物阻断技巧",
+   "condition": "精英2",
+   "text": "拥有抵抗且受到来自自然环境的伤害-40%"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "拥有抵抗",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "受到来自自然环境的伤害-40%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

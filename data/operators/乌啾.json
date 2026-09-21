@@ -1,0 +1,88 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "乌啾"
+ },
+ "name": "乌啾",
+ "class": "医疗",
+ "branch": "链愈师",
+ "rarity": 5.0,
+ "trait_text": "恢复友方单位生命，且会在3个友方单位间跳跃，每次跳跃治疗量降低25%",
+ "attack_interval": 2.85,
+ "atk": 440.0,
+ "atk_trust": 55.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "火钳秘咒",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 25.0,
+   "effects": {
+    "aspd": 80.0
+   },
+   "_source": "攻击速度+80，每次治疗的跳跃次数+1",
+   "_parsed": [
+    {
+     "text": "攻击速度+80",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "“捉迷藏！”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 30.0,
+   "duration": 12.0,
+   "effects": {},
+   "_source": "流失15%当前生命值，立即进行一次治疗，并使目标每秒受到治疗量为35%攻击力的增益治疗，治疗的所有目标获得迷彩，持续12秒",
+   "_parsed": [
+    {
+     "text": "持续12秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 12.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "并使目标每秒受到治疗量为35%攻击力的增益治疗",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "流失15%当前生命值",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "久病良医",
+   "condition": "精英2",
+   "text": "受到自身的跳跃治疗时，治疗量提升至120%，并额外进行一次不衰减的治疗跳跃"
+  }
+ ],
+ "_talent_parsed": []
+}

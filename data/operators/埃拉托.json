@@ -1,0 +1,116 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "埃拉托"
+ },
+ "name": "埃拉托",
+ "class": "狙击",
+ "branch": "攻城手",
+ "rarity": 5.0,
+ "trait_text": "优先攻击重量最重的敌人",
+ "attack_interval": 2.4,
+ "atk": 957.0,
+ "atk_trust": 70.0,
+ "atk_potential": 34.0,
+ "skills": [
+  {
+   "name": "安眠旋律",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 9.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "targets": 5,
+    "atk_mult": 2.4
+   },
+   "_source": "下一次攻击使敌人陷入沉睡5秒，并造成相当于攻击力240%的物理伤害",
+   "_parsed": [
+    {
+     "text": "下一次攻击使敌人陷入沉睡5秒",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "targets"
+    },
+    {
+     "text": "并造成相当于攻击力240%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 240.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "英雄赞歌",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 50.0,
+    "aspd": 50.0
+   },
+   "_source": "攻击力+50%，攻击速度+50，优先攻击沉睡的目标",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "def_ignore_pct": 50.0
+ },
+ "_talent_meta": [
+  {
+   "name": "琴音入梦",
+   "condition": "精英2",
+   "text": "自身可以攻击沉睡的敌人，并且攻击沉睡敌人时无视其防御力的50%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击沉睡敌人时无视其防御力的50%",
+   "attribute": "defense",
+   "relation": "ignore",
+   "value": 50.0,
+   "field": "def_ignore_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "自身可以攻击沉睡的敌人",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "并",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

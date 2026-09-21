@@ -1,0 +1,123 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "九色鹿"
+ },
+ "name": "九色鹿",
+ "class": "辅助",
+ "branch": "护佑者",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+ "attack_interval": 1.6,
+ "atk": 443.0,
+ "atk_trust": 35.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "人间降吉",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 12.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "攻击力+60%",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "仙山去远",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 30.0,
+   "duration": 20.0,
+   "effects": {
+    "aspd": 50.0
+   },
+   "_source": "攻击速度+50，自身获得70%概率的远程物理抵挡，天赋的触发条件变为100%生命时触发",
+   "_parsed": [
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "自身获得70%概率的远程物理抵挡",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "天赋的触发条件变为100%生命时触发",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / set_to」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts",
+  "atk_mult": 0.75
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  },
+  {
+   "text": "技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 75.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "飘渺彩云",
+   "condition": "精英2",
+   "text": "攻击范围内的友军生命少于40%时，使其获得20%的庇护"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的友军生命少于40%时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "使其获得20%的庇护",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

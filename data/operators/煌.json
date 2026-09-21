@@ -1,0 +1,179 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "煌"
+ },
+ "name": "煌",
+ "class": "近卫",
+ "branch": "强攻手",
+ "rarity": 6.0,
+ "trait_text": "同时攻击阻挡的所有敌人",
+ "attack_interval": 1.2,
+ "atk": 765.0,
+ "atk_trust": 60.0,
+ "atk_potential": 28.0,
+ "skills": [
+  {
+   "name": "强力击·γ型",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.9
+   },
+   "_source": "下次攻击的攻击力提高至290%",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至290%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 290.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "链锯延伸模块",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 70.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%，防御力+35%，攻击距离加长，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "防御力+35%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "沸腾爆裂",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "技能开启后，攻击力和防御力逐渐增至+80%并对前方一格内的敌方单位进行切割。技能结束时对附近所有敌人造成此时攻击力400%的物理伤害，自己流失25%的生命值",
+   "_parsed": [
+    {
+     "text": "攻击力和防御力逐渐增至+80%并对前方一格内的敌方单位进行切割",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "技能结束时对附近所有敌人造成此时攻击力400%的物理伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 400.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_conditional": {
+    "atk_mult": 4.0
+   },
+   "_conditions": [
+    {
+     "text": "技能结束时对附近所有敌人造成此时攻击力400%的物理伤害",
+     "condition": "此时",
+     "fields": {
+      "atk_mult": 4.0
+     },
+     "reason": "含条件标记「此时」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "技能开启后",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "自己流失25%的生命值",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_blocked"
+ },
+ "_trait_parsed": [
+  {
+   "text": "同时攻击阻挡的所有敌人",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "紧急除颤",
+   "condition": "精英2",
+   "text": "在生命值低于25%时，仅一次回复50%的生命值并在6秒内使生命值不低于50%"
+  },
+  {
+   "name": "严酷训练",
+   "condition": "精英2",
+   "text": "在战场停留15秒后获得抵抗"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "在生命值低于25%时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "在战场停留15秒后获得抵抗",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

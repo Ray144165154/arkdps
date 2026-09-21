@@ -1,0 +1,78 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "预备干员-狙击(卫戍协议)"
+ },
+ "name": "预备干员-狙击(卫戍协议)",
+ "class": "狙击",
+ "branch": "速射手",
+ "rarity": 4.0,
+ "trait_text": "优先攻击空中单位",
+ "attack_interval": 1.0,
+ "atk": 451.0,
+ "atk_trust": 65.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "攻击力强化·α型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "攻击力强化·β型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "攻击力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact"
+}

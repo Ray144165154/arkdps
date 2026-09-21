@@ -1,0 +1,84 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "格雷伊"
+ },
+ "name": "格雷伊",
+ "class": "术师",
+ "branch": "扩散术师",
+ "rarity": 4.0,
+ "trait_text": "攻击造成群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 699.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "战术咏唱·β型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "aspd": 75.0
+   },
+   "_source": "攻击速度+75",
+   "_parsed": [
+    {
+     "text": "攻击速度+75",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 75.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "静电释放",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 60.0,
+   "init_sp": 0.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 80.0
+   },
+   "_source": "攻击速度+80，天赋停顿的持续时间提升至2倍",
+   "_parsed": [
+    {
+     "text": "攻击速度+80",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "静电场",
+   "condition": "精英2",
+   "text": "攻击时对攻击目标造成0.6秒的停顿"
+  }
+ ],
+ "_talent_parsed": []
+}

@@ -1,0 +1,103 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "卡达"
+ },
+ "name": "卡达",
+ "class": "术师",
+ "branch": "驭械术师",
+ "rarity": 4.0,
+ "trait_text": "操作浮游单元造成法术伤害，单元攻击同一敌人伤害提升（最高造成干员110%攻击力的伤害）",
+ "attack_interval": 1.3,
+ "atk": 315.0,
+ "atk_trust": 60.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "攻击力强化·β型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "同步索敌攻击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 45.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 70.0
+   },
+   "_source": "攻击范围扩大，攻击力+70%，释放浮游单元锁定敌人攻击，自身与浮游单元有27%的概率晕眩敌人1秒，浮游单元锁敌后直至敌人被击杀或技能结束后返回干员身边",
+   "_parsed": [
+    {
+     "text": "攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts",
+  "atk_pct": 110.0
+ },
+ "_trait_parsed": [
+  {
+   "text": "操作浮游单元造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  },
+  {
+   "text": "单元攻击同一敌人伤害提升（最高造成干员110%攻击力的伤害）",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 110.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 12.0
+ },
+ "_talent_meta": [
+  {
+   "name": "协调一致",
+   "condition": "精英2",
+   "text": "自身与浮游单元的攻击速度+12"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "自身与浮游单元的攻击速度+12",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 12.0,
+   "field": "aspd"
+  }
+ ]
+}

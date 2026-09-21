@@ -1,0 +1,234 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "可露希尔"
+ },
+ "name": "可露希尔",
+ "class": "先锋",
+ "branch": "战术家",
+ "rarity": 6.0,
+ "trait_text": "可以在攻击范围内选择一次战术点来召唤援军，自身攻击援军阻挡的敌人时攻击力提升至150%",
+ "attack_interval": 1.0,
+ "atk": 480.0,
+ "atk_trust": 60.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "递归策略",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 8.0,
+   "init_sp": 1.0,
+   "duration": 8.0,
+   "effects": {},
+   "_source": "立即使自身的援军获得1层护盾（不叠加），技能持续时间内逐渐获得3点部署费用；部署后每使用过一次技能，获得的部署费用+1（最多提升至7点）",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "部署后每使用过一次技能",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "模型扩展",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 34.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 80.0,
+    "targets": 2
+   },
+   "_source": "立即获得10点部署费用，持续时间内逐渐获得15点部署费用，自身的援军防御力+60%，阻挡数+1，自身攻击力+80%，同时攻击2个目标且能攻击到自身援军阻挡的敌人；在战术点效果范围内部署干员时，立即返还部署费用的40%",
+   "_parsed": [
+    {
+     "text": "自身攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击2个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "能攻击到自身援军阻挡的敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "targets_scope": "all_blocked"
+   },
+   "_conditions": [
+    {
+     "text": "能攻击到自身援军阻挡的敌人",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "targets_scope": "all_blocked"
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "自身的援军防御力+60%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "在战术点效果范围内部署干员时",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "Q.E.D.",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 23.0,
+   "duration": 30.0,
+   "effects": {
+    "interval_flat": -0.5,
+    "atk_mult": 2.5,
+    "targets": 9
+   },
+   "_source": "技能持续时间内逐渐获得18点部署费用，攻击间隔缩短(-0.5)，锁定自身和援军原本攻击范围内的敌人进行攻击，造成可露希尔250%攻击力的物理伤害并施加持续3秒的6%迟钝效果（可叠加，最高60%），每攻击9次后攻击目标数+1（最多触发6次）",
+   "_parsed": [
+    {
+     "text": "攻击间隔缩短(-0.5)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -0.5,
+     "field": "interval_flat"
+    },
+    {
+     "text": "造成可露希尔250%攻击力的物理伤害并施加持续3秒的6%迟钝效果（可叠加，最高60%）",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 250.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "每攻击9次后攻击目标数+1（最多触发6次）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 9.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "自身攻击援军阻挡的敌人时攻击力提升至150%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 150.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 1.5
+ },
+ "_trait_conditions": [
+  {
+   "text": "自身攻击援军阻挡的敌人时攻击力提升至150%",
+   "condition": "阻挡的敌人",
+   "fields": {
+    "atk_mult": 1.5
+   },
+   "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以在攻击范围内选择一次战术点来召唤援军",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 4.0
+ },
+ "_talent_meta": [
+  {
+   "name": "精准投放",
+   "condition": "精英0",
+   "text": "可以在战术点召唤指挥中心协助作战，其被击败后会在15秒后自动刷新；战术点效果范围随携带技能变化，效果范围内的友方单位视为自身的援军",
+   "fallback": true
+  },
+  {
+   "name": "极限调度",
+   "condition": "精英2",
+   "text": "携带可露希尔时，部署费用下限降低3，【罗德岛】干员攻击力+4%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "【罗德岛】干员攻击力+4%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 4.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "可以在战术点召唤指挥中心协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "其被击败后会在15秒后自动刷新",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "战术点效果范围随携带技能变化",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "效果范围内的友方单位视为自身的援军",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "携带可露希尔时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

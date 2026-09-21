@@ -1,0 +1,119 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "深巡"
+ },
+ "name": "深巡",
+ "class": "重装",
+ "branch": "哨戒铁卫",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡三个敌人，可以进行远程攻击",
+ "attack_interval": 1.2,
+ "atk": 439.0,
+ "atk_trust": 45.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "侵袭破坏应对",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 50.0
+   },
+   "_source": "攻击力+50%，防御力+50%",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "行动能力剥夺",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 32.0,
+   "init_sp": 25.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 50.0,
+    "aspd": 50.0,
+    "targets": 4
+   },
+   "_source": "攻击距离加长，攻击力+50%，攻击速度+50，攻击变为向正前方发射的毒性鳍刺，能穿过4个目标且造成1秒停顿。",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    },
+    {
+     "text": "能穿过4个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 4.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击变为向正前方发射的毒性鳍刺",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 3
+ },
+ "_talent_meta": [
+  {
+   "name": "细胞活性抑制剂",
+   "condition": "精英2",
+   "text": "攻击使目标在3秒内每秒受到80点法术伤害（对【海怪】敌人伤害加倍）"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击使目标在3秒内每秒受到80点法术伤害（对【海怪】敌人伤害加倍）",
+   "attribute": "targets",
+   "relation": "per",
+   "value": 3.0,
+   "field": "targets"
+  }
+ ]
+}

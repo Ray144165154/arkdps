@@ -1,0 +1,65 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "凛冬"
+ },
+ "name": "凛冬",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 470.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "冲锋号令·γ型",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得12点部署费用",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "乌萨斯战吼",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "技能持续时间内逐渐获得12点部署费用，所有先锋干员攻击力和防御力+60%，并在击杀敌人时额外获得1点部署费用",
+   "_parsed": [
+    {
+     "text": "所有先锋干员攻击力和防御力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "冲锋领袖",
+   "condition": "精英2",
+   "text": "编入队伍时所有【先锋】职业干员的部署费用-1"
+  }
+ ],
+ "_talent_parsed": []
+}

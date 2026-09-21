@@ -1,0 +1,93 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "杏仁"
+ },
+ "name": "杏仁",
+ "class": "特种",
+ "branch": "钩索师",
+ "rarity": 5.0,
+ "trait_text": "技能可以使敌人产生位移，可以放置于远程位",
+ "attack_interval": 1.8,
+ "atk": 695.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "磁力抓取",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 4.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.7
+   },
+   "_source": "下次攻击会将目标中等力度地拖拽至面前，并对其造成相当于攻击力170%的物理伤害，可充能3次",
+   "_parsed": [
+    {
+     "text": "并对其造成相当于攻击力170%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 170.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "强力牵引",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 4.0,
+   "effects": {
+    "atk_mult": 0.015
+   },
+   "_source": "立即发射一个牵引钩爪对目标造成束缚效果，之后每1.5秒对目标造成一次相当于攻击力180%的物理伤害并将其较大力地拖拽至面前，持续至技能结束",
+   "_parsed": [
+    {
+     "text": "之后每1.5秒对目标造成一次相当于攻击力180%的物理伤害并将其较大力地拖拽至面前",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 1.5,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "持续至技能结束",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以放置于远程位",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "工程背包",
+   "condition": "精英2",
+   "text": "每场战斗中首次释放技能结束后立即回复8点技力"
+  }
+ ],
+ "_talent_parsed": []
+}

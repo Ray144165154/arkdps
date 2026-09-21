@@ -1,0 +1,208 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "逻各斯"
+ },
+ "name": "逻各斯",
+ "class": "术师",
+ "branch": "中坚术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 671.0,
+ "atk_trust": 90.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "殁亡",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 60.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击范围扩大，攻击力+100%，使攻击范围内生命值低于逻各斯攻击力150%的敌人立刻倒下、并对另一个随机目标造成与倒下单位生命值相等的法术伤害，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "使攻击范围内生命值低于逻各斯攻击力150%的敌人立刻倒下",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "并对另一个随机目标造成与倒下单位生命值相等的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "提喻",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_mult": 0.005
+   },
+   "_source": "法术抗性+70，攻击改为锁定一个目标对其每0.5秒造成一次相当于攻击力75%的法术伤害，对相同目标的伤害逐渐提高至3倍并使其移动速度逐渐降低至40%(锁定5秒后达到上限)，被打断或目标倒下时重新索敌且效果重置",
+   "_parsed": [
+    {
+     "text": "攻击改为锁定一个目标对其每0.5秒造成一次相当于攻击力75%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 0.5,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "被打断或目标倒下时重新索敌",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "效果重置",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "法术抗性+70",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「res / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "延异视阈",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 45.0,
+   "init_sp": 30.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 300.0,
+    "targets": 4
+   },
+   "_source": "攻击范围扩大，攻击力+300%，同时攻击4个目标，使攻击范围内敌方子弹的飞行速度大幅降低、并在技能结束时将其全部清除",
+   "_parsed": [
+    {
+     "text": "攻击力+300%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 300.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击4个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 4.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "并在技能结束时将其全部清除",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "使攻击范围内敌方子弹的飞行速度大幅降低",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "语汇演化",
+   "condition": "精英2",
+   "text": "对一个目标发起攻击时，有40%几率额外对攻击范围内一个随机目标造成相当于攻击力60%的法术伤害并使其停顿0.8秒"
+  },
+  {
+   "name": "剜魂具辞",
+   "condition": "精英2",
+   "text": "攻击使目标在5秒内法术抗性-10且受到的法术伤害提高150点"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "对一个目标发起攻击时",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 1.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "有40%几率额外对攻击范围内一个随机目标造成相当于攻击力60%的法术伤害并使其停顿0.8秒",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "子句同时含有「控场效果」与影响伤害的属性词，无法确定数值属于哪一个"
+  },
+  {
+   "text": "攻击使目标在5秒内法术抗性-10",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「res / decrease」，但没能映射到引擎字段"
+  },
+  {
+   "text": "受到的法术伤害提高150点",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

@@ -1,0 +1,85 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "末药"
+ },
+ "name": "末药",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 4.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 465.0,
+ "atk_trust": 60.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "二重治疗",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 8.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.25
+   },
+   "_source": "下次治疗可以恢复相当于攻击力125%的生命，并额外治疗一名单位，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次治疗可以恢复相当于攻击力125%的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 125.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "医疗力场",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 20.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 65.0
+   },
+   "_source": "攻击力+65%，每次可额外治疗一名单位",
+   "_parsed": [
+    {
+     "text": "攻击力+65%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 65.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 1.5
+ },
+ "_talent_meta": [
+  {
+   "name": "急救包",
+   "condition": "精英2",
+   "text": "部署后立刻恢复全体友方单位的生命值，恢复量为末药攻击力的150%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "恢复量为末药攻击力的150%",
+   "attribute": "atk",
+   "relation": "unspecified",
+   "value": 150.0,
+   "field": "atk_mult"
+  }
+ ]
+}

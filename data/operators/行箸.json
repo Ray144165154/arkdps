@@ -1,0 +1,110 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "行箸"
+ },
+ "name": "行箸",
+ "class": "辅助",
+ "branch": "护佑者",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+ "attack_interval": 1.6,
+ "atk": 423.0,
+ "atk_trust": 50.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "盈帙满笥",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 10.0,
+   "init_sp": 8.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.3
+   },
+   "_source": "立即对攻击范围内的所有目标进行一次治疗，回复量为行箸攻击力的330%",
+   "_parsed": [
+    {
+     "text": "回复量为行箸攻击力的330%",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 330.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "食不厌精",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 75.0,
+   "init_sp": 60.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 50.0,
+    "atk_mult": 0.2
+   },
+   "_source": "攻击速度+50，额外治疗1名目标，且每秒恢复天赋生效目标相当于行箸攻击力20%的生命",
+   "_parsed": [
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    },
+    {
+     "text": "每秒恢复天赋生效目标相当于行箸攻击力20%的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 20.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts",
+  "atk_mult": 0.75
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  },
+  {
+   "text": "技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 75.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "同路之谊",
+   "condition": "精英2",
+   "text": "使攻击范围内除自己外2名友军获得10%的庇护"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "使攻击范围内除自己外2名友军获得10%的庇护",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

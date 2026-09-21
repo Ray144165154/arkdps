@@ -1,0 +1,117 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "格劳克斯"
+ },
+ "name": "格劳克斯",
+ "class": "辅助",
+ "branch": "凝滞师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，并对敌人造成短暂的停顿",
+ "attack_interval": 1.9,
+ "atk": 505.0,
+ "atk_trust": 35.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "双线装填",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 50.0
+   },
+   "_source": "攻击力+50%，额外攻击一个目标",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "额外攻击一个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "反制电磁脉冲",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 4.0
+   },
+   "_source": "向周围发射一道冲击波，击中的所有敌人受到攻击力400%的法术伤害并束缚6秒；如果目标是【无人机】，受到的伤害加倍并将效果改为晕眩",
+   "_parsed": [
+    {
+     "text": "击中的所有敌人受到攻击力400%的法术伤害并束缚6秒",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 400.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "向周围发射一道冲击波",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "如果目标是【无人机】",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 1.5
+ },
+ "_talent_meta": [
+  {
+   "name": "反制装置",
+   "condition": "精英2",
+   "text": "优先攻击【无人机】单位，且攻击【无人机】时攻击力提升至150%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击【无人机】时攻击力提升至150%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 150.0,
+   "field": "atk_mult"
+  }
+ ]
+}

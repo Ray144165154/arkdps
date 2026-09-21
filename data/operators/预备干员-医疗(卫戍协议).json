@@ -1,0 +1,78 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "预备干员-医疗(卫戍协议)"
+ },
+ "name": "预备干员-医疗(卫戍协议)",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 4.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 420.0,
+ "atk_trust": 60.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "治疗强化·α型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "治疗强化·β型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 70.0
+   },
+   "_source": "攻击力+70%",
+   "_parsed": [
+    {
+     "text": "攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "治疗强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 90.0
+   },
+   "_source": "攻击力+90%",
+   "_parsed": [
+    {
+     "text": "攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact"
+}

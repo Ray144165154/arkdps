@@ -1,0 +1,126 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "风丸"
+ },
+ "name": "风丸",
+ "class": "特种",
+ "branch": "傀儡师",
+ "rarity": 5.0,
+ "trait_text": "受到致命伤时不撤退，切换成作战（替身阻挡数为0），持续20s后自身再次替换",
+ "attack_interval": 1.2,
+ "atk": 692.0,
+ "atk_trust": 80.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "纸艺·迅击",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.5
+   },
+   "_source": "下次攻击的攻击力提高至350%，并使自身流失10%的生命",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至350%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 350.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "并使自身流失10%的生命",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "纸艺·双影",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 15.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 120.0
+   },
+   "_source": "立即流失50%当前生命，攻击力+120%，并在周围的近战部署位召唤协助作战",
+   "_parsed": [
+    {
+     "text": "攻击力+120%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 120.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "并在周围的近战部署位召唤协助作战",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "立即流失50%当前生命",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "持续20s后自身再次替换",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 20.0,
+   "field": "duration"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "受到致命伤时不撤退",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_mult": 0.08
+ },
+ "_talent_meta": [
+  {
+   "name": "折纸生花",
+   "condition": "精英2",
+   "text": "与出现时对其周围8格内所有敌方单位造成相当于其攻击力270%的法术伤害"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "与出现时对其周围8格内所有敌方单位造成相当于其攻击力270%的法术伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 8.0,
+   "field": "atk_mult"
+  }
+ ]
+}

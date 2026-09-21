@@ -1,0 +1,108 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "红豆"
+ },
+ "name": "红豆",
+ "class": "先锋",
+ "branch": "冲锋手",
+ "rarity": 4.0,
+ "trait_text": "击杀敌人后获得1点部署费用，撤退时返还初始部署费用",
+ "attack_interval": 1.0,
+ "atk": 558.0,
+ "atk_trust": 60.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "攻击力强化·β型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "槌音",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "interval_flat": 0.5,
+    "atk_pct": 200.0
+   },
+   "_source": "攻击间隔略微增大(+0.5)，攻击力+200%",
+   "_parsed": [
+    {
+     "text": "攻击间隔略微增大(+0.5)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 0.5,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+200%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 200.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "蛮力穿刺",
+   "condition": "精英2",
+   "text": "攻击时，10%几率当次攻击的攻击力+100%。技能中这个几率提高到30%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "10%几率当次攻击的攻击力+100%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "技能中这个几率提高到30%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

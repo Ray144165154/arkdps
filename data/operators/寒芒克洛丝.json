@@ -1,0 +1,126 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "寒芒克洛丝"
+ },
+ "name": "寒芒克洛丝",
+ "class": "狙击",
+ "branch": "速射手",
+ "rarity": 5.0,
+ "trait_text": "优先攻击空中单位",
+ "attack_interval": 1.0,
+ "atk": 502.0,
+ "atk_trust": 75.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "无痕",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 10.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 40.0,
+    "hits_override": 2.0
+   },
+   "_source": "攻击力+40%，攻击变为2连射，并获得迷彩",
+   "_parsed": [
+    {
+     "text": "攻击力+40%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击变为2连射",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "并获得迷彩",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "封喉",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 30.0,
+   "effects": {
+    "interval_flat": -0.375,
+    "hits_override": 32.0
+   },
+   "_source": "攻击间隔较大幅度缩短(-0.375)，攻击变为2连射，击中目标32次后技能剩余时间内攻击变为4连射",
+   "_parsed": [
+    {
+     "text": "攻击间隔较大幅度缩短(-0.375)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -0.375,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击变为2连射",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "hits_override"
+    },
+    {
+     "text": "击中目标32次后技能剩余时间内攻击变为4连射",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 32.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.2
+ },
+ "_talent_meta": [
+  {
+   "name": "中的",
+   "condition": "精英2",
+   "text": "攻击时，20%几率当次攻击的攻击力提升至150%，并使敌人晕眩0.2秒"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "20%几率当次攻击的攻击力提升至150%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 20.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

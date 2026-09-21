@@ -1,0 +1,137 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "伯塔尼"
+ },
+ "name": "伯塔尼",
+ "class": "辅助",
+ "branch": "巫役",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，可以造成元素损伤",
+ "attack_interval": 1.6,
+ "atk": 461.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "谐波破坏",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.55
+   },
+   "_source": "下一次攻击造成相当于攻击力110%的法术伤害并附带100%攻击力的侵蚀损伤；若目标未受到侵蚀损伤，则额外造成相当于攻击力50%的法术伤害并附带35%攻击力的侵蚀损伤",
+   "_parsed": [
+    {
+     "text": "下一次攻击造成相当于攻击力110%的法术伤害并附带100%攻击力的侵蚀损伤",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 110.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "则额外造成相当于攻击力50%的法术伤害并附带35%攻击力的侵蚀损伤",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 50.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "若目标未受到侵蚀损伤",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "静域回声",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 45.0,
+   "init_sp": 25.0,
+   "duration": 30.0,
+   "effects": {
+    "targets": 2,
+    "atk_mult": 1.5
+   },
+   "_source": "攻击范围扩大，同时攻击2个目标，每次攻击额外附带相当于攻击力150%的物理伤害和攻击力65%的侵蚀损伤，范围内敌人侵蚀损伤冷却恢复速度+25%",
+   "_parsed": [
+    {
+     "text": "同时攻击2个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "每次攻击额外附带相当于攻击力150%的物理伤害和攻击力65%的侵蚀损伤",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 150.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以造成元素损伤",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "aspd": 6.0
+ },
+ "_talent_meta": [
+  {
+   "name": "背弃沉默",
+   "condition": "精英2",
+   "text": "攻击范围内有敌人侵蚀损伤爆发时攻击速度+6，最多可叠加3层"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击范围内有敌人侵蚀损伤爆发时攻击速度+6",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 6.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "最多可叠加3层",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

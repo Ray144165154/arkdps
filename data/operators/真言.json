@@ -1,0 +1,218 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "真言"
+ },
+ "name": "真言",
+ "class": "术师",
+ "branch": "本源术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，可以造成元素伤害",
+ "attack_interval": 1.6,
+ "atk": 695.0,
+ "atk_trust": 60.0,
+ "atk_potential": 31.0,
+ "skills": [
+  {
+   "name": "共鸣溃缩",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.25
+   },
+   "_source": "下次攻击造成攻击力325%的法术伤害并附带伤害30%的神经损伤，若目标处于神经损伤爆发期间则额外造成200%攻击力的元素伤害",
+   "_parsed": [
+    {
+     "text": "下次攻击造成攻击力325%的法术伤害并附带伤害30%的神经损伤",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 325.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "若目标处于神经损伤爆发期间则额外造成200%攻击力的元素伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 200.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "atk_mult": 2.0
+   },
+   "_conditions": [
+    {
+     "text": "若目标处于神经损伤爆发期间则额外造成200%攻击力的元素伤害",
+     "condition": "若",
+     "fields": {
+      "atk_mult": 2.0
+     },
+     "reason": "含条件标记「若」，是否生效取决于战场情况"
+    }
+   ]
+  },
+  {
+   "name": "意识联协",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 18.0,
+   "duration": 25.0,
+   "effects": {
+    "interval_flat": -0.8,
+    "atk_mult": 2.4
+   },
+   "_source": "攻击间隔缩短(-0.8)，攻击造成攻击力240%的法术伤害并以短暂间隔跳跃至其他3名敌人造成攻击力120%的法术伤害，均附带伤害18%的神经损伤，若目标处于神经损伤爆发期间附带25%攻击力的元素伤害",
+   "_parsed": [
+    {
+     "text": "攻击间隔缩短(-0.8)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -0.8,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击造成攻击力240%的法术伤害并以短暂间隔跳跃至其他3名敌人造成攻击力120%的法术伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 240.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "若目标处于神经损伤爆发期间附带25%攻击力的元素伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 25.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_conditional": {
+    "atk_mult": 0.25
+   },
+   "_conditions": [
+    {
+     "text": "若目标处于神经损伤爆发期间附带25%攻击力的元素伤害",
+     "condition": "若",
+     "fields": {
+      "atk_mult": 0.25
+     },
+     "reason": "含条件标记「若」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "均附带伤害18%的神经损伤",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "无言为真",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 31.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 275.0,
+    "targets": 2
+   },
+   "_source": "攻击范围扩大，范围内敌人隐匿失效且麻痹层数上限降为2，攻击力+275%同时攻击2个目标，范围中干员开启技能时（包括自身）使范围内敌人获得2层麻痹（至多3次），范围内敌人麻痹层数每超过上限1层在目标及1名敌人间跳跃1次185%攻击力的元素伤害，跳跃间存在短暂间隔",
+   "_parsed": [
+    {
+     "text": "攻击力+275%同时攻击2个目标",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 275.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "范围中干员开启技能时（包括自身）使范围内敌人获得2层麻痹（至多3次）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 2.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "范围内敌人隐匿失效",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「targets / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "范围内敌人麻痹层数每超过上限1层在目标及1名敌人间跳跃1次185%攻击力的元素伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以造成元素伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_mult": 1.35
+ },
+ "_talent_meta": [
+  {
+   "name": "噤声限域",
+   "condition": "精英2",
+   "text": "场上敌人触发麻痹效果时立即受到相当于真言攻击力135%的元素伤害，且触发麻痹时有10%概率不消耗麻痹层数"
+  },
+  {
+   "name": "全局洞悉",
+   "condition": "精英2",
+   "text": "距离真言最近的一个侵入点出场的敌人出现时立刻获得1层麻痹"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "场上敌人触发麻痹效果时立即受到相当于真言攻击力135%的元素伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 135.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "距离真言最近的一个侵入点出场的敌人出现时立刻获得1层麻痹",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 1.0,
+   "field": "targets"
+  }
+ ]
+}

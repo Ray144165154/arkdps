@@ -1,0 +1,398 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "电弧"
+ },
+ "name": "电弧",
+ "class": "辅助",
+ "branch": "召唤师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，可以使用召唤物协助作战",
+ "attack_interval": 1.6,
+ "atk": 466.0,
+ "atk_trust": 20.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "律动线",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 25.0,
+   "effects": {},
+   "_source": "被动：召唤物可部署在近战位，开启：自身和召唤物防御力+80%并获得100%最大生命值的屏障，持续至技能结束，技能开启时获得1个召唤物",
+   "_parsed": [],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "被动：召唤物可部署在近战位",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "持续至技能结束",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "开启：自身和召唤物防御力+80%并获得100%最大生命值的屏障",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "技能开启时获得1个召唤物",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "环形鳞地",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 16.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "被动：召唤物可部署在近战位，会持续向前方发射子弹，开启：自身和召唤物攻击力+80%，召唤物攻击额外创造出2颗子弹且子弹飞行距离+2，技能开启时获得1个召唤物",
+   "_parsed": [
+    {
+     "text": "开启：自身和召唤物攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "会持续向前方发射子弹",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "被动：召唤物可部署在近战位",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "子弹飞行距离+2",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "召唤物攻击额外创造出2颗子弹",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "技能开启时获得1个召唤物",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "手牵手",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 30.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 150.0
+   },
+   "_source": "被动：召唤物可部署在远程位，召唤物找不到攻击目标且可攻击时，可以与其自身范围内其他电弧的召唤物协同攻击，开启：自身和召唤物攻击力+150%，对敌人造成伤害时，使敌人受到停顿与35％法术脆弱效果，持续2秒，技能开启时获得1个召唤物",
+   "_parsed": [
+    {
+     "text": "开启：自身和召唤物攻击力+150%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 150.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续2秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "召唤物找不到攻击目标",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "可攻击时",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "对敌人造成伤害时",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "被动：召唤物可部署在远程位",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "可以与其自身范围内其他电弧的召唤物协同攻击",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "技能开启时获得1个召唤物",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以使用召唤物协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_mult": 0.12,
+  "aspd": 35.0
+ },
+ "_talent_meta": [
+  {
+   "name": "卡带里的灵感",
+   "condition": "精英2",
+   "text": "可以使用5个召唤物（最多同时部署3个），功能随技能选择而改变"
+  },
+  {
+   "name": "加油~",
+   "condition": "精英2",
+   "text": "电弧的召唤物获得相当于电弧自身12％攻击力、防御力、生命值的鼓舞效果"
+  },
+  {
+   "name": "后备精通Ⅰ",
+   "condition": "精英2",
+   "text": "解锁不期而遇“同心”事件“请电弧交涉”选项和传说“同心”事件“让电弧进入”选项"
+  },
+  {
+   "name": "后备精通Ⅱ",
+   "condition": "精英2",
+   "text": "特勤分队效果提升"
+  },
+  {
+   "name": "招募精通Ⅰ",
+   "condition": "{{mdi|cards-diamond}} 精英2 提升Ⅱ",
+   "text": "在【岁的界园志异】中，被招募时希望消耗-4，被进阶时希望消耗-2",
+   "fallback": true
+  },
+  {
+   "name": "招募精通Ⅱ",
+   "condition": "{{mdi|cards-diamond}} 精英2 提升Ⅱ",
+   "text": "在【岁的界园志异】中，被招募时，使队伍可留存招募券上限+1，护盾值+2，下次进入岁兽残识时剩余烛火+1并随机探索一个节点",
+   "fallback": true
+  },
+  {
+   "name": "战斗精通Ⅰ",
+   "condition": "{{mdi|cards-diamond}} 精英2 提升Ⅱ",
+   "text": "在【岁的界园志异】中，每到达新的一层，电弧依次获得下列效果：召唤物部署费用-9，召唤物同时部署数量+2，召唤物攻击速度+35，召唤物不再消耗部署位",
+   "fallback": true
+  },
+  {
+   "name": "战斗精通Ⅱ",
+   "condition": "{{mdi|cards-diamond}} 精英2 提升Ⅱ",
+   "text": "在【岁的界园志异】中，电弧和其召唤物生命值、防御力+30%，法术抗性+15",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "电弧的召唤物获得相当于电弧自身12％攻击力",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 12.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "召唤物攻击速度+35",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 35.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "可以使用5个召唤物（最多同时部署3个）",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「summon / max_of」，但没能映射到引擎字段"
+  },
+  {
+   "text": "功能随技能选择而改变",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "防御力",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "生命值的鼓舞效果",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "解锁不期而遇“同心”事件“请电弧交涉”选项和传说“同心”事件“让电弧进入”选项",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "特勤分队效果提升",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "在【岁的界园志异】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "被招募时希望消耗-4",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "被进阶时希望消耗-2",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "在【岁的界园志异】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "被招募时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "使队伍可留存招募券上限+1",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "下次进入岁兽残识时剩余烛火+1并随机探索一个节点",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "在【岁的界园志异】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "每到达新的一层",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "召唤物同时部署数量+2",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「summon / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "召唤物不再消耗部署位",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "在【岁的界园志异】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "电弧和其召唤物生命值",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "防御力+30%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "法术抗性+15",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「res / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

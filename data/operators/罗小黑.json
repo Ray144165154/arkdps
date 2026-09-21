@@ -1,0 +1,172 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "罗小黑"
+ },
+ "name": "罗小黑",
+ "class": "近卫",
+ "branch": "领主",
+ "rarity": 4.0,
+ "trait_text": "可以进行远程攻击，但此时攻击力降低至80%",
+ "attack_interval": 1.3,
+ "atk": 698.0,
+ "atk_trust": 30.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "掠光尾影",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 10.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "aspd": 40.0,
+    "targets_scope": "all_blocked"
+   },
+   "_source": "可以在下列状态和初始状态间切换：，攻击范围改为自身周围4格，攻击速度+40，获得45%的物理闪避，同时攻击阻挡的所有敌人",
+   "_parsed": [
+    {
+     "text": "可以在下列状态和初始状态间切换：",
+     "attribute": "stance",
+     "relation": "unspecified",
+     "value": null,
+     "field": "stance"
+    },
+    {
+     "text": "攻击速度+40",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "aspd"
+    },
+    {
+     "text": "同时攻击阻挡的所有敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact",
+   "stance": true,
+   "_unparsed": [
+    {
+     "text": "攻击范围改为自身周围4格",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "碎金为刃",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 15.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 70.0
+   },
+   "_source": "攻击力+70%，远程攻击不再降低攻击力，额外攻击一名目标，目标生命值低于一半时额外追加一次无视敌人200防御力的攻击",
+   "_parsed": [
+    {
+     "text": "攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "远程攻击不再降低攻击力",
+     "attribute": "trait",
+     "relation": "decrease",
+     "value": null,
+     "field": "overrides_trait"
+    },
+    {
+     "text": "额外攻击一名目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    },
+    {
+     "text": "目标生命值低于一半时额外追加一次无视敌人200防御力的攻击",
+     "attribute": "defense",
+     "relation": "ignore",
+     "value": 200.0,
+     "field": "def_ignore"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "def_ignore": 200.0
+   },
+   "_conditions": [
+    {
+     "text": "目标生命值低于一半时额外追加一次无视敌人200防御力的攻击",
+     "condition": "生命值低于",
+     "fields": {
+      "def_ignore": 200.0
+     },
+     "reason": "含条件标记「生命值低于」，是否生效取决于战场情况"
+    }
+   ]
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 80.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.8
+ },
+ "_trait_conditions": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "condition": "但此时",
+   "fields": {
+    "atk_mult": 0.8
+   },
+   "reason": "含条件标记「但此时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "见习执行者",
+   "condition": "精英2",
+   "text": "造成致命伤害时使敌人保留1点生命并使其重伤（击杀者技力+2）；罗小黑不攻击重伤单位"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "造成致命伤害时使敌人保留1点生命并使其重伤（击杀者技力+2）",
+   "attribute": "targets",
+   "relation": "increase",
+   "value": 1.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "罗小黑不攻击重伤单位",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

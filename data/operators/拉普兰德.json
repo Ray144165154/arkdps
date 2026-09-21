@@ -1,0 +1,143 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "拉普兰德"
+ },
+ "name": "拉普兰德",
+ "class": "近卫",
+ "branch": "领主",
+ "rarity": 5.0,
+ "trait_text": "可以进行远程攻击，但此时攻击力降低至80%",
+ "attack_interval": 1.3,
+ "atk": 685.0,
+ "atk_trust": 75.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "日晷",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 30.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 70.0
+   },
+   "_source": "攻击力+70%，有40%的概率闪避物理伤害，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true
+  },
+  {
+   "name": "狼魂",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 17.0,
+   "init_sp": 0.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 120.0,
+    "damage_type": "arts"
+   },
+   "_source": "攻击力+120%，伤害类型变为法术，额外攻击一个目标，远程攻击不再降低攻击力，技能自动开启",
+   "_parsed": [
+    {
+     "text": "攻击力+120%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 120.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "伤害类型变为法术",
+     "attribute": "damage_type",
+     "relation": "set_to",
+     "value": null,
+     "field": "damage_type"
+    },
+    {
+     "text": "额外攻击一个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    },
+    {
+     "text": "远程攻击不再降低攻击力",
+     "attribute": "trait",
+     "relation": "decrease",
+     "value": null,
+     "field": "overrides_trait"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 80.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.8
+ },
+ "_trait_conditions": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "condition": "但此时",
+   "fields": {
+    "atk_mult": 0.8
+   },
+   "reason": "含条件标记「但此时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "精神摧毁",
+   "condition": "精英2",
+   "text": "攻击使目标的特殊能力失效，持续5秒"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "持续5秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 5.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击使目标的特殊能力失效",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

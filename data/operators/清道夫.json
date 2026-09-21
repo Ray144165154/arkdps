@@ -1,0 +1,84 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "清道夫"
+ },
+ "name": "清道夫",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 4.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 470.0,
+ "atk_trust": 60.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "冲锋号令·β型",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 30.0,
+   "init_sp": 13.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得9点部署费用",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "冲锋号令·攻击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 18.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 70.0
+   },
+   "_source": "立即获得11点部署费用，攻击力+70%",
+   "_parsed": [
+    {
+     "text": "攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 11.0
+ },
+ "_talent_meta": [
+  {
+   "name": "单独行动者",
+   "condition": "精英2",
+   "text": "当周围四格内没有其他友方单位时，攻击力和防御力各+11%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力和防御力各+11%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 11.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "当周围四格内没有其他友方单位时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

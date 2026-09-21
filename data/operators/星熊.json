@@ -1,0 +1,143 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "星熊"
+ },
+ "name": "星熊",
+ "class": "重装",
+ "branch": "铁卫",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡三个敌人",
+ "attack_interval": 1.2,
+ "atk": 430.0,
+ "atk_trust": 60.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "战意",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 40.0
+   },
+   "_source": "防御力+80%，攻击力+40%",
+   "_parsed": [
+    {
+     "text": "攻击力+40%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+80%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "荆棘",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "防御力+30%，每次受到攻击时对目标造成相当于星熊攻击力100%的物理伤害",
+   "_parsed": [
+    {
+     "text": "每次受到攻击时对目标造成相当于星熊攻击力100%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 100.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+30%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "力之锯",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 30.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 140.0
+   },
+   "_source": "攻击力+140%，防御力+90%，对前方一格的所有敌人使用盾牌进行切割",
+   "_parsed": [
+    {
+     "text": "攻击力+140%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 140.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "对前方一格的所有敌人使用盾牌进行切割",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+90%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "战术装甲",
+   "condition": "精英2",
+   "text": "获得25%概率的伤害抵挡"
+  },
+  {
+   "name": "特种作战策略",
+   "condition": "精英2",
+   "text": "在场时所有友方【重装】职业干员的防御力提升6%"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "获得25%概率的伤害抵挡",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

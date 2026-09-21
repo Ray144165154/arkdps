@@ -1,0 +1,246 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "维什戴尔"
+ },
+ "name": "维什戴尔",
+ "class": "狙击",
+ "branch": "投掷手",
+ "rarity": 6.0,
+ "trait_text": "攻击对小范围的地面敌人造成两次物理伤害（第二次为余震，伤害降低至攻击力的一半）",
+ "attack_interval": 2.1,
+ "atk": 687.0,
+ "atk_trust": 90.0,
+ "atk_potential": 32.0,
+ "skills": [
+  {
+   "name": "定点清算",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.2
+   },
+   "_source": "下次攻击额外造成2次余震并使所有目标晕眩1.5秒，此次攻击的溅射范围略微扩大且余震伤害变为攻击力的120%",
+   "_parsed": [
+    {
+     "text": "余震伤害变为攻击力的120%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 120.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "此次攻击的溅射范围略微扩大",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "饱和复仇",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 35.0,
+    "interval_flat": -0.7,
+    "targets": 3,
+    "atk_mult": 0.8,
+    "targets_scope": "all_in_range"
+   },
+   "_source": "攻击力+35%，攻击间隔缩短(-0.7)，可同时攻击3名敌人，过载：攻击改为攻击力80%的4连发，随机攻击范围内的目标，该技能可随时主动关闭",
+   "_parsed": [
+    {
+     "text": "攻击力+35%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 35.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击间隔缩短(-0.7)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -0.7,
+     "field": "interval_flat"
+    },
+    {
+     "text": "可同时攻击3名敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 3.0,
+     "field": "targets"
+    },
+    {
+     "text": "过载：攻击改为攻击力80%的4连发",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 80.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "随机攻击范围内的目标",
+     "attribute": "range",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    },
+    {
+     "text": "该技能可随时主动关闭",
+     "attribute": "termination",
+     "relation": "unspecified",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "爆裂黎明",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 40.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 180.0,
+    "interval_flat": 2.9,
+    "atk_mult": 2.2
+   },
+   "_source": "立刻在攻击范围内召唤2个魂灵之影（最多存在3个，技能结束后保留），攻击力+180%，攻击间隔大幅增大(+2.9)，攻击时攻击力提升至220%，溅射范围大幅扩大且第一天赋的发动概率提高至100%，攻击装有6发弹药，打完后结束（可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击力+180%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 180.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击间隔大幅增大(+2.9)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 2.9,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击时攻击力提升至220%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 220.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "打完后结束（可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "第一天赋的发动概率提高至100%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "溅射范围大幅扩大",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "攻击对小范围的地面敌人造成两次物理伤害（第二次为余震，伤害降低至攻击力的一半）",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 1.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.01
+ },
+ "_trait_conditions": [
+  {
+   "text": "攻击对小范围的地面敌人造成两次物理伤害（第二次为余震，伤害降低至攻击力的一半）",
+   "condition": "第二次",
+   "fields": {
+    "atk_mult": 0.01
+   },
+   "reason": "含条件标记「第二次」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 1.5
+ },
+ "_talent_meta": [
+  {
+   "name": "好礼",
+   "condition": "精英2",
+   "text": "攻击时对主目标的攻击力提升至115%并为其附着残影，残影受到维什戴尔的余震影响时有15%概率爆炸，对周围所有敌人造成150%攻击力的物理伤害并使其晕眩1秒"
+  },
+  {
+   "name": "死魂灵的余息",
+   "condition": "精英2",
+   "text": "部署完成后立刻在攻击范围内召唤一个魂灵之影，在魂灵之影周围时获得迷彩"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "对周围所有敌人造成150%攻击力的物理伤害并使其晕眩1秒",
+   "attribute": "atk",
+   "relation": "unspecified",
+   "value": 150.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击时对主目标的攻击力提升至115%并为其附着残影",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「atk」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  },
+  {
+   "text": "残影受到维什戴尔的余震影响时有15%概率爆炸",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "部署完成后立刻在攻击范围内召唤一个魂灵之影",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "在魂灵之影周围时获得迷彩",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

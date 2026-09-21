@@ -1,0 +1,192 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "焰影苇草"
+ },
+ "name": "焰影苇草",
+ "class": "医疗",
+ "branch": "咒愈师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，攻击敌人时为攻击范围内一名友方干员治疗相当于50%伤害的生命值",
+ "attack_interval": 1.6,
+ "atk": 550.0,
+ "atk_trust": 50.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "迅捷打击·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 15.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 45.0,
+    "aspd": 45.0
+   },
+   "_source": "攻击力+45%，攻击速度+45",
+   "_parsed": [
+    {
+     "text": "攻击力+45%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+45",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "枯荣共息",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 27.0,
+   "init_sp": 18.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_mult": 0.015
+   },
+   "_source": "优先使两名部署在地面的干员获得三颗火球，效果如下：每1.5秒对一名敌人造成相当于焰影苇草240%攻击力的法术伤害并仅对该干员触发焰影苇草特性",
+   "_parsed": [
+    {
+     "text": "效果如下：每1.5秒对一名敌人造成相当于焰影苇草240%攻击力的法术伤害并仅对该干员触发焰影苇草特性",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 1.5,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "优先使两名部署在地面的干员获得三颗火球",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "生命火种",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 30.0,
+   "duration": 30.0,
+   "effects": {
+    "targets": 2,
+    "atk_pct": 60.0,
+    "atk_mult": 1.4
+   },
+   "_source": "同时攻击两名敌人，攻击力+60%，第一天赋触发几率提升至100%，技能期间附带灼痕效果的敌人每秒受到60%焰影苇草攻击力的法术伤害、被击倒时对周围敌人造成140%焰影苇草攻击力的法术伤害并施加灼痕效果，灼痕效果持续至技能结束",
+   "_parsed": [
+    {
+     "text": "同时攻击两名敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "被击倒时对周围敌人造成140%焰影苇草攻击力的法术伤害并施加灼痕效果",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 140.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "第一天赋触发几率提升至100%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能期间附带灼痕效果的敌人每秒受到60%焰影苇草攻击力的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "灼痕效果持续至技能结束",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": -30.0
+ },
+ "_talent_meta": [
+  {
+   "name": "灼痕",
+   "condition": "精英2",
+   "text": "造成伤害时有30%概率对敌人施加灼痕效果：攻击力-20%、30%的【法术脆弱】，不可叠加持续6秒"
+  },
+  {
+   "name": "映耀",
+   "condition": "精英2",
+   "text": "治疗其他友方单位时，焰影苇草同时享受50%的治疗量"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "造成伤害时有30%概率对敌人施加灼痕效果：攻击力-20%",
+   "attribute": "atk",
+   "relation": "decrease",
+   "value": 30.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "不可叠加持续6秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 6.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "30%的【法术脆弱】",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

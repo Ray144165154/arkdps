@@ -1,0 +1,41 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "Lancet-2"
+ },
+ "name": "Lancet-2",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 1.0,
+ "trait_text": "恢复友方单位生命，且不受部署数量限制，但再部署时间极长",
+ "attack_interval": 2.85,
+ "atk": 70.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [],
+ "_warnings": [],
+ "_atk_from": "精英0_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "不受部署数量限制",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "救援喷雾·VI",
+   "condition": "潜能6",
+   "text": "部署后立即恢复全场友方单位500点生命",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": []
+}

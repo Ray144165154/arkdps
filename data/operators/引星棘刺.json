@@ -1,0 +1,229 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "引星棘刺"
+ },
+ "name": "引星棘刺",
+ "class": "特种",
+ "branch": "炼金师",
+ "rarity": 6.0,
+ "trait_text": "可以投掷炼金单元协助作战",
+ "attack_interval": 1.5,
+ "atk": 501.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "度算浪波",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 5.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.2
+   },
+   "_source": "向友方单位投掷一个炼金单元，在8秒内使落点和周围8格的友方单位防御力+100，每秒回复相当于攻击力20%的生命值",
+   "_parsed": [
+    {
+     "text": "每秒回复相当于攻击力20%的生命值",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 20.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "向友方单位投掷一个炼金单元",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "在8秒内使落点和周围8格的友方单位防御力+100",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "解构涌潮",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 14.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.324
+   },
+   "_source": "投掷一个炼金单元，在15秒内使落点周围的地面敌人受到的治疗和回复效果降低50%，每秒受到相当于攻击力180%的法术伤害，友方单位每秒恢复相当于攻击力18%的生命；炼金单元能在15秒内缓慢沿投掷方向移动且影响范围持续扩大，可充能2次",
+   "_parsed": [
+    {
+     "text": "每秒受到相当于攻击力180%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 180.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "友方单位每秒恢复相当于攻击力18%的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 18.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "投掷一个炼金单元",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "炼金单元能在15秒内缓慢沿投掷方向移动",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "影响范围持续扩大",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "“我的海疆”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 60.0,
+   "init_sp": 48.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "被动效果：攻击范围扩大，主动开启：向阻挡数最低的4名干员投掷炼金单元，在23秒内使围绕区域内的敌人攻击力-15%，防御力-35%，法术抗性-35%（不叠加），每秒受到攻击力210%的法术伤害，效果逐渐提升（15秒后达到最大，攻击力-30%，防御力-50%，法术抗性-50%，每秒伤害390%）",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "在23秒内使围绕区域内的敌人攻击力-15%",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「atk」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    },
+    {
+     "text": "每秒受到攻击力210%的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "防御力-35%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / decrease」，但没能映射到引擎字段"
+    },
+    {
+     "text": "法术抗性-35%（不叠加）",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「res / decrease」，但没能映射到引擎字段"
+    },
+    {
+     "text": "效果逐渐提升（15秒后达到最大，攻击力-30%，防御力-50%，法术抗性-50%，每秒伤害390%）",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「res / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以投掷炼金单元协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_pct": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "心相",
+   "condition": "精英2",
+   "text": "攻击力+10%，攻击范围内存在其他干员时，自身投掷的炼金单元持续时间延长3秒"
+  },
+  {
+   "name": "视界",
+   "condition": "精英2",
+   "text": "在场时，所有友方单位攻击速度+5，敌方单位攻击速度-5；位于连续6格或以上直线道路的友方和敌方单位受到的效果翻倍"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "自身投掷的炼金单元持续时间延长3秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 3.0,
+   "field": "duration"
+  },
+  {
+   "text": "所有友方单位攻击速度+5",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 5.0,
+   "field": "aspd"
+  },
+  {
+   "text": "敌方单位攻击速度-5",
+   "attribute": "aspd",
+   "relation": "decrease",
+   "value": -5.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内存在其他干员时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "位于连续6格或以上直线道路的友方和敌方单位受到的效果翻倍",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

@@ -1,0 +1,191 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "鸿雪"
+ },
+ "name": "鸿雪",
+ "class": "狙击",
+ "branch": "重射手",
+ "rarity": 6.0,
+ "trait_text": "高精度的近距离射击",
+ "attack_interval": 1.6,
+ "atk": 876.0,
+ "atk_trust": 70.0,
+ "atk_potential": 30.0,
+ "skills": [
+  {
+   "name": "抑扬格",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 20.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 60.0,
+    "atk_mult": 0.4
+   },
+   "_source": "攻击力+60%，攻击时，40%几率当次攻击的攻击力提升至225%，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "40%几率当次攻击的攻击力提升至225%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 40.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "low",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "攻击时",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "点题",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 9.0,
+   "init_sp": 9.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "被动效果：携带此技能时，“打字机”的再部署时间缩短至50%，主动开启：立即对前方进行3次攻击，每次造成自身攻击力230%的物理伤害，可充能2次",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "主动开启：立即对前方进行3次攻击",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "每次造成自身攻击力230%的物理伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "被动效果：携带此技能时",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "锐笔速写",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 23.0,
+   "duration": 30.0,
+   "effects": {
+    "interval_flat": -0.6,
+    "atk_mult": 2.0
+   },
+   "_source": "攻击范围扩大，攻击间隔缩短(-0.6)，每次攻击的攻击力提升至200%（对正前方3格提升至255%）",
+   "_parsed": [
+    {
+     "text": "攻击间隔缩短(-0.6)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -0.6,
+     "field": "interval_flat"
+    },
+    {
+     "text": "每次攻击的攻击力提升至200%（对正前方3格提升至255%）",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 200.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "高精度的近距离射击",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "自动打字机",
+   "condition": "精英2",
+   "text": "可使用一个持续25秒的“打字机”，“打字机”拥有和自己一样的技能，拥有独立的再部署时间"
+  },
+  {
+   "name": "弱点速记",
+   "condition": "精英2",
+   "text": "“打字机”的攻击会使命中目标的防御力下降18%，持续4秒；若“打字机”放在鸿雪周围四格则效果提升至23%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "可使用一个持续25秒的“打字机”",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 25.0,
+   "field": "duration"
+  },
+  {
+   "text": "持续4秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 4.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "“打字机”拥有和自己一样的技能",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "“打字机”的攻击会使命中目标的防御力下降18%",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「defense」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  },
+  {
+   "text": "若“打字机”放在鸿雪周围四格则效果提升至23%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

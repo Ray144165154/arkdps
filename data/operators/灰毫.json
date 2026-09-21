@@ -1,0 +1,109 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "灰毫"
+ },
+ "name": "灰毫",
+ "class": "重装",
+ "branch": "要塞",
+ "rarity": 5.0,
+ "trait_text": "不阻挡敌人时优先远程群体物理攻击",
+ "attack_interval": 2.8,
+ "atk": 865.0,
+ "atk_trust": 50.0,
+ "atk_potential": 32.0,
+ "skills": [
+  {
+   "name": "攻击力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "专注轰击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 18.0,
+   "init_sp": 10.0,
+   "duration": 10.0,
+   "effects": {
+    "interval_flat": -65.0,
+    "atk_pct": 55.0
+   },
+   "_source": "阻挡数变为0，只进行远程攻击，攻击间隔大幅缩短(-65%)，攻击力+55%",
+   "_parsed": [
+    {
+     "text": "攻击间隔大幅缩短(-65%)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -65.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+55%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 55.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "不阻挡敌人时优先远程群体物理攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_pct": 24.0
+ },
+ "_talent_meta": [
+  {
+   "name": "炮术研习",
+   "condition": "精英2",
+   "text": "攻击力+8%，周身四格为地面时改为攻击力+16%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+8%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 8.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "周身四格为地面时改为攻击力+16%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 16.0,
+   "field": "atk_pct"
+  }
+ ]
+}

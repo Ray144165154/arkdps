@@ -1,0 +1,41 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "12F"
+ },
+ "name": "12F",
+ "class": "术师",
+ "branch": "扩散术师",
+ "rarity": 2.0,
+ "trait_text": "攻击造成群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 432.0,
+ "atk_trust": 50.0,
+ "atk_potential": 12.0,
+ "skills": [],
+ "_warnings": [],
+ "_atk_from": "精英0_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "闪避率提升",
+   "condition": "30级",
+   "text": "获得50%的物理闪避",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": []
+}

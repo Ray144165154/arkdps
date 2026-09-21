@@ -1,0 +1,126 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "星源"
+ },
+ "name": "星源",
+ "class": "术师",
+ "branch": "链术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，且会在3个敌人间跳跃，每次跳跃伤害降低15%并造成短暂停顿（精英2后更新）",
+ "attack_interval": 2.3,
+ "atk": 630.0,
+ "atk_trust": 75.0,
+ "atk_potential": 28.0,
+ "skills": [
+  {
+   "name": "双端导流",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 7.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.25,
+    "targets": 2
+   },
+   "_source": "下次攻击时攻击力提升至125%，同时攻击2个目标且分别最多在4个敌人间跳跃，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次攻击时攻击力提升至125%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 125.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "同时攻击2个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "星束交汇",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 40.0,
+    "targets": 2
+   },
+   "_source": "攻击范围扩大，攻击力+40%，同时攻击2个目标",
+   "_parsed": [
+    {
+     "text": "攻击力+40%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击2个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 4.0
+ },
+ "_talent_meta": [
+  {
+   "name": "科研热忱",
+   "condition": "精英2",
+   "text": "每在场上停留15秒，攻击速度+4，最多可以叠加5次"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击速度+4",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 4.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "每在场上停留15秒",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "最多可以叠加5次",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

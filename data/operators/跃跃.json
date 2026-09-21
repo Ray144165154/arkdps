@@ -1,0 +1,112 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "跃跃"
+ },
+ "name": "跃跃",
+ "class": "狙击",
+ "branch": "回环射手",
+ "rarity": 4.0,
+ "trait_text": "持有回旋投射物时才能够攻击（投射物需要时间回收）",
+ "attack_interval": 1.0,
+ "atk": 600.0,
+ "atk_trust": 65.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "强力击·β型",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.3
+   },
+   "_source": "下次攻击的攻击力提高至230%",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至230%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 230.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "乐趣加倍",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "攻击力+60%，每次攻击额外发射1个回旋投射物",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "每次攻击额外发射1个回旋投射物",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "持有回旋投射物时才能够攻击（投射物需要时间回收）",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_mult": 0.25
+ },
+ "_talent_meta": [
+  {
+   "name": "戏耍随心",
+   "condition": "精英2",
+   "text": "攻击时，25%几率当次攻击的攻击力提升至150%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "25%几率当次攻击的攻击力提升至150%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 25.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

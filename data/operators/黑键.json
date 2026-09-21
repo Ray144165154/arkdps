@@ -1,0 +1,190 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "黑键"
+ },
+ "name": "黑键",
+ "class": "术师",
+ "branch": "秘术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，在找不到攻击目标时可以将攻击能量储存起来之后一齐发射（最多3个）",
+ "attack_interval": 3.0,
+ "atk": 1400.0,
+ "atk_trust": 150.0,
+ "atk_potential": 52.0,
+ "skills": [
+  {
+   "name": "渐快急板",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 5.0,
+   "duration": 5.0,
+   "effects": {
+    "interval_mult": 0.17,
+    "atk_mult": 0.5
+   },
+   "_source": "攻击范围改变，攻击间隔超大幅度缩短(*0.17)，每次攻击造成相当于攻击力50%的法术伤害",
+   "_parsed": [
+    {
+     "text": "攻击间隔超大幅度缩短(*0.17)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": 0.17,
+     "field": "interval_mult"
+    },
+    {
+     "text": "每次攻击造成相当于攻击力50%的法术伤害",
+     "attribute": "per_hit_mult",
+     "relation": "proportional",
+     "value": 50.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "荒芜回响",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 13.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.45
+   },
+   "_source": "消耗所有攻击能量，在攻击范围内的可放置地块召唤消耗能量数+1个旧日残影（持续30秒），残影在敌人接近时激活，对周围的敌人造成攻击力245%的法术伤害并以中等力度拖拽敌人至自身中心",
+   "_parsed": [
+    {
+     "text": "对周围的敌人造成攻击力245%的法术伤害并以中等力度拖拽敌人至自身中心",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 245.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "消耗所有攻击能量",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "残影在敌人接近时激活",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "在攻击范围内的可放置地块召唤消耗能量数+1个旧日残影（持续30秒）",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "寂静之声",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 80.0,
+    "atk_pct": 65.0
+   },
+   "_source": "攻击速度+80，攻击力+65%，只以精英或领袖敌人为攻击目标，第一天赋的伤害加成提升至原本的140%，可主动关闭技能（期间可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击速度+80",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "aspd"
+    },
+    {
+     "text": "攻击力+65%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 65.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "可主动关闭技能（期间可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "只以精英或领袖敌人为攻击目标",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "第一天赋的伤害加成提升至原本的140%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.15
+ },
+ "_talent_meta": [
+  {
+   "name": "强弱法",
+   "condition": "精英2",
+   "text": "储存的攻击能量造成的伤害提升至135%，可额外储存1份只用于攻击精英或领袖敌人的攻击能量"
+  },
+  {
+   "name": "倚音",
+   "condition": "精英2",
+   "text": "若攻击目标周围没有其他敌人，攻击对其额外造成相当于攻击力15%的法术伤害"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击对其额外造成相当于攻击力15%的法术伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 15.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "若攻击目标周围没有其他敌人",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

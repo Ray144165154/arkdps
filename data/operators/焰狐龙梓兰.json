@@ -1,0 +1,217 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "焰狐龙梓兰"
+ },
+ "name": "焰狐龙梓兰",
+ "class": "狙击",
+ "branch": "重射手",
+ "rarity": 6.0,
+ "trait_text": "高精度的近距离射击",
+ "attack_interval": 1.6,
+ "atk": 842.0,
+ "atk_trust": 100.0,
+ "atk_potential": 30.0,
+ "skills": [
+  {
+   "name": "刚射",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 4.0,
+   "init_sp": 14.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.04
+   },
+   "_source": "发射4支攻击力160%的箭矢，若还有充能则额外消耗1层施展刚连射：发射5支攻击力200%的箭矢，每支箭矢有20%概率使目标晕眩2秒，可充能4次，充能至最大层数时自动释放一次",
+   "_parsed": [
+    {
+     "text": "发射4支攻击力160%的箭矢",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 4.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "若还有充能则额外消耗1层施展刚连射：发射5支攻击力200%的箭矢",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "atk_mult": 0.01
+   },
+   "_conditions": [
+    {
+     "text": "若还有充能则额外消耗1层施展刚连射：发射5支攻击力200%的箭矢",
+     "condition": "若",
+     "fields": {
+      "atk_mult": 0.01
+     },
+     "reason": "含条件标记「若」，是否生效取决于战场情况"
+    }
+   ]
+  },
+  {
+   "name": "飞翔瞪射",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 17.0,
+   "duration": 4.2,
+   "effects": {
+    "targets": 3,
+    "atk_mult": 0.15000000000000002
+   },
+   "_source": "立刻起飞并对前方范围的所有目标射击3次，分别射出3、4、5支攻击力提升至180%的箭矢；之后降落并对前方小范围内的所有敌人造成攻击力300%的物理伤害，可充能3次，部署后立即释放一次",
+   "_parsed": [
+    {
+     "text": "立刻起飞并对前方范围的所有目标射击3次",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 3.0,
+     "field": "targets"
+    },
+    {
+     "text": "5支攻击力提升至180%的箭矢",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 5.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "之后降落并对前方小范围内的所有敌人造成攻击力300%的物理伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 300.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "分别射出3",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "4",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "龙之箭",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 30.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "蓄力3秒后射出直线飞行的贯穿箭矢，箭矢以较大力度推动每个经过的敌人，每飞行一段距离都会对周围所有敌人造成攻击力360%的物理伤害和攻击力60%的法术伤害，箭矢射程无限，可充能2次",
+   "_parsed": [],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "每飞行一段距离都会对周围所有敌人造成攻击力360%的物理伤害和攻击力60%的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "蓄力3秒后射出直线飞行的贯穿箭矢",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "箭矢以较大力度推动每个经过的敌人",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "箭矢射程无限",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "高精度的近距离射击",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_mult": 0.5,
+  "atk_pct": 30.0
+ },
+ "_talent_meta": [
+  {
+   "name": "强击瓶专家",
+   "condition": "精英2",
+   "text": "部署后首次开启技能时，接下来50次攻击的攻击力提升至115%"
+  },
+  {
+   "name": "翔虫机动",
+   "condition": "精英2",
+   "text": "再部署时间-15秒且不提高部署费用；部署至上次部署位置周围时，30秒内攻击力+15%并且可以部署在近战位"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "接下来50次攻击的攻击力提升至115%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 50.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "30秒内攻击力+15%并",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 30.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "部署后首次开启技能时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "部署至上次部署位置周围时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "可以部署在近战位",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

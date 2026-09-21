@@ -1,0 +1,135 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "推进之王"
+ },
+ "name": "推进之王",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 515.0,
+ "atk_trust": 60.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "冲锋号令·γ型",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得12点部署费用",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "跃空锤",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 10.0,
+   "init_sp": 10.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.4
+   },
+   "_source": "下次攻击对四周所有敌人造成相当于攻击力340%的物理伤害，并获得3点部署费用，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次攻击对四周所有敌人造成相当于攻击力340%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 340.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "碎颅击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 25.0,
+   "duration": 25.0,
+   "effects": {
+    "interval_flat": 1.0,
+    "atk_mult": 3.8
+   },
+   "_source": "攻击间隔增大(+1.0)，攻击时攻击力提高至380%，并且有40%的概率晕眩目标1.5秒",
+   "_parsed": [
+    {
+     "text": "攻击间隔增大(+1.0)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 1.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击时攻击力提高至380%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 380.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "并",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 8.0
+ },
+ "_talent_meta": [
+  {
+   "name": "万兽之王",
+   "condition": "精英2",
+   "text": "在场时，所有【先锋】职业干员的攻击力和防御力各+8%"
+  },
+  {
+   "name": "粉碎",
+   "condition": "精英2",
+   "text": "周围四格内有敌人倒下时获得1点技力"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "所有【先锋】职业干员的攻击力和防御力各+8%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 8.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "周围四格内有敌人倒下时获得1点技力",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 1.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

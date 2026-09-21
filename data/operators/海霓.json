@@ -1,0 +1,136 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "海霓"
+ },
+ "name": "海霓",
+ "class": "辅助",
+ "branch": "削弱者",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 440.0,
+ "atk_trust": 65.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "迷惑性洋流图",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.0,
+    "targets": 4
+   },
+   "_source": "下次攻击的攻击力提升至200%，并同时攻击4个敌人",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提升至200%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 200.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "并同时攻击4个敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 4.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "阻滞性显色剂",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 50.0
+   },
+   "_source": "攻击力+50%，额外攻击一个目标，攻击范围内的非精英和领袖敌人移动速度-60%，且被击倒时使天赋效果提升0.5倍，最多提升至3倍，持续至技能结束",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "额外攻击一个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "被击倒时使天赋效果提升0.5倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "最多提升至3倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "攻击范围内的非精英和领袖敌人移动速度-60%",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「movement」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    },
+    {
+     "text": "持续至技能结束",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "测绘器材的奇用",
+   "condition": "精英2",
+   "text": "攻击范围内的非精英和领袖敌人获得16%的脆弱效果"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的非精英和领袖敌人获得16%的脆弱效果",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

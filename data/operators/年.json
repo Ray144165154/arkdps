@@ -1,0 +1,166 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "年"
+ },
+ "name": "年",
+ "class": "重装",
+ "branch": "铁卫",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡三个敌人",
+ "attack_interval": 1.5,
+ "atk": 619.0,
+ "atk_trust": 0.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "锡灼",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 45.0,
+    "damage_type": "arts"
+   },
+   "_source": "防御力+70%，攻击力+45%，普通攻击造成法术伤害",
+   "_parsed": [
+    {
+     "text": "攻击力+45%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "普通攻击造成法术伤害",
+     "attribute": "damage_type",
+     "relation": "unspecified",
+     "value": null,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+70%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "铜印",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 35.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_mult": 0.9
+   },
+   "_source": "停止攻击；防御力+130%，阻挡数+1，每次受到攻击时对目标造成相当于年攻击力90%的法术伤害并使其失去特殊能力5秒",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "每次受到攻击时对目标造成相当于年攻击力90%的法术伤害并使其失去特殊能力5秒",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 90.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "防御力+130%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "铁御",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 85.0,
+   "init_sp": 70.0,
+   "duration": 45.0,
+   "effects": {
+    "atk_pct": 120.0
+   },
+   "_source": "攻击力+120%；周围其他友方干员的防御力+80%，阻挡数+1，并获得抵抗",
+   "_parsed": [
+    {
+     "text": "攻击力+120%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 120.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "并获得抵抗",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "周围其他友方干员的防御力+80%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "积甲成山",
+   "condition": "精英2",
+   "text": "编入队伍时，所有【重装】职业干员的生命上限+16%"
+  },
+  {
+   "name": "干明可鉴",
+   "condition": "精英2",
+   "text": "部署后立即获得3层护盾"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "编入队伍时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "所有【重装】职业干员的生命上限+16%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

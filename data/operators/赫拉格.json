@@ -1,0 +1,154 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "赫拉格"
+ },
+ "name": "赫拉格",
+ "class": "近卫",
+ "branch": "武者",
+ "rarity": 6.0,
+ "trait_text": "不成为其他角色的治疗目标，每次攻击到敌人后回复自身30生命（精英1后更新）",
+ "attack_interval": 1.2,
+ "atk": 762.0,
+ "atk_trust": 70.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "新月",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.75,
+    "hits_override": 2.0
+   },
+   "_source": "下次攻击的攻击力提升至175%，并连续攻击两次",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提升至175%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 175.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "并连续攻击两次",
+     "attribute": "hits",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "弦月",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 13.0,
+   "effects": {
+    "atk_pct": 80.0,
+    "hits_override": 2.0
+   },
+   "_source": "攻击力+80%，攻击变为二连击，获得75%的物理闪避",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击变为二连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "满月",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 15.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 100.0,
+    "targets": 3
+   },
+   "_source": "攻击力+100%，攻击范围+2格，最多可以同时攻击3个目标",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "最多可以同时攻击3个目标",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 3.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "攻击范围+2格",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 100.0
+ },
+ "_talent_meta": [
+  {
+   "name": "月盈星亏",
+   "condition": "精英2",
+   "text": "在场时，自身获得最高+100攻击速度的坚忍（损失70%生命值时达到最大加成）"
+  },
+  {
+   "name": "运筹帷幄",
+   "condition": "精英2",
+   "text": "未阻挡敌人时每秒回复60生命"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "自身获得最高+100攻击速度的坚忍（损失70%生命值时达到最大加成）",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 100.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

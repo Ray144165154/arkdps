@@ -1,0 +1,140 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "焰尾"
+ },
+ "name": "焰尾",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 526.0,
+ "atk_trust": 85.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "迅敏直觉",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 18.0,
+   "init_sp": 9.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得6点部署费用，并闪避下次物理攻击",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "“红松林”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 30.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_mult": 0.06
+   },
+   "_source": "立即获得13点部署费用；对周围最多6名敌人造成两次相当于攻击力240%的物理伤害，并令击中目标晕眩0.5秒；范围内友方单位获得50%的物理闪避，持续10秒",
+   "_parsed": [
+    {
+     "text": "对周围最多6名敌人造成两次相当于攻击力240%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 6.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续10秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 10.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "焰心",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 16.0,
+   "init_sp": 6.0,
+   "duration": 8.0,
+   "effects": {
+    "interval_flat": -70.0,
+    "atk_pct": 90.0
+   },
+   "_source": "技能持续时间内逐渐获得8点部署费用，攻击间隔缩短(*70%)，攻击力+90%，阻挡数+1，获得80%的物理和法术闪避",
+   "_parsed": [
+    {
+     "text": "攻击间隔缩短(*70%)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": 70.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "前锋剑术",
+   "condition": "精英2",
+   "text": "触发闪避时，下次攻击变为二连击并攻击所有阻挡的敌人",
+   "conditional": {
+    "hits_override": 2.0
+   },
+   "conditions": [
+    {
+     "text": "下次攻击变为二连击并攻击所有阻挡的敌人",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "hits_override": 2.0
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    }
+   ]
+  },
+  {
+   "name": "红松骑士团团长",
+   "condition": "精英2",
+   "text": "在场时，所有【卡西米尔】势力的干员获得22%的物理闪避"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "下次攻击变为二连击并攻击所有阻挡的敌人",
+   "attribute": "hits",
+   "relation": "set_to",
+   "value": 2.0,
+   "field": "hits_override"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false,
+ "_talent_conditional": {
+  "hits_override": 2.0
+ }
+}

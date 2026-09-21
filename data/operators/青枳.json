@@ -1,0 +1,113 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "青枳"
+ },
+ "name": "青枳",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 455.0,
+ "atk_trust": 20.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "冲锋号令·γ型",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得12点部署费用",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "工程者之愿",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 15.0,
+   "effects": {},
+   "_source": "立即获得12点费用；技能持续时间内攻击力+35%，防御力+65%，第二次及以后使用时，每4秒额外获得1点费用，且持续时间无限",
+   "_parsed": [
+    {
+     "text": "技能持续时间内攻击力+35%",
+     "attribute": "duration",
+     "relation": "increase",
+     "value": 35.0,
+     "field": "duration"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "low",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "第二次及以后使用时",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "立即获得12点费用",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「cost / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "防御力+65%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "每4秒额外获得1点费用",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「cost / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "拆迁队守则",
+   "condition": "精英2",
+   "text": "在战场停留30秒后，生命上限+15%"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "在战场停留30秒后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "生命上限+15%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

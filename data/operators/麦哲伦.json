@@ -1,0 +1,194 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "麦哲伦"
+ },
+ "name": "麦哲伦",
+ "class": "辅助",
+ "branch": "召唤师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，可以使用召唤物协助作战",
+ "attack_interval": 1.6,
+ "atk": 469.0,
+ "atk_trust": 40.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "高效制冷模块",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 15.0,
+   "effects": {},
+   "_source": "被动效果：使自身和无人机攻击范围内的敌方单位每3秒停顿1秒，主动开启：停顿变为束缚2.5秒，技能结束时回收所有无人机",
+   "_parsed": [],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "技能结束时回收所有无人机",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "激光开采模块",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 38.0,
+   "init_sp": 25.0,
+   "duration": 15.0,
+   "effects": {
+    "aspd": 150.0
+   },
+   "_source": "被动效果：无人机可以部署在近战位，进行单体法术攻击，主动开启：麦哲伦和她的无人机攻击速度+150，无人机变为群体攻击，技能结束时回收所有无人机",
+   "_parsed": [
+    {
+     "text": "主动开启：麦哲伦和她的无人机攻击速度+150",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 150.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "进行单体法术攻击",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "无人机变为群体攻击",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "被动效果：无人机可以部署在近战位",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能结束时回收所有无人机",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "武装打击模块",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 38.0,
+   "init_sp": 25.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 150.0
+   },
+   "_source": "被动效果：无人机可以部署在远程位，进行群体物理攻击，主动开启：麦哲伦和她的无人机攻击力+150%，无人机攻击的爆炸范围扩大，技能结束时回收所有无人机",
+   "_parsed": [
+    {
+     "text": "主动开启：麦哲伦和她的无人机攻击力+150%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 150.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "进行群体物理攻击",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "被动效果：无人机可以部署在远程位",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能结束时回收所有无人机",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以使用召唤物协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "targets": 20
+ },
+ "_talent_meta": [
+  {
+   "name": "支援无人机·龙腾",
+   "condition": "精英2",
+   "text": "可以使用5个不阻挡敌人的无人机（最多同时部署3个），功能随技能选择而改变"
+  },
+  {
+   "name": "光学折射配件",
+   "condition": "精英2",
+   "text": "无人机在部署后的20秒内处于隐匿状态（不会成为敌方远程单位的攻击目标）"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "可以使用5个不阻挡敌人的无人机（最多同时部署3个）",
+   "attribute": "targets",
+   "relation": "max_of",
+   "value": 5.0,
+   "field": "targets"
+  },
+  {
+   "text": "无人机在部署后的20秒内处于隐匿状态（不会成为敌方远程单位的攻击目标）",
+   "attribute": "targets",
+   "relation": "set_to",
+   "value": 20.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "功能随技能选择而改变",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

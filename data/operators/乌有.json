@@ -1,0 +1,146 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "乌有"
+ },
+ "name": "乌有",
+ "class": "特种",
+ "branch": "行商",
+ "rarity": 5.0,
+ "trait_text": "再部署时间减少，撤退时不返还部署费用，在场时每3秒消耗3点部署费用（不足时自动撤退）",
+ "attack_interval": 1.0,
+ "atk": 725.0,
+ "atk_trust": 40.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "知难而退",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 6.0,
+   "init_sp": 0.0,
+   "duration": 5.0,
+   "effects": {},
+   "_source": "主动开启：当生命低于20%时自身停止攻击且不阻挡敌人，更不容易受到敌人的攻击，每秒回复15%的生命值，被动效果：携带此技能时阻挡数+1；",
+   "_parsed": [
+    {
+     "text": "主动开启：当生命低于20%时自身停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "low",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "更不容易受到敌人的攻击",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "不阻挡敌人",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "阴晴圆缺",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 60.0,
+    "aspd": 28.0
+   },
+   "_source": "技能开启时，攻击力+60%，且以下三种效果中随机获得一种：每次攻击使目标攻击速度-35（持续5秒且不叠加）；攻击速度+28；获得+50%的物理闪避，阻挡数+1，技能持续时间无限，可主动关闭技能；",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+28",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 28.0,
+     "field": "aspd"
+    },
+    {
+     "text": "技能持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    },
+    {
+     "text": "可主动关闭技能",
+     "attribute": "termination",
+     "relation": "unspecified",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "partial",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "以下三种效果中随机获得一种：每次攻击使目标攻击速度-35（持续5秒且不叠加）",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「aspd」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    },
+    {
+     "text": "技能开启时",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 1.5
+ },
+ "_talent_meta": [
+  {
+   "name": "出其不意",
+   "condition": "精英2",
+   "text": "如果4秒内没有主动攻击过，下一次攻击的攻击力提升至150%并晕眩目标4秒"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "下一次攻击的攻击力提升至150%并晕眩目标4秒",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 150.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "如果4秒内没有主动攻击过",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

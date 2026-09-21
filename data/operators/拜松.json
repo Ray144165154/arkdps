@@ -1,0 +1,103 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "拜松"
+ },
+ "name": "拜松",
+ "class": "重装",
+ "branch": "铁卫",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡三个敌人",
+ "attack_interval": 1.2,
+ "atk": 375.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "防御力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 40.0,
+   "effects": {},
+   "_source": "防御力+100%",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "深化阵线",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 20.0,
+   "duration": 40.0,
+   "effects": {},
+   "_source": "停止攻击敌人；防御力+120%，周围4格内的其余友方单位防御力+30%，自身嘲讽等级]]更容易受到敌人攻击",
+   "_parsed": [
+    {
+     "text": "停止攻击敌人",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "exact",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "防御力+120%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "周围4格内的其余友方单位防御力+30%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "交叉掩护",
+   "condition": "精英2",
+   "text": "在场时自身防御力+50，自己身后的【先锋】或【近卫】干员也能享受到相同效果"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "在场时自身防御力+50",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "自己身后的【先锋】或【近卫】干员也能享受到相同效果",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

@@ -1,0 +1,200 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "老鲤"
+ },
+ "name": "老鲤",
+ "class": "特种",
+ "branch": "行商",
+ "rarity": 6.0,
+ "trait_text": "再部署时间减少，撤退时不返还部署费用，在场时每3秒消耗3点部署费用（不足时自动撤退）",
+ "attack_interval": 1.0,
+ "atk": 789.0,
+ "atk_trust": 55.0,
+ "atk_potential": 30.0,
+ "skills": [
+  {
+   "name": "小惩大诫",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 7.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "攻击力+60%，并获得40%的法术闪避，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true
+  },
+  {
+   "name": "驱凶辟邪",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 7.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "aspd": 30.0,
+    "targets": 20
+   },
+   "_source": "被动效果：攻击速度+30；主动开启：标记目标使其更易受我方攻击，5秒后标记爆炸对周围造成300%的法术伤害。期间我方每对目标造成一次伤害，爆炸伤害增加老鲤攻击力的20%（最多增加30次，达到上限或目标被击倒时提前爆炸）",
+   "_parsed": [
+    {
+     "text": "被动效果：攻击速度+30",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 30.0,
+     "field": "aspd"
+    },
+    {
+     "text": "期间我方每对目标造成一次伤害",
+     "attribute": "targets",
+     "relation": "per",
+     "value": 1.0,
+     "field": "targets"
+    },
+    {
+     "text": "爆炸伤害增加老鲤攻击力的20%（最多增加30次，达到上限或目标被击倒时提前爆炸）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 20.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "主动开启：标记目标使其更易受我方攻击",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "5秒后标记爆炸对周围造成300%的法术伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "贵客盈门",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 7.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 50.0
+   },
+   "_source": "攻击范围扩大，攻击力和防御力+50%；攻击小力度推开范围内除当前目标外的敌人。自身嘲讽等级]]容易成为攻击目标，且有70%概率闪避来自范围外的物理或法术伤害，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力和防御力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "攻击小力度推开范围内除当前目标外的敌人",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「targets / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "和气生财",
+   "condition": "精英2",
+   "text": "老鲤阻挡目标时，使其攻击速度-14，且自身攻击速度+14；当周围八格内仅存在一个敌人时效果翻倍"
+  },
+  {
+   "name": "有备无患",
+   "condition": "精英2",
+   "text": "特性消耗费用时，若费用足够则改为消耗5费用，抵消自身受到的下一次晕眩/冻结，并使攻击来源晕眩3秒"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "使其攻击速度-14",
+   "attribute": "aspd",
+   "relation": "decrease",
+   "value": -14.0,
+   "field": "aspd"
+  },
+  {
+   "text": "自身攻击速度+14",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 14.0,
+   "field": "aspd"
+  },
+  {
+   "text": "当周围八格内仅存在一个敌人时效果翻倍",
+   "attribute": "targets",
+   "relation": "increase",
+   "value": 1.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "老鲤阻挡目标时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "特性消耗费用时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "若费用足够则改为消耗5费用",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「cost / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

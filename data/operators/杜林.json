@@ -1,0 +1,42 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "杜林"
+ },
+ "name": "杜林",
+ "class": "术师",
+ "branch": "中坚术师",
+ "rarity": 2.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 340.0,
+ "atk_trust": 30.0,
+ "atk_potential": 0.0,
+ "skills": [],
+ "_warnings": [],
+ "_atk_from": "精英0_满级_攻击",
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "小个子的幸运",
+   "condition": "30级",
+   "text": "获得50%的法术闪避",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": []
+}

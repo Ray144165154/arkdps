@@ -1,0 +1,136 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "布洛卡"
+ },
+ "name": "布洛卡",
+ "class": "近卫",
+ "branch": "强攻手",
+ "rarity": 5.0,
+ "trait_text": "同时攻击阻挡的所有敌人",
+ "attack_interval": 1.2,
+ "atk": 762.0,
+ "atk_trust": 80.0,
+ "atk_potential": 28.0,
+ "skills": [
+  {
+   "name": "通电",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 80.0,
+    "damage_type": "arts"
+   },
+   "_source": "攻击力+80%，普通攻击造成法术伤害",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "普通攻击造成法术伤害",
+     "attribute": "damage_type",
+     "relation": "unspecified",
+     "value": null,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "高压电流",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 25.0,
+   "effects": {
+    "interval_flat": 65.0,
+    "atk_pct": 190.0,
+    "damage_type": "arts"
+   },
+   "_source": "攻击间隔增大(+65%)，攻击范围加长，攻击力+190%，普通攻击造成法术伤害并使击中的敌人停顿1秒，技能结束后晕眩5秒",
+   "_parsed": [
+    {
+     "text": "攻击间隔增大(+65%)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 65.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+190%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 190.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "普通攻击造成法术伤害并使击中的敌人停顿1秒",
+     "attribute": "damage_type",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击范围加长",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_blocked"
+ },
+ "_trait_parsed": [
+  {
+   "text": "同时攻击阻挡的所有敌人",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 2,
+  "atk_pct": 12.0
+ },
+ "_talent_meta": [
+  {
+   "name": "钻头强化",
+   "condition": "精英2",
+   "text": "阻挡两个以上的敌人时，攻击力和防御力+12%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "阻挡两个以上的敌人时",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 2.0,
+   "field": "targets"
+  },
+  {
+   "text": "攻击力和防御力+12%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 12.0,
+   "field": "atk_pct"
+  }
+ ]
+}

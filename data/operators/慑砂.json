@@ -1,0 +1,108 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "慑砂"
+ },
+ "name": "慑砂",
+ "class": "狙击",
+ "branch": "炮手",
+ "rarity": 5.0,
+ "trait_text": "攻击造成群体物理伤害",
+ "attack_interval": 2.8,
+ "atk": 833.0,
+ "atk_trust": 85.0,
+ "atk_potential": 33.0,
+ "skills": [
+  {
+   "name": "攻击力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "延时震荡零件",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_mult": 2.4
+   },
+   "_source": "攻击变为发射一个延迟引爆的榴弹，爆炸后造成相当于攻击力240%的物理伤害，并在3秒内使目标攻击速度-20",
+   "_parsed": [
+    {
+     "text": "爆炸后造成相当于攻击力240%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 240.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击变为发射一个延迟引爆的榴弹",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "并在3秒内使目标攻击速度-20",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「aspd」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体物理伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "弱点拆解",
+   "condition": "精英2",
+   "text": "在场时所有被阻挡的敌方单位受到的物理伤害提高14%"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "在场时所有被阻挡的敌方单位受到的物理伤害提高14%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「block / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

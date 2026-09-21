@@ -1,0 +1,37 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "虎狼丸"
+ },
+ "name": "虎狼丸",
+ "class": "近卫",
+ "branch": "剑豪",
+ "rarity": 1.0,
+ "trait_text": "普通攻击连续造成两次伤害，且不受部署数量限制，但再部署时间极长",
+ "attack_interval": 1.3,
+ "atk": 242.0,
+ "atk_trust": 30.0,
+ "atk_potential": 0.0,
+ "skills": [],
+ "_warnings": [],
+ "_atk_from": "精英0_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "普通攻击连续造成两次伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "不受部署数量限制",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low"
+}

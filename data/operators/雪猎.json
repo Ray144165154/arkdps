@@ -1,0 +1,125 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "雪猎"
+ },
+ "name": "雪猎",
+ "class": "狙击",
+ "branch": "猎手",
+ "rarity": 5.0,
+ "trait_text": "攻击时需要消耗子弹且攻击力提升至120%，不攻击时会缓慢地装填子弹（最多4发，精英1后更新）",
+ "attack_interval": 1.6,
+ "atk": 981.0,
+ "atk_trust": 70.0,
+ "atk_potential": 32.0,
+ "skills": [
+  {
+   "name": "强力击·β型",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.3
+   },
+   "_source": "下次攻击的攻击力提高至230%",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至230%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 230.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "风雪连弩",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 10.0,
+   "init_sp": 7.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.2
+   },
+   "_source": "立即使用特殊子弹发动相当于攻击力220%的两连击（对非移动敌人提升至260%），可充能2次",
+   "_parsed": [
+    {
+     "text": "立即使用特殊子弹发动相当于攻击力220%的两连击（对非移动敌人提升至260%）",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 220.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "atk_mult": 1.2
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击力提升至120%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 120.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "攻击时需要消耗子弹",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "不攻击时会缓慢地装填子弹（最多4发，精英1后更新）",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_mult": 1.8
+ },
+ "_talent_meta": [
+  {
+   "name": "裂云一击",
+   "condition": "精英2",
+   "text": "开启技能时，派出裂云兽进行攻击，造成相当于攻击力180%的物理伤害和3秒寒冷"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "造成相当于攻击力180%的物理伤害和3秒寒冷",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 180.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "开启技能时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "派出裂云兽进行攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

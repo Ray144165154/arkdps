@@ -1,0 +1,142 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "阿米娅"
+ },
+ "name": "阿米娅",
+ "class": "术师",
+ "branch": "中坚术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 612.0,
+ "atk_trust": 70.0,
+ "atk_potential": 30.0,
+ "skills": [
+  {
+   "name": "战术咏唱·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 90.0
+   },
+   "_source": "攻击速度+90",
+   "_parsed": [
+    {
+     "text": "攻击速度+90",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "精神爆发",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 100.0,
+   "init_sp": 0.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_mult": 0.6,
+    "targets_scope": "all_in_range"
+   },
+   "_source": "每次攻击变为攻击力60%的8连发，随机攻击范围内的目标，技能自动开启，持续时间结束后阿米娅晕眩10秒",
+   "_parsed": [
+    {
+     "text": "每次攻击变为攻击力60%的8连发",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 60.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "随机攻击范围内的目标",
+     "attribute": "range",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "奇美拉",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 120.0,
+   "init_sp": 0.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 230.0,
+    "damage_type": "true"
+   },
+   "_source": "攻击力+230%，生命上限+100%，攻击范围扩大，伤害类型变为真实，技能结束后阿米娅强制退出战场",
+   "_parsed": [
+    {
+     "text": "攻击力+230%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 230.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "伤害类型变为真实",
+     "attribute": "damage_type",
+     "relation": "set_to",
+     "value": null,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "生命上限+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 8
+ },
+ "_talent_meta": [
+  {
+   "name": "情绪吸收",
+   "condition": "精英2",
+   "text": "成功造成伤害后额外回复2点技力，消灭敌人后额外获得8点技力"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "消灭敌人后额外获得8点技力",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 8.0,
+   "field": "targets"
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "吉星"
+ },
+ "name": "吉星",
+ "class": "狙击",
+ "branch": "散射手",
+ "rarity": 5.0,
+ "trait_text": "攻击范围内的所有敌人，对自己前方一横排的敌人攻击力提升至150%",
+ "attack_interval": 2.3,
+ "atk": 727.0,
+ "atk_trust": 65.0,
+ "atk_potential": 31.0,
+ "skills": [
+  {
+   "name": "欢迎您来！",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 45.0,
+   "init_sp": 30.0,
+   "duration": 42.0,
+   "effects": {
+    "interval_flat": 0.5
+   },
+   "_source": "攻击间隔略微增大(+0.5)，每次攻击后攻击力+25%，最多叠加4次",
+   "_parsed": [
+    {
+     "text": "攻击间隔略微增大(+0.5)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 0.5,
+     "field": "interval_flat"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "最多叠加4次",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "每次攻击后攻击力+25%",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "吉星高照！",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 36.0,
+   "effects": {
+    "interval_flat": 0.7,
+    "atk_pct": 80.0
+   },
+   "_source": "攻击间隔增大(+0.7)，攻击力+80%；攻击时将依次并且循环对命中的目标施加不同效果：停顿1.5秒、束缚1.5秒、晕眩1.5秒；",
+   "_parsed": [
+    {
+     "text": "攻击间隔增大(+0.7)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 0.7,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击时将依次并",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_in_range"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击范围内的所有敌人",
+   "attribute": "range",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "对自己前方一横排的敌人攻击力提升至150%",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「atk」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "好运连击！",
+   "condition": "精英2",
+   "text": "上场后每击倒过一种敌人，自身造成的伤害+6%，最多叠加3次"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "上场后每击倒过一种敌人",
+   "attribute": "targets",
+   "relation": "per",
+   "value": 1.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "自身造成的伤害+6%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "最多叠加3次",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

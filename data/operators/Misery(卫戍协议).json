@@ -1,0 +1,134 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "Misery(卫戍协议)"
+ },
+ "name": "Misery(卫戍协议)",
+ "class": "特种",
+ "branch": "处决者",
+ "rarity": 6.0,
+ "trait_text": "再部署时间大幅度减少",
+ "attack_interval": 0.93,
+ "atk": 512.0,
+ "atk_trust": 90.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "物理的服从",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 10.0,
+   "effects": {},
+   "_source": "部署后第一天赋触发概率提升至50%，获得75%物理闪避",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "部署后第一天赋触发概率提升至50%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "战争的恭顺",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_pct": 60.0,
+    "aspd": 30.0
+   },
+   "_source": "部署后攻击力+60%，攻击速度+30",
+   "_parsed": [
+    {
+     "text": "部署后攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+30",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 30.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "空间的归依",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.0
+   },
+   "_source": "部署后立即对周围所有敌人造成相当于攻击力300%的物理伤害，开启空间源石技艺将所有未被阻挡的敌人小力地拖拽至面前并施加4秒停顿",
+   "_parsed": [
+    {
+     "text": "部署后立即对周围所有敌人造成相当于攻击力300%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 300.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "hits_override": 10.0,
+  "atk_pct": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "二象命末",
+   "condition": "精英2",
+   "text": "攻击时有10%概率造成二连击"
+  },
+  {
+   "name": "四维分离",
+   "condition": "精英2",
+   "text": "周围四格内仅存在一名敌人时，攻击力+10%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击时有10%概率造成二连击",
+   "attribute": "hits",
+   "relation": "unspecified",
+   "value": 10.0,
+   "field": "hits_override"
+  },
+  {
+   "text": "周围四格内仅存在一名敌人时",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 1.0,
+   "field": "targets"
+  },
+  {
+   "text": "攻击力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  }
+ ]
+}

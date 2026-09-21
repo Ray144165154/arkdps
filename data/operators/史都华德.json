@@ -1,0 +1,65 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "史都华德"
+ },
+ "name": "史都华德",
+ "class": "术师",
+ "branch": "中坚术师",
+ "rarity": 3.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 470.0,
+ "atk_trust": 50.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "强力击·α型",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "",
+   "_parsed": [],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "_atk_from": "精英1_满级_攻击",
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 6.0
+ },
+ "_talent_meta": [
+  {
+   "name": "铠甲突破",
+   "condition": "精英1 55级",
+   "text": "攻击力+6%，优先攻击防御力最高的敌人",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+6%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 6.0,
+   "field": "atk_pct"
+  }
+ ]
+}

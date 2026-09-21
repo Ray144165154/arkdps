@@ -1,0 +1,196 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "灵知"
+ },
+ "name": "灵知",
+ "class": "辅助",
+ "branch": "削弱者",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 455.0,
+ "atk_trust": 80.0,
+ "atk_potential": 33.0,
+ "skills": [
+  {
+   "name": "高速思考",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "hits_override": 2.0,
+    "atk_mult": 1.7
+   },
+   "_source": "下次攻击连续攻击两次，每次造成相当于攻击力170%的法术伤害",
+   "_parsed": [
+    {
+     "text": "下次攻击连续攻击两次",
+     "attribute": "hits",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "hits_override"
+    },
+    {
+     "text": "每次造成相当于攻击力170%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 170.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "零度爆发",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 6.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.04
+   },
+   "_source": "对范围内所有敌人造成4秒寒冷和相当于攻击力200%的法术伤害；蓄力：额外造成一层寒冷",
+   "_parsed": [
+    {
+     "text": "对范围内所有敌人造成4秒寒冷和相当于攻击力200%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 4.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "蓄力：额外造成一层寒冷",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "失温症",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 13.0,
+   "effects": {
+    "aspd": 130.0,
+    "targets": 600,
+    "targets_scope": "all_in_range"
+   },
+   "_source": "攻击速度+130，同时攻击2个敌人；范围内所有敌人的冻结延长至技能结束，且技能结束时对所有冻结的敌人造成600%的法术伤害并结束冻结；优先攻击未冻结的单位",
+   "_parsed": [
+    {
+     "text": "攻击速度+130",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 130.0,
+     "field": "aspd"
+    },
+    {
+     "text": "同时攻击2个敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "范围内所有敌人的冻结延长至技能结束",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    },
+    {
+     "text": "技能结束时对所有冻结的敌人造成600%的法术伤害并结束冻结",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 600.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 25
+ },
+ "_talent_meta": [
+  {
+   "name": "坚冰",
+   "condition": "精英2",
+   "text": "攻击造成1秒寒冷；范围内寒冷的敌人受到25%的脆弱，范围内冻结的敌人脆弱效果提升至2倍"
+  },
+  {
+   "name": "殊途同归",
+   "condition": "精英2",
+   "text": "灵知在场且部署后经过10秒后，使所有【谢拉格】干员获得抵抗"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "范围内寒冷的敌人受到25%的脆弱",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 25.0,
+   "field": "targets"
+  },
+  {
+   "text": "范围内冻结的敌人脆弱效果提升至2倍",
+   "attribute": "targets",
+   "relation": "set_to",
+   "value": 2.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击造成1秒寒冷",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "灵知在场",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "部署后经过10秒后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "使所有【谢拉格】干员获得抵抗",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

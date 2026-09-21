@@ -1,0 +1,135 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "阿米娅(近卫)"
+ },
+ "name": "阿米娅(近卫)",
+ "class": "近卫",
+ "branch": "术战者",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.25,
+ "atk": 657.0,
+ "atk_trust": 45.0,
+ "atk_potential": 28.0,
+ "skills": [
+  {
+   "name": "影霄·奔夜",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 80.0,
+    "hits_override": 2.0
+   },
+   "_source": "攻击力+80%，攻击变为二连击，获得60%的法术闪避",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击变为二连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "影霄·绝影",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 0.0,
+   "duration": 35.0,
+   "effects": {
+    "targets": 40,
+    "damage_type": "true"
+   },
+   "_source": "立即寻找前方生命值最低的目标，进行10次攻击力为220%的法术斩击（最后一击系数加倍且为真实伤害）；斩击期间每击败一个敌人获得攻击力+40%和法术抗性+20（最多叠加3次），并且接下来的伤害类型变为真实；整场战斗中该技能只能释放一次",
+   "_parsed": [
+    {
+     "text": "斩击期间每击败一个敌人获得攻击力+40%和法术抗性+20（最多叠加3次）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 40.0,
+     "field": "targets"
+    },
+    {
+     "text": "接下来的伤害类型变为真实",
+     "attribute": "damage_type",
+     "relation": "set_to",
+     "value": null,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "进行10次攻击力为220%的法术斩击（最后一击系数加倍且为真实伤害）",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / multiply」，但没能映射到引擎字段"
+    },
+    {
+     "text": "并",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 7.0
+ },
+ "_talent_meta": [
+  {
+   "name": "青色怒火",
+   "condition": "精英2",
+   "text": "在场时所有友方单位的攻击力和防御力+7%，技能开启期间效果加倍"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "在场时所有友方单位的攻击力和防御力+7%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 7.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "技能开启期间效果加倍",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

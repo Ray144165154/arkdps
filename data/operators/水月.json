@@ -1,0 +1,182 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "水月"
+ },
+ "name": "水月",
+ "class": "特种",
+ "branch": "伏击客",
+ "rarity": 6.0,
+ "trait_text": "对攻击范围内所有敌人造成伤害，拥有50%的物理和法术闪避且不容易成为敌人的攻击目标",
+ "attack_interval": 3.5,
+ "atk": 865.0,
+ "atk_trust": 110.0,
+ "atk_potential": 32.0,
+ "skills": [
+  {
+   "name": "唤醒",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 7.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.0
+   },
+   "_source": "下次攻击造成相当于攻击力300%的物理伤害，且第一天赋伤害倍率提升至3倍，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次攻击造成相当于攻击力300%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 300.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "第一天赋伤害倍率提升至3倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "囚徒困境",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 10.0,
+   "duration": 21.0,
+   "effects": {
+    "interval_flat": -1.5,
+    "atk_pct": 30.0
+   },
+   "_source": "攻击间隔较大幅度缩短(-1.5s)，攻击力+30%，第一天赋额外攻击1个目标并附加1.3秒束缚",
+   "_parsed": [
+    {
+     "text": "攻击间隔较大幅度缩短(-1.5s)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -1.5,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+30%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 30.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "镜花水月",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 60.0,
+   "init_sp": 30.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 150.0,
+    "targets": 3
+   },
+   "_source": "攻击范围扩大，攻击力+150%，第一天赋额外攻击2个目标并附加1秒晕眩；每次攻击命中目标少于3名敌人时，自身流失最大生命值的12%。",
+   "_parsed": [
+    {
+     "text": "攻击力+150%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 150.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "每次攻击命中目标少于3名敌人时",
+     "attribute": "targets",
+     "relation": "per",
+     "value": 3.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "自身流失最大生命值的12%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_in_range"
+ },
+ "_trait_parsed": [
+  {
+   "text": "对攻击范围内所有敌人造成伤害",
+   "attribute": "range",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "不容易成为敌人的攻击目标",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_mult": 0.5,
+  "atk_pct": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "创伤性癔症",
+   "condition": "精英2",
+   "text": "攻击时对攻击目标中生命值最少的敌人额外造成相当于攻击力50%的法术伤害"
+  },
+  {
+   "name": "反移情",
+   "condition": "精英2",
+   "text": "攻击范围内存在生命值低于一半的敌人时，攻击力+10%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击时对攻击目标中生命值最少的敌人额外造成相当于攻击力50%的法术伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 50.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "攻击力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内存在生命值低于一半的敌人时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

@@ -1,0 +1,151 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "稀音"
+ },
+ "name": "稀音",
+ "class": "辅助",
+ "branch": "召唤师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，可以使用召唤物协助作战",
+ "attack_interval": 1.6,
+ "atk": 432.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "保护色隐蔽",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 60.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "所有摄影车的攻击力+60%，获得迷彩，持续时间无限",
+   "_parsed": [
+    {
+     "text": "所有摄影车的攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "partial",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "获得迷彩",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "全景过载摄像",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 130.0
+   },
+   "_source": "立即获得一个摄影车，所有摄影车的侦查范围扩大，攻击力+130%，防御力+130%，法术抗性+20，技能结束后所有摄影车晕眩5秒",
+   "_parsed": [
+    {
+     "text": "攻击力+130%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 130.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "立即获得一个摄影车",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "防御力+130%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "法术抗性+20",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「res / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以使用召唤物协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "targets": 8
+ },
+ "_talent_meta": [
+  {
+   "name": "摄影小队",
+   "condition": "精英2",
+   "text": "可以使用5个移动摄影车。摄影车周围8格内敌人的隐匿效果失效"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "摄影车周围8格内敌人的隐匿效果失效",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 8.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "可以使用5个移动摄影车",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

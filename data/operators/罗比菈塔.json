@@ -1,0 +1,116 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "罗比菈塔"
+ },
+ "name": "罗比菈塔",
+ "class": "辅助",
+ "branch": "工匠",
+ "rarity": 4.0,
+ "trait_text": "能够阻挡两个敌人，使用协助作战",
+ "attack_interval": 1.5,
+ "atk": 535.0,
+ "atk_trust": 35.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "叙拉古式上妆",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 50.0
+   },
+   "_source": "攻击力+50%，防御力+50%",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "全自动造型仪",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {},
+   "_source": "停止攻击，阻挡数+1，防御力+80%，技能结束时获得一个造型仪",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "partial",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "技能结束时获得一个造型仪",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "防御力+80%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "使用协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "造型仪调试",
+   "condition": "精英2",
+   "text": "携带3个造型仪（最多部署3个），使一名近战位上的单位防御力+30%并获得2层护盾（持续25秒，防御加成不叠加）"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "携带3个造型仪（最多部署3个）",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

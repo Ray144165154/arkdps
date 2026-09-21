@@ -1,0 +1,84 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "断罪者"
+ },
+ "name": "断罪者",
+ "class": "近卫",
+ "branch": "无畏者",
+ "rarity": 4.0,
+ "trait_text": "能够阻挡一个敌人",
+ "attack_interval": 1.5,
+ "atk": 929.0,
+ "atk_trust": 22.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "断罪",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.0
+   },
+   "_source": "下次攻击的攻击力提升至200%（有5%的概率变为800%），可充能3次",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提升至200%（有5%的概率变为800%）",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 200.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "创世纪",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 12.0,
+   "init_sp": 5.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.5
+   },
+   "_source": "使周围所有敌人立即受到攻击力350%的法术伤害并失去特殊能力5秒，有50%的几率失败，失败时范围内的所有友方单位全部晕眩5秒",
+   "_parsed": [
+    {
+     "text": "使周围所有敌人立即受到攻击力350%的法术伤害并失去特殊能力5秒",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 350.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "有50%的几率失败",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "稳妥降落",
+   "condition": "精英2",
+   "text": "部署费用-4，再部署时间-15秒，但部署后晕眩10秒"
+  }
+ ],
+ "_talent_parsed": []
+}

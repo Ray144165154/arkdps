@@ -1,0 +1,56 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "正义骑士号"
+ },
+ "name": "正义骑士号",
+ "class": "狙击",
+ "branch": "速射手",
+ "rarity": 1.0,
+ "trait_text": "优先攻击空中单位，且不受部署数量限制，但再部署时间极长",
+ "attack_interval": 1.0,
+ "atk": 172.0,
+ "atk_trust": 45.0,
+ "atk_potential": 0.0,
+ "skills": [],
+ "_warnings": [],
+ "_atk_from": "精英0_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "不受部署数量限制",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "正义助威·VI",
+   "condition": "潜能6",
+   "text": "部署后20秒内攻击范围内所有友方远程位单位更不容易被攻击且敌方空中单位获得25%的脆弱效果",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "部署后20秒内攻击范围内所有友方远程位单位更不容易被攻击",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "敌方空中单位获得25%的脆弱效果",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

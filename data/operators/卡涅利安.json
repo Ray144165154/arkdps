@@ -1,0 +1,178 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "卡涅利安"
+ },
+ "name": "卡涅利安",
+ "class": "术师",
+ "branch": "阵法术师",
+ "rarity": 6.0,
+ "trait_text": "通常时不攻击且防御力和法术抗性大幅度提升，技能开启时攻击造成群体法术伤害",
+ "attack_interval": 2.0,
+ "atk": 846.0,
+ "atk_trust": 80.0,
+ "atk_potential": 34.0,
+ "skills": [
+  {
+   "name": "沙暴守卫",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 18.0,
+   "init_sp": 5.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "攻击力+60%，防御力+100%；，蓄力额外效果：特性效果在技能期间继续生效",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "蓄力额外效果：特性效果在技能期间继续生效",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "防御力+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "沙缚镣锁",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "interval_flat": -1.1,
+    "atk_pct": 20.0
+   },
+   "_source": "攻击间隔大幅度缩短(-1.1)，每次攻击对目标造成0.3秒停顿；，蓄力额外效果：攻击力+20%且停顿变为束缚0.6秒",
+   "_parsed": [
+    {
+     "text": "攻击间隔大幅度缩短(-1.1)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -1.1,
+     "field": "interval_flat"
+    },
+    {
+     "text": "蓄力额外效果：攻击力+20%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 20.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "食噬之印",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 28.0,
+   "init_sp": 5.0,
+   "duration": 21.0,
+   "effects": {
+    "atk_pct": 280.0,
+    "targets": 20
+   },
+   "_source": "攻击范围扩大，攻击力逐渐增至+280%，蓄力额外效果：每次攻击使目标受到来自卡涅利安的伤害提升20%（最多叠加5次），持续至技能结束",
+   "_parsed": [
+    {
+     "text": "攻击力逐渐增至+280%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 280.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "蓄力额外效果：每次攻击使目标受到来自卡涅利安的伤害提升20%（最多叠加5次）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 20.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "持续至技能结束",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "通常时不攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "防御力和法术抗性大幅度提升",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "技能开启时攻击造成群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "生命之餐",
+   "condition": "精英2",
+   "text": "开启技能时立即恢复40%最大生命值；，蓄力时效果翻倍"
+  },
+  {
+   "name": "蓄势待发",
+   "condition": "精英2",
+   "text": "技力超过上限时，技力自然回复速度+0.6/秒"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "蓄力时效果翻倍",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "技力超过上限时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": false
+}

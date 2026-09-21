@@ -1,0 +1,202 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "淬羽赫默"
+ },
+ "name": "淬羽赫默",
+ "class": "辅助",
+ "branch": "护佑者",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+ "attack_interval": 1.6,
+ "atk": 467.0,
+ "atk_trust": 55.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "进取之心",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "俯瞰视界",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 24.0,
+   "init_sp": 14.0,
+   "duration": 12.0,
+   "effects": {
+    "aspd": 60.0
+   },
+   "_source": "攻击速度+60，技能期间可以使用一个辅助无人机，无人机投入战场后使周围友军享受3倍的第一天赋效果，技能结束或淬羽赫默离场时销毁",
+   "_parsed": [
+    {
+     "text": "攻击速度+60",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "技能期间可以使用一个辅助无人机",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "无人机投入战场后使周围友军享受3倍的第一天赋效果",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能结束或淬羽赫默离场时销毁",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "无畏者协议",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 60.0,
+   "effects": {
+    "atk_pct": 30.0
+   },
+   "_source": "攻击力+30%，第一天赋效果提升至1.8倍；技能期间仅一次，攻击范围内的一名干员受到致命伤时，使其生命值在10秒内不低于1，同一次作战中最多使用2次，可主动关闭（期间可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击力+30%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 30.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "可主动关闭（期间可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "第一天赋效果提升至1.8倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能期间仅一次",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "同一次作战中最多使用2次",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "攻击范围内的一名干员受到致命伤时",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "使其生命值在10秒内不低于1",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts",
+  "atk_mult": 0.75
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  },
+  {
+   "text": "技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 75.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "无声砥柱",
+   "condition": "精英2",
+   "text": "使攻击范围内的友军获得10%的庇护，友军的生命越低该效果越强（低于30%生命时获得最大24%的庇护）"
+  },
+  {
+   "name": "丰润羽翼",
+   "condition": "精英2",
+   "text": "攻击范围内生命低于50%的友军每秒恢复相当于淬羽赫默攻击力5%的生命，【莱茵生命】干员的恢复效果翻倍"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "使攻击范围内的友军获得10%的庇护",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "友军的生命越低该效果越强（低于30%生命时获得最大24%的庇护）",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "攻击范围内生命低于50%的友军每秒恢复相当于淬羽赫默攻击力5%的生命",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "子句同时含有「治疗与回复」与影响伤害的属性词，无法确定数值属于哪一个"
+  }
+ ],
+ "_talent_needs_review": true
+}

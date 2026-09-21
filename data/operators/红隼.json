@@ -1,0 +1,118 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "红隼"
+ },
+ "name": "红隼",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 514.0,
+ "atk_trust": 50.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "冲锋号令·γ型",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得12点部署费用",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "醉刃乱舞",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 40.0,
+    "aspd": 40.0
+   },
+   "_source": "技能持续时间内逐渐获得12点部署费用，攻击力+40%，攻击速度+40，第一天赋的触发几率提升至2.5倍",
+   "_parsed": [
+    {
+     "text": "攻击力+40%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+40",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "第一天赋的触发几率提升至2.5倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.2
+ },
+ "_talent_meta": [
+  {
+   "name": "蛮力重击",
+   "condition": "精英2",
+   "text": "攻击时有20%的概率使攻击力提升至140%"
+  },
+  {
+   "name": "习惯使然",
+   "condition": "精英2",
+   "text": "在【沙洲遗闻】中，技能开启时，将自身携带的资源送至背包"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击时有20%的概率使攻击力提升至140%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 20.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在【沙洲遗闻】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "技能开启时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "将自身携带的资源送至背包",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

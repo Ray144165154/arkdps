@@ -1,0 +1,148 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "特克诺"
+ },
+ "name": "特克诺",
+ "class": "术师",
+ "branch": "塑灵术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，可以通过击倒敌人生成召唤物，可攻击到自身召唤物阻挡的敌人",
+ "attack_interval": 1.6,
+ "atk": 519.0,
+ "atk_trust": 0.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "关节锁定",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 50.0
+   },
+   "_source": "攻击力+50%，木偶舞者的阻挡数+1，生命上限+50%，防御力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "生命上限+50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "防御力+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "恣意挥洒",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 20.0,
+   "effects": {
+    "aspd": 100.0
+   },
+   "_source": "攻击范围扩大，自身和木偶舞者的攻击速度+100，木偶舞者变为远程攻击，可攻击特克诺攻击范围内的敌人，技能结束时所有木偶舞者在距离特克诺最近的可部署地块重新生成",
+   "_parsed": [
+    {
+     "text": "自身和木偶舞者的攻击速度+100",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "技能结束时所有木偶舞者在距离特克诺最近的可部署地块重新生成",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "可攻击特克诺攻击范围内的敌人",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以通过击倒敌人生成召唤物",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "可攻击到自身召唤物阻挡的敌人",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "targets": 5,
+  "damage_type": "arts"
+ },
+ "_talent_meta": [
+  {
+   "name": "即兴制偶",
+   "condition": "精英2",
+   "text": "攻击范围内的地面敌人被击倒时原地生成一个木偶舞者（最多存在5个），木偶舞者攻击造成法术伤害"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击范围内的地面敌人被击倒时原地生成一个木偶舞者（最多存在5个）",
+   "attribute": "targets",
+   "relation": "max_of",
+   "value": 5.0,
+   "field": "targets"
+  },
+  {
+   "text": "木偶舞者攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ]
+}

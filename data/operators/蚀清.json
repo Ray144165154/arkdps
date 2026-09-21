@@ -1,0 +1,108 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "蚀清"
+ },
+ "name": "蚀清",
+ "class": "术师",
+ "branch": "轰击术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成超远距离的群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 760.0,
+ "atk_trust": 90.0,
+ "atk_potential": 33.0,
+ "skills": [
+  {
+   "name": "专注力超载",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 0.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 135.0
+   },
+   "_source": "攻击力+135%，技能结束后蚀清晕眩10秒",
+   "_parsed": [
+    {
+     "text": "攻击力+135%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 135.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "传导蚀滞弹",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 100.0,
+    "targets": 5
+   },
+   "_source": "攻击力+100%，攻击后使目标失去特殊能力5秒，可主动关闭技能（期间可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击后使目标失去特殊能力5秒",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "targets"
+    },
+    {
+     "text": "可主动关闭技能（期间可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成超远距离的群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "战术性调整",
+   "condition": "精英2",
+   "text": "4秒内没有主动攻击过，技力自然回复速度+0.45/秒"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "4秒内没有主动攻击过",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

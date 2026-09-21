@@ -1,0 +1,135 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "天空盒"
+ },
+ "name": "天空盒",
+ "class": "狙击",
+ "branch": "裂空炮手",
+ "rarity": 5.0,
+ "trait_text": "部署后起飞，起飞后只攻击空中敌人；技能开启时降落且攻击造成群体物理伤害",
+ "attack_interval": 2.1,
+ "atk": 899.0,
+ "atk_trust": 85.0,
+ "atk_potential": 35.0,
+ "skills": [
+  {
+   "name": "源石火药驾临",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 8.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.0
+   },
+   "_source": "下次攻击变为投掷源石炸弹，爆炸范围扩大，造成相当于攻击力300%的物理伤害，可充能2次",
+   "_parsed": [
+    {
+     "text": "造成相当于攻击力300%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 300.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "下次攻击变为投掷源石炸弹",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "电磁脉冲恩宠",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.4
+   },
+   "_source": "攻击范围扩大，攻击时攻击力提升至240%，过载：主动关闭时发射剩余全部弹药攻击随机敌人，技能拥有10枚弹药，可随时主动关闭",
+   "_parsed": [
+    {
+     "text": "攻击时攻击力提升至240%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 240.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "可随时主动关闭",
+     "attribute": "termination",
+     "relation": "unspecified",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体物理伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "部署后起飞",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "技能开启时降落",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "开门！管理局",
+   "condition": "精英2",
+   "text": "对每个敌人首次造成伤害后，使目标的特殊能力失效，持续7秒"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "持续7秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 7.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "对每个敌人首次造成伤害后",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "使目标的特殊能力失效",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

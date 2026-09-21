@@ -1,0 +1,192 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "止颂"
+ },
+ "name": "止颂",
+ "class": "近卫",
+ "branch": "无畏者",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡一个敌人",
+ "attack_interval": 1.5,
+ "atk": 1044.0,
+ "atk_trust": 85.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "强力击·γ型",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.9
+   },
+   "_source": "下次攻击的攻击力提高至290%",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至290%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 290.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "虔修对决",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 24.0,
+   "effects": {
+    "atk_pct": 60.0,
+    "hits_override": 2.0
+   },
+   "_source": "部署后，第一天赋效果提升至2.2倍，攻击力+60%，攻击变为2连击",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击变为2连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "第一天赋效果提升至2.2倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "部署后",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "苦修破誓",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 30.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_mult": 2.2
+   },
+   "_source": "自身免疫异常状态，生命值+110%，攻击被阻挡目标时，造成相当于攻击力220%的物理伤害，干员处于异常状态时可以释放技能并清除异常状态，但会对自身造成600点法术伤害",
+   "_parsed": [
+    {
+     "text": "造成相当于攻击力220%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 220.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击被阻挡目标时",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "但会对自身造成600点法术伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "自身免疫异常状态",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "生命值+110%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 35,
+  "atk_pct": 12.0
+ },
+ "_talent_meta": [
+  {
+   "name": "苦痛专注",
+   "condition": "精英2",
+   "text": "阻挡时，受到来自非自身阻挡敌人的物理和法术伤害降低35%"
+  },
+  {
+   "name": "痛楚砺刃",
+   "condition": "精英2",
+   "text": "受到伤害后，攻击力+12%，持续15秒（不可叠加）"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "受到来自非自身阻挡敌人的物理和法术伤害降低35%",
+   "attribute": "targets",
+   "relation": "decrease",
+   "value": 35.0,
+   "field": "targets"
+  },
+  {
+   "text": "攻击力+12%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 12.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "持续15秒（不可叠加）",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 15.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "阻挡时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "受到伤害后",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

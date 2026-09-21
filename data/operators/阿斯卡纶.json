@@ -1,0 +1,213 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "阿斯卡纶"
+ },
+ "name": "阿斯卡纶",
+ "class": "特种",
+ "branch": "伏击客",
+ "rarity": 6.0,
+ "trait_text": "对攻击范围内所有敌人造成伤害，拥有50%的物理和法术闪避且不容易成为敌人的攻击目标",
+ "attack_interval": 3.5,
+ "atk": 954.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "追袭",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 7.0,
+   "init_sp": 4.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.1,
+    "hits_override": 2.0
+   },
+   "_source": "下次攻击的攻击力提升至210%，并连续攻击两次，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提升至210%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 210.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "并连续攻击两次",
+     "attribute": "hits",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "恩赐",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 15.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 130.0
+   },
+   "_source": "攻击力+130%，使攻击范围内所有敌人移动速度-60%，并在地面敌人被击倒时对周围地面敌人施加一层第一天赋效果",
+   "_parsed": [
+    {
+     "text": "攻击力+130%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 130.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "并在地面敌人被击倒时对周围地面敌人施加一层第一天赋效果",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "使攻击范围内所有敌人移动速度-60%",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「movement」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "降临",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 45.0,
+   "init_sp": 35.0,
+   "duration": 45.0,
+   "effects": {
+    "atk_pct": 50.0,
+    "interval_flat": -1.5
+   },
+   "_source": "攻击范围扩大，攻击力+50%，攻击间隔较大幅度缩短(-1.5)，使攻击范围内的地面敌人物理与法术命中率-50%。自身嘲讽等级]]更易受到敌人攻击，敌人未命中自身或自身闪避时回复8%最大生命值",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击间隔较大幅度缩短(-1.5)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -1.5,
+     "field": "interval_flat"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "使攻击范围内的地面敌人物理与法术命中率-50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_in_range"
+ },
+ "_trait_parsed": [
+  {
+   "text": "对攻击范围内所有敌人造成伤害",
+   "attribute": "range",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "不容易成为敌人的攻击目标",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "aspd": 14.0
+ },
+ "_talent_meta": [
+  {
+   "name": "死亡拘审",
+   "condition": "精英2",
+   "text": "攻击对敌人施加效果：移动速度降低18％，每秒受到10％阿斯卡纶当前攻击力的法术伤害，持续25秒，效果最多叠加三层"
+  },
+  {
+   "name": "噬光残影",
+   "condition": "精英2",
+   "text": "攻击速度+8，自身周围四格有高台时，攻击速度额外+6"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "持续25秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 25.0,
+   "field": "duration"
+  },
+  {
+   "text": "攻击速度+8",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 8.0,
+   "field": "aspd"
+  },
+  {
+   "text": "攻击速度额外+6",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 6.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击对敌人施加效果：移动速度降低18％",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「movement / decrease」，但没能映射到引擎字段"
+  },
+  {
+   "text": "每秒受到10％阿斯卡纶当前攻击力的法术伤害",
+   "kind": "unmapped",
+   "affects_damage": true,
+   "reason": "识别为「atk / per」，但没能映射到引擎字段"
+  },
+  {
+   "text": "效果最多叠加三层",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "自身周围四格有高台时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

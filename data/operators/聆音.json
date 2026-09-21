@@ -1,0 +1,127 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "聆音"
+ },
+ "name": "聆音",
+ "class": "近卫",
+ "branch": "本源近卫",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡两个敌人，可以造成元素伤害",
+ "attack_interval": 1.2,
+ "atk": 820.0,
+ "atk_trust": 80.0,
+ "atk_potential": 30.0,
+ "skills": [
+  {
+   "name": "开颅挽歌",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "hits_override": 2.0,
+    "atk_mult": 1.5
+   },
+   "_source": "攻击变为二连击，每次攻击造成相当于攻击力150%的物理伤害，攻击附带造成伤害10%的神经损伤",
+   "_parsed": [
+    {
+     "text": "攻击变为二连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "hits_override"
+    },
+    {
+     "text": "每次攻击造成相当于攻击力150%的物理伤害",
+     "attribute": "per_hit_mult",
+     "relation": "proportional",
+     "value": 150.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击附带造成伤害10%的神经损伤",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "破膛弥撒",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.06
+   },
+   "_source": "立即对周围最多6名地面敌人造成三次相当于攻击力250%的物理伤害，若目标处于神经损伤爆发期间则改为造成元素伤害，可充能2次",
+   "_parsed": [
+    {
+     "text": "立即对周围最多6名地面敌人造成三次相当于攻击力250%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 6.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "若目标处于神经损伤爆发期间则改为造成元素伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以造成元素伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_pct": 25.0
+ },
+ "_talent_meta": [
+  {
+   "name": "趁势怜悯",
+   "condition": "精英2",
+   "text": "攻击力+10%，击倒过处于神经损伤爆发期间的敌人后改为攻击力+15%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "击倒过处于神经损伤爆发期间的敌人后改为攻击力+15%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 15.0,
+   "field": "atk_pct"
+  }
+ ]
+}

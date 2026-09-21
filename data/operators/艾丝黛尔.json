@@ -1,0 +1,95 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "艾丝黛尔"
+ },
+ "name": "艾丝黛尔",
+ "class": "近卫",
+ "branch": "强攻手",
+ "rarity": 4.0,
+ "trait_text": "同时攻击阻挡的所有敌人",
+ "attack_interval": 1.2,
+ "atk": 690.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "攻击力强化·β型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "舍身突击",
+   "charge": "hit",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 10.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 150.0
+   },
+   "_source": "攻击力+150%，不再成为其他角色的治疗目标",
+   "_parsed": [
+    {
+     "text": "攻击力+150%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 150.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_blocked"
+ },
+ "_trait_parsed": [
+  {
+   "text": "同时攻击阻挡的所有敌人",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 8
+ },
+ "_talent_meta": [
+  {
+   "name": "自愈能力",
+   "condition": "精英2",
+   "text": "周围8格内有敌人倒下时，恢复自身最大生命值12%的生命"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "周围8格内有敌人倒下时",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 8.0,
+   "field": "targets"
+  }
+ ]
+}

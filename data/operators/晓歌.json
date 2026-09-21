@@ -1,0 +1,132 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "晓歌"
+ },
+ "name": "晓歌",
+ "class": "先锋",
+ "branch": "情报官",
+ "rarity": 5.0,
+ "trait_text": "再部署时间减少，可使用远程攻击",
+ "attack_interval": 1.0,
+ "atk": 560.0,
+ "atk_trust": 30.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "观火",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "部署后攻击力+100%，每次攻击时获得1点部署费用",
+   "_parsed": [
+    {
+     "text": "部署后攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "浮光",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 40.0,
+    "aspd": 50.0
+   },
+   "_source": "攻击力+40%，攻击速度+50，自身获得迷彩，每次攻击时获得1点部署费用。，攻击装有18发弹药，打完后结束（可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击力+40%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    },
+    {
+     "text": "打完后结束（可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "自身获得迷彩",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 12.0
+ },
+ "_talent_meta": [
+  {
+   "name": "万全",
+   "condition": "精英2",
+   "text": "未阻挡敌人时攻击速度+12，阻挡敌人时攻击力+12%",
+   "conditional": {
+    "aspd": 12.0
+   },
+   "conditions": [
+    {
+     "text": "未阻挡敌人时攻击速度+12",
+     "condition": "未阻挡",
+     "fields": {
+      "aspd": 12.0
+     },
+     "reason": "含条件标记「未阻挡」，是否生效取决于战场情况"
+    }
+   ]
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "未阻挡敌人时攻击速度+12",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 12.0,
+   "field": "aspd"
+  },
+  {
+   "text": "阻挡敌人时攻击力+12%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 12.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_conditional": {
+  "aspd": 12.0
+ }
+}

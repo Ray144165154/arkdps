@@ -1,0 +1,123 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "断崖"
+ },
+ "name": "断崖",
+ "class": "近卫",
+ "branch": "领主",
+ "rarity": 5.0,
+ "trait_text": "可以进行远程攻击，但此时攻击力降低至80%",
+ "attack_interval": 1.3,
+ "atk": 670.0,
+ "atk_trust": 75.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "多导向散射弹丸",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "targets": 3
+   },
+   "_source": "下次攻击对攻击范围内最多3名敌人造成攻击力160%的法术伤害，并使目标停顿1秒",
+   "_parsed": [
+    {
+     "text": "下次攻击对攻击范围内最多3名敌人造成攻击力160%的法术伤害",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 3.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "浮游刃启动",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 25.0,
+   "duration": 25.0,
+   "effects": {
+    "damage_type": "arts",
+    "atk_mult": 0.08
+   },
+   "_source": "攻击范围扩大，伤害类型变为法术；每次攻击时，额外对自身与周围8格友方单位阻挡的所有敌人造成相当于攻击力170%的法术伤害(均视为近战攻击）",
+   "_parsed": [
+    {
+     "text": "伤害类型变为法术",
+     "attribute": "damage_type",
+     "relation": "set_to",
+     "value": null,
+     "field": "damage_type"
+    },
+    {
+     "text": "额外对自身与周围8格友方单位阻挡的所有敌人造成相当于攻击力170%的法术伤害(均视为近战攻击）",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 8.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "每次攻击时",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 80.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.8
+ },
+ "_trait_conditions": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "condition": "但此时",
+   "fields": {
+    "atk_mult": 0.8
+   },
+   "reason": "含条件标记「但此时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 8.0
+ },
+ "_talent_meta": [
+  {
+   "name": "索敌援助",
+   "condition": "精英2",
+   "text": "自身与周围8格友方干员攻速+8"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "自身与周围8格友方干员攻速+8",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 8.0,
+   "field": "aspd"
+  }
+ ]
+}

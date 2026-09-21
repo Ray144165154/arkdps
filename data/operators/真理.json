@@ -1,0 +1,112 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "真理"
+ },
+ "name": "真理",
+ "class": "辅助",
+ "branch": "凝滞师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，并对敌人造成短暂的停顿",
+ "attack_interval": 1.9,
+ "atk": 518.0,
+ "atk_trust": 65.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "专心致志",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "interval_flat": -1.1
+   },
+   "_source": "攻击间隔极大幅度缩短(-1.1)",
+   "_parsed": [
+    {
+     "text": "攻击间隔极大幅度缩短(-1.1)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -1.1,
+     "field": "interval_flat"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "文学风暴",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 30.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 75.0,
+    "targets": 2
+   },
+   "_source": "攻击力+75%，攻击范围扩大，额外攻击两个目标",
+   "_parsed": [
+    {
+     "text": "攻击力+75%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 75.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "额外攻击两个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 18.0
+ },
+ "_talent_meta": [
+  {
+   "name": "探知者",
+   "condition": "精英2",
+   "text": "防御力-35%，但攻击速度+18"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "但攻击速度+18",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 18.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "防御力-35%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / decrease」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

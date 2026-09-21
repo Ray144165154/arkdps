@@ -1,0 +1,62 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "Touch"
+ },
+ "name": "Touch",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 5.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 595.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "宛如天启",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 30.0
+   },
+   "_source": "自身攻击距离+2，每次治疗2个目标，所有医疗干员攻击力+30%",
+   "_parsed": [
+    {
+     "text": "所有医疗干员攻击力+30%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 30.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "自身攻击距离+2",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "攫升",
+   "condition": "精英2",
+   "text": "治疗目标时使其获得+3技力"
+  }
+ ],
+ "_talent_parsed": []
+}

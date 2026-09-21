@@ -1,0 +1,93 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "暗索"
+ },
+ "name": "暗索",
+ "class": "特种",
+ "branch": "钩索师",
+ "rarity": 4.0,
+ "trait_text": "技能可以使敌人产生位移，可以放置于远程位",
+ "attack_interval": 1.8,
+ "atk": 728.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "勾爪发射",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.9
+   },
+   "_source": "下次攻击会把敌人较大力地牵引至面前，并对其造成相当于攻击力190%的物理伤害",
+   "_parsed": [
+    {
+     "text": "并对其造成相当于攻击力190%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 190.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "下次攻击会把敌人较大力地牵引至面前",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "复式勾爪",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 10.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.25
+   },
+   "_source": "将远距离内两个敌人较大力地拖拽至面前，并对其造成相当于攻击力225%的物理伤害",
+   "_parsed": [
+    {
+     "text": "并对其造成相当于攻击力225%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 225.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以放置于远程位",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "听觉训练",
+   "condition": "精英2",
+   "text": "获得30%的物理闪避"
+  }
+ ],
+ "_talent_parsed": []
+}

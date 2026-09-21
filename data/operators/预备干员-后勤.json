@@ -1,0 +1,22 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "预备干员-后勤"
+ },
+ "name": "预备干员-后勤",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 3.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 338.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [],
+ "_warnings": [],
+ "_atk_from": "精英1_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact"
+}

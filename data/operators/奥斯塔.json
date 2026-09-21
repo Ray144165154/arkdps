@@ -1,0 +1,159 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "奥斯塔"
+ },
+ "name": "奥斯塔",
+ "class": "狙击",
+ "branch": "散射手",
+ "rarity": 5.0,
+ "trait_text": "攻击范围内的所有敌人，对自己前方一横排的敌人攻击力提升至150%",
+ "attack_interval": 2.3,
+ "atk": 691.0,
+ "atk_trust": 65.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "迅捷打击·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 15.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 45.0,
+    "aspd": 45.0
+   },
+   "_source": "攻击力+45%，攻击速度+45",
+   "_parsed": [
+    {
+     "text": "攻击力+45%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+45",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "影钉",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 25.0,
+   "duration": 25.0,
+   "effects": {
+    "interval_flat": 50.0,
+    "atk_pct": 70.0
+   },
+   "_source": "攻击间隔增大(+50%)，攻击力+70%且每次攻击令目标束缚1.5秒，天赋的伤害倍率翻倍",
+   "_parsed": [
+    {
+     "text": "攻击间隔增大(+50%)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "天赋的伤害倍率翻倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_in_range"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击范围内的所有敌人",
+   "attribute": "range",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "对自己前方一横排的敌人攻击力提升至150%",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「atk」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.18
+ },
+ "_talent_meta": [
+  {
+   "name": "尖钉",
+   "condition": "精英2",
+   "text": "攻击使未被阻挡的敌人流血，每秒受到相当于奥斯塔攻击力18%的法术伤害（不受特性影响），持续3秒",
+   "conditional": {
+    "targets_scope": "all_blocked"
+   },
+   "conditions": [
+    {
+     "text": "攻击使未被阻挡的敌人流血",
+     "condition": "未被阻挡",
+     "fields": {
+      "targets_scope": "all_blocked"
+     },
+     "reason": "含条件标记「未被阻挡」，是否生效取决于战场情况"
+    }
+   ]
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击使未被阻挡的敌人流血",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  },
+  {
+   "text": "每秒受到相当于奥斯塔攻击力18%的法术伤害（不受特性影响）",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 18.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "持续3秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 3.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_conditional": {
+  "targets_scope": "all_blocked"
+ }
+}

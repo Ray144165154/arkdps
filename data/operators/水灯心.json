@@ -1,0 +1,119 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "水灯心"
+ },
+ "name": "水灯心",
+ "class": "狙击",
+ "branch": "回环射手",
+ "rarity": 5.0,
+ "trait_text": "持有回旋投射物时才能够攻击（投射物需要时间回收）",
+ "attack_interval": 1.0,
+ "atk": 640.0,
+ "atk_trust": 75.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "所熟知的",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.3,
+    "targets": 3
+   },
+   "_source": "下次攻击造成相当于攻击力130%的物理伤害，并且回旋投射物可以在敌人间重复弹射（最多弹跳3次）",
+   "_parsed": [
+    {
+     "text": "下次攻击造成相当于攻击力130%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 130.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "回旋投射物可以在敌人间重复弹射（最多弹跳3次）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 3.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "并",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "可驯服的",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 50.0
+   },
+   "_source": "攻击力+50%，回旋投射物命中后会继续附着目标，造成1秒的停顿并额外斩击目标4次",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "回旋投射物命中后会继续附着目标",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "持有回旋投射物时才能够攻击（投射物需要时间回收）",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "结绳老手",
+   "condition": "精英2",
+   "text": "造成20次伤害后，获得35%物理闪避"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "造成20次伤害后",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

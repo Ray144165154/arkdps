@@ -1,0 +1,111 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "苦艾"
+ },
+ "name": "苦艾",
+ "class": "术师",
+ "branch": "中坚术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 633.0,
+ "atk_trust": 70.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "执法模式",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 70.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 90.0
+   },
+   "_source": "攻击力+90%，优先攻击当前生命百分比最低的敌人，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true
+  },
+  {
+   "name": "终结连射",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 28.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_mult": 0.9
+   },
+   "_source": "每次攻击变为攻击力90%的4连发，但不再选择生命值高于50%的敌人作为目标",
+   "_parsed": [
+    {
+     "text": "每次攻击变为攻击力90%的4连发",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 90.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "但不再选择生命值高于50%的敌人作为目标",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / stop」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "执法者",
+   "condition": "精英2",
+   "text": "攻击生命值低于40%的敌人伤害提高24%"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击生命值低于40%的敌人伤害提高24%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

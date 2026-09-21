@@ -1,0 +1,170 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "钼铅"
+ },
+ "name": "钼铅",
+ "class": "特种",
+ "branch": "陷阱师",
+ "rarity": 5.0,
+ "trait_text": "可以使用陷阱来协助作战，但陷阱无法放置于敌人已在的格子中",
+ "attack_interval": 0.85,
+ "atk": 520.0,
+ "atk_trust": 40.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "“驱兽专用”",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 20.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.5
+   },
+   "_source": "被动效果：每个矿石“杀手”准备就绪后可以遥控引爆，对范围内的所有敌人造成相当于攻击力250%的物理伤害，并使其晕眩3秒，主动效果：立即获得一个矿石“杀手”",
+   "_parsed": [
+    {
+     "text": "对范围内的所有敌人造成相当于攻击力250%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 250.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "被动效果：每个矿石“杀手”准备就绪后可以遥控引爆",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "主动效果：立即获得一个矿石“杀手”",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "“顽石专用”",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 20.0,
+   "init_sp": 0.0,
+   "duration": 5.0,
+   "effects": {
+    "atk_mult": 2.5
+   },
+   "_source": "被动效果：矿石“杀手”攻击范围扩大，引爆时将同时引爆所有已准备就绪的矿石“杀手”，对范围内的所有敌人造成两次相当于攻击力250%的物理伤害，并使其防御力-25%（不叠加），持续5秒，主动效果：立即获得一个矿石“杀手”",
+   "_parsed": [
+    {
+     "text": "对范围内的所有敌人造成两次相当于攻击力250%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 250.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续5秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "引爆时将同时引爆所有已准备就绪的矿石“杀手”",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "主动效果：立即获得一个矿石“杀手”",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "并使其防御力-25%（不叠加）",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以使用陷阱来协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "但陷阱无法放置于敌人已在的格子中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "targets": 2
+ },
+ "_talent_meta": [
+  {
+   "name": "探险家的口袋",
+   "condition": "精英2",
+   "text": "可以使用3个矿石“杀手”（最多拥有4个），矿石“杀手”被部署后准备一段时间可以主动引爆"
+  },
+  {
+   "name": "探险家的从容",
+   "condition": "精英2 Y模组3级",
+   "text": "每个矿石“杀手”引爆时范围内的敌人数量大于等于2个时，伤害提升12%",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "每个矿石“杀手”引爆时范围内的敌人数量大于等于2个时",
+   "attribute": "targets",
+   "relation": "proportional",
+   "value": 2.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "可以使用3个矿石“杀手”（最多拥有4个）",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "矿石“杀手”被部署后准备一段时间可以主动引爆",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "伤害提升12%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

@@ -1,0 +1,134 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "莫斯提马"
+ },
+ "name": "莫斯提马",
+ "class": "术师",
+ "branch": "扩散术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 834.0,
+ "atk_trust": 105.0,
+ "atk_potential": 34.0,
+ "skills": [
+  {
+   "name": "攻击力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "荒时之锁",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 30.0,
+   "duration": 7.0,
+   "effects": {},
+   "_source": "攻击范围内的敌人全部晕眩，且每秒受到攻击力140%的法术伤害",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "每秒受到攻击力140%的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "序时之匙",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 110.0,
+   "init_sp": 80.0,
+   "duration": 27.0,
+   "effects": {
+    "atk_pct": 170.0
+   },
+   "_source": "攻击范围扩大，攻击变为向外扩散的波纹，攻击力+170%，第二天赋的效果提升至3倍，小力度地击退攻击目标",
+   "_parsed": [
+    {
+     "text": "攻击力+170%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 170.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击变为向外扩散的波纹",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "第二天赋的效果提升至3倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "技力光环·术师",
+   "condition": "精英2",
+   "text": "在场时所有【术师】干员的技力自然回复速度+0.4/秒（同类效果取最高）"
+  },
+  {
+   "name": "主观缓时",
+   "condition": "精英2",
+   "text": "攻击范围内的敌人移动速度-15%"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的敌人移动速度-15%",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「movement」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  }
+ ],
+ "_talent_needs_review": true
+}

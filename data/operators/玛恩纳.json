@@ -1,0 +1,232 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "玛恩纳"
+ },
+ "name": "玛恩纳",
+ "class": "近卫",
+ "branch": "解放者",
+ "rarity": 6.0,
+ "trait_text": "通常不攻击且阻挡数为0，技能未开启时40秒内攻击力逐渐提升至最高+200%且技能结束时重置攻击力",
+ "attack_interval": 1.2,
+ "atk": 355.0,
+ "atk_trust": 30.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "未声张的怒火",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_mult": 2.0
+   },
+   "_source": "攻击造成相当于200%攻击力的物理伤害，防御力+60%",
+   "_parsed": [
+    {
+     "text": "攻击造成相当于200%攻击力的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 200.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+60%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "未宽解的悲哀",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 10.0,
+   "duration": 20.0,
+   "effects": {
+    "interval_flat": 0.3,
+    "atk_mult": 1.9
+   },
+   "_source": "攻击间隔延长(+0.3)，攻击范围扩大，攻击造成相当于190%攻击力的二连击。，技能期间若击倒敌人，技能结束时特性效果不重置，可主动关闭（期间可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击间隔延长(+0.3)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 0.3,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击造成相当于190%攻击力的二连击",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 190.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "可主动关闭（期间可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "技能期间若击倒敌人",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "技能结束时特性效果不重置",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "未照耀的荣光",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 42.0,
+   "init_sp": 20.0,
+   "duration": 28.0,
+   "effects": {
+    "targets": 2,
+    "atk_mult": 0.006
+   },
+   "_source": "攻击范围扩大，特性提升至2倍（每击倒一名敌人时特性倍率-10%），攻击对5个目标造成相当于180%攻击力的物理伤害。范围内所有敌人受到卡西米尔干员攻击时额外附带玛恩纳12%攻击力的真实伤害",
+   "_parsed": [
+    {
+     "text": "特性提升至2倍（每击倒一名敌人时特性倍率-10%）",
+     "attribute": "targets",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "攻击对5个目标造成相当于180%攻击力的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 5.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "范围内所有敌人受到卡西米尔干员攻击时额外附带玛恩纳12%攻击力的真实伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 12.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "技能未开启时40秒内攻击力逐渐提升至最高+200%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 40.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.4
+ },
+ "_trait_conditions": [
+  {
+   "text": "技能未开启时40秒内攻击力逐渐提升至最高+200%",
+   "condition": "未开启时",
+   "fields": {
+    "atk_mult": 0.4
+   },
+   "reason": "含条件标记「未开启时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "通常不攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "技能结束时重置攻击力",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_mult": 0.165,
+  "targets": 3
+ },
+ "_talent_meta": [
+  {
+   "name": "游侠",
+   "condition": "精英2",
+   "text": "攻击敌人时攻击力提升至110%。周围存在3名及以上敌人时改为提升至115%且受到的伤害减少15%"
+  },
+  {
+   "name": "无动于衷",
+   "condition": "精英2",
+   "text": "在场时，自身嘲讽等级]]更容易受到攻击，所有卡西米尔干员被攻击时反弹相当于玛恩纳攻击力15%的真实伤害"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击敌人时攻击力提升至110%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 110.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "周围存在3名及以上敌人时改为提升至115%",
+   "attribute": "targets",
+   "relation": "set_to",
+   "value": 3.0,
+   "field": "targets"
+  },
+  {
+   "text": "所有卡西米尔干员被攻击时反弹相当于玛恩纳攻击力15%的真实伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 15.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "受到的伤害减少15%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「damage_taken / decrease」，但没能映射到引擎字段"
+  },
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

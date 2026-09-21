@@ -1,0 +1,114 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "食铁兽"
+ },
+ "name": "食铁兽",
+ "class": "特种",
+ "branch": "推击手",
+ "rarity": 5.0,
+ "trait_text": "同时攻击阻挡的所有敌人，可以放置于远程位",
+ "attack_interval": 1.2,
+ "atk": 640.0,
+ "atk_trust": 45.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "铁意六合",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "下次攻击会把目标往攻击方向较大力地推动，5秒内命中目标的移动速度-30%",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "下次攻击会把目标往攻击方向较大力地推动",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "5秒内命中目标的移动速度-30%",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「movement」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "崩拳式",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.5
+   },
+   "_source": "立即往前方突进，寻找前方直线内的最近目标，大力地击退该目标周围的所有敌军，造成相当于攻击力250%的物理伤害，在5秒内所有命中目标的移动速度-30%",
+   "_parsed": [
+    {
+     "text": "造成相当于攻击力250%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 250.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "在5秒内所有命中目标的移动速度-30%",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「movement」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    },
+    {
+     "text": "立即往前方突进",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_blocked"
+ },
+ "_trait_parsed": [
+  {
+   "text": "同时攻击阻挡的所有敌人",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以放置于远程位",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "功夫",
+   "condition": "精英2",
+   "text": "获得40%的物理闪避"
+  }
+ ],
+ "_talent_parsed": []
+}

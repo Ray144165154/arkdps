@@ -1,0 +1,167 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "Pith(卫戍协议)"
+ },
+ "name": "Pith(卫戍协议)",
+ "class": "术师",
+ "branch": "扩散术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 900.0,
+ "atk_trust": 110.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "“书我所书”",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 32.0,
+   "init_sp": 19.0,
+   "duration": 25.0,
+   "effects": {
+    "aspd": 60.0
+   },
+   "_source": "自身攻击速度+60，溅射范围扩大",
+   "_parsed": [
+    {
+     "text": "自身攻击速度+60",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "“为我所为”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 35.0,
+   "effects": {
+    "aspd": 80.0,
+    "atk_pct": 45.0
+   },
+   "_source": "自身攻击速度+80，所有【术师】干员攻击力+45%",
+   "_parsed": [
+    {
+     "text": "自身攻击速度+80",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "aspd"
+    },
+    {
+     "text": "所有【术师】干员攻击力+45%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "“驭我所驭”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 35.0,
+   "duration": 35.0,
+   "effects": {
+    "targets_scope": "all_in_range",
+    "aspd": 75.0
+   },
+   "_source": "开启技能时，立即对攻击范围内的所有敌人造成一次攻击力180%的法术伤害，之后攻击目标数+1，攻击速度+75，溅射范围略微扩大",
+   "_parsed": [
+    {
+     "text": "立即对攻击范围内的所有敌人造成一次攻击力180%的法术伤害",
+     "attribute": "range",
+     "relation": "unspecified",
+     "value": 180.0,
+     "field": "targets_scope"
+    },
+    {
+     "text": "之后攻击目标数+1",
+     "attribute": "targets",
+     "relation": "increase",
+     "value": 1.0,
+     "field": "targets"
+    },
+    {
+     "text": "攻击速度+75",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 75.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "开启技能时",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "溅射范围略微扩大",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "res_ignore": 12.0,
+  "atk_pct": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "“见我所见”",
+   "condition": "精英2",
+   "text": "攻击无视目标12法术抗性"
+  },
+  {
+   "name": "“授我所授”",
+   "condition": "精英2",
+   "text": "自身及相邻四格的【术师】干员攻击力+10%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击无视目标12法术抗性",
+   "attribute": "res",
+   "relation": "ignore",
+   "value": 12.0,
+   "field": "res_ignore"
+  },
+  {
+   "text": "自身及相邻四格的【术师】干员攻击力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  }
+ ]
+}

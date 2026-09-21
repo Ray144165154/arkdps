@@ -1,0 +1,205 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "左乐"
+ },
+ "name": "左乐",
+ "class": "近卫",
+ "branch": "武者",
+ "rarity": 6.0,
+ "trait_text": "不成为其他角色的治疗目标，每次攻击到敌人后回复自身30生命（精英1后更新）",
+ "attack_interval": 1.2,
+ "atk": 780.0,
+ "atk_trust": 40.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "破虏",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 6.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.0
+   },
+   "_source": "下次攻击的攻击力提升至200%，自身生命低于80%时额外攻击1次，低于50%时额外攻击2次，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提升至200%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 200.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "低于50%时额外攻击2次",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "自身生命低于80%时额外攻击1次",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "行险",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 13.0,
+   "duration": 12.0,
+   "effects": {
+    "atk_pct": 170.0
+   },
+   "_source": "立即流失50%当前生命并获得相当于最大生命120%的屏障，攻击力+170%，阻挡数+1，同时攻击所有阻挡的敌人，屏障最高叠加至最大生命的2倍，技能结束后逐渐流失",
+   "_parsed": [
+    {
+     "text": "攻击力+170%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 170.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击所有阻挡的敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "targets_scope": "all_blocked"
+   },
+   "_conditions": [
+    {
+     "text": "同时攻击所有阻挡的敌人",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "targets_scope": "all_blocked"
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "立即流失50%当前生命并获得相当于最大生命120%的屏障",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / proportional」，但没能映射到引擎字段"
+    },
+    {
+     "text": "屏障最高叠加至最大生命的2倍",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / multiply」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "佑序有炎",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 10.0,
+   "duration": 15.0,
+   "effects": {
+    "targets": 3
+   },
+   "_source": "立刻对前方进行7次斩击，每次对最多3名敌人造成攻击力245%的物理伤害（最后一击系数加倍且使目标晕眩5秒），期间特性的生命回复改为获得相当于回复量3倍的屏障，屏障最高叠加至最大生命的2倍，持续15秒",
+   "_parsed": [
+    {
+     "text": "每次对最多3名敌人造成攻击力245%的物理伤害（最后一击系数加倍且使目标晕眩5秒）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 3.0,
+     "field": "targets"
+    },
+    {
+     "text": "持续15秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 15.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "立刻对前方进行7次斩击",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "屏障最高叠加至最大生命的2倍",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / multiply」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 50.0
+ },
+ "_talent_meta": [
+  {
+   "name": "秉烛照影",
+   "condition": "精英2",
+   "text": "在场时，自身获得最高+50攻击速度和技力自然回复速度+2/秒的坚忍（损失70%生命值时达到最大加成）"
+  },
+  {
+   "name": "守正自明",
+   "condition": "精英2",
+   "text": "攻击时有20%的概率获得1点技力，生命低于50%时概率变为70%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "自身获得最高+50攻击速度和技力自然回复速度+2/秒的坚忍（损失70%生命值时达到最大加成）",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 50.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "攻击时有20%的概率获得1点技力",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「sp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "生命低于50%时概率变为70%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / set_to」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

@@ -1,0 +1,144 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "巫恋"
+ },
+ "name": "巫恋",
+ "class": "辅助",
+ "branch": "削弱者",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 408.0,
+ "atk_trust": 65.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "病入膏肓",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 70.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "攻击力+60%，天赋的伤害加成提升至1.8倍，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "low",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "天赋的伤害加成提升至1.8倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "诅咒娃娃",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "获得一个诅咒娃娃（最多可库存1个），诅咒娃娃周围敌人的攻击力和防御力-50%，15秒后自动销毁",
+   "_parsed": [],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "诅咒娃娃周围敌人的攻击力和防御力-50%",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「atk」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    },
+    {
+     "text": "获得一个诅咒娃娃（最多可库存1个）",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "15秒后自动销毁",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 10
+ },
+ "_talent_meta": [
+  {
+   "name": "溃败暗示",
+   "condition": "精英2",
+   "text": "攻击范围内的敌人生命少于40%时，令其获得30%的脆弱效果"
+  },
+  {
+   "name": "伴生恶兆",
+   "condition": "精英2 X模组3级",
+   "text": "在战场停留10秒后不容易成为敌人的攻击目标",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "在战场停留10秒后不容易成为敌人的攻击目标",
+   "attribute": "targets",
+   "relation": "set_to",
+   "value": 10.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的敌人生命少于40%时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "令其获得30%的脆弱效果",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

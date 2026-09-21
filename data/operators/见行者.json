@@ -1,0 +1,101 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "见行者"
+ },
+ "name": "见行者",
+ "class": "特种",
+ "branch": "推击手",
+ "rarity": 5.0,
+ "trait_text": "同时攻击阻挡的所有敌人，可以放置于远程位",
+ "attack_interval": 1.2,
+ "atk": 653.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "护身射击",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "下次攻击会把目标往攻击方向较大力地推开，目标撞到高台时晕眩2秒。",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "下次攻击会把目标往攻击方向较大力地推开",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "惊爆射击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 17.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即将范围内所有敌人往身前方向大力地推开并晕眩2.5秒（撞到高台时晕眩时间延长为4秒）。若目标碰撞其他敌人，使其晕眩2.5秒。",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "若目标碰撞其他敌人",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_blocked"
+ },
+ "_trait_parsed": [
+  {
+   "text": "同时攻击阻挡的所有敌人",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以放置于远程位",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "技巧射击",
+   "condition": "精英2",
+   "text": "攻击重量大于等于3的敌人时无视目标180的防御力"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击重量大于等于3的敌人时无视目标180的防御力",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / proportional」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

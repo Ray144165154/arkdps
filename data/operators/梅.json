@@ -1,0 +1,101 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "梅"
+ },
+ "name": "梅",
+ "class": "狙击",
+ "branch": "速射手",
+ "rarity": 4.0,
+ "trait_text": "优先攻击空中单位",
+ "attack_interval": 1.0,
+ "atk": 478.0,
+ "atk_trust": 65.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "麻痹弹",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.0
+   },
+   "_source": "下次攻击的攻击力提高至200%，并使目标停顿2.5秒",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至200%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 200.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "束缚电击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 0.0,
+   "duration": 30.0,
+   "effects": {
+    "interval_flat": 50.0,
+    "atk_pct": 120.0
+   },
+   "_source": "攻击间隔略微增大(+50%)，攻击力+120%，击中目标时使其停顿1秒，另外还有30%的几率使其晕眩1.2秒",
+   "_parsed": [
+    {
+     "text": "攻击间隔略微增大(+50%)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+120%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 120.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 7.0,
+  "aspd": 7.0
+ },
+ "_talent_meta": [
+  {
+   "name": "维多利亚探员",
+   "condition": "精英2",
+   "text": "攻击力+7%，攻击速度+7"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+7%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 7.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "攻击速度+7",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 7.0,
+   "field": "aspd"
+  }
+ ]
+}

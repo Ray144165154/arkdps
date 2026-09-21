@@ -1,0 +1,104 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "暴行"
+ },
+ "name": "暴行",
+ "class": "近卫",
+ "branch": "强攻手",
+ "rarity": 5.0,
+ "trait_text": "同时攻击阻挡的所有敌人",
+ "attack_interval": 1.2,
+ "atk": 705.0,
+ "atk_trust": 0.0,
+ "atk_potential": 35.0,
+ "skills": [
+  {
+   "name": "强力击·β型",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.3
+   },
+   "_source": "下次攻击的攻击力提高至230%",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至230%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 230.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "微差爆破",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 17.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.05
+   },
+   "_source": "对前方三格范围内至多5个敌人造成相当于攻击力400%的物理伤害",
+   "_parsed": [
+    {
+     "text": "对前方三格范围内至多5个敌人造成相当于攻击力400%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 5.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_blocked"
+ },
+ "_trait_parsed": [
+  {
+   "text": "同时攻击阻挡的所有敌人",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "山谷",
+   "condition": "精英2",
+   "text": "部署时，周围四格中有两格以上的高地地形时攻击力和防御力+10%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "周围四格中有两格以上的高地地形时攻击力和防御力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "部署时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

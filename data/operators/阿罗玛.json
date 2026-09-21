@@ -1,0 +1,123 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "阿罗玛"
+ },
+ "name": "阿罗玛",
+ "class": "术师",
+ "branch": "轰击术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成超远距离的群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 760.0,
+ "atk_trust": 80.0,
+ "atk_potential": 33.0,
+ "skills": [
+  {
+   "name": "强效清洁",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 8.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.8900000000000001
+   },
+   "_source": "下次攻击造成相当于攻击力210%的法术伤害，对空中敌人额外造成相当于攻击力90%的法术伤害，可充能2次",
+   "_parsed": [
+    {
+     "text": "下次攻击造成相当于攻击力210%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 210.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "对空中敌人额外造成相当于攻击力90%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 90.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "小心地滑",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 42.0,
+   "init_sp": 27.0,
+   "duration": 23.0,
+   "effects": {
+    "atk_pct": 100.0,
+    "atk_mult": 1.1
+   },
+   "_source": "攻击力+100%，攻击范围内浮空状态的敌人结束浮空落地时，对其造成攻击力110%的法术伤害",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "对其造成攻击力110%的法术伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 110.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成超远距离的群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "起泡性能测试",
+   "condition": "精英2",
+   "text": "对每个敌人首次进行攻击时攻击力提升至110%，并使目标浮空2.5秒",
+   "conditional": {
+    "atk_mult": 1.1
+   },
+   "conditions": [
+    {
+     "text": "对每个敌人首次进行攻击时攻击力提升至110%",
+     "condition": "首次",
+     "fields": {
+      "atk_mult": 1.1
+     },
+     "reason": "含条件标记「首次」，是否生效取决于战场情况"
+    }
+   ]
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "对每个敌人首次进行攻击时攻击力提升至110%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 110.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_conditional": {
+  "atk_mult": 1.1
+ }
+}

@@ -1,0 +1,217 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "死芒"
+ },
+ "name": "死芒",
+ "class": "术师",
+ "branch": "塑灵术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，可以通过击倒敌人生成召唤物，可攻击到自身召唤物阻挡的敌人",
+ "attack_interval": 1.6,
+ "atk": 633.0,
+ "atk_trust": 45.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "噩愿",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 13.0,
+   "init_sp": 8.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 4.5
+   },
+   "_source": "被动：每个悲叹的仆役生成和升级时对周围所有敌人造成相当于死芒攻击力450%的法术伤害，开启：立刻重新召唤所有悲叹的仆役，若场上没有悲叹的仆役存在则召唤1个",
+   "_parsed": [
+    {
+     "text": "被动：每个悲叹的仆役生成和升级时对周围所有敌人造成相当于死芒攻击力450%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 450.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "开启：立刻重新召唤所有悲叹的仆役",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "若场上没有悲叹的仆役存在则召唤1个",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "折朽",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 14.0,
+   "duration": 12.0,
+   "effects": {
+    "targets": 2,
+    "atk_mult": 0.005
+   },
+   "_source": "令最多2名攻击范围内的敌人陷入沉睡，每0.5秒对目标造成相当于攻击力160%的法术伤害；技能期间目标被击倒时额外召唤2个悲叹的仆役",
+   "_parsed": [
+    {
+     "text": "令最多2名攻击范围内的敌人陷入沉睡",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "每0.5秒对目标造成相当于攻击力160%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 0.5,
+     "field": "atk_mult"
+    },
+    {
+     "text": "技能期间目标被击倒时额外召唤2个悲叹的仆役",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "冠死以冕",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 16.0,
+   "init_sp": 5.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 8.0
+   },
+   "_source": "被动：最多1名悲叹的仆役变为特殊形态，此形态下只能通过技能升级，最多升级6次，开启：立刻对范围内所有敌人造成攻击力800%的法术伤害，之后消耗一个悲叹的仆役使特殊仆役升级并回复20%生命（若悲叹的仆役已升级则翻倍），重复3次",
+   "_parsed": [
+    {
+     "text": "开启：立刻对范围内所有敌人造成攻击力800%的法术伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 800.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "最多升级6次",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "重复3次",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "被动：最多1名悲叹的仆役变为特殊形态",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "此形态下只能通过技能升级",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以通过击倒敌人生成召唤物",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "可攻击到自身召唤物阻挡的敌人",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_pct": 100.0,
+  "atk_mult": 0.5
+ },
+ "_talent_meta": [
+  {
+   "name": "复燃",
+   "condition": "精英2",
+   "text": "攻击范围内敌人被击倒时生成一个悲叹的仆役，最多召唤3个，若无法再次召唤则使一个悲叹的仆役升级（提升阻挡数与更多的生命、攻击和防御），(升级后：生命值+100%，攻击力+100%，防御力+40%，阻挡数+1)"
+  },
+  {
+   "name": "回光黯淡",
+   "condition": "精英2",
+   "text": "自身和召唤物攻击生命低于50%的敌人时攻击力提升至140%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "(升级后：生命值+100%，攻击力+100%，防御力+40%，阻挡数+1)",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 100.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "自身和召唤物攻击生命低于50%的敌人时攻击力提升至140%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 50.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内敌人被击倒时生成一个悲叹的仆役",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "最多召唤3个",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

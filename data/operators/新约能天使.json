@@ -1,0 +1,268 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "新约能天使"
+ },
+ "name": "新约能天使",
+ "class": "特种",
+ "branch": "怪杰",
+ "rarity": 6.0,
+ "trait_text": "自身生命会不断流失",
+ "attack_interval": 1.3,
+ "atk": 708.0,
+ "atk_trust": 70.0,
+ "atk_potential": 30.0,
+ "skills": [
+  {
+   "name": "天空大扫除",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 12.0,
+   "init_sp": 8.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "每次攻击造成攻击力250%的物理伤害，优先攻击空中单位，主动关闭时发射剩余所有弹药攻击范围内的随机敌人，攻击装有8发弹药，打完后结束（可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "打完后结束（可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "每次攻击造成攻击力250%的物理伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "开火成瘾症",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 25.0,
+   "duration": 0.0,
+   "effects": {
+    "aspd": 1.0,
+    "interval_flat": -0.7
+   },
+   "_source": "立即偷取攻击范围内1名友方干员70点攻击速度（持续至技能结束或新约能天使离场），自身与其获得最大生命值250%的屏障，该屏障会持续衰减，攻击间隔降低(-0.7)，每次攻击造成攻击力300%的物理伤害，攻击装有35发弹药，打完后结束（可随时停止技能），如果成功偷取攻击速度则额外获得5发弹药",
+   "_parsed": [
+    {
+     "text": "立即偷取攻击范围内1名友方干员70点攻击速度（持续至技能结束或新约能天使离场）",
+     "attribute": "aspd",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "aspd"
+    },
+    {
+     "text": "攻击间隔降低(-0.7)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -0.7,
+     "field": "interval_flat"
+    },
+    {
+     "text": "打完后结束（可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    },
+    {
+     "text": "如果成功偷取攻击速度则额外获得5发弹药",
+     "attribute": "aspd",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "partial",
+   "_conditional": {
+    "aspd": 5.0
+   },
+   "_conditions": [
+    {
+     "text": "如果成功偷取攻击速度则额外获得5发弹药",
+     "condition": "如果",
+     "fields": {
+      "aspd": 5.0
+     },
+     "reason": "含条件标记「如果」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "每次攻击造成攻击力300%的物理伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "该屏障会持续衰减",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "自身与其获得最大生命值250%的屏障",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "使命必达！",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 30.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 30.0,
+    "atk_mult": 1.6
+   },
+   "_source": "攻击力+30%，每次攻击变为相当于攻击力160%的5连击，若存在投递坐标，立刻对该处造成一次相当于攻击力250%的物理溅射伤害并将一名再部署时间最长的地面干员部署至该处，使其获得6点技力，部署后获得投递坐标，攻击装有50发弹药，每次攻击消耗5发，打完后结束（可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击力+30%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 30.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "每次攻击变为相当于攻击力160%的5连击",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 160.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "打完后结束（可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "立刻对该处造成一次相当于攻击力250%的物理溅射伤害并将一名再部署时间最长的地面干员部署至该处",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "子句同时含有「部署与费用」与影响伤害的属性词，无法确定数值属于哪一个"
+    },
+    {
+     "text": "每次攻击消耗5发",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "若存在投递坐标",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "部署后获得投递坐标",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "使其获得6点技力",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「sp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "自身生命会不断流失",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_mult": 1.85,
+  "atk_pct": 9.0
+ },
+ "_talent_meta": [
+  {
+   "name": "火力电台",
+   "condition": "精英2 X模组3级",
+   "text": "在场时，每当有友方干员的弹药被消耗就会回复自身6%生命值，并有35%概率立即对该干员攻击范围的敌人召唤一次轰炸，造成相当于自身攻击力185%的物理溅射伤害",
+   "fallback": true
+  },
+  {
+   "name": "铳弹协约",
+   "condition": "精英2",
+   "text": "在场时，携带弹药类技能的干员攻击力+9%，对【拉特兰】干员的效果翻倍"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "造成相当于自身攻击力185%的物理溅射伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 185.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "携带弹药类技能的干员攻击力+9%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 9.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "并有35%概率立即对该干员攻击范围的敌人召唤一次轰炸",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "对【拉特兰】干员的效果翻倍",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

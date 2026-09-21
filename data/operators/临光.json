@@ -1,0 +1,98 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "临光"
+ },
+ "name": "临光",
+ "class": "重装",
+ "branch": "守护者",
+ "rarity": 5.0,
+ "trait_text": "技能可以治疗友方单位",
+ "attack_interval": 1.2,
+ "atk": 462.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "急救",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.8
+   },
+   "_source": "下一次攻击会为周围血量小于等于一半的一名友方单位恢复相当于攻击力180%的生命，可充能3次",
+   "_parsed": [
+    {
+     "text": "下一次攻击会为周围血量小于等于一半的一名友方单位恢复相当于攻击力180%的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 180.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "急救模式",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 30.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 80.0,
+    "interval_flat": 130.0
+   },
+   "_source": "攻击力+80%，停止攻击并专心对周围友方角色进行治疗，攻击间隔(+130%)",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击间隔(+130%)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 130.0,
+     "field": "interval_flat"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "天马光环",
+   "condition": "精英2",
+   "text": "在场时，全地图的友方单位医疗效果提高10%"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "全地图的友方单位医疗效果提高10%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

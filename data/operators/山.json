@@ -1,0 +1,192 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "山"
+ },
+ "name": "山",
+ "class": "近卫",
+ "branch": "斗士",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡一个敌人",
+ "attack_interval": 0.78,
+ "atk": 587.0,
+ "atk_trust": 45.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "左勾扫拳",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.3
+   },
+   "_source": "下次攻击的攻击力提升至230%，额外攻击一个目标",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提升至230%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 230.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "额外攻击一个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "横扫架势",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 80.0,
+    "targets_scope": "all_blocked"
+   },
+   "_source": "可以在下列状态和初始状态间切换：，防御力-20%，攻击距离缩短，攻击力+80%，阻挡数+1，同时攻击阻挡的所有敌人，每秒恢复最大生命的7.0%",
+   "_parsed": [
+    {
+     "text": "可以在下列状态和初始状态间切换：",
+     "attribute": "stance",
+     "relation": "unspecified",
+     "value": null,
+     "field": "stance"
+    },
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击阻挡的所有敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact",
+   "stance": true,
+   "_unparsed": [
+    {
+     "text": "防御力-20%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "震地碎岩击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 30.0,
+   "effects": {
+    "interval_flat": 70.0,
+    "atk_pct": 100.0,
+    "hits_override": 2.0,
+    "targets": 4
+   },
+   "_source": "攻击间隔增大(+70%)，攻击力+100%，攻击变为2连击，第一天赋的发动几率提升至75%，每次攻击周围最多4个敌人并将其中等力度地推动",
+   "_parsed": [
+    {
+     "text": "攻击间隔增大(+70%)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击变为2连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "hits_override"
+    },
+    {
+     "text": "每次攻击周围最多4个敌人并将其中等力度地推动",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 4.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "第一天赋的发动几率提升至75%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.2
+ },
+ "_talent_meta": [
+  {
+   "name": "巨力重拳",
+   "condition": "精英2",
+   "text": "攻击时有20%的几率攻击力提升至160%，并在3秒内使目标攻击力降低15%（不可叠加）"
+  },
+  {
+   "name": "强壮肉体",
+   "condition": "精英2",
+   "text": "防御力+10%，获得15%的物理闪避"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击时有20%的几率攻击力提升至160%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 20.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "并在3秒内使目标攻击力降低15%（不可叠加）",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「atk」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  },
+  {
+   "text": "防御力+10%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

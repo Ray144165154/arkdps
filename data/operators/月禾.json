@@ -1,0 +1,127 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "月禾"
+ },
+ "name": "月禾",
+ "class": "辅助",
+ "branch": "护佑者",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+ "attack_interval": 1.6,
+ "atk": 445.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "迹无",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 25.0,
+   "duration": 35.0,
+   "effects": {},
+   "_source": "攻击范围内的友军获得35%的物理闪避与法术闪避，并使敌人的隐匿效果失效",
+   "_parsed": [],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "并使敌人的隐匿效果失效",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "森廻",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 48.0,
+   "init_sp": 23.0,
+   "duration": 20.0,
+   "effects": {},
+   "_source": "停止攻击，天赋的触发条件变为60%生命且庇护效果提升至2.3倍，每秒恢复攻击范围内友军相当于月禾攻击力12%的生命",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "low",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "庇护效果提升至2.3倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "每秒恢复攻击范围内友军相当于月禾攻击力12%的生命",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "子句同时含有「治疗与回复」与影响伤害的属性词，无法确定数值属于哪一个"
+    },
+    {
+     "text": "天赋的触发条件变为60%生命",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / set_to」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts",
+  "atk_mult": 0.75
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  },
+  {
+   "text": "技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 75.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "祝",
+   "condition": "精英2",
+   "text": "攻击范围内的友军生命少于40%时，使其获得18%的庇护"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的友军生命少于40%时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "使其获得18%的庇护",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

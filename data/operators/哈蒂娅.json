@@ -1,0 +1,150 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "哈蒂娅"
+ },
+ "name": "哈蒂娅",
+ "class": "近卫",
+ "branch": "佣兵",
+ "rarity": 5.0,
+ "trait_text": "可消耗部署费用来强化作战能力",
+ "attack_interval": 1.25,
+ "atk": 530.0,
+ "atk_trust": 55.0,
+ "atk_potential": 30.0,
+ "skills": [
+  {
+   "name": "沙地战术改良",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 13.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "防御力+100%，装备应变：消耗10点部署费用，攻击力+100%，持续到技能结束，技力满时可使用装备应变来开启技能",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "持续到技能结束",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "技力满时可使用装备应变来开启技能",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "防御力+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "剑角之锋",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 26.0,
+   "init_sp": 15.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 150.0,
+    "targets": 3
+   },
+   "_source": "消耗10点部署费用组合剑和杖，攻击范围扩大，攻击力+150%，同时攻击3个目标；，技能期间可消耗15点部署费用使用装备应变，延长15秒技能持续时间",
+   "_parsed": [
+    {
+     "text": "攻击力+150%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 150.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击3个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 3.0,
+     "field": "targets"
+    },
+    {
+     "text": "延长15秒技能持续时间",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 15.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 4.0,
+  "targets": 2
+ },
+ "_talent_meta": [
+  {
+   "name": "荒野的后裔",
+   "condition": "精英2",
+   "text": "通过部署、开启技能、使用装备应变消耗费用后，攻击力+4%，使攻击范围内的敌人晕眩2秒（攻击力最多提升5次）"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+4%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 4.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "使攻击范围内的敌人晕眩2秒（攻击力最多提升5次）",
+   "attribute": "targets",
+   "relation": "max_of",
+   "value": 2.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "通过部署",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "开启技能",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "使用装备应变消耗费用后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": false
+}

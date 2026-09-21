@@ -1,0 +1,177 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "祐天寺若麦"
+ },
+ "name": "祐天寺若麦",
+ "class": "近卫",
+ "branch": "撼地者",
+ "rarity": 5.0,
+ "trait_text": "攻击使目标周围的其他敌人受到相当于攻击力50%的群体物理伤害",
+ "attack_interval": 1.8,
+ "atk": 1190.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "如焰般热烈",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 8.0,
+   "duration": 15.0,
+   "effects": {
+    "hits_override": 3.0,
+    "atk_mult": 0.32000000000000006
+   },
+   "_source": "攻击变为特殊的三连击，其中第一次攻击的攻击力变为160%且溅射范围扩大；后两次攻击的攻击力变为20%",
+   "_parsed": [
+    {
+     "text": "攻击变为特殊的三连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 3.0,
+     "field": "hits_override"
+    },
+    {
+     "text": "其中第一次攻击的攻击力变为160%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 160.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "后两次攻击的攻击力变为20%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 20.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "如麦般生长",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 32.0,
+   "init_sp": 24.0,
+   "duration": 24.0,
+   "effects": {
+    "hits_override": 8.0,
+    "atk_mult": 0.125,
+    "targets_scope": "all_in_range"
+   },
+   "_source": "攻击范围扩大，攻击变为特殊的八连击，其中第一、五次攻击的攻击力变为125%；其余攻击的攻击力变为10%。随机攻击范围内的目标",
+   "_parsed": [
+    {
+     "text": "攻击变为特殊的八连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 8.0,
+     "field": "hits_override"
+    },
+    {
+     "text": "五次攻击的攻击力变为125%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 125.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "其余攻击的攻击力变为10%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 10.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "随机攻击范围内的目标",
+     "attribute": "range",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "其中第一",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "atk_mult": 0.5
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击使目标周围的其他敌人受到相当于攻击力50%的群体物理伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 50.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 10,
+  "atk_pct": 8.0
+ },
+ "_talent_meta": [
+  {
+   "name": "双利手",
+   "condition": "精英2",
+   "text": "祐天寺若麦可以进行持续攻击；攻击时10%概率使敌人获得8%脆弱，持续2秒"
+  },
+  {
+   "name": "毋畏爱意",
+   "condition": "精英2",
+   "text": "在场时每秒使Fever+3；Ave Mujica成员的攻击力+8%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击时10%概率使敌人获得8%脆弱",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 10.0,
+   "field": "targets"
+  },
+  {
+   "text": "持续2秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 2.0,
+   "field": "duration"
+  },
+  {
+   "text": "Ave Mujica成员的攻击力+8%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 8.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "祐天寺若麦可以进行持续攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "在场时每秒使Fever+3",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

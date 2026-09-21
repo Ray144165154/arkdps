@@ -1,0 +1,159 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "远牙"
+ },
+ "name": "远牙",
+ "class": "狙击",
+ "branch": "神射手",
+ "rarity": 6.0,
+ "trait_text": "优先攻击攻击范围内防御力最低的敌方单位",
+ "attack_interval": 2.7,
+ "atk": 1196.0,
+ "atk_trust": 100.0,
+ "atk_potential": 40.0,
+ "skills": [
+  {
+   "name": "迅捷打击·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 15.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 45.0,
+    "aspd": 45.0
+   },
+   "_source": "攻击力+45%，攻击速度+45",
+   "_parsed": [
+    {
+     "text": "攻击力+45%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+45",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "同盟支援",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 35.0,
+   "effects": {
+    "aspd": 110.0
+   },
+   "_source": "可以攻击到范围外被阻挡的敌方单位，攻击速度+110",
+   "_parsed": [
+    {
+     "text": "攻击速度+110",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 110.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "可以攻击到范围外被阻挡的敌方单位",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「block / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "光羽箭",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 10.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 140.0
+   },
+   "_source": "攻击范围改为前方无限长的直线，攻击力+140%，攻击原本范围以外的目标时，造成的伤害提高至140%",
+   "_parsed": [
+    {
+     "text": "攻击力+140%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 140.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击原本范围以外的目标时",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "造成的伤害提高至140%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "攻击范围改为前方无限长的直线",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 15.0
+ },
+ "_talent_meta": [
+  {
+   "name": "凝神",
+   "condition": "精英2",
+   "text": "最近10秒内未受伤害时，攻击力+15%"
+  },
+  {
+   "name": "屏息",
+   "condition": "精英2",
+   "text": "技能开启时嘲讽等级]]不容易成为敌人的目标，且攻击无视目标的物理闪避"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+15%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 15.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "最近10秒内未受伤害时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

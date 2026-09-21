@@ -1,0 +1,109 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "安哲拉"
+ },
+ "name": "安哲拉",
+ "class": "狙击",
+ "branch": "神射手",
+ "rarity": 5.0,
+ "trait_text": "优先攻击攻击范围内防御力最低的敌方单位",
+ "attack_interval": 2.7,
+ "atk": 1070.0,
+ "atk_trust": 40.0,
+ "atk_potential": 35.0,
+ "skills": [
+  {
+   "name": "攻击力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "阻滞射击战术",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 240.0
+   },
+   "_source": "攻击力+240%，但普通攻击不再以生命值低于50%的敌人为目标，被击中的目标在6秒内移动速度-40%",
+   "_parsed": [
+    {
+     "text": "攻击力+240%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 240.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "但普通攻击不再以生命值低于50%的敌人为目标",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / stop」，但没能映射到引擎字段"
+    },
+    {
+     "text": "被击中的目标在6秒内移动速度-40%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「movement / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 12.0
+ },
+ "_talent_meta": [
+  {
+   "name": "深海直觉",
+   "condition": "精英2",
+   "text": "编入队伍时，所有【深海猎人】干员攻击速度+12"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "所有【深海猎人】干员攻击速度+12",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 12.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "编入队伍时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

@@ -1,0 +1,115 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "豆苗"
+ },
+ "name": "豆苗",
+ "class": "先锋",
+ "branch": "战术家",
+ "rarity": 4.0,
+ "trait_text": "可以在攻击范围内选择一次战术点来召唤援军，自身攻击援军阻挡的敌人时攻击力提升至150%",
+ "attack_interval": 1.0,
+ "atk": 405.0,
+ "atk_trust": 50.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "定点指令",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得8点部署费用，并立刻刷新援军（如已存在则恢复其所有生命值）",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "“大家一起上”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 15.0,
+   "effects": {},
+   "_source": "立即在战术点周围四格的所有近战位临时召唤磐蟹（不包括战术点本身）；技能持续时间内回复总共12点部署费用，所有磐蟹的防御力+70%",
+   "_parsed": [],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "立即在战术点周围四格的所有近战位临时召唤磐蟹（不包括战术点本身）",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "所有磐蟹的防御力+70%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "自身攻击援军阻挡的敌人时攻击力提升至150%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 150.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 1.5
+ },
+ "_trait_conditions": [
+  {
+   "text": "自身攻击援军阻挡的敌人时攻击力提升至150%",
+   "condition": "阻挡的敌人",
+   "fields": {
+    "atk_mult": 1.5
+   },
+   "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以在攻击范围内选择一次战术点来召唤援军",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "专业饲养员",
+   "condition": "精英2",
+   "text": "可以在战术点召唤磐蟹协助作战，其被击败后会在15秒后自动刷新"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "可以在战术点召唤磐蟹协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "其被击败后会在15秒后自动刷新",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

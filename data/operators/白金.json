@@ -1,0 +1,110 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "白金"
+ },
+ "name": "白金",
+ "class": "狙击",
+ "branch": "速射手",
+ "rarity": 5.0,
+ "trait_text": "优先攻击空中单位",
+ "attack_interval": 1.0,
+ "atk": 505.0,
+ "atk_trust": 75.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "攻击力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "天马视域",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 50.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "aspd": -20.0,
+    "atk_pct": 100.0
+   },
+   "_source": "攻击速度略微降低(-20)，但攻击力+100%，攻击范围扩大，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击速度略微降低(-20)",
+     "attribute": "aspd",
+     "relation": "decrease",
+     "value": -20.0,
+     "field": "aspd"
+    },
+    {
+     "text": "但攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.025
+ },
+ "_talent_meta": [
+  {
+   "name": "蓄力攻击",
+   "condition": "精英2",
+   "text": "距离上次攻击的间隔越长，下次攻击的攻击力就越高（最长2.5秒，攻击力180%）"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "下次攻击的攻击力就越高（最长2.5秒，攻击力180%）",
+   "attribute": "atk",
+   "relation": "unspecified",
+   "value": 2.5,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "距离上次攻击的间隔越长",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

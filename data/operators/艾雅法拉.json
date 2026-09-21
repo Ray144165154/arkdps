@@ -1,0 +1,196 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "艾雅法拉"
+ },
+ "name": "艾雅法拉",
+ "class": "术师",
+ "branch": "中坚术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 645.0,
+ "atk_trust": 90.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "二重咏唱",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 25.0,
+   "effects": {
+    "aspd": 60.0
+   },
+   "_source": "攻击速度+60，第二次及以后使用时追加攻击力+60%的效果",
+   "_parsed": [
+    {
+     "text": "攻击速度+60",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "aspd"
+    },
+    {
+     "text": "第二次及以后使用时追加攻击力+60%的效果",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "atk_pct": 60.0
+   },
+   "_conditions": [
+    {
+     "text": "第二次及以后使用时追加攻击力+60%的效果",
+     "condition": "第二次",
+     "fields": {
+      "atk_pct": 60.0
+     },
+     "reason": "含条件标记「第二次」，是否生效取决于战场情况"
+    }
+   ]
+  },
+  {
+   "name": "点燃",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.7
+   },
+   "_source": "下次攻击造成相当于攻击力370%的法术伤害，命中目标周围的敌人受到一半的爆炸伤害且在6秒内法术抗性-25%，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次攻击造成相当于攻击力370%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 370.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "命中目标周围的敌人受到一半的爆炸伤害",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "在6秒内法术抗性-25%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「res / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "火山",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 80.0,
+   "init_sp": 55.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 130.0,
+    "interval_flat": -1.1
+   },
+   "_source": "攻击力+130%，攻击范围增大，攻击间隔大幅度缩短(-1.1)，攻击变为随机对攻击范围内至多6个敌人发射熔岩",
+   "_parsed": [
+    {
+     "text": "攻击力+130%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 130.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击间隔大幅度缩短(-1.1)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -1.1,
+     "field": "interval_flat"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击范围增大",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "攻击变为随机对攻击范围内至多6个敌人发射熔岩",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / set_to」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 14.0
+ },
+ "_talent_meta": [
+  {
+   "name": "炎息",
+   "condition": "精英2",
+   "text": "在场时，所有友方【术师】职业干员的攻击力+14%"
+  },
+  {
+   "name": "乱火",
+   "condition": "精英2",
+   "text": "部署后立即随机获得7~15点技力"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "所有友方【术师】职业干员的攻击力+14%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 14.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "部署后立即随机获得7~15点技力",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「sp / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

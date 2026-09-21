@@ -1,0 +1,115 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "槐琥"
+ },
+ "name": "槐琥",
+ "class": "特种",
+ "branch": "处决者",
+ "rarity": 5.0,
+ "trait_text": "再部署时间大幅度减少",
+ "attack_interval": 0.93,
+ "atk": 536.0,
+ "atk_trust": 50.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "寸劲",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_pct": 67.0
+   },
+   "_source": "部署后攻击力+70%，并使被攻击目标在3秒内攻击力-40%",
+   "_parsed": [
+    {
+     "text": "部署后攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "并使被攻击目标在3秒内攻击力-40%",
+     "attribute": "atk",
+     "relation": "decrease",
+     "value": 3.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "七武掠阵踢",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.9,
+    "targets": 8
+   },
+   "_source": "部署后立即对周围所有敌人造成相当于攻击力290%的物理伤害，并使命中目标失去特殊能力8秒",
+   "_parsed": [
+    {
+     "text": "部署后立即对周围所有敌人造成相当于攻击力290%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 290.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "并使命中目标失去特殊能力8秒",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 8.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.2
+ },
+ "_talent_meta": [
+  {
+   "name": "红眉咏春",
+   "condition": "精英2",
+   "text": "攻击时有20%的几率攻击力提升至150%，并将目标稍微地击退"
+  },
+  {
+   "name": "除害杂役",
+   "condition": "精英2 X模组3级",
+   "text": "对【感染生物】造成的物理伤害提升14%",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击时有20%的几率攻击力提升至150%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 20.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "对【感染生物】造成的物理伤害提升14%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

@@ -1,0 +1,197 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "百炼嘉维尔"
+ },
+ "name": "百炼嘉维尔",
+ "class": "近卫",
+ "branch": "强攻手",
+ "rarity": 6.0,
+ "trait_text": "同时攻击阻挡的所有敌人",
+ "attack_interval": 1.2,
+ "atk": 766.0,
+ "atk_trust": 50.0,
+ "atk_potential": 28.0,
+ "skills": [
+  {
+   "name": "精准痛击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%，每次攻击治疗自身相当于造成伤害40%的生命值",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "链锯强袭",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 180.0
+   },
+   "_source": "攻击范围扩大，攻击力+180%，防御力+50%；攻击到未被阻挡的敌人时，将其中等力度地拖拽至面前",
+   "_parsed": [
+    {
+     "text": "攻击力+180%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 180.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击到未被阻挡的敌人时",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "targets_scope": "all_blocked"
+   },
+   "_conditions": [
+    {
+     "text": "攻击到未被阻挡的敌人时",
+     "condition": "未被阻挡",
+     "fields": {
+      "targets_scope": "all_blocked"
+     },
+     "reason": "含条件标记「未被阻挡」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "防御力+50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "丛林之魂",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 140.0,
+    "aspd": 100.0
+   },
+   "_source": "攻击力+140%，攻击速度+100，阻挡数+2，技能期间暂时只受到50%的伤害，其余伤害延后至技能结束，变为持续20秒等量的生命流失效果",
+   "_parsed": [
+    {
+     "text": "攻击力+140%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 140.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+100",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "技能期间暂时只受到50%的伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "其余伤害延后至技能结束",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "变为持续20秒等量的生命流失效果",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / set_to」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_blocked"
+ },
+ "_trait_parsed": [
+  {
+   "text": "同时攻击阻挡的所有敌人",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 10.0,
+  "targets": 4
+ },
+ "_talent_meta": [
+  {
+   "name": "战地巨斧",
+   "condition": "精英2",
+   "text": "攻击力和防御力提升10%，每再阻挡一个敌人提升4%"
+  },
+  {
+   "name": "医学背景",
+   "condition": "精英2",
+   "text": "受到的治疗效果提升20%，生命值低于一半时提升至40%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力和防御力提升10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "每再阻挡一个敌人提升4%",
+   "attribute": "targets",
+   "relation": "increase",
+   "value": 4.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "生命值低于一半时提升至40%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / set_to」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

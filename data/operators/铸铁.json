@@ -1,0 +1,85 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "铸铁"
+ },
+ "name": "铸铁",
+ "class": "近卫",
+ "branch": "术战者",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.25,
+ "atk": 620.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "生命回复·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 12.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即恢复最大生命的70%",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "破浪回神",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 110.0
+   },
+   "_source": "攻击范围缩短，攻击力+110%，每秒恢复最大生命的8%",
+   "_parsed": [
+    {
+     "text": "攻击力+110%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 110.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 7.0
+ },
+ "_talent_meta": [
+  {
+   "name": "佣兵之韧",
+   "condition": "精英2",
+   "text": "击杀7个敌人后获得攻击速度+15和抵抗"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "击杀7个敌人后获得攻击速度+15和抵抗",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 7.0,
+   "field": "aspd"
+  }
+ ]
+}

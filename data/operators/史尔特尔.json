@@ -1,0 +1,198 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "史尔特尔"
+ },
+ "name": "史尔特尔",
+ "class": "近卫",
+ "branch": "术战者",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.25,
+ "atk": 672.0,
+ "atk_trust": 100.0,
+ "atk_potential": 28.0,
+ "skills": [
+  {
+   "name": "烈焰魔剑",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.1
+   },
+   "_source": "下次攻击的攻击力提升至310%，如果将目标击倒则立即恢复所有技力",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提升至310%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 310.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "熔核巨影",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 18.0,
+   "init_sp": 12.0,
+   "duration": 18.0,
+   "effects": {
+    "atk_pct": 120.0,
+    "atk_mult": 1.6
+   },
+   "_source": "攻击力+120%，攻击距离+1，攻击目标数+1，仅攻击到一个敌人时对其攻击力提升至160%",
+   "_parsed": [
+    {
+     "text": "攻击力+120%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 120.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击目标数+1",
+     "attribute": "targets",
+     "relation": "increase",
+     "value": 1.0,
+     "field": "targets"
+    },
+    {
+     "text": "仅攻击到一个敌人时对其攻击力提升至160%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 160.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "攻击距离+1",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "黄昏",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 330.0,
+    "targets": 3
+   },
+   "_source": "立即恢复所有生命；攻击力+330%，攻击距离+2，攻击目标数+3，生命上限+5000，逐渐失去生命（60秒后到达最大生命20%/秒）；持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+330%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 330.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击目标数+3",
+     "attribute": "targets",
+     "relation": "increase",
+     "value": 3.0,
+     "field": "targets"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "攻击距离+2",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "生命上限+5000",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "逐渐失去生命（60秒后到达最大生命20%/秒）",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "res_ignore": 20.0
+ },
+ "_talent_meta": [
+  {
+   "name": "熔火",
+   "condition": "精英2",
+   "text": "无视攻击目标20法术抗性"
+  },
+  {
+   "name": "余烬",
+   "condition": "精英2",
+   "text": "受到致命伤害时持续使生命值不低于1，8秒后强制退出战场"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "无视攻击目标20法术抗性",
+   "attribute": "res",
+   "relation": "ignore",
+   "value": 20.0,
+   "field": "res_ignore"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "受到致命伤害时持续使生命值不低于1",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "8秒后强制退出战场",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

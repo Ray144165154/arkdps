@@ -1,0 +1,101 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "刻刀"
+ },
+ "name": "刻刀",
+ "class": "近卫",
+ "branch": "剑豪",
+ "rarity": 4.0,
+ "trait_text": "普通攻击连续造成两次伤害",
+ "attack_interval": 1.3,
+ "atk": 571.0,
+ "atk_trust": 70.0,
+ "atk_potential": 21.0,
+ "skills": [
+  {
+   "name": "红移",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 11.0,
+   "init_sp": 5.0,
+   "duration": 0.0,
+   "effects": {
+    "targets": 4,
+    "atk_mult": 3.4
+   },
+   "_source": "立即投掷4把飞刀随机攻击前方的敌人，每把造成相当于攻击力340%的物理伤害",
+   "_parsed": [
+    {
+     "text": "立即投掷4把飞刀随机攻击前方的敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 4.0,
+     "field": "targets"
+    },
+    {
+     "text": "每把造成相当于攻击力340%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 340.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "绯红刺刀",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 12.0,
+   "init_sp": 5.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.06
+   },
+   "_source": "对周围最多6个敌人造成相当于攻击力450%的物理伤害，对飞行单位的攻击力系数加倍",
+   "_parsed": [
+    {
+     "text": "对周围最多6个敌人造成相当于攻击力450%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 6.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "对飞行单位的攻击力系数加倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "普通攻击连续造成两次伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "光蚀刻痕",
+   "condition": "精英2",
+   "text": "造成伤害时有20%的几率额外回复1点技力"
+  }
+ ],
+ "_talent_parsed": []
+}

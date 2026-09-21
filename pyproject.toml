@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arkdps"
+version = "0.1.0"
+description = "数据驱动的明日方舟 DPS/DPH 计算引擎：引擎里没有干员数值，数据是输入 / Data-driven Arknights DPS & DPH engine"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Ray144165154" }]
+keywords = [
+    "arknights", "dps", "dph", "calculator", "damage-formula",
+    "game-mechanics", "validator", "zero-dependency",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Games/Entertainment",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/Ray144165154/arkdps"
+Repository = "https://github.com/Ray144165154/arkdps"
+Issues = "https://github.com/Ray144165154/arkdps/issues"
+
+[project.scripts]
+arkdps = "arkdps.cli:main"
+
+[tool.setuptools]
+# 扁平布局：包就在仓库根目录，clone 下来 `python -m arkdps` 直接可用。
+#
+# ⚠️ 子包必须**单独列出**：`packages` 是精确列表，不会自动递归，
+# 漏掉 "arkdps.importers" 装出来的包会缺掉整个导入器——
+# 而且直到有人调用它才会发现。
+packages = ["arkdps", "arkdps.importers"]
+
+# 本项目运行时零依赖，这一条是刻意留空的
+dependencies = []
+
+[project.optional-dependencies]
+# 仅开发用；运行 arkdps 本身不需要其中任何一个
+dev = ["pytest>=7.0", "ruff>=0.4"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,122 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "衡沙"
+ },
+ "name": "衡沙",
+ "class": "辅助",
+ "branch": "召唤师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，可以使用召唤物协助作战",
+ "attack_interval": 1.6,
+ "atk": 450.0,
+ "atk_trust": 35.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "上紧发条",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 10.0,
+   "effects": {
+    "aspd": 60.0
+   },
+   "_source": "衡沙和所有发条羽兽攻击速度+60",
+   "_parsed": [
+    {
+     "text": "衡沙和所有发条羽兽攻击速度+60",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "权知轻重",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 40.0
+   },
+   "_source": "立即获得一个发条羽兽。发条羽兽攻击力+40%，优先攻击重量最重的敌人，发条羽兽的攻击使目标停顿1秒",
+   "_parsed": [
+    {
+     "text": "发条羽兽攻击力+40%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "立即获得一个发条羽兽",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以使用召唤物协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "targets": 20
+ },
+ "_talent_meta": [
+  {
+   "name": "工匠遗训",
+   "condition": "精英2",
+   "text": "可以使用5个发条羽兽召唤物。发条羽兽和衡沙对机械敌人伤害提升20%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "发条羽兽和衡沙对机械敌人伤害提升20%",
+   "attribute": "targets",
+   "relation": "increase",
+   "value": 20.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "可以使用5个发条羽兽召唤物",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

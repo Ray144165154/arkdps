@@ -1,0 +1,101 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "苇草"
+ },
+ "name": "苇草",
+ "class": "先锋",
+ "branch": "冲锋手",
+ "rarity": 5.0,
+ "trait_text": "击杀敌人后获得1点部署费用，撤退时返还初始部署费用",
+ "attack_interval": 1.0,
+ "atk": 562.0,
+ "atk_trust": 70.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "迅捷打击·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 15.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 45.0,
+    "aspd": 45.0
+   },
+   "_source": "攻击力+45%，攻击速度+45",
+   "_parsed": [
+    {
+     "text": "攻击力+45%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+45",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "生灵火花",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%，每次攻击附加攻击力35%的法术伤害，且击败敌人后部署费用回复+1",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "每次攻击附加攻击力35%的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "枯法之血",
+   "condition": "精英2",
+   "text": "法术抗性+20"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "法术抗性+20",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「res / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

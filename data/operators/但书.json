@@ -1,0 +1,120 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "但书"
+ },
+ "name": "但书",
+ "class": "辅助",
+ "branch": "凝滞师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，并对敌人造成短暂的停顿",
+ "attack_interval": 1.9,
+ "atk": 513.0,
+ "atk_trust": 65.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "纠纷起诉",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.0
+   },
+   "_source": "下次攻击造成相当于攻击力300%的法术伤害，并稍微延长特性的停顿持续时间(变为1.6s)，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次攻击造成相当于攻击力300%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 300.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "致胜立论",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 10.0,
+   "effects": {
+    "interval_flat": -1.1
+   },
+   "_source": "对攻击范围内所有单位造成一次相当于攻击力350%的法术伤害使其停顿并失去特殊能力，持续10秒，之后自身攻击间隔极大幅度缩短(-1.1)",
+   "_parsed": [
+    {
+     "text": "持续10秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 10.0,
+     "field": "duration"
+    },
+    {
+     "text": "之后自身攻击间隔极大幅度缩短(-1.1)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -1.1,
+     "field": "interval_flat"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "对攻击范围内所有单位造成一次相当于攻击力350%的法术伤害使其停顿并失去特殊能力",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "子句同时含有「控场效果」与影响伤害的属性词，无法确定数值属于哪一个"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "卡西米尔法律专精",
+   "condition": "精英2",
+   "text": "攻击速度+10，置入战场后这个效果会同样赋予给一名随机【卡西米尔】干员"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击速度+10",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "置入战场后这个效果会同样赋予给一名随机【卡西米尔】干员",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

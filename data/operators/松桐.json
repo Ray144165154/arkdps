@@ -1,0 +1,114 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "松桐"
+ },
+ "name": "松桐",
+ "class": "先锋",
+ "branch": "策士",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡两个敌人，可以支援待部署区的我方单位",
+ "attack_interval": 1.2,
+ "atk": 600.0,
+ "atk_trust": 50.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "入场安排",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得10点部署费用，并使当前待部署区最右边的1名干员部署费用-4",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "万手成局",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 70.0
+   },
+   "_source": "逐渐回复总共15点部署费用，攻击力+70%，每秒恢复10%的最大生命值；技能开启时立即使待部署区所有重装与辅助干员费用-1，并且最大生命值+15%（生命加成最多叠加2次，持续至下次撤退）",
+   "_parsed": [
+    {
+     "text": "攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "并",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能开启时立即使待部署区所有重装与辅助干员费用-1",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「cost / decrease」，但没能映射到引擎字段"
+    },
+    {
+     "text": "最大生命值+15%（生命加成最多叠加2次，持续至下次撤退）",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / max_of」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以支援待部署区的我方单位",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_pct": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "慢手有筹",
+   "condition": "精英2",
+   "text": "在战场停留30秒后，仅一次使场上与待部署区的所有重装和辅助干员攻击力+10%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "仅一次使场上与待部署区的所有重装和辅助干员攻击力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在战场停留30秒后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

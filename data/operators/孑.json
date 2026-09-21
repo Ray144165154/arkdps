@@ -1,0 +1,118 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "孑"
+ },
+ "name": "孑",
+ "class": "特种",
+ "branch": "行商",
+ "rarity": 4.0,
+ "trait_text": "再部署时间减少，撤退时不返还部署费用，在场时每3秒消耗3点部署费用（不足时自动撤退）",
+ "attack_interval": 1.0,
+ "atk": 674.0,
+ "atk_trust": 40.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "断螯",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 70.0,
+    "targets": 2
+   },
+   "_source": "攻击力+70%，攻击目标失去特殊能力2秒，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击目标失去特殊能力2秒",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true
+  },
+  {
+   "name": "刺身拼盘",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 8.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "攻击力+60%，每次攻击治疗周围一名友方单位相当于造成伤害50%的生命值，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 1.45
+ },
+ "_talent_meta": [
+  {
+   "name": "解剖高手",
+   "condition": "精英2",
+   "text": "攻击【感染生物】时，攻击力提升至145%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力提升至145%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 145.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击【感染生物】时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

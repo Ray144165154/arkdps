@@ -1,0 +1,93 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "暴雨"
+ },
+ "name": "暴雨",
+ "class": "重装",
+ "branch": "铁卫",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡三个敌人",
+ "attack_interval": 1.2,
+ "atk": 378.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "应急迷彩",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 4.0,
+   "effects": {},
+   "_source": "下一次攻击会使周围血量小于等于一半的一名友方干员获得迷彩并每秒恢复70点生命，持续4秒（不会对已有该技能效果的干员重复释放），可充能2次",
+   "_parsed": [
+    {
+     "text": "持续4秒（不会对已有该技能效果的干员重复释放）",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 4.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "群体迷彩",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 20.0,
+   "effects": {},
+   "_source": "停止攻击敌人；防御力+55%，生命上限+55%，使自身和周围4格内的友方干员获得迷彩",
+   "_parsed": [
+    {
+     "text": "停止攻击敌人",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "exact",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "防御力+55%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "生命上限+55%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "使自身和周围4格内的友方干员获得迷彩",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「dodge / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "条纹迷彩",
+   "condition": "精英2",
+   "text": "自身和周围8格内的高台干员获得20%的物理闪避"
+  }
+ ],
+ "_talent_parsed": []
+}

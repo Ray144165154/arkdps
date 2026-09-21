@@ -1,0 +1,181 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "仇白"
+ },
+ "name": "仇白",
+ "class": "近卫",
+ "branch": "领主",
+ "rarity": 6.0,
+ "trait_text": "可以进行远程攻击，但此时攻击力降低至80%",
+ "attack_interval": 1.3,
+ "atk": 718.0,
+ "atk_trust": 50.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "留羽",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.0
+   },
+   "_source": "下次攻击使目标束缚3秒，该次束缚结束时对目标和附近的所有敌人造成相当于攻击力300%的法术伤害",
+   "_parsed": [
+    {
+     "text": "该次束缚结束时对目标和附近的所有敌人造成相当于攻击力300%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 300.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "承影",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 10.0,
+   "init_sp": 5.0,
+   "duration": 5.0,
+   "effects": {
+    "atk_mult": 9.0,
+    "atk_pct": 140.0
+   },
+   "_source": "对前方范围内的地面敌人造成攻击力300%的法术伤害；攻击范围改变，攻击力+140%，攻击范围内的地面敌人停顿；技能结束时对范围内的地面敌人造成攻击力300%的物理伤害",
+   "_parsed": [
+    {
+     "text": "对前方范围内的地面敌人造成攻击力300%的法术伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 300.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "攻击力+140%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 140.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "技能结束时对范围内的地面敌人造成攻击力300%的物理伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 300.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "问雪",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 55.0,
+   "init_sp": 45.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 55.0,
+    "damage_type": "arts",
+    "targets": 2,
+    "aspd": 13.0
+   },
+   "_source": "攻击范围扩大，攻击力+55%，伤害类型变为法术，额外攻击2个目标，第一天赋的伤害提升至2倍，远程攻击不再降低伤害，每次攻击使自身攻击速度+13（最多叠加8次）",
+   "_parsed": [
+    {
+     "text": "攻击力+55%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 55.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "伤害类型变为法术",
+     "attribute": "damage_type",
+     "relation": "set_to",
+     "value": null,
+     "field": "damage_type"
+    },
+    {
+     "text": "额外攻击2个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "每次攻击使自身攻击速度+13（最多叠加8次）",
+     "attribute": "aspd",
+     "relation": "max_of",
+     "value": 13.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "第一天赋的伤害提升至2倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 80.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.8
+ },
+ "_trait_conditions": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "condition": "但此时",
+   "fields": {
+    "atk_mult": 0.8
+   },
+   "reason": "含条件标记「但此时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.4
+ },
+ "_talent_meta": [
+  {
+   "name": "入隙",
+   "condition": "精英2",
+   "text": "攻击处于停顿、束缚的敌人时，额外造成相当于攻击力40%的法术伤害"
+  },
+  {
+   "name": "落英",
+   "condition": "精英2",
+   "text": "攻击时有20%的几率使目标束缚1.5秒"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "额外造成相当于攻击力40%的法术伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 40.0,
+   "field": "atk_mult"
+  }
+ ]
+}

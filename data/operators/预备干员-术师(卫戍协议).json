@@ -1,0 +1,88 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "预备干员-术师(卫戍协议)"
+ },
+ "name": "预备干员-术师(卫戍协议)",
+ "class": "术师",
+ "branch": "中坚术师",
+ "rarity": 4.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 563.0,
+ "atk_trust": 60.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "战术咏唱·α型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "战术咏唱·β型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "aspd": 75.0
+   },
+   "_source": "攻击速度+75",
+   "_parsed": [
+    {
+     "text": "攻击速度+75",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 75.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "战术咏唱·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 90.0
+   },
+   "_source": "攻击速度+90",
+   "_parsed": [
+    {
+     "text": "攻击速度+90",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact"
+}

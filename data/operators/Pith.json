@@ -1,0 +1,80 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "Pith"
+ },
+ "name": "Pith",
+ "class": "术师",
+ "branch": "扩散术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 821.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "“为我所为”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 70.0,
+    "atk_pct": 40.0
+   },
+   "_source": "自身攻击速度+70，所有【术师】干员攻击力+40%",
+   "_parsed": [
+    {
+     "text": "自身攻击速度+70",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "aspd"
+    },
+    {
+     "text": "所有【术师】干员攻击力+40%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "res_ignore": 20.0
+ },
+ "_talent_meta": [
+  {
+   "name": "“见我所见”",
+   "condition": "精英2",
+   "text": "攻击无视目标20法术抗性"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击无视目标20法术抗性",
+   "attribute": "res",
+   "relation": "ignore",
+   "value": 20.0,
+   "field": "res_ignore"
+  }
+ ]
+}

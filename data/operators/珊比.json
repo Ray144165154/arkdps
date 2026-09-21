@@ -1,0 +1,279 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "珊比"
+ },
+ "name": "珊比",
+ "class": "重装",
+ "branch": "本源铁卫",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡三个敌人，可以造成元素损伤",
+ "attack_interval": 1.6,
+ "atk": 671.0,
+ "atk_trust": 30.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "“还不走？”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 50.0
+   },
+   "_source": "攻击力+50%，防御力+50%，同时攻击并以小力度推动所有阻挡的敌人",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击并以小力度推动所有阻挡的敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "targets_scope": "all_blocked"
+   },
+   "_conditions": [
+    {
+     "text": "同时攻击并以小力度推动所有阻挡的敌人",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "targets_scope": "all_blocked"
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "防御力+50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "“慢慢走~”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 23.0,
+   "init_sp": 14.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 70.0,
+    "atk_mult": 0.006999999999999999
+   },
+   "_source": "攻击力和防御力+70%；向前方可通行地面喷洒占据4格的强力胶，每0.7秒造成相当于珊比攻击力50%的物理伤害和0.5秒停顿，其他干员对强力胶内的敌人造成物理伤害时附带相当于珊比攻击力15%的侵蚀损伤",
+   "_parsed": [
+    {
+     "text": "攻击力和防御力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "每0.7秒造成相当于珊比攻击力50%的物理伤害和0.5秒停顿",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 0.7,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "其他干员对强力胶内的敌人造成物理伤害时附带相当于珊比攻击力15%的侵蚀损伤",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「damage_type」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    },
+    {
+     "text": "向前方可通行地面喷洒占据4格的强力胶",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "“不准走！”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 55.0,
+   "init_sp": 42.0,
+   "duration": 60.0,
+   "effects": {
+    "atk_pct": 100.0,
+    "atk_mult": 0.4
+   },
+   "_source": "阻挡数+2且同时攻击所有阻挡的敌人，攻击力+100%，防御力+135%；向前展开4格的便携传送带，使重量小于等于4且未被阻挡的敌人以每秒0.8格的速度移向珊比；传送带上的敌人每秒受到相当于珊比攻击力40%的物理伤害，且侵蚀损伤爆发时防御力额外-30",
+   "_parsed": [
+    {
+     "text": "同时攻击所有阻挡的敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    },
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "未被阻挡的敌人以每秒0.8格的速度移向珊比",
+     "attribute": "targets",
+     "relation": "per",
+     "value": 0.8,
+     "field": "targets"
+    },
+    {
+     "text": "传送带上的敌人每秒受到相当于珊比攻击力40%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 40.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_conditional": {
+    "targets_scope": "all_blocked"
+   },
+   "_conditions": [
+    {
+     "text": "同时攻击所有阻挡的敌人",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "targets_scope": "all_blocked"
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    },
+    {
+     "text": "未被阻挡的敌人以每秒0.8格的速度移向珊比",
+     "condition": "未被阻挡",
+     "fields": {
+      "targets": 1
+     },
+     "reason": "含条件标记「未被阻挡」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "向前展开4格的便携传送带",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "防御力+135%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "使重量小于等于4",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「weight / proportional」，但没能映射到引擎字段"
+    },
+    {
+     "text": "侵蚀损伤爆发时防御力额外-30",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以造成元素损伤",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "damage_type": "physical",
+  "atk_mult": 0.1
+ },
+ "_talent_meta": [
+  {
+   "name": "探险理论",
+   "condition": "精英2",
+   "text": "珊比受到的元素损伤降低15%；珊比造成物理伤害时，附带攻击力10%的侵蚀损伤，并使目标的侵蚀损伤冷却减少1秒"
+  },
+  {
+   "name": "坚硬脚板",
+   "condition": "精英2",
+   "text": "受到过来自珊比伤害的敌人侵蚀损伤爆发时，珊比获得8点防御力（最多叠加30层）和250点屏障（不超过最大生命值的300%）"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "珊比造成物理伤害时",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  },
+  {
+   "text": "附带攻击力10%的侵蚀损伤",
+   "attribute": "atk",
+   "relation": "unspecified",
+   "value": 10.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "并使目标的侵蚀损伤冷却减少1秒",
+   "attribute": "targets",
+   "relation": "decrease",
+   "value": 1.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "珊比受到的元素损伤降低15%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "受到过来自珊比伤害的敌人侵蚀损伤爆发时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "珊比获得8点防御力（最多叠加30层）和250点屏障（不超过最大生命值的300%）",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / max_of」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

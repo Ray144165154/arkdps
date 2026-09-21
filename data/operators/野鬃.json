@@ -1,0 +1,93 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "野鬃"
+ },
+ "name": "野鬃",
+ "class": "先锋",
+ "branch": "冲锋手",
+ "rarity": 5.0,
+ "trait_text": "击杀敌人后获得1点部署费用，撤退时返还初始部署费用",
+ "attack_interval": 1.0,
+ "atk": 558.0,
+ "atk_trust": 70.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "骑枪刺击",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 135.0
+   },
+   "_source": "部署后攻击速度+135",
+   "_parsed": [
+    {
+     "text": "部署后攻击速度+135",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 135.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "夹枪冲锋",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 30.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击范围扩大，攻击力+80%，攻击会把目标往攻击方向中等力度地推开",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击会把目标往攻击方向中等力度地推开",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "一致向前",
+   "condition": "精英2",
+   "text": "部署后，所有未部署的【近卫】干员的部署费用-1（每个干员每次被部署前，最多可被减少5费）"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "部署后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

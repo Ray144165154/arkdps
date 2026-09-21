@@ -1,0 +1,177 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "流明"
+ },
+ "name": "流明",
+ "class": "医疗",
+ "branch": "疗养师",
+ "rarity": 6.0,
+ "trait_text": "拥有较大治疗范围，但在治疗较远目标时治疗量变为80%",
+ "attack_interval": 2.85,
+ "atk": 540.0,
+ "atk_trust": 45.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "沐雨",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 10.0,
+   "init_sp": 0.0,
+   "duration": 5.0,
+   "effects": {
+    "atk_mult": 0.55
+   },
+   "_source": "下次攻击使目标和周围的友军每秒受到相当于55%流明攻击力的治疗效果，持续5秒",
+   "_parsed": [
+    {
+     "text": "下次攻击使目标和周围的友军每秒受到相当于55%流明攻击力的治疗效果",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 55.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续5秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "沛霖",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 13.0,
+   "init_sp": 5.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立刻恢复攻击范围内最多3名友方单位相当于攻击力260%的生命；，蓄力额外效果：并解除目标所受的异常状态",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "立刻恢复攻击范围内最多3名友方单位相当于攻击力260%的生命",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "子句同时含有「治疗与回复」与影响伤害的属性词，无法确定数值属于哪一个"
+    },
+    {
+     "text": "蓄力额外效果：并解除目标所受的异常状态",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "灯火不灭",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 55.0,
+    "aspd": 30.0,
+    "atk_mult": 2.0
+   },
+   "_source": "攻击力+55%，攻击速度+30，优先治疗处于异常状态中的单位；只在治疗异常状态中的单位时会消耗子弹，使该次治疗量提升至攻击力的200%并解除目标所受的异常状态，攻击装有8发子弹，打完后技能结束（期间可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击力+55%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 55.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+30",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 30.0,
+     "field": "aspd"
+    },
+    {
+     "text": "使该次治疗量提升至攻击力的200%并解除目标所受的异常状态",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 200.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "打完后技能结束（期间可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击装有8发子弹",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.8
+ },
+ "_talent_meta": [
+  {
+   "name": "凡人之愿",
+   "condition": "精英2",
+   "text": "治疗的目标获得4秒抵抗，若目标生命值高于75%则改为6秒抵抗"
+  },
+  {
+   "name": "应急处理",
+   "condition": "精英2",
+   "text": "攻击范围内的友方受到异常状态时，立刻治疗目标相当于流明攻击力80%的生命，该效果有12秒冷却时间"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "立刻治疗目标相当于流明攻击力80%的生命",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 80.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "若目标生命值高于75%则改为6秒抵抗",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「hp」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  },
+  {
+   "text": "攻击范围内的友方受到异常状态时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "该效果有12秒冷却时间",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

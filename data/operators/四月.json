@@ -1,0 +1,84 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "四月"
+ },
+ "name": "四月",
+ "class": "狙击",
+ "branch": "速射手",
+ "rarity": 5.0,
+ "trait_text": "优先攻击空中单位",
+ "attack_interval": 1.0,
+ "atk": 528.0,
+ "atk_trust": 75.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "精准射击",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.3
+   },
+   "_source": "下次攻击的攻击力提高至230%",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至230%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 230.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "灵活伪装",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 26.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "部署后攻击力+100%，获得迷彩",
+   "_parsed": [
+    {
+     "text": "部署后攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "获得迷彩",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "熟练猎手",
+   "condition": "精英2",
+   "text": "自身再部署时间-20秒，自身部署费用-1"
+  }
+ ],
+ "_talent_parsed": []
+}

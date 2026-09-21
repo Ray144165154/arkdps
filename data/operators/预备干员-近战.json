@@ -1,0 +1,22 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "预备干员-近战"
+ },
+ "name": "预备干员-近战",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 3.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 309.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [],
+ "_warnings": [],
+ "_atk_from": "精英1_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact"
+}

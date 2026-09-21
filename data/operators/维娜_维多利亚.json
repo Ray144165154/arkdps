@@ -1,0 +1,203 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "维娜·维多利亚"
+ },
+ "name": "维娜·维多利亚",
+ "class": "近卫",
+ "branch": "术战者",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.25,
+ "atk": 675.0,
+ "atk_trust": 70.0,
+ "atk_potential": 28.0,
+ "skills": [
+  {
+   "name": "重铸晖光",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.8
+   },
+   "_source": "下次攻击对四周所有地面敌人额外造成相当于攻击力180%的真实伤害",
+   "_parsed": [
+    {
+     "text": "下次攻击对四周所有地面敌人额外造成相当于攻击力180%的真实伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 180.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "进赴故土",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 70.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 180.0
+   },
+   "_source": "被动效果：天赋一生效范围内若有2个及以上友方单位，维娜技力回复速度+0.5/秒，自动开启：攻击范围扩大，攻击力+180%，攻击目标数+1 ，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+180%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 180.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击目标数+1",
+     "attribute": "targets",
+     "relation": "increase",
+     "value": 1.0,
+     "field": "targets"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "被动效果：天赋一生效范围内若有2个及以上友方单位",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "俱以我之名",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 35.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 190.0,
+    "targets": 3,
+    "interval_flat": -0.25,
+    "damage_type": "true"
+   },
+   "_source": "立即在天赋一生效范围内可部署地面召唤“黄金盟誓”；技能期间可攻击被天赋一生效范围友方单位阻挡的敌人，攻击力+190%，攻击目标数+3，攻击间隔缩短(-0.25)，攻击时伤害类型变为真实",
+   "_parsed": [
+    {
+     "text": "技能期间可攻击被天赋一生效范围友方单位阻挡的敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    },
+    {
+     "text": "攻击力+190%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 190.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击目标数+3",
+     "attribute": "targets",
+     "relation": "increase",
+     "value": 3.0,
+     "field": "targets"
+    },
+    {
+     "text": "攻击间隔缩短(-0.25)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -0.25,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击时伤害类型变为真实",
+     "attribute": "damage_type",
+     "relation": "set_to",
+     "value": null,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "立即在天赋一生效范围内可部署地面召唤“黄金盟誓”",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "诸王的叹息",
+   "condition": "精英2",
+   "text": "自身与周围8格友方单位受到的物理伤害减少20%，且此范围内每个友方单位使维娜攻击力+5%"
+  },
+  {
+   "name": "无拘的锋芒",
+   "condition": "精英2",
+   "text": "对每个敌人首次造成伤害时，使其战栗4秒"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "自身与周围8格友方单位受到的物理伤害减少20%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "此范围内每个友方单位使维娜攻击力+5%",
+   "kind": "unmapped",
+   "affects_damage": true,
+   "reason": "识别为「atk / per」，但没能映射到引擎字段"
+  },
+  {
+   "text": "对每个敌人首次造成伤害时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "使其战栗4秒",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

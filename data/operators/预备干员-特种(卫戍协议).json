@@ -1,0 +1,96 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "预备干员-特种(卫戍协议)"
+ },
+ "name": "预备干员-特种(卫戍协议)",
+ "class": "特种",
+ "branch": "处决者",
+ "rarity": 4.0,
+ "trait_text": "再部署时间大幅度减少",
+ "attack_interval": 0.93,
+ "atk": 430.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "一击即退·α型",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "一击即退·β型",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_pct": 50.0
+   },
+   "_source": "部署后攻击力+50%，防御力+50%",
+   "_parsed": [
+    {
+     "text": "部署后攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "一击即退·γ型",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "部署后攻击力+80%，防御力+80%",
+   "_parsed": [
+    {
+     "text": "部署后攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+80%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact"
+}

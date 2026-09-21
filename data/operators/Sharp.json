@@ -1,0 +1,78 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "Sharp"
+ },
+ "name": "Sharp",
+ "class": "近卫",
+ "branch": "无畏者",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡一个敌人",
+ "attack_interval": 1.5,
+ "atk": 957.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "亮剑",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_mult": 3.0
+   },
+   "_source": "防御力降至0，生命上限+50%，每次攻击的攻击力提升至300%",
+   "_parsed": [
+    {
+     "text": "每次攻击的攻击力提升至300%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 300.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力降至0",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "生命上限+50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 15.0
+ },
+ "_talent_meta": [
+  {
+   "name": "隐匿刀刃",
+   "condition": "精英2",
+   "text": "攻击力+15%，获得30%的物理闪避"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+15%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 15.0,
+   "field": "atk_pct"
+  }
+ ]
+}

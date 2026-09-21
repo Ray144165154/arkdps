@@ -1,0 +1,58 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "预备干员-先锋(卫戍协议)"
+ },
+ "name": "预备干员-先锋(卫戍协议)",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 4.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 390.0,
+ "atk_trust": 60.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "冲锋号令·α型",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "冲锋号令·β型",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 30.0,
+   "init_sp": 13.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得9点部署费用",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "冲锋号令·γ型",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得12点部署费用",
+   "_parsed": [],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact"
+}

@@ -1,0 +1,162 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "刻俄柏"
+ },
+ "name": "刻俄柏",
+ "class": "术师",
+ "branch": "中坚术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 667.0,
+ "atk_trust": 90.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "“很冰的斧”",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 6.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.1
+   },
+   "_source": "下次攻击的攻击力提升至210%，优先攻击没有被阻挡的目标，并令目标束缚3秒，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提升至210%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 210.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "“很热的刀”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 40.0,
+   "effects": {
+    "interval_mult": 0.33
+   },
+   "_source": "攻击间隔超大幅度缩短(*0.33)，优先攻击防御力最高的目标",
+   "_parsed": [
+    {
+     "text": "攻击间隔超大幅度缩短(*0.33)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": 0.33,
+     "field": "interval_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "“很重的枪”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 80.0,
+   "init_sp": 55.0,
+   "duration": 60.0,
+   "effects": {
+    "atk_pct": 210.0,
+    "damage_type": "physical"
+   },
+   "_source": "攻击范围扩大，攻击力+210%，伤害类型变为物理，优先攻击防御力最低的目标，并令其失去特殊能力5秒",
+   "_parsed": [
+    {
+     "text": "攻击力+210%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 210.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "伤害类型变为物理",
+     "attribute": "damage_type",
+     "relation": "set_to",
+     "value": null,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "并令其失去特殊能力5秒",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 8.0,
+  "aspd": 8.0
+ },
+ "_talent_meta": [
+  {
+   "name": "剥壳",
+   "condition": "精英2",
+   "text": "攻击时对目标额外造成相当于其防御力40%的法术伤害"
+  },
+  {
+   "name": "独行长路",
+   "condition": "精英2",
+   "text": "当周围四格内没有其他友方单位时，攻击力+8%，攻击速度+8"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+8%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 8.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "攻击速度+8",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 8.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击时对目标额外造成相当于其防御力40%的法术伤害",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / proportional」，但没能映射到引擎字段"
+  },
+  {
+   "text": "当周围四格内没有其他友方单位时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

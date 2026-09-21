@@ -1,0 +1,175 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "异客"
+ },
+ "name": "异客",
+ "class": "术师",
+ "branch": "链术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，且会在3个敌人间跳跃，每次跳跃伤害降低15%并造成短暂停顿(0.5s)（精英2后更新）",
+ "attack_interval": 2.3,
+ "atk": 689.0,
+ "atk_trust": 85.0,
+ "atk_potential": 32.0,
+ "skills": [
+  {
+   "name": "电能之触",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.5
+   },
+   "_source": "下次攻击时攻击力提升至250%，最多在4个目标间跳跃，攻击造成的停顿时间延长至1.5秒",
+   "_parsed": [
+    {
+     "text": "下次攻击时攻击力提升至250%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 250.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "聚焦指令",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 30.0,
+    "interval_flat": -50.0
+   },
+   "_source": "攻击距离+1，攻击力+30%，攻击间隔较大幅度缩短(-50%)，攻击最大弹跳次数提升至5",
+   "_parsed": [
+    {
+     "text": "攻击力+30%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 30.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击间隔较大幅度缩短(-50%)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -50.0,
+     "field": "interval_flat"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击最大弹跳次数提升至5",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "攻击距离+1",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "辉煌裂片",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 0.0,
+   "duration": 4.0,
+   "effects": {},
+   "_source": "立即寻找大范围内生命值最高的目标，在其位置生成持续4秒的雷暴区域，期间每0.5秒以150%的攻击力对雷暴区域内的随机敌人进行一次额外攻击；可充能2次",
+   "_parsed": [
+    {
+     "text": "在其位置生成持续4秒的雷暴区域",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 4.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "期间每0.5秒以150%的攻击力对雷暴区域内的随机敌人进行一次额外攻击",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 4,
+  "atk_pct": 8.0
+ },
+ "_talent_meta": [
+  {
+   "name": "机理分析",
+   "condition": "精英2",
+   "text": "攻击命中生命值在80%以上的敌人时，3秒内异客对其造成的伤害提升20%"
+  },
+  {
+   "name": "孤卒",
+   "condition": "精英2",
+   "text": "当周围4格没有敌人时，攻击力+8%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "当周围4格没有敌人时",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 4.0,
+   "field": "targets"
+  },
+  {
+   "text": "攻击力+8%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 8.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击命中生命值在80%以上的敌人时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "3秒内异客对其造成的伤害提升20%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

@@ -1,0 +1,113 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "特米米"
+ },
+ "name": "特米米",
+ "class": "术师",
+ "branch": "中坚术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 600.0,
+ "atk_trust": 35.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "部族技艺",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 90.0
+   },
+   "_source": "攻击速度+90",
+   "_parsed": [
+    {
+     "text": "攻击速度+90",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "嘉维尔保护方案",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_mult": 2.2
+   },
+   "_source": "每次攻击有100%的概率随机触发下列效果之一：目标晕眩1.6秒；当次攻击力提升至220%；当次攻击造成群体伤害",
+   "_parsed": [
+    {
+     "text": "当次攻击力提升至220%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 220.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "当次攻击造成群体伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 100.0
+ },
+ "_talent_meta": [
+  {
+   "name": "荒野法术",
+   "condition": "精英2",
+   "text": "技能开启时，攻击范围缩小，攻击变为物理伤害（只攻击地面敌人），攻击力+100%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+100%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 100.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "技能开启时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

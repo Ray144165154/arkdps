@@ -1,0 +1,138 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "雷狼龙S空爆"
+ },
+ "name": "雷狼龙S空爆",
+ "class": "近卫",
+ "branch": "佣兵",
+ "rarity": 5.0,
+ "trait_text": "可消耗部署费用来强化作战能力",
+ "attack_interval": 1.25,
+ "atk": 544.0,
+ "atk_trust": 30.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "高压回填斩",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 4.0,
+   "effects": {
+    "interval_flat": 100.0,
+    "hits_override": 5.0,
+    "atk_mult": 0.35
+   },
+   "_source": "消耗20点部署费用，攻击间隔增大(+100%)，交替使用五连击与十连击攻击阻挡的所有敌人，且每一击附带相当于攻击力35%的法术伤害，可充能5次",
+   "_parsed": [
+    {
+     "text": "攻击间隔增大(+100%)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "交替使用五连击与十连击攻击阻挡的所有敌人",
+     "attribute": "hits",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "hits_override"
+    },
+    {
+     "text": "每一击附带相当于攻击力35%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 35.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "超高输出属性解放斩",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 4.0,
+   "effects": {
+    "atk_pct": 100.0,
+    "atk_mult": 5.25
+   },
+   "_source": "消耗5点部署费用，攻击力和防御力+100%；技能期间可消耗10点部署费用使用装备应变，对前方造成一次相当于攻击力350%的物理伤害，且开启技能时每消耗一层充能附加一次相当于攻击力150%的法术伤害，之后技能立即结束，可充能5次",
+   "_parsed": [
+    {
+     "text": "攻击力和防御力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "对前方造成一次相当于攻击力350%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 350.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "开启技能时每消耗一层充能附加一次相当于攻击力150%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 150.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "之后技能立即结束",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "斧模式变形",
+   "condition": "精英2",
+   "text": "技能期间攻击距离延长。开启技能时施展变形斩造成伤害，同时消耗所有充能，每层使技能持续时间增加40%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "每层使技能持续时间增加40%",
+   "attribute": "duration",
+   "relation": "increase",
+   "value": 40.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "技能期间攻击距离延长",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "开启技能时施展变形斩造成伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

@@ -1,0 +1,36 @@
+# 行尾统一成 LF。
+#
+# 这个仓库要在 Windows 与 Linux 上同时跑 CI。如果不锁定行尾，
+# Git 的 autocrlf 会让同一份文件在两个平台上产生不同的 diff，
+# 甚至让"改了但没改"的文件一直显示为已修改。
+* text=auto eol=lf
+
+*.py    text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.toml  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.cfg   text eol=lf
+*.txt   text eol=lf
+
+# Windows 批处理必须保留 CRLF，否则可能无法执行
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf
+
+# 二进制文件不做行尾转换
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.pdf   binary
+*.pptx  binary
+
+# ---- GitHub 语言统计 ----
+# data/operators/ 下是 `arkdps import` 生成的草稿（460 份 JSON，1.7 MB）。
+# 标成 generated 之后 GitHub 不会把它算进仓库语言占比，
+# 否则这个纯 Python 项目的语言条会被 JSON 淹没。
+data/operators/*.json  linguist-generated=true
+data/_coverage.json    linguist-generated=true

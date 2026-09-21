@@ -1,0 +1,164 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "伊内丝"
+ },
+ "name": "伊内丝",
+ "class": "先锋",
+ "branch": "情报官",
+ "rarity": 6.0,
+ "trait_text": "再部署时间减少，可使用远程攻击",
+ "attack_interval": 1.0,
+ "atk": 589.0,
+ "atk_trust": 50.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "淬影突袭",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 3.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.03
+   },
+   "_source": "下次攻击使目标3秒内每秒受到相当于伊内丝攻击力80%的法术伤害（不叠加），并获得2点部署费用",
+   "_parsed": [
+    {
+     "text": "下次攻击使目标3秒内每秒受到相当于伊内丝攻击力80%的法术伤害（不叠加）",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 3.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "暗夜无明",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 15.0,
+   "duration": 12.0,
+   "effects": {
+    "atk_pct": 110.0
+   },
+   "_source": "攻击范围扩大，攻击力+110%，自身获得隐匿，每次攻击获得1点部署费用并偷取目标7点攻击速度（最多70点，持续至技能结束或伊内丝离场）",
+   "_parsed": [
+    {
+     "text": "攻击力+110%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 110.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "每次攻击获得1点部署费用并偷取目标7点攻击速度（最多70点，持续至技能结束或伊内丝离场）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 1.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "自身获得隐匿",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "独影归途",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 16.0,
+   "effects": {
+    "atk_pct": 160.0,
+    "atk_mult": 0.06
+   },
+   "_source": "首次部署时不消耗部署费用，放置一个影哨后离场并立刻刷新再部署时间，部署后攻击力+160%，立刻收回影哨对穿过的最多6名敌人造成相当于攻击力200%的物理伤害，技能期间每对一个敌人造成伤害就获得1点部署费用",
+   "_parsed": [
+    {
+     "text": "部署后攻击力+160%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 160.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "立刻收回影哨对穿过的最多6名敌人造成相当于攻击力200%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 6.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.05
+ },
+ "_talent_meta": [
+  {
+   "name": "影织",
+   "condition": "精英2",
+   "text": "对每个敌人首次造成伤害后，使目标束缚5秒并偷取其90点攻击力（持续至目标被击倒或伊内丝离场）"
+  },
+  {
+   "name": "影哨",
+   "condition": "精英2",
+   "text": "攻击范围内敌人的隐匿效果失效且移动速度-30%，撤退后留下一个影哨使该效果持续生效（最多1个）"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "使目标束缚5秒并偷取其90点攻击力（持续至目标被击倒或伊内丝离场）",
+   "attribute": "atk",
+   "relation": "unspecified",
+   "value": 5.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "撤退后留下一个影哨使该效果持续生效（最多1个）",
+   "attribute": "duration",
+   "relation": "max_of",
+   "value": 1.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "对每个敌人首次造成伤害后",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "攻击范围内敌人的隐匿效果失效",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "移动速度-30%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「movement / decrease」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

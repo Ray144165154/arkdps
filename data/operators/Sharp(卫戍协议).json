@@ -1,0 +1,167 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "Sharp(卫戍协议)"
+ },
+ "name": "Sharp(卫戍协议)",
+ "class": "近卫",
+ "branch": "无畏者",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡一个敌人",
+ "attack_interval": 1.5,
+ "atk": 955.0,
+ "atk_trust": 85.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "快刀",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 70.0,
+    "hits_override": 20.0
+   },
+   "_source": "攻击力+70%，每次攻击有20%概率变成二连击",
+   "_parsed": [
+    {
+     "text": "攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "每次攻击有20%概率变成二连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 20.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "亮剑",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_mult": 2.2
+   },
+   "_source": "防御力降至0，生命上限+50%，每次攻击的攻击力提升至220%",
+   "_parsed": [
+    {
+     "text": "每次攻击的攻击力提升至220%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 220.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力降至0",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "生命上限+50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "力战不竭",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 30.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "攻击力+60%；每次攻击时获得可叠加的攻击力+21%的增益（最多叠加8层），切换目标后层数清零，技能持续期间内干员的生命值始终不会低于1",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "每次攻击时获得可叠加的攻击力+21%的增益（最多叠加8层）",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / max_of」，但没能映射到引擎字段"
+    },
+    {
+     "text": "技能持续期间内干员的生命值始终不会低于1",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 15.0,
+  "aspd": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "隐匿刀刃",
+   "condition": "精英2",
+   "text": "攻击力+15%，获得30%的物理闪避"
+  },
+  {
+   "name": "寸步不退",
+   "condition": "精英2",
+   "text": "在战场停留30秒后，自身攻击速度+10"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+15%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 15.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "自身攻击速度+10",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在战场停留30秒后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

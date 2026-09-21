@@ -1,0 +1,233 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "令"
+ },
+ "name": "令",
+ "class": "辅助",
+ "branch": "召唤师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，可以使用召唤物协助作战",
+ "attack_interval": 1.6,
+ "atk": 473.0,
+ "atk_trust": 35.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "重进酒",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 50.0,
+    "aspd": 50.0,
+    "damage_type": "arts"
+   },
+   "_source": "被动：召唤物可部署在近战位，开启：自身与召唤物攻击力+50%，攻击速度+50，召唤物伤害类型变为法术，技能开启时获得1个召唤物",
+   "_parsed": [
+    {
+     "text": "开启：自身与召唤物攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    },
+    {
+     "text": "召唤物伤害类型变为法术",
+     "attribute": "damage_type",
+     "relation": "set_to",
+     "value": null,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "被动：召唤物可部署在近战位",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "技能开启时获得1个召唤物",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "笑鸣瑟",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 13.0,
+   "init_sp": 5.0,
+   "duration": 0.0,
+   "effects": {
+    "damage_type": "arts"
+   },
+   "_source": "被动：召唤物可部署在远程位，攻击造成法术伤害，开启：令与召唤物对攻击范围内两名敌人造成450%攻击力的法术伤害并束缚3秒，技能结束时回收生命值低于一半的召唤物。可充能2次",
+   "_parsed": [
+    {
+     "text": "攻击造成法术伤害",
+     "attribute": "damage_type",
+     "relation": "unspecified",
+     "value": null,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "开启：令与召唤物对攻击范围内两名敌人造成450%攻击力的法术伤害并束缚3秒",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "子句同时含有「控场效果」与影响伤害的属性词，无法确定数值属于哪一个"
+    },
+    {
+     "text": "被动：召唤物可部署在远程位",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "技能结束时回收生命值低于一半的召唤物",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "宁作吾",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "被动：召唤物可部署在近战位且攻击范围内存在其他召唤物时与其合并为高级形态，开启：自身与召唤物攻击力+100%，防御力+100%，召唤物每0.5秒对周围四格敌人造成20%令攻击力的法术伤害，技能结束时获得1个召唤物",
+   "_parsed": [
+    {
+     "text": "开启：自身与召唤物攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "召唤物每0.5秒对周围四格敌人造成20%令攻击力的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "被动：召唤物可部署在近战位",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "攻击范围内存在其他召唤物时与其合并为高级形态",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "防御力+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "技能结束时获得1个召唤物",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以使用召唤物协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "挑灯问梦",
+   "condition": "精英2",
+   "text": "可以使用5个召唤物（最多同时部署3个），功能随技能选择而改变"
+  },
+  {
+   "name": "随付笺咏醉屠苏",
+   "condition": "精英2",
+   "text": "召唤物被击倒/吸收/回收时令额外获得3点技力、攻击力+3%（攻击力加成最多叠加5层）"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "可以使用5个召唤物（最多同时部署3个）",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「summon / max_of」，但没能映射到引擎字段"
+  },
+  {
+   "text": "功能随技能选择而改变",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "召唤物被击倒/吸收/回收时令额外获得3点技力",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "攻击力+3%（攻击力加成最多叠加5层）",
+   "kind": "unmapped",
+   "affects_damage": true,
+   "reason": "识别为「atk / max_of」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

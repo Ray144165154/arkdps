@@ -1,0 +1,99 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "微风"
+ },
+ "name": "微风",
+ "class": "医疗",
+ "branch": "群愈师",
+ "rarity": 5.0,
+ "trait_text": "同时恢复三个友方单位的生命",
+ "attack_interval": 2.85,
+ "atk": 343.0,
+ "atk_trust": 30.0,
+ "atk_potential": 20.0,
+ "skills": [
+  {
+   "name": "集束疗法",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 140.0
+   },
+   "_source": "攻击力+140%，治疗目标数-1",
+   "_parsed": [
+    {
+     "text": "攻击力+140%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 140.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "扩散疗法",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 80.0,
+   "init_sp": 60.0,
+   "duration": 45.0,
+   "effects": {
+    "atk_pct": 250.0
+   },
+   "_source": "攻击力+250%，攻击变为对攻击范围内一名友方单位发射医疗弹，对目标和其周围8格内的友方单位进行治疗（对周围单位的治疗量减半）",
+   "_parsed": [
+    {
+     "text": "攻击力+250%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 250.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "攻击变为对攻击范围内一名友方单位发射医疗弹",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / set_to」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "医疗班保护",
+   "condition": "精英2",
+   "text": "技能开启时，所有【医疗】和【辅助】干员获得抵抗"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "技能开启时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "所有【医疗】和【辅助】干员获得抵抗",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

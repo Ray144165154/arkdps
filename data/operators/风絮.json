@@ -1,0 +1,122 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "风絮"
+ },
+ "name": "风絮",
+ "class": "医疗",
+ "branch": "守望者",
+ "rarity": 5.0,
+ "trait_text": "恢复友方单位生命，并且可以起飞",
+ "attack_interval": 2.85,
+ "atk": 460.0,
+ "atk_trust": 45.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "何处着",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 55.0,
+   "init_sp": 30.0,
+   "duration": 45.0,
+   "effects": {
+    "interval_mult": 0.2
+   },
+   "_source": "立刻起飞，攻击间隔大幅度缩短(*0.2)，每次随机回复攻击范围内已受伤的一名单位相当于攻击力60%的生命",
+   "_parsed": [
+    {
+     "text": "攻击间隔大幅度缩短(*0.2)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": 0.2,
+     "field": "interval_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "每次随机回复攻击范围内已受伤的一名单位相当于攻击力60%的生命",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "子句同时含有「治疗与回复」与影响伤害的属性词，无法确定数值属于哪一个"
+    },
+    {
+     "text": "立刻起飞",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "扶风起",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 120.0,
+    "targets": 2
+   },
+   "_source": "立刻起飞，攻击力+120%，可以额外治疗一名能够阻挡飞行敌人的干员，治疗目标时对目标周围的至多2名单位造成攻击力50%的治疗效果",
+   "_parsed": [
+    {
+     "text": "攻击力+120%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 120.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "治疗目标时对目标周围的至多2名单位造成攻击力50%的治疗效果",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 2.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "立刻起飞",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "并",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "可以起飞",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "定风絮",
+   "condition": "精英2",
+   "text": "攻击范围内能够阻挡飞行敌人的友方单位获得10%的庇护，阻挡数+1"
+  }
+ ],
+ "_talent_parsed": []
+}

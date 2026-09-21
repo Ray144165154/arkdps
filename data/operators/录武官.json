@@ -1,0 +1,92 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "录武官"
+ },
+ "name": "录武官",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 5.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 502.0,
+ "atk_trust": 75.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "触类旁通",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 7.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.55
+   },
+   "_source": "下次治疗可以恢复相当于攻击力155%的生命，并额外治疗一个目标，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次治疗可以恢复相当于攻击力155%的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 155.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "一点关窍",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%，治疗干员后为其施加一个增益，使其在10秒内每次受到伤害时恢复150点生命",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 16.0
+ },
+ "_talent_meta": [
+  {
+   "name": "学成于聚",
+   "condition": "精英2",
+   "text": "攻击范围内的干员开启技能时自身回复1点技力，且攻击速度+16，持续8秒"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击速度+16",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 16.0,
+   "field": "aspd"
+  },
+  {
+   "text": "持续8秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 8.0,
+   "field": "duration"
+  }
+ ]
+}

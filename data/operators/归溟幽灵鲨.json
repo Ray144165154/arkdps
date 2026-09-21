@@ -1,0 +1,227 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "归溟幽灵鲨"
+ },
+ "name": "归溟幽灵鲨",
+ "class": "特种",
+ "branch": "傀儡师",
+ "rarity": 6.0,
+ "trait_text": "受到致命伤时不撤退，切换成作战（替身阻挡数为0），持续20秒后自身再次替换",
+ "attack_interval": 1.2,
+ "atk": 737.0,
+ "atk_trust": 80.0,
+ "atk_potential": 33.0,
+ "skills": [
+  {
+   "name": "生存的技巧",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 150.0
+   },
+   "_source": "开启时立即与范围内生命上限比例最低的其他我方干员交换生命上限比例，自身攻击力+150%",
+   "_parsed": [
+    {
+     "text": "自身攻击力+150%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 150.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "开启时立即与范围内生命上限比例最低的其他我方干员交换生命上限比例",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "生存的渴望",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 130.0,
+    "aspd": 50.0
+   },
+   "_source": "攻击力+130%，攻击速度+50，技能持续期间内干员的生命值不会低于1，技能结束后立刻切换为",
+   "_parsed": [
+    {
+     "text": "攻击力+130%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 130.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "技能持续期间内干员的生命值不会低于1",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "生存的重压",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 25.0,
+   "effects": {
+    "interval_flat": 1.0,
+    "atk_pct": 260.0,
+    "atk_mult": 0.7
+   },
+   "_source": "攻击间隔延长(+1.0)，攻击所有阻挡的敌人，攻击力+260%，生命上限+200%，攻击生命比例高于或等于自身的敌人时额外造成一次攻击力70%的物理伤害，否则自身流失3%生命",
+   "_parsed": [
+    {
+     "text": "攻击间隔延长(+1.0)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 1.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击所有阻挡的敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    },
+    {
+     "text": "攻击力+260%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 260.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击生命比例高于或等于自身的敌人时额外造成一次攻击力70%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 70.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "targets_scope": "all_blocked"
+   },
+   "_conditions": [
+    {
+     "text": "攻击所有阻挡的敌人",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "targets_scope": "all_blocked"
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "生命上限+200%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "否则自身流失3%生命",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "持续20秒后自身再次替换",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 20.0,
+   "field": "duration"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "受到致命伤时不撤退",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_mult": 0.4
+ },
+ "_talent_meta": [
+  {
+   "name": "拥抱自我",
+   "condition": "精英2",
+   "text": "使周围敌人移动速度-40%且每秒造成相当于40%攻击力的法术伤害"
+  },
+  {
+   "name": "阿戈尔的深邃",
+   "condition": "精英2",
+   "text": "编入队伍时，所有【深海猎人】干员的生命值+20%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "每秒造成相当于40%攻击力的法术伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 40.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "使周围敌人移动速度-40%",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「movement」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  },
+  {
+   "text": "编入队伍时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "所有【深海猎人】干员的生命值+20%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

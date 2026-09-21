@@ -1,0 +1,206 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "锏"
+ },
+ "name": "锏",
+ "class": "近卫",
+ "branch": "剑豪",
+ "rarity": 6.0,
+ "trait_text": "普通攻击连续造成两次伤害",
+ "attack_interval": 1.3,
+ "atk": 635.0,
+ "atk_trust": 50.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "纯粹的武力",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.06
+   },
+   "_source": "下次攻击对周围最多6名地面敌人造成两次相当于攻击力220%的物理伤害",
+   "_parsed": [
+    {
+     "text": "下次攻击对周围最多6名地面敌人造成两次相当于攻击力220%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 6.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "无声的嘲笑",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 12.0,
+   "init_sp": 10.0,
+   "duration": 0.0,
+   "effects": {
+    "targets": 6,
+    "atk_mult": 3.1
+   },
+   "_source": "对前方范围内最多6名地面敌人发动2次斩击，攻击被阻挡的敌人时改为3次斩击，天赋的发动概率提升至100%，每次斩击造成相当于攻击力310%的物理伤害，可充能2次",
+   "_parsed": [
+    {
+     "text": "对前方范围内最多6名地面敌人发动2次斩击",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 6.0,
+     "field": "targets"
+    },
+    {
+     "text": "攻击被阻挡的敌人时改为3次斩击",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 3.0,
+     "field": "targets"
+    },
+    {
+     "text": "每次斩击造成相当于攻击力310%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 310.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_conditional": {
+    "targets": 3
+   },
+   "_conditions": [
+    {
+     "text": "攻击被阻挡的敌人时改为3次斩击",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "targets": 3
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "天赋的发动概率提升至100%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "归于宁静",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_mult": 0.19799999999999998
+   },
+   "_source": "持续发动总计10次斩击，每次斩击对最多6名敌人造成相当于攻击力235%的物理伤害，天赋的发动概率提升至100%，并持续将敌人中等力度地拖拽至自身中心，之后将造成一次相当于攻击力330%的物理伤害并将敌人较大力地拖拽至自身中心",
+   "_parsed": [
+    {
+     "text": "持续发动总计10次斩击",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 10.0,
+     "field": "duration"
+    },
+    {
+     "text": "每次斩击对最多6名敌人造成相当于攻击力235%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 6.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "之后将造成一次相当于攻击力330%的物理伤害并将敌人较大力地拖拽至自身中心",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 330.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "天赋的发动概率提升至100%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "普通攻击连续造成两次伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_mult": 0.1,
+  "targets": 5,
+  "def_ignore_pct": 25.0
+ },
+ "_talent_meta": [
+  {
+   "name": "“天生的武者”",
+   "condition": "精英2",
+   "text": "造成伤害时有10%的几率攻击力提升至160%，并使目标战栗5秒"
+  },
+  {
+   "name": "活着的传奇",
+   "condition": "精英2",
+   "text": "攻击被战栗的目标时，无视目标25%的防御力"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "造成伤害时有10%的几率攻击力提升至160%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 10.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "并使目标战栗5秒",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 5.0,
+   "field": "targets"
+  },
+  {
+   "text": "无视目标25%的防御力",
+   "attribute": "defense",
+   "relation": "ignore",
+   "value": 25.0,
+   "field": "def_ignore_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击被战栗的目标时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

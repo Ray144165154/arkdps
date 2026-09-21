@@ -1,0 +1,143 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "海蒂"
+ },
+ "name": "海蒂",
+ "class": "辅助",
+ "branch": "吟游者",
+ "rarity": 5.0,
+ "trait_text": "不攻击，持续恢复范围内所有友军生命（每秒相当于自身攻击力10%的生命），自身不受鼓舞影响",
+ "attack_interval": 1.3,
+ "atk": 320.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "虚构故事·怒士",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 12.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_mult": 1.1
+   },
+   "_source": "攻击范围内所有友方单位阻挡数-3，获得相当于海蒂110%攻击力的鼓舞效果",
+   "_parsed": [
+    {
+     "text": "获得相当于海蒂110%攻击力的鼓舞效果",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 110.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "虚构故事·锈城",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 20.0,
+   "effects": {},
+   "_source": "攻击范围内所有友方单位阻挡数+1，并获得相当于海蒂70%防御力和30%生命值上限的鼓舞效果，自身特性效果提高至30%",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "自身特性效果提高至30%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "并获得相当于海蒂70%防御力和30%生命值上限的鼓舞效果",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / proportional」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "atk_mult": 0.1
+ },
+ "_trait_parsed": [
+  {
+   "text": "持续恢复范围内所有友军生命（每秒相当于自身攻击力10%的生命）",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 10.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "不攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "自身不受鼓舞影响",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "机敏的反抗者",
+   "condition": "精英2",
+   "text": "装备技能1时，攻击范围内友方单位攻击力+5%；装备技能2时，攻击范围内友方单位防御力+5%"
+  },
+  {
+   "name": "私人信使",
+   "condition": "精英2",
+   "text": "在【破碎日冕】中，攻击范围内所有友方干员技力自然回复速度+0.5/秒（同类效果取最高）"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "装备技能1时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "攻击范围内友方单位攻击力+5%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "装备技能2时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "攻击范围内友方单位防御力+5%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "在【破碎日冕】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

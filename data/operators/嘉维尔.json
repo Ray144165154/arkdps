@@ -1,0 +1,124 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "嘉维尔"
+ },
+ "name": "嘉维尔",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 4.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 450.0,
+ "atk_trust": 30.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "活力再生",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 8.0,
+   "init_sp": 0.0,
+   "duration": 5.0,
+   "effects": {
+    "atk_mult": 0.35
+   },
+   "_source": "下次治疗时为目标增加一个增益，每秒持续恢复相当于嘉维尔攻击力35%（血量低于一半时为70%）的生命，持续5秒，可充能3次",
+   "_parsed": [
+    {
+     "text": "每秒持续恢复相当于嘉维尔攻击力35%（血量低于一半时为70%）的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 35.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续5秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "活力再生·广域",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 60.0,
+   "init_sp": 50.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_mult": 0.3
+   },
+   "_source": "立即为攻击范围内所有友方单位增加一个增益，每秒持续恢复相当于嘉维尔攻击力30%（血量低于一半时为80%）的生命，持续10秒",
+   "_parsed": [
+    {
+     "text": "每秒持续恢复相当于嘉维尔攻击力30%（血量低于一半时为80%）的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 30.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续10秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 10.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "立即为攻击范围内所有友方单位增加一个增益",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "战地医师",
+   "condition": "精英2",
+   "text": "部署后全体友方【医疗】职业干员攻击力+10%，防御力+100，持续15秒"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "部署后全体友方【医疗】职业干员攻击力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "持续15秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 15.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "防御力+100",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

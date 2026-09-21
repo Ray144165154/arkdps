@@ -1,0 +1,154 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "森西"
+ },
+ "name": "森西",
+ "class": "重装",
+ "branch": "守护者",
+ "rarity": 5.0,
+ "trait_text": "技能可以治疗友方单位",
+ "attack_interval": 1.2,
+ "atk": 470.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "单人份料理",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 6.0,
+   "init_sp": 0.0,
+   "duration": 3.0,
+   "effects": {
+    "atk_mult": 2.8,
+    "atk_pct": 20.0,
+    "aspd": 20.0
+   },
+   "_source": "开始烹饪，3秒内停止攻击，烹饪完成后治疗周围一名友方角色，使其恢复相当于攻击力280%的生命，且随机获得下列一项增益：攻击力+20%，攻击速度+20，生命上限+25%，持续8秒",
+   "_parsed": [
+    {
+     "text": "3秒内停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "使其恢复相当于攻击力280%的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 280.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "随机获得下列一项增益：攻击力+20%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 20.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+20",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 20.0,
+     "field": "aspd"
+    },
+    {
+     "text": "持续8秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 8.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "partial",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "开始烹饪",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "生命上限+25%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "团体魔物大餐",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 10.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_mult": 0.81
+   },
+   "_source": "开始烹饪，10秒内停止攻击，期间使周围的友方角色每秒恢复相当于森西攻击力45%的生命，之后对附近一定范围内所有友方角色进行一次相当于攻击力180%的治疗，并回复10点魔力",
+   "_parsed": [
+    {
+     "text": "10秒内停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "期间使周围的友方角色每秒恢复相当于森西攻击力45%的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 45.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "之后对附近一定范围内所有友方角色进行一次相当于攻击力180%的治疗",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 180.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "开始烹饪",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "十年魔物餐经验",
+   "condition": "精英2",
+   "text": "防御力+10%，自身治疗量提升10%"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "防御力+10%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

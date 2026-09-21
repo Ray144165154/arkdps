@@ -1,0 +1,148 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "火哨"
+ },
+ "name": "火哨",
+ "class": "重装",
+ "branch": "要塞",
+ "rarity": 5.0,
+ "trait_text": "不阻挡敌人时优先远程群体物理攻击",
+ "attack_interval": 2.8,
+ "atk": 882.0,
+ "atk_trust": 50.0,
+ "atk_potential": 32.0,
+ "skills": [
+  {
+   "name": "野火",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 8.0,
+   "init_sp": 0.0,
+   "duration": 4.0,
+   "effects": {
+    "atk_mult": 0.925
+   },
+   "_source": "下次攻击时造成185%攻击力的物理伤害，并引燃受到伤害的敌人；被引燃的敌人每秒受到一次相当于火哨50%攻击力的法术伤害，持续4秒",
+   "_parsed": [
+    {
+     "text": "下次攻击时造成185%攻击力的物理伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 185.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "被引燃的敌人每秒受到一次相当于火哨50%攻击力的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 50.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续4秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 4.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "并引燃受到伤害的敌人",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "焦土",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 23.0,
+   "duration": 17.0,
+   "effects": {
+    "targets": 6,
+    "atk_mult": 0.85
+   },
+   "_source": "每次攻击会在目标周围四格地面产生一个持续6秒的燃烧区域；燃烧区域中的地面敌人每秒受到一次相当于火哨85%攻击力的法术伤害",
+   "_parsed": [
+    {
+     "text": "每次攻击会在目标周围四格地面产生一个持续6秒的燃烧区域",
+     "attribute": "targets",
+     "relation": "per",
+     "value": 6.0,
+     "field": "targets"
+    },
+    {
+     "text": "燃烧区域中的地面敌人每秒受到一次相当于火哨85%攻击力的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 85.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "不阻挡敌人时优先远程群体物理攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "进退自如",
+   "condition": "精英2",
+   "text": "未阻挡敌人时攻击力+12%，阻挡敌人时防御力+12%",
+   "conditional": {
+    "atk_pct": 12.0
+   },
+   "conditions": [
+    {
+     "text": "未阻挡敌人时攻击力+12%",
+     "condition": "未阻挡",
+     "fields": {
+      "atk_pct": 12.0
+     },
+     "reason": "含条件标记「未阻挡」，是否生效取决于战场情况"
+    }
+   ]
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "未阻挡敌人时攻击力+12%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 12.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "阻挡敌人时防御力+12%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false,
+ "_talent_conditional": {
+  "atk_pct": 12.0
+ }
+}

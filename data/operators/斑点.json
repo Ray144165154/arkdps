@@ -1,0 +1,45 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "斑点"
+ },
+ "name": "斑点",
+ "class": "重装",
+ "branch": "守护者",
+ "rarity": 3.0,
+ "trait_text": "技能可以治疗友方单位",
+ "attack_interval": 1.2,
+ "atk": 320.0,
+ "atk_trust": 30.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "次级治疗模式",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "",
+   "_parsed": [],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "_atk_from": "精英1_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "烟雾加装",
+   "condition": "精英1 55级",
+   "text": "治疗友方单位后为其提供持续3秒的20%物理闪避",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": []
+}

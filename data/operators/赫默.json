@@ -1,0 +1,105 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "赫默"
+ },
+ "name": "赫默",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 5.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 482.0,
+ "atk_trust": 75.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "治疗强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 90.0
+   },
+   "_source": "攻击力+90%",
+   "_parsed": [
+    {
+     "text": "攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "医疗无人机",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 18.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "获得一个医疗无人机，最多可库存1个无人机；无人机投入战场后治疗周围友军，10秒后自动销毁",
+   "_parsed": [],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "获得一个医疗无人机",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "最多可库存1个无人机",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "10秒后自动销毁",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 12.0
+ },
+ "_talent_meta": [
+  {
+   "name": "强化注射",
+   "condition": "精英2",
+   "text": "在场时，所有友方【医疗】职业干员攻速+12"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "所有友方【医疗】职业干员攻速+12",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 12.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

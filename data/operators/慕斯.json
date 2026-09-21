@@ -1,0 +1,104 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "慕斯"
+ },
+ "name": "慕斯",
+ "class": "近卫",
+ "branch": "术战者",
+ "rarity": 4.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.25,
+ "atk": 644.0,
+ "atk_trust": 35.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "挠伤",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 75.0
+   },
+   "_source": "下次攻击时攻击力+75%，5秒内使击中目标攻击力-40%",
+   "_parsed": [
+    {
+     "text": "下次攻击时攻击力+75%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 75.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "5秒内使击中目标攻击力-40%",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「atk」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "炸毛",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 80.0,
+   "init_sp": 45.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 75.0
+   },
+   "_source": "攻击力和防御力各+75%",
+   "_parsed": [
+    {
+     "text": "攻击力和防御力各+75%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 75.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "hits_override": 20.0
+ },
+ "_talent_meta": [
+  {
+   "name": "连击",
+   "condition": "精英2",
+   "text": "攻击时有20%的几率连续攻击两次"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击时有20%的几率连续攻击两次",
+   "attribute": "hits",
+   "relation": "unspecified",
+   "value": 20.0,
+   "field": "hits_override"
+  }
+ ]
+}

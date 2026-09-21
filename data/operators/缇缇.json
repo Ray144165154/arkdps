@@ -1,0 +1,246 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "缇缇"
+ },
+ "name": "缇缇",
+ "class": "医疗",
+ "branch": "咒愈师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，攻击敌人时为攻击范围内一名友方干员治疗相当于50%伤害的生命值",
+ "attack_interval": 1.6,
+ "atk": 548.0,
+ "atk_trust": 50.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "缓蚀",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 18.0,
+   "duration": 17.0,
+   "effects": {
+    "atk_pct": 100.0,
+    "targets": 50
+   },
+   "_source": "攻击力+100%，每次攻击有50%概率使目标沉睡3秒",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "每次攻击有50%概率使目标沉睡3秒",
+     "attribute": "targets",
+     "relation": "per",
+     "value": 50.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "封护",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 15.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 180.0
+   },
+   "_source": "停止攻击，攻击力+180%，技能开启时使自身与攻击范围内生命比例最低的干员陷入沉睡直到技能结束，期间持续使自身与该目标周围的敌人陷入沉睡，第一天赋效果提升至3.3倍，可主动关闭技能（期间可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "攻击力+180%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 180.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "可主动关闭技能（期间可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "low",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "期间持续使自身与该目标周围的敌人陷入沉睡",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "第一天赋效果提升至3.3倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能开启时使自身与攻击范围内生命比例最低的干员陷入沉睡直到技能结束",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "旧日绽放",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 37.0,
+   "init_sp": 28.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 180.0,
+    "targets": 5,
+    "atk_mult": 4.6
+   },
+   "_source": "攻击力+180%，同时攻击两名敌人，攻击非沉睡目标时使其沉睡5秒，技能期间，全场敌人从沉睡状态醒来或于沉睡中被击倒时，受到法术伤害（随沉睡时长提高至攻击力460%），并使周围一名其他敌人沉睡5秒，攻击范围内的其他友方干员受到致命伤害时，陷入沉睡至生命值完全恢复或技能结束",
+   "_parsed": [
+    {
+     "text": "攻击力+180%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 180.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击两名敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "攻击非沉睡目标时使其沉睡5秒",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "targets"
+    },
+    {
+     "text": "受到法术伤害（随沉睡时长提高至攻击力460%）",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 460.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "并使周围一名其他敌人沉睡5秒",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "全场敌人从沉睡状态醒来或于沉睡中被击倒时",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「targets / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "技能期间",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "攻击范围内的其他友方干员受到致命伤害时",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.15,
+  "aspd": 20.0
+ },
+ "_talent_meta": [
+  {
+   "name": "凝固的时光",
+   "condition": "精英2",
+   "text": "自身可以攻击沉睡的敌人，且攻击非移动敌人时对其额外造成相当于攻击力15%的法术伤害，在场时沉睡中的敌人每秒受到缇缇攻击力30%的法术伤害"
+  },
+  {
+   "name": "勇气的报偿",
+   "condition": "精英2",
+   "text": "场上的【米诺斯】或【萨尔贡】干员生命值高于50%时，获得+20攻速的精力充沛"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击非移动敌人时对其额外造成相当于攻击力15%的法术伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 15.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "获得+20攻速的精力充沛",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 20.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "自身可以攻击沉睡的敌人",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "在场时沉睡中的敌人每秒受到缇缇攻击力30%的法术伤害",
+   "kind": "unmapped",
+   "affects_damage": true,
+   "reason": "识别为「atk / per」，但没能映射到引擎字段"
+  },
+  {
+   "text": "场上的【米诺斯】或【萨尔贡】干员生命值高于50%时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

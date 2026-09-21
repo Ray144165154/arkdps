@@ -1,0 +1,116 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "玫拉"
+ },
+ "name": "玫拉",
+ "class": "狙击",
+ "branch": "重射手",
+ "rarity": 5.0,
+ "trait_text": "高精度的近距离射击",
+ "attack_interval": 1.6,
+ "atk": 792.0,
+ "atk_trust": 90.0,
+ "atk_potential": 30.0,
+ "skills": [
+  {
+   "name": "饱和脉冲",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 30.0,
+   "effects": {
+    "interval_flat": 0.8,
+    "atk_pct": 180.0
+   },
+   "_source": "攻击间隔增大(+0.8)，攻击力+180%",
+   "_parsed": [
+    {
+     "text": "攻击间隔增大(+0.8)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 0.8,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+180%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 180.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "临界爆发",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 6.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 5.0
+   },
+   "_source": "向正前方射击穿透弹，对沿途敌人造成攻击力500%的物理伤害；伤害随距离衰减至最低180%，可充能2次",
+   "_parsed": [
+    {
+     "text": "对沿途敌人造成攻击力500%的物理伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 500.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "向正前方射击穿透弹",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "伤害随距离衰减至最低180%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "高精度的近距离射击",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "参数校准",
+   "condition": "精英2",
+   "text": "首次释放技能后，后续技能期间造成的伤害提升15%"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "后续技能期间造成的伤害提升15%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

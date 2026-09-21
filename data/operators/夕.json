@@ -1,0 +1,192 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "夕"
+ },
+ "name": "夕",
+ "class": "术师",
+ "branch": "扩散术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 918.0,
+ "atk_trust": 110.0,
+ "atk_potential": 34.0,
+ "skills": [
+  {
+   "name": "工笔入化",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.5
+   },
+   "_source": "下一次攻击溅射范围扩大，造成相当于攻击力250%的法术伤害，可充能3次",
+   "_parsed": [
+    {
+     "text": "造成相当于攻击力250%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 250.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "泼墨淋漓",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 38.0,
+   "init_sp": 25.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 55.0,
+    "aspd": 55.0,
+    "targets_scope": "all_in_range"
+   },
+   "_source": "攻击范围扩大，攻击力+55%，攻击速度+55，攻击范围内的所有敌人且对生命值低于一半的敌人造成的法术伤害提升至130%",
+   "_parsed": [
+    {
+     "text": "攻击力+55%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 55.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+55",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 55.0,
+     "field": "aspd"
+    },
+    {
+     "text": "攻击范围内的所有敌人",
+     "attribute": "range",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "对生命值低于一半的敌人造成的法术伤害提升至130%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / set_to」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "写意胜形",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 100.0,
+   "init_sp": 70.0,
+   "duration": 60.0,
+   "effects": {
+    "interval_flat": 40.0,
+    "atk_pct": 120.0,
+    "targets": 25
+   },
+   "_source": "攻击间隔增大(+40%)，优先攻击未阻挡的敌人，攻击范围与溅射范围扩大，攻击力+120%，每次攻击时在目标位置（可部署地面）召唤/刷新一个\"小自在\"（持续25秒）",
+   "_parsed": [
+    {
+     "text": "攻击间隔增大(+40%)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+120%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 120.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "每次攻击时在目标位置（可部署地面）召唤/刷新一个\"小自在\"（持续25秒）",
+     "attribute": "targets",
+     "relation": "per",
+     "value": 25.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_mult": 0.02,
+  "targets": 25
+ },
+ "_talent_meta": [
+  {
+   "name": "化境",
+   "condition": "精英2",
+   "text": "夕与\"小自在\"击杀一名敌人时，夕获得2%攻击力，最多可叠加15层"
+  },
+  {
+   "name": "点睛",
+   "condition": "精英2",
+   "text": "部署后首次攻击敌人时，在目标位置（可部署地面）召唤一个“小自在”（持续25秒）"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "夕与\"小自在\"击杀一名敌人时",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 1.0,
+   "field": "targets"
+  },
+  {
+   "text": "夕获得2%攻击力",
+   "attribute": "atk",
+   "relation": "unspecified",
+   "value": 2.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "在目标位置（可部署地面）召唤一个“小自在”（持续25秒）",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 25.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "最多可叠加15层",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "部署后首次攻击敌人时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

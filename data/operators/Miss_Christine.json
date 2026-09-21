@@ -1,0 +1,143 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "Miss.Christine"
+ },
+ "name": "Miss.Christine",
+ "class": "术师",
+ "branch": "本源术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，可以造成元素伤害",
+ "attack_interval": 1.6,
+ "atk": 575.0,
+ "atk_trust": 65.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "自由用餐礼仪",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 50.0,
+    "targets": 2,
+    "damage_type": "arts"
+   },
+   "_source": "攻击力+50%，同时攻击2名敌人，攻击附带造成法术伤害15%的神经损伤",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击2名敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "攻击附带造成法术伤害15%的神经损伤",
+     "attribute": "damage_type",
+     "relation": "unspecified",
+     "value": 15.0,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "狂饮之宴",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 15.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_mult": 1.3224999999999998
+   },
+   "_source": "停止攻击，向目标所在的位置释放感知灵体，感知灵体每秒对周围所有敌人造成一次相当于攻击力115%的法术伤害且对处于神经损伤爆发期间的目标额外造成相当于攻击力115%的元素伤害",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "感知灵体每秒对周围所有敌人造成一次相当于攻击力115%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 115.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "对处于神经损伤爆发期间的目标额外造成相当于攻击力115%的元素伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 115.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "向目标所在的位置释放感知灵体",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以造成元素伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "诱人美馔",
+   "condition": "精英2",
+   "text": "攻击范围内的敌人触发麻痹时立即受到相当于攻击力120%的元素伤害"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的敌人触发麻痹时立即受到相当于攻击力120%的元素伤害",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / proportional」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

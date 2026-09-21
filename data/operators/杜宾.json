@@ -1,0 +1,153 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "杜宾"
+ },
+ "name": "杜宾",
+ "class": "近卫",
+ "branch": "教官",
+ "rarity": 4.0,
+ "trait_text": "可以攻击到较远敌人，攻击自身未阻挡的敌人时攻击力提升至120%",
+ "attack_interval": 1.05,
+ "atk": 602.0,
+ "atk_trust": 30.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "强力击·β型",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.3
+   },
+   "_source": "下次攻击的攻击力提高至230%",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至230%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 230.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "鞭策",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 70.0,
+   "init_sp": 40.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%，第一天赋的效果提升至3倍",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "第一天赋的效果提升至3倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "攻击自身未阻挡的敌人时攻击力提升至120%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 120.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 1.2
+ },
+ "_trait_conditions": [
+  {
+   "text": "攻击自身未阻挡的敌人时攻击力提升至120%",
+   "condition": "阻挡的敌人",
+   "fields": {
+    "atk_mult": 1.2
+   },
+   "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以攻击到较远敌人",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_pct": 10.0,
+  "aspd": 15.0
+ },
+ "_talent_meta": [
+  {
+   "name": "新人教官",
+   "condition": "精英2",
+   "text": "在场时，所有三星干员的攻击力+10%"
+  },
+  {
+   "name": "实训义务",
+   "condition": "精英2 Y模组3级",
+   "text": "场上有三星干员时，自身攻击速度+15",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "所有三星干员的攻击力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "自身攻击速度+15",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 15.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "场上有三星干员时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

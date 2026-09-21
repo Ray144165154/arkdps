@@ -1,0 +1,140 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "天火"
+ },
+ "name": "天火",
+ "class": "术师",
+ "branch": "扩散术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 784.0,
+ "atk_trust": 90.0,
+ "atk_potential": 33.0,
+ "skills": [
+  {
+   "name": "攻击力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "天坠之火",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 0.0,
+   "duration": 40.0,
+   "effects": {
+    "interval_flat": 70.0,
+    "atk_mult": 2.4
+   },
+   "_source": "攻击间隔增大(+70%)，攻击变为从天空召唤陨石；陨石需要时间降落，落地后对大范围敌人造成相当于攻击力240%的法术伤害，并使所有命中目标晕眩1秒",
+   "_parsed": [
+    {
+     "text": "攻击间隔增大(+70%)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "落地后对大范围敌人造成相当于攻击力240%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 240.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击变为从天空召唤陨石",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "陨石需要时间降落",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "法术狙击",
+   "condition": "精英2",
+   "text": "在场时，所有被阻挡的敌人受到法术伤害时伤害提升15%",
+   "conditional": {
+    "targets": 15
+   },
+   "conditions": [
+    {
+     "text": "所有被阻挡的敌人受到法术伤害时伤害提升15%",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "targets": 15
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    }
+   ]
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "所有被阻挡的敌人受到法术伤害时伤害提升15%",
+   "attribute": "targets",
+   "relation": "increase",
+   "value": 15.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false,
+ "_talent_conditional": {
+  "targets": 15
+ }
+}

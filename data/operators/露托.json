@@ -1,0 +1,107 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "露托"
+ },
+ "name": "露托",
+ "class": "重装",
+ "branch": "不屈者",
+ "rarity": 4.0,
+ "trait_text": "无法被友方角色治疗",
+ "attack_interval": 1.6,
+ "atk": 790.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "强力击·β型",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.3
+   },
+   "_source": "下次攻击的攻击力提高至230%",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至230%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 230.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "强磁防卫",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_mult": 0.02
+   },
+   "_source": "停止攻击，展开大盾并开启强磁场模式，防御力+130%，每2秒对周围所有地面敌人造成相当于攻击力100%的法术伤害，并将所有未被阻挡的敌人小力地拖拽至自身中心",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "每2秒对周围所有地面敌人造成相当于攻击力100%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 2.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "展开大盾并开启强磁场模式",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "防御力+130%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "死里求生",
+   "condition": "精英2",
+   "text": "自身阻挡的敌方单位被击杀时，回复自身16%的生命"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "自身阻挡的敌方单位被击杀时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「block / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

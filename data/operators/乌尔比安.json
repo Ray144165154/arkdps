@@ -1,0 +1,247 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "乌尔比安"
+ },
+ "name": "乌尔比安",
+ "class": "近卫",
+ "branch": "重剑手",
+ "rarity": 6.0,
+ "trait_text": "同时攻击阻挡的所有敌人",
+ "attack_interval": 2.5,
+ "atk": 1569.0,
+ "atk_trust": 80.0,
+ "atk_potential": 45.0,
+ "skills": [
+  {
+   "name": "必须促成的接触",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.7
+   },
+   "_source": "向前方扔出船锚，船锚会把目标地点周围的两名敌人中等力度地拖拽至面前，对其造成相当于攻击力270%的物理伤害",
+   "_parsed": [
+    {
+     "text": "对其造成相当于攻击力270%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 270.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "向前方扔出船锚",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "必须维系的界限",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 70.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 160.0
+   },
+   "_source": "第一天赋的效果提升至2倍，阻挡数+1，生命上限+60%，攻击力+160%，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+160%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 160.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "low",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "第一天赋的效果提升至2倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "生命上限+60%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "必须开辟的通路",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 20.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 260.0,
+    "atk_mult": 1.6
+   },
+   "_source": "最大生命值+80%，攻击力+260%，立即朝面前扔出一个船锚，撞击到目标或达到最远距离时停止，并对周围所有敌人造成攻击力160%的物理伤害和6秒晕眩。若船锚停留的位置可以部署，乌尔比安会移动到该位置，可以手动结束技能，技能结束时乌尔比安会返回到初始的位置",
+   "_parsed": [
+    {
+     "text": "攻击力+260%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 260.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "并对周围所有敌人造成攻击力160%的物理伤害和6秒晕眩",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 160.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "撞击到目标或达到最远距离时停止",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "立即朝面前扔出一个船锚",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "若船锚停留的位置可以部署",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "乌尔比安会移动到该位置",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "可以手动结束技能",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能结束时乌尔比安会返回到初始的位置",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "最大生命值+80%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_blocked"
+ },
+ "_trait_parsed": [
+  {
+   "text": "同时攻击阻挡的所有敌人",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 30.0
+ },
+ "_talent_meta": [
+  {
+   "name": "本性的坚守",
+   "condition": "精英2",
+   "text": "每次受到伤害时，治疗自身100点生命值；生命值低于50%时，治疗效果提升至160点生命值"
+  },
+  {
+   "name": "血脉的哺养",
+   "condition": "精英2",
+   "text": "每次击倒一名敌人时，自身的生命上限提高120，攻击力提高30，最多叠加9次，其他【深海猎人】干员获得50%的提高效果"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "每次击倒一名敌人时",
+   "attribute": "targets",
+   "relation": "per",
+   "value": 1.0,
+   "field": "targets"
+  },
+  {
+   "text": "攻击力提高30",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 30.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "每次受到伤害时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "生命值低于50%时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "自身的生命上限提高120",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "最多叠加9次",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "其他【深海猎人】干员获得50%的提高效果",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

@@ -1,0 +1,111 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "Touch(卫戍协议)"
+ },
+ "name": "Touch(卫戍协议)",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 6.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 525.0,
+ "atk_trust": 70.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "慨赠",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "攻击力+60%，每次治疗有50%概率额外治疗一次",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "宛如天启",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 40.0
+   },
+   "_source": "自身攻击范围扩大，每次治疗2个目标，所有医疗干员攻击力+40%",
+   "_parsed": [
+    {
+     "text": "所有医疗干员攻击力+40%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "恳切福音",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 70.0,
+   "init_sp": 50.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 40.0
+   },
+   "_source": "自身攻击范围扩大，攻击力+40%，每次治疗2个目标，并额外治疗一次目标或目标相邻1个友方单位，治疗量为主目标的30%。对生命值低于一半的友方单位治疗量提高为原来的150%",
+   "_parsed": [
+    {
+     "text": "攻击力+40%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "攫升",
+   "condition": "精英2",
+   "text": "治疗目标时使其获得3点技力"
+  },
+  {
+   "name": "超脱",
+   "condition": "精英2",
+   "text": "攻击范围内的友方干员被击倒时获得5点技力"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的友方干员被击倒时获得5点技力",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

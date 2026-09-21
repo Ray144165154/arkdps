@@ -1,0 +1,172 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "维伊"
+ },
+ "name": "维伊",
+ "class": "术师",
+ "branch": "秘术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，在找不到攻击目标时可以将攻击能量储存起来之后一齐发射（最多3个）",
+ "attack_interval": 3.0,
+ "atk": 1410.0,
+ "atk_trust": 100.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "“自呼号生发”",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 25.0,
+   "init_sp": 12.0,
+   "duration": 18.0,
+   "effects": {
+    "aspd": 100.0
+   },
+   "_source": "攻击速度+100",
+   "_parsed": [
+    {
+     "text": "攻击速度+100",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "“以鲜血洗去”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 32.0,
+   "init_sp": 10.0,
+   "duration": 28.0,
+   "effects": {
+    "interval_flat": -0.5,
+    "atk_pct": 15.0,
+    "aspd": 8.0
+   },
+   "_source": "攻击间隔小幅缩短(-0.5)，每次攻击或发射储存能量后，使自身后续攻击力+15%，攻击速度+8（至多叠加9层，发射转置能量可叠加3层），持续至技能结束",
+   "_parsed": [
+    {
+     "text": "攻击间隔小幅缩短(-0.5)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -0.5,
+     "field": "interval_flat"
+    },
+    {
+     "text": "使自身后续攻击力+15%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 15.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+8（至多叠加9层，发射转置能量可叠加3层）",
+     "attribute": "aspd",
+     "relation": "max_of",
+     "value": 8.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "持续至技能结束",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "“用赤铁铭记”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 45.0,
+   "init_sp": 28.0,
+   "duration": 0.0,
+   "effects": {
+    "aspd": 180.0,
+    "atk_mult": 1.65
+   },
+   "_source": "攻击速度+180，储存的能量发射后会在敌人间（优先不同目标）跳跃一次，并造成相当于165%攻击力的法术伤害，转置能量改为跳跃3次，攻击装有27发弹药，仅在发射每个储存能量时消耗1发弹药，发射转置能量消耗3发弹药，弹药打完后结束（可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击速度+180",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 180.0,
+     "field": "aspd"
+    },
+    {
+     "text": "并造成相当于165%攻击力的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 165.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 10.0,
+  "aspd": 15.0
+ },
+ "_talent_meta": [
+  {
+   "name": "“在挥刀之前”",
+   "condition": "精英2",
+   "text": "特性储存的能量达到3个时，合成为1个转置能量（至多储存等同于9倍的能量），拥有转置能量时攻击力+10%，未拥有转置能量时攻击速度+15"
+  },
+  {
+   "name": "战争技艺",
+   "condition": "精英2",
+   "text": "攻击和储存的能量使目标在5秒内每秒受到90点法术伤害（至多叠加3次，发射转置能量可以叠加3次），维伊不以该效果影响的敌人为攻击目标"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "拥有转置能量时攻击力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "未拥有转置能量时攻击速度+15",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 15.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "维伊不以该效果影响的敌人为攻击目标",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

@@ -1,0 +1,32 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "夜刀"
+ },
+ "name": "夜刀",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 2.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 232.0,
+ "atk_trust": 30.0,
+ "atk_potential": 9.0,
+ "skills": [],
+ "_warnings": [],
+ "_atk_from": "精英0_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "快速重新部署",
+   "condition": "30级",
+   "text": "再部署时间-30秒",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": []
+}

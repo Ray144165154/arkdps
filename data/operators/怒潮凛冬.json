@@ -1,0 +1,219 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "怒潮凛冬"
+ },
+ "name": "怒潮凛冬",
+ "class": "近卫",
+ "branch": "撼地者",
+ "rarity": 6.0,
+ "trait_text": "攻击使目标周围的其他敌人受到相当于攻击力50%的群体物理伤害",
+ "attack_interval": 1.8,
+ "atk": 1262.0,
+ "atk_trust": 50.0,
+ "atk_potential": 40.0,
+ "skills": [
+  {
+   "name": "誓不低头",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 50.0,
+    "aspd": 50.0
+   },
+   "_source": "攻击力+50%，攻击速度+50",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "绝不罢休",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 50.0,
+   "init_sp": 36.0,
+   "duration": 16.0,
+   "effects": {
+    "atk_pct": 90.0
+   },
+   "_source": "被动效果：每次有高台触发第一天赋的效果时，获得1点技力，自动开启：攻击范围扩大，攻击力+90%，防御力+60%，第二次及以后使用时能力加成变为最初的两倍，且持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "low",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "被动效果：每次有高台触发第一天赋的效果时",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "第二次及以后使用时能力加成变为最初的两倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "获得1点技力",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「sp / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "防御力+60%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "无可抵挡",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 27.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 100.0,
+    "atk_mult": 2.4,
+    "hits_override": 1.0
+   },
+   "_source": "攻击力+100%，对前方一格持续进行五次溅射范围更大的锤击，每次造成相当于攻击力240%的物理伤害并使攻击力额外+30%；技能期间触发第一天赋的高台会向四周高台扩散该效果（扩散次数随攻击次数递增），并使伤害效果提升至3.5倍，控制效果变为2秒束缚",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "每次造成相当于攻击力240%的物理伤害并使攻击力额外+30%",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 240.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "技能期间触发第一天赋的高台会向四周高台扩散该效果（扩散次数随攻击次数递增）",
+     "attribute": "hits",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "并使伤害效果提升至3.5倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "对前方一格持续进行五次溅射范围更大的锤击",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "atk_mult": 0.5
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击使目标周围的其他敌人受到相当于攻击力50%的群体物理伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 50.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.24,
+  "atk_pct": 14.0
+ },
+ "_talent_meta": [
+  {
+   "name": "汹涌怒火",
+   "condition": "精英2",
+   "text": "特性溅射造成的物理伤害提升24%，且溅射到的每个高台对周围四格所有地面敌人造成相当于攻击力24%的物理伤害和0.5秒停顿"
+  },
+  {
+   "name": "万众巨潮",
+   "condition": "精英2",
+   "text": "技能期间所有场上干员攻击力和防御力+14%，【乌萨斯学生自治团】干员获得加成效果翻倍"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "溅射到的每个高台对周围四格所有地面敌人造成相当于攻击力24%的物理伤害和0.5秒停顿",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 24.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "技能期间所有场上干员攻击力和防御力+14%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 14.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "特性溅射造成的物理伤害提升24%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "【乌萨斯学生自治团】干员获得加成效果翻倍",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

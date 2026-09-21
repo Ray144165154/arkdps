@@ -1,0 +1,140 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "戴菲恩"
+ },
+ "name": "戴菲恩",
+ "class": "术师",
+ "branch": "秘术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，在找不到攻击目标时可以将攻击能量储存起来之后一齐发射（最多3个）",
+ "attack_interval": 3.0,
+ "atk": 1240.0,
+ "atk_trust": 130.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "“贯注”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 5.0,
+   "duration": 5.0,
+   "effects": {
+    "interval_mult": 0.2,
+    "atk_mult": 0.5
+   },
+   "_source": "攻击范围改变，攻击间隔大幅度缩短(*0.2)，每次攻击造成相当于攻击力50%的法术伤害",
+   "_parsed": [
+    {
+     "text": "攻击间隔大幅度缩短(*0.2)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": 0.2,
+     "field": "interval_mult"
+    },
+    {
+     "text": "每次攻击造成相当于攻击力50%的法术伤害",
+     "attribute": "per_hit_mult",
+     "relation": "proportional",
+     "value": 50.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "“抢攻”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0,
+    "targets": 6
+   },
+   "_source": "攻击力+100%，不再以生命值低于50%的敌人为目标，攻击会使命中目标每秒受到6%戴菲恩攻击力的法术伤害（最多叠加4次，持续至技能结束）",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击会使命中目标每秒受到6%戴菲恩攻击力的法术伤害（最多叠加4次，持续至技能结束）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 6.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "不再以生命值低于50%的敌人为目标",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / stop」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 1.2
+ },
+ "_talent_meta": [
+  {
+   "name": "濯洗剑锋",
+   "condition": "精英2",
+   "text": "攻击生命值高于80%的敌人时造成的伤害提高18%"
+  },
+  {
+   "name": "挥斩敌愁",
+   "condition": "精英2",
+   "text": "在【恶兆湍流】中，攻击【萨卡兹】敌人时攻击力提升至120%，且可额外储存一个仅用于攻击【萨卡兹】敌人的攻击能量"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击【萨卡兹】敌人时攻击力提升至120%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 120.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击生命值高于80%的敌人时造成的伤害提高18%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "在【恶兆湍流】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

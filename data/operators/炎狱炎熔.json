@@ -1,0 +1,145 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "炎狱炎熔"
+ },
+ "name": "炎狱炎熔",
+ "class": "术师",
+ "branch": "扩散术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 798.0,
+ "atk_trust": 90.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "焰淬匕首",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 10.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 20.0,
+    "targets": 2
+   },
+   "_source": "攻击距离+1，攻击力+20%，同时攻击2个目标",
+   "_parsed": [
+    {
+     "text": "攻击力+20%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 20.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击2个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "攻击距离+1",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "狱火之环",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 70.0,
+   "init_sp": 30.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_mult": 0.08
+   },
+   "_source": "停止攻击，立即选择攻击范围内生命值最高的友方单位，使其和自身被火环笼罩，每秒对各自周围8格的所有敌人造成相当于炎狱炎熔攻击力50%的法术伤害",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "每秒对各自周围8格的所有敌人造成相当于炎狱炎熔攻击力50%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 8.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "使其和自身被火环笼罩",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "立即选择攻击范围内生命值最高的友方单位",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "咒术阵线",
+   "condition": "精英2",
+   "text": "首次部署后立即获得30点技力，每次部署时使在场术师干员技力+4，在场时其余友方术师干员于部署时技力+4"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "首次部署后立即获得30点技力",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「sp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "每次部署时使在场术师干员技力+4",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「sp / per」，但没能映射到引擎字段"
+  },
+  {
+   "text": "在场时其余友方术师干员于部署时技力+4",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「sp / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

@@ -1,0 +1,72 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ---- 虚拟环境 ----
+.venv/
+venv/
+ENV/
+env/
+.python-version
+
+# ---- 测试与覆盖率 ----
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# ---- 类型检查与 lint 缓存 ----
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+.pytype/
+.pyre/
+
+# ---- 编辑器与系统 ----
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- 本项目的抓取缓存 ----
+# PRTS 页面的原始 wikitext 缓存，12 MB 多，可由 `arkdps import` 重新生成。
+# data/ 下的干员草稿则**要**提交（1.7 MB）——那是"clone 下来就能算"的前提。
+.cache/
+
+# ---- 临时与草稿 ----
+tmp*/
+arkdps-test-*/
+*.tmp
+*.bak
+*.bak-*
+_scratch/

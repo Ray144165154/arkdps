@@ -1,0 +1,148 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "伊芙利特"
+ },
+ "name": "伊芙利特",
+ "class": "术师",
+ "branch": "轰击术师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成超远距离的群体法术伤害",
+ "attack_interval": 2.9,
+ "atk": 870.0,
+ "atk_trust": 110.0,
+ "atk_potential": 35.0,
+ "skills": [
+  {
+   "name": "狂热",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 20.0,
+    "aspd": 80.0
+   },
+   "_source": "攻击力+20%，攻击速度+80",
+   "_parsed": [
+    {
+     "text": "攻击力+20%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 20.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+80",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "炎爆",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 7.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.5
+   },
+   "_source": "下次攻击造成相当于攻击力250%的法术伤害，命中目标在3秒内防御力-300并持续受到灼烧伤害，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次攻击造成相当于攻击力250%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 250.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "命中目标在3秒内防御力-300并持续受到灼烧伤害",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "灼地",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 28.0,
+   "init_sp": 0.0,
+   "duration": 20.0,
+   "effects": {},
+   "_source": "对攻击范围内的地面敌人造成每秒相当于攻击力140%的法术伤害，命中目标的法术抗性-20，自己每秒流失最大生命值的2%",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "命中目标的法术抗性-20",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「res」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    },
+    {
+     "text": "对攻击范围内的地面敌人造成每秒相当于攻击力140%的法术伤害",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / proportional」，但没能映射到引擎字段"
+    },
+    {
+     "text": "自己每秒流失最大生命值的2%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成超远距离的群体法术伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "精神融解",
+   "condition": "精英2",
+   "text": "攻击范围内的敌军法术抗性-40%"
+  },
+  {
+   "name": "莱茵回路",
+   "condition": "精英2",
+   "text": "每6秒额外回复2点技力"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的敌军法术抗性-40%",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「res」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  }
+ ],
+ "_talent_needs_review": true
+}

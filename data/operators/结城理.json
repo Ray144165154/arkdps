@@ -1,0 +1,296 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "结城理"
+ },
+ "name": "结城理",
+ "class": "特种",
+ "branch": "傀儡师",
+ "rarity": 6.0,
+ "trait_text": "受到致命伤时不撤退，切换成作战（替身阻挡数为0），持续20秒后自身再次替换",
+ "attack_interval": 1.2,
+ "atk": 785.0,
+ "atk_trust": 40.0,
+ "atk_potential": 34.0,
+ "skills": [
+  {
+   "name": "俄耳甫斯的竖琴",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 7.0,
+   "init_sp": 7.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.68
+   },
+   "_source": "被动：状态召唤俄耳甫斯，攻击对敌人造成攻击力280%的法术伤害，范围内有生命值不高于50%的友方干员时，改为对其治疗相当于结城理攻击力60%的生命值，主动：立即切换为状态作战",
+   "_parsed": [
+    {
+     "text": "攻击对敌人造成攻击力280%的法术伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 280.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "改为对其治疗相当于结城理攻击力60%的生命值",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 60.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "主动：立即切换为状态作战",
+     "attribute": "stance",
+     "relation": "unspecified",
+     "value": null,
+     "field": "stance"
+    }
+   ],
+   "_confidence": "partial",
+   "stance": true,
+   "_unparsed": [
+    {
+     "text": "被动：状态召唤俄耳甫斯",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "范围内有生命值不高于50%的友方干员时",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "塔纳托斯的囚锁",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 12.0,
+   "init_sp": 7.0,
+   "duration": 0.0,
+   "effects": {
+    "targets": 4
+   },
+   "_source": "被动：状态召唤塔纳托斯，攻击对至多4名敌人造成攻击力250%的法术伤害并有35%概率恐惧敌人1.5秒，范围内恐惧中的敌人若生命值不高于结城理攻击力的280%则立刻倒下，主动：立即切换为状态作战",
+   "_parsed": [
+    {
+     "text": "攻击对至多4名敌人造成攻击力250%的法术伤害并有35%概率恐惧敌人1.5秒",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 4.0,
+     "field": "targets"
+    },
+    {
+     "text": "范围内恐惧中的敌人若生命值不高于结城理攻击力的280%则立刻倒下",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 280.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "主动：立即切换为状态作战",
+     "attribute": "stance",
+     "relation": "unspecified",
+     "value": null,
+     "field": "stance"
+    }
+   ],
+   "_confidence": "partial",
+   "_conditional": {
+    "atk_mult": 2.8
+   },
+   "_conditions": [
+    {
+     "text": "范围内恐惧中的敌人若生命值不高于结城理攻击力的280%则立刻倒下",
+     "condition": "若",
+     "fields": {
+      "atk_mult": 2.8
+     },
+     "reason": "含条件标记「若」，是否生效取决于战场情况"
+    }
+   ],
+   "stance": true,
+   "_unparsed": [
+    {
+     "text": "被动：状态召唤塔纳托斯",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "开辟明日的剑刃",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 10.0,
+   "duration": 0.0,
+   "effects": {
+    "aspd": 60.0,
+    "targets": 4,
+    "atk_mult": 0.4
+   },
+   "_source": "被动：状态初始召唤塔纳托斯，攻击速度+60，攻击对至多4名敌人造成攻击力230%的弱点伤害，塔纳托斯在场时，开启技能或受到致命伤时改为召唤俄耳甫斯，阻挡数+2，使范围内友方干员获得40%的物理与法术闪避并每秒治疗范围内最多4名友方干员相当于结城理攻击力35%的生命值，直到状态结束，主动：立即切换为状态作战",
+   "_parsed": [
+    {
+     "text": "攻击速度+60",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "aspd"
+    },
+    {
+     "text": "攻击对至多4名敌人造成攻击力230%的弱点伤害",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 4.0,
+     "field": "targets"
+    },
+    {
+     "text": "使范围内友方干员获得40%的物理与法术闪避并每秒治疗范围内最多4名友方干员相当于结城理攻击力35%的生命值",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 40.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "主动：立即切换为状态作战",
+     "attribute": "stance",
+     "relation": "unspecified",
+     "value": null,
+     "field": "stance"
+    }
+   ],
+   "_confidence": "partial",
+   "stance": true,
+   "_unparsed": [
+    {
+     "text": "被动：状态初始召唤塔纳托斯",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "塔纳托斯在场时",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "开启技能或受到致命伤时改为召唤俄耳甫斯",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "直到状态结束",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "持续20秒后自身再次替换",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 20.0,
+   "field": "duration"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "受到致命伤时不撤退",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "interval_flat": 0.4,
+  "atk_pct": 80.0,
+  "atk_mult": 4.3
+ },
+ "_talent_meta": [
+  {
+   "name": "不羁之力",
+   "condition": "精英2",
+   "text": "结城理切换为状态时停顿周围一定范围内敌人8秒；状态下结城理召唤人格面具作战，攻击间隔增大(+0.4)，攻击力+80%，生命值+35%，作战能力随技能选择而改变"
+  },
+  {
+   "name": "S.E.E.S.队长",
+   "condition": "精英2",
+   "text": "结城理状态结束后，带领S.E.E.S.小队发动总攻击，对S.E.E.S.小队队员周围一定范围内的所有敌人造成相当于结城理攻击力430%的真实伤害（可叠加）"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击间隔增大(+0.4)",
+   "attribute": "interval",
+   "relation": "increase",
+   "value": 0.4,
+   "field": "interval_flat"
+  },
+  {
+   "text": "攻击力+80%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 80.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "对S.E.E.S.小队队员周围一定范围内的所有敌人造成相当于结城理攻击力430%的真实伤害（可叠加）",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 430.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "状态下结城理召唤人格面具作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "生命值+35%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "作战能力随技能选择而改变",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "结城理状态结束后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "带领S.E.E.S.小队发动总攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

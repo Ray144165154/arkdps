@@ -1,0 +1,91 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "格拉尼"
+ },
+ "name": "格拉尼",
+ "class": "先锋",
+ "branch": "冲锋手",
+ "rarity": 5.0,
+ "trait_text": "击杀敌人后获得1点部署费用，撤退时返还初始部署费用",
+ "attack_interval": 1.0,
+ "atk": 552.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "防御力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 40.0,
+   "effects": {},
+   "_source": "防御力+100%",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "永不后退！",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 70.0,
+   "init_sp": 50.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 80.0,
+    "targets_scope": "all_blocked"
+   },
+   "_source": "攻击范围缩短，攻击力和防御力+80%，阻挡数+1，同时攻击阻挡的所有敌人",
+   "_parsed": [
+    {
+     "text": "攻击力和防御力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击阻挡的所有敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "骑警",
+   "condition": "精英2",
+   "text": "在场时，所有【先锋】职业干员获得20%的物理闪避"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

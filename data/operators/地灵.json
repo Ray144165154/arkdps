@@ -1,0 +1,84 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "地灵"
+ },
+ "name": "地灵",
+ "class": "辅助",
+ "branch": "凝滞师",
+ "rarity": 4.0,
+ "trait_text": "攻击造成法术伤害，并对敌人造成短暂的停顿",
+ "attack_interval": 1.9,
+ "atk": 480.0,
+ "atk_trust": 50.0,
+ "atk_potential": 21.0,
+ "skills": [
+  {
+   "name": "攻击力强化·β型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "流沙化",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 15.0,
+   "duration": 25.0,
+   "effects": {},
+   "_source": "停止攻击；攻击范围内的敌方单位每1.4秒受到一次停顿效果",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "exact",
+   "attacks": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "地质勘探",
+   "condition": "精英2",
+   "text": "略微延长特性停顿的持续时间(+0.1)"
+  }
+ ],
+ "_talent_parsed": []
+}

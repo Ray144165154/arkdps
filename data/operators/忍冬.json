@@ -1,0 +1,170 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "忍冬"
+ },
+ "name": "忍冬",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 562.0,
+ "atk_trust": 60.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "小施惩戒",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 8.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.9
+   },
+   "_source": "下次攻击额外造成攻击力290%的法术伤害，并获得1点部署费用，可充能3次",
+   "_parsed": [
+    {
+     "text": "下次攻击额外造成攻击力290%的法术伤害",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 290.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "坠刃拷问",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.06
+   },
+   "_source": "立即获得7点部署费用，对周围最多6名敌人造成相当于攻击力300%的法术伤害，并令击中目标停顿5秒；若敌人已经处于停顿状态，则额外使敌人晕眩5秒，可充能2次",
+   "_parsed": [
+    {
+     "text": "对周围最多6名敌人造成相当于攻击力300%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 6.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "隐狐之艺",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 18.0,
+   "init_sp": 10.0,
+   "duration": 10.0,
+   "effects": {
+    "atk_pct": 110.0,
+    "aspd": -180.0,
+    "targets_scope": "all_blocked"
+   },
+   "_source": "技能开启时立即获得9点部署费用，攻击范围扩大，攻击力+110%，攻击速度从+180逐渐衰减至+0，同时攻击阻挡的所有敌人，每次攻击晕眩敌人0.2秒，若技能期间击倒敌人，则技能结束时进入迷彩状态，直至下一次开启技能",
+   "_parsed": [
+    {
+     "text": "攻击力+110%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 110.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度从+180逐渐衰减至+0",
+     "attribute": "aspd",
+     "relation": "decrease",
+     "value": 180.0,
+     "field": "aspd"
+    },
+    {
+     "text": "同时攻击阻挡的所有敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "直至下一次开启技能",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "若技能期间击倒敌人",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "则技能结束时进入迷彩状态",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.1
+ },
+ "_talent_meta": [
+  {
+   "name": "追凶",
+   "condition": "精英2",
+   "text": "对每个敌人造成首次伤害后，10秒内忍冬对该敌人造成伤害时额外造成攻击力30%的法术伤害"
+  },
+  {
+   "name": "蓄势",
+   "condition": "精英2",
+   "text": "在场时，部署费用的自然回复速度+10%，若4秒内自身未受到伤害，则每秒恢复4%的最大生命值"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "10秒内忍冬对该敌人造成伤害时额外造成攻击力30%的法术伤害",
+   "attribute": "atk",
+   "relation": "unspecified",
+   "value": 10.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "对每个敌人造成首次伤害后",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "若4秒内自身未受到伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

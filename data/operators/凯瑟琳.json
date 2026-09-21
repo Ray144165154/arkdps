@@ -1,0 +1,134 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "凯瑟琳"
+ },
+ "name": "凯瑟琳",
+ "class": "辅助",
+ "branch": "工匠",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡两个敌人，使用协助作战",
+ "attack_interval": 1.5,
+ "atk": 550.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "岁月锻打",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 15.0
+   },
+   "_source": "自身和拥有装置屏障的其他干员攻击力+15%，防御力+15%",
+   "_parsed": [
+    {
+     "text": "自身和拥有装置屏障的其他干员攻击力+15%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 15.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+15%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "战火淬炼",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {},
+   "_source": "停止攻击，生命上限+70%，防御力+30%，装置效果改为使目标干员每秒获得相当于凯瑟琳生命上限6%的屏障（不会超过天赋上限）",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "exact",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "生命上限+70%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "防御力+30%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "装置效果改为使目标干员每秒获得相当于凯瑟琳生命上限6%的屏障（不会超过天赋上限）",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / proportional」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "使用协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "定向支援信号",
+   "condition": "精英2",
+   "text": "携带3个支援装置（最多部署2个），使一名干员获得相当于凯瑟琳生命上限20%的屏障（若目标最近5秒内未受攻击，则每秒补充相当于凯瑟琳生命上限6%的屏障，不超过初始上限），装置效果不叠加"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "携带3个支援装置（最多部署2个）",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「summon / max_of」，但没能映射到引擎字段"
+  },
+  {
+   "text": "使一名干员获得相当于凯瑟琳生命上限20%的屏障（若目标最近5秒内未受攻击，则每秒补充相当于凯瑟琳生命上限6%的屏障，不超过初始上限）",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / proportional」，但没能映射到引擎字段"
+  },
+  {
+   "text": "装置效果不叠加",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": false
+}

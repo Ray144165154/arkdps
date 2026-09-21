@@ -1,0 +1,156 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "重岳"
+ },
+ "name": "重岳",
+ "class": "近卫",
+ "branch": "斗士",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡一个敌人",
+ "attack_interval": 0.78,
+ "atk": 590.0,
+ "atk_trust": 60.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "冲盈",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 4.0
+   },
+   "_source": "对目标造成相当于攻击力400%的物理伤害；技能达到最大充能层数时消耗所有充能，造成对应次数的伤害，可充能3次",
+   "_parsed": [
+    {
+     "text": "对目标造成相当于攻击力400%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 400.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "造成对应次数的伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "拂尘",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 10.0,
+   "init_sp": 9.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.04
+   },
+   "_source": "对周围至多4个敌人造成相当于攻击力450%的物理伤害并使其中第一天赋生效的目标浮空；之后使周围所有浮空敌人结束浮空状态，对其100%触发第一天赋并造成相当于攻击力650%的物理伤害，可充能2次",
+   "_parsed": [
+    {
+     "text": "对周围至多4个敌人造成相当于攻击力450%的物理伤害并使其中第一天赋生效的目标浮空",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 4.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "对其100%触发第一天赋并造成相当于攻击力650%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 100.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "我无",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 8.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.8,
+    "hits_override": 2.0
+   },
+   "_source": "对目标及其周围造成相当于攻击力380%的物理伤害；累计使用五次技能后：重岳攻击的范围扩大且攻击变为二连击，技能变为自动释放且造成额外一次伤害",
+   "_parsed": [
+    {
+     "text": "对目标及其周围造成相当于攻击力380%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 380.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "攻击变为二连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "造成额外一次伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能变为自动释放",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "止戈",
+   "condition": "精英2",
+   "text": "对目标普通攻击时，有23%的概率使重岳2.5秒内对其造成的伤害提升65%"
+  },
+  {
+   "name": "万象为宾",
+   "condition": "精英2",
+   "text": "若重岳释放一次技能击倒不少于一个敌人，则回复3点技力"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "对目标普通攻击时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "有23%的概率使重岳2.5秒内对其造成的伤害提升65%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

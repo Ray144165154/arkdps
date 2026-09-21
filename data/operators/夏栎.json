@@ -1,0 +1,123 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "夏栎"
+ },
+ "name": "夏栎",
+ "class": "辅助",
+ "branch": "护佑者",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+ "attack_interval": 1.6,
+ "atk": 463.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "大地的慈悲",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 40.0
+   },
+   "_source": "攻击力+40%，技能持续时间无限，可主动关闭技能",
+   "_parsed": [
+    {
+     "text": "攻击力+40%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "技能持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    },
+    {
+     "text": "可主动关闭技能",
+     "attribute": "termination",
+     "relation": "unspecified",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true
+  },
+  {
+   "name": "生灵的回响",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 15.0,
+   "duration": 17.0,
+   "effects": {
+    "aspd": 60.0
+   },
+   "_source": "攻击速度+60，并在治疗目标时为其恢复1点技力",
+   "_parsed": [
+    {
+     "text": "攻击速度+60",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts",
+  "atk_mult": 0.75
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  },
+  {
+   "text": "技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 75.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "丛林的荫庇",
+   "condition": "精英2",
+   "text": "攻击范围内的友军生命大于等于70%时，使其获得14%的庇护"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的友军生命大于等于70%时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / proportional」，但没能映射到引擎字段"
+  },
+  {
+   "text": "使其获得14%的庇护",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

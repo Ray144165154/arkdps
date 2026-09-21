@@ -1,0 +1,116 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "蒂比"
+ },
+ "name": "蒂比",
+ "class": "特种",
+ "branch": "巡空者",
+ "rarity": 5.0,
+ "trait_text": "起飞后能够阻挡2个飞行敌人",
+ "attack_interval": 1.5,
+ "atk": 745.0,
+ "atk_trust": 40.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "专业喷绘技巧",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 10.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "立刻起飞，攻击范围扩大，攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "立刻起飞",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "紧急赶场通知",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 10.0,
+   "init_sp": 5.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 50.0,
+    "hits_override": 3.0
+   },
+   "_source": "立刻起飞，攻击范围扩大，攻击力+50%，攻击变为3连射，受到伤害前触发，并闪避本次物理或法术伤害",
+   "_parsed": [
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击变为3连射",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 3.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "受到伤害前触发",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "立刻起飞",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "片场工作指南",
+   "condition": "精英2",
+   "text": "若最近9秒内未受伤害，闪避下一次物理或法术伤害"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "若最近9秒内未受伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

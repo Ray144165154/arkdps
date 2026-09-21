@@ -1,0 +1,70 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "Stormeye"
+ },
+ "name": "Stormeye",
+ "class": "狙击",
+ "branch": "速射手",
+ "rarity": 5.0,
+ "trait_text": "优先攻击空中单位",
+ "attack_interval": 1.0,
+ "atk": 595.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "旋臂",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "targets": 2
+   },
+   "_source": "可以同时攻击2个目标，每个目标攻击2次",
+   "_parsed": [
+    {
+     "text": "可以同时攻击2个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "每个目标攻击2次",
+     "attribute": "targets",
+     "relation": "per",
+     "value": 2.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.25
+ },
+ "_talent_meta": [
+  {
+   "name": "风坠",
+   "condition": "精英2",
+   "text": "攻击时有25%的概率攻击力提升至200%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击时有25%的概率攻击力提升至200%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 25.0,
+   "field": "atk_mult"
+  }
+ ]
+}

@@ -1,0 +1,153 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "早露"
+ },
+ "name": "早露",
+ "class": "狙击",
+ "branch": "攻城手",
+ "rarity": 6.0,
+ "trait_text": "优先攻击重量最重的敌人",
+ "attack_interval": 2.4,
+ "atk": 1032.0,
+ "atk_trust": 110.0,
+ "atk_potential": 34.0,
+ "skills": [
+  {
+   "name": "攻击力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "分裂射击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 65.0,
+   "init_sp": 45.0,
+   "duration": 60.0,
+   "effects": {
+    "atk_pct": 90.0
+   },
+   "_source": "攻击力+90%，可以额外攻击一个敌人",
+   "_parsed": [
+    {
+     "text": "攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "可以额外攻击一个敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "雪崩击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 8.0,
+   "effects": {
+    "atk_pct": 25.0
+   },
+   "_source": "攻击力+25%，立即向至多4个重量最重的敌人发射束缚叉枪；技能持续时间内所有目标受到束缚效果，每秒受到一次攻击",
+   "_parsed": [
+    {
+     "text": "攻击力+25%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 25.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "每秒受到一次攻击",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 3,
+  "def_ignore_pct": 60.0,
+  "atk_pct": 8.0
+ },
+ "_talent_meta": [
+  {
+   "name": "深入骨髓",
+   "condition": "精英2",
+   "text": "攻击重量较重（重量等级大于等于3）的敌人时，无视其防御力的60%"
+  },
+  {
+   "name": "学生楷模",
+   "condition": "精英2",
+   "text": "编入队伍时，所有【乌萨斯学生自治团】干员攻击力+8%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击重量较重（重量等级大于等于3）的敌人时",
+   "attribute": "targets",
+   "relation": "proportional",
+   "value": 3.0,
+   "field": "targets"
+  },
+  {
+   "text": "无视其防御力的60%",
+   "attribute": "defense",
+   "relation": "ignore",
+   "value": 60.0,
+   "field": "def_ignore_pct"
+  },
+  {
+   "text": "所有【乌萨斯学生自治团】干员攻击力+8%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 8.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "编入队伍时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

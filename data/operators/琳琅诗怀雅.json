@@ -1,0 +1,229 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "琳琅诗怀雅"
+ },
+ "name": "琳琅诗怀雅",
+ "class": "特种",
+ "branch": "行商",
+ "rarity": 6.0,
+ "trait_text": "再部署时间减少，撤退时不返还部署费用，在场时每3秒消耗3点部署费用（不足时自动撤退）",
+ "attack_interval": 1.0,
+ "atk": 810.0,
+ "atk_trust": 55.0,
+ "atk_potential": 30.0,
+ "skills": [
+  {
+   "name": "仗义疏财",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.7
+   },
+   "_source": "消耗一枚金币，下一次攻击会为周围八格内血量不足70%的一名友方单位恢复相当于攻击力80%的生命，携带此技能时金币上限为3",
+   "_parsed": [
+    {
+     "text": "下一次攻击会为周围八格内血量不足70%的一名友方单位恢复相当于攻击力80%的生命",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 70.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "消耗一枚金币",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "携带此技能时金币上限为3",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "“见面礼”",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.0
+   },
+   "_source": "消耗一枚金币在范围内一个可放置且可通行的地面放置香槟炸弹，香槟炸弹会对触碰到的首个敌人造成相当于攻击力200%的物理伤害，并使目标停顿2秒，香槟炸弹在场3秒后可额外造成一次伤害；携带此技能时金币上限为5",
+   "_parsed": [
+    {
+     "text": "香槟炸弹会对触碰到的首个敌人造成相当于攻击力200%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 200.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "香槟炸弹在场3秒后可额外造成一次伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "可通行的地面放置香槟炸弹",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "携带此技能时金币上限为5",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "消耗一枚金币在范围内一个可放置",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "千金一掷",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "hits_override": 2.0,
+    "atk_mult": 1.5
+   },
+   "_source": "攻击变为二连击，击倒敌人时获得一枚金币；主动关闭技能时消耗所有金币对前方范围内敌人随机攻击，每消耗一枚金币造成一次相当于攻击力150%的物理伤害，并将目标中等力度地向前推开，持续时间无限，可随时主动关闭技能；携带此技能时金币上限为10",
+   "_parsed": [
+    {
+     "text": "攻击变为二连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "hits_override"
+    },
+    {
+     "text": "击倒敌人时获得一枚金币",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    },
+    {
+     "text": "主动关闭技能时消耗所有金币对前方范围内敌人随机攻击",
+     "attribute": "termination",
+     "relation": "unspecified",
+     "value": null,
+     "field": "end_condition"
+    },
+    {
+     "text": "每消耗一枚金币造成一次相当于攻击力150%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 150.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    },
+    {
+     "text": "可随时主动关闭技能",
+     "attribute": "termination",
+     "relation": "unspecified",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "low",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "并将目标中等力度地向前推开",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "携带此技能时金币上限为10",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "大买家",
+   "condition": "精英2",
+   "text": "开启技能时获得1枚金币（可用于技能消耗），技能期间每次特性消耗费用时获得1枚金币，并提升自身4%的攻击力（最多叠加8次）"
+  },
+  {
+   "name": "破财消灾",
+   "condition": "精英2",
+   "text": "受到致命伤害时，若费用足够则消耗5点部署费用使生命恢复到70%，每次触发该天赋时消耗的费用翻倍"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "开启技能时获得1枚金币（可用于技能消耗）",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "技能期间每次特性消耗费用时获得1枚金币",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「cost / per」，但没能映射到引擎字段"
+  },
+  {
+   "text": "并提升自身4%的攻击力（最多叠加8次）",
+   "kind": "unmapped",
+   "affects_damage": true,
+   "reason": "识别为「atk / max_of」，但没能映射到引擎字段"
+  },
+  {
+   "text": "受到致命伤害时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "每次触发该天赋时消耗的费用翻倍",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

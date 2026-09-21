@@ -1,0 +1,190 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "娜仁图亚"
+ },
+ "name": "娜仁图亚",
+ "class": "狙击",
+ "branch": "回环射手",
+ "rarity": 6.0,
+ "trait_text": "持有回旋投射物时才能够攻击（投射物需要时间回收）",
+ "attack_interval": 1.0,
+ "atk": 675.0,
+ "atk_trust": 90.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "旋刃",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.9,
+    "targets": 3
+   },
+   "_source": "可以在下列状态和初始状态间切换：，攻击距离-1，回旋投射物造成相当于攻击力190%的物理伤害，并且可以在敌人间重复弹射（最多弹跳3次）",
+   "_parsed": [
+    {
+     "text": "可以在下列状态和初始状态间切换：",
+     "attribute": "stance",
+     "relation": "unspecified",
+     "value": null,
+     "field": "stance"
+    },
+    {
+     "text": "回旋投射物造成相当于攻击力190%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 190.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "可以在敌人间重复弹射（最多弹跳3次）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 3.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "partial",
+   "stance": true,
+   "_unparsed": [
+    {
+     "text": "并",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "攻击距离-1",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "恶魇",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 8.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_mult": 5.0
+   },
+   "_source": "每次攻击造成相当于攻击力250%的物理伤害并使目标停顿1秒，投射物命中目标后会在短暂突进后折返，返回时对穿过的所有敌人造成一次相当于攻击力200%的物理伤害",
+   "_parsed": [
+    {
+     "text": "每次攻击造成相当于攻击力250%的物理伤害并使目标停顿1秒",
+     "attribute": "per_hit_mult",
+     "relation": "proportional",
+     "value": 250.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "返回时对穿过的所有敌人造成一次相当于攻击力200%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 200.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "投射物命中目标后会在短暂突进后折返",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "吞日",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_mult": 0.0024
+   },
+   "_source": "每次攻击发射3个回旋投射物（每个造成相当于攻击力175%的物理伤害），投射物全部回收时娜仁图亚对周围8格内至多3名敌人造成一次相当于攻击力160%的物理伤害并使其停顿1秒",
+   "_parsed": [
+    {
+     "text": "每次攻击发射3个回旋投射物（每个造成相当于攻击力175%的物理伤害）",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 3.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "投射物全部回收时娜仁图亚对周围8格内至多3名敌人造成一次相当于攻击力160%的物理伤害并使其停顿1秒",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 8.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "持有回旋投射物时才能够攻击（投射物需要时间回收）",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "targets": 8
+ },
+ "_talent_meta": [
+  {
+   "name": "“我见，我得”",
+   "condition": "精英2",
+   "text": "在场时，每次攻击到敌人偷取其25点攻击力（最高250点）与20点防御力（最高200点）"
+  },
+  {
+   "name": "婀娜虚影",
+   "condition": "精英2",
+   "text": "获得35%的物理与法术闪避，周围8格内敌人的物理与法术命中率-20%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "周围8格内敌人的物理与法术命中率-20%",
+   "attribute": "targets",
+   "relation": "decrease",
+   "value": 8.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "每次攻击到敌人偷取其25点攻击力（最高250点）与20点防御力（最高200点）",
+   "kind": "unmapped",
+   "affects_damage": true,
+   "reason": "识别为「atk / per」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

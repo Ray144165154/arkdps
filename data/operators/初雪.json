@@ -1,0 +1,133 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "初雪"
+ },
+ "name": "初雪",
+ "class": "辅助",
+ "branch": "削弱者",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 430.0,
+ "atk_trust": 65.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "传音回响",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 20.0,
+   "effects": {
+    "targets": 2
+   },
+   "_source": "同时攻击2个目标，攻击范围内所有敌人攻击速度-60",
+   "_parsed": [
+    {
+     "text": "同时攻击2个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "攻击范围内所有敌人攻击速度-60",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「aspd」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "自然震慑",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 20.0,
+   "duration": 25.0,
+   "effects": {
+    "targets_scope": "all_in_range"
+   },
+   "_source": "攻击范围内所有敌人防御力-60%，法术抗性-30%",
+   "_parsed": [
+    {
+     "text": "攻击范围内所有敌人防御力-60%",
+     "attribute": "range",
+     "relation": "decrease",
+     "value": -60.0,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "法术抗性-30%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「res / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 2
+ },
+ "_talent_meta": [
+  {
+   "name": "虚弱化",
+   "condition": "精英2",
+   "text": "攻击范围内的敌人生命少于40%时，令其获得30%的脆弱效果"
+  },
+  {
+   "name": "双响",
+   "condition": "精英2",
+   "text": "攻击时同时攻击两个目标"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击时同时攻击两个目标",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 2.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的敌人生命少于40%时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "令其获得30%的脆弱效果",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

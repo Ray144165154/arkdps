@@ -1,0 +1,238 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "娜斯提"
+ },
+ "name": "娜斯提",
+ "class": "辅助",
+ "branch": "工匠",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡两个敌人，使用协助作战",
+ "attack_interval": 1.5,
+ "atk": 614.0,
+ "atk_trust": 0.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "“拱卫”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 28.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 80.0,
+    "targets_scope": "all_blocked"
+   },
+   "_source": "携带此技能时：装置使前方干员防御力提升，攻击力+80%，防御力+80%，同时攻击阻挡的所有敌人；装置效果改为使前方干员阻挡数+1，防御力+55%，装置每秒流失2%最大生命值，技能开启时获得一个装置",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击阻挡的所有敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+80%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "防御力+55%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "装置每秒流失2%最大生命值",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "技能开启时获得一个装置",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "“执行”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 28.0,
+   "init_sp": 23.0,
+   "duration": 4.0,
+   "effects": {},
+   "_source": "携带此技能时：装置部署后逐渐回复自身生命值，激活后每0.5秒流失1点生命值，使前方干员获得1点技力和相当于娜斯提生命上限5%的屏障，立即激活场上装置，停止攻击，每0.5秒获得相当于生命上限10%的屏障（最多不超过生命上限80%），技能结束时获得一个装置",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "partial",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "立即激活场上装置",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "激活后每0.5秒流失1点生命值",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "使前方干员获得1点技力和相当于娜斯提生命上限5%的屏障",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / proportional」，但没能映射到引擎字段"
+    },
+    {
+     "text": "每0.5秒获得相当于生命上限10%的屏障（最多不超过生命上限80%）",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / proportional」，但没能映射到引擎字段"
+    },
+    {
+     "text": "技能结束时获得一个装置",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "栖脚地",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 17.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 160.0
+   },
+   "_source": "携带此技能时：装置可建造并升级一个可以放置远程干员并为其提供增益的特殊高台，攻击力+160%，防御力+160%；小工程师装置为高台装置回复技力和生命的效果翻倍，技能开启时获得一个装置",
+   "_parsed": [
+    {
+     "text": "攻击力+160%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 160.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "携带此技能时：装置可建造并升级一个可以放置远程干员并为其提供增益的特殊高台",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "防御力+160%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "技能开启时获得一个装置",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "使用协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "前方施工",
+   "condition": "精英2",
+   "text": "可以携带3个(最多可部署2个)，效果根据技能改变而改变"
+  },
+  {
+   "name": "注意安全",
+   "condition": "精英2",
+   "text": "获得10%庇护；远程敌人出现后，改为使自身和场上的高台干员获得15%庇护，且每6秒获得1点技力"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "可以携带3个(最多可部署2个)",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "效果根据技能改变而改变",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "获得10%庇护",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "远程敌人出现后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "改为使自身和场上的高台干员获得15%庇护",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "每6秒获得1点技力",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「sp / per」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

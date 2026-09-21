@@ -1,0 +1,101 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "爱丽丝"
+ },
+ "name": "爱丽丝",
+ "class": "术师",
+ "branch": "秘术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，在找不到攻击目标时可以将攻击能量储存起来之后一齐发射（最多3个）",
+ "attack_interval": 3.0,
+ "atk": 1259.0,
+ "atk_trust": 130.0,
+ "atk_potential": 45.0,
+ "skills": [
+  {
+   "name": "童话守卫者",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 5.0,
+   "duration": 5.0,
+   "effects": {
+    "interval_mult": 0.2,
+    "atk_mult": 0.5
+   },
+   "_source": "攻击范围改变，攻击间隔大幅度缩短(*0.2)，每次攻击造成相当于攻击力50%的法术伤害",
+   "_parsed": [
+    {
+     "text": "攻击间隔大幅度缩短(*0.2)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": 0.2,
+     "field": "interval_mult"
+    },
+    {
+     "text": "每次攻击造成相当于攻击力50%的法术伤害",
+     "attribute": "per_hit_mult",
+     "relation": "proportional",
+     "value": 50.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "梦乡摇篮",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 0.0,
+   "effects": {
+    "targets": 2,
+    "atk_mult": 3.0
+   },
+   "_source": "立即使攻击范围内的至多2个敌人陷入沉睡7秒，在其醒来时会对周围小范围内所有敌人造成相当于攻击力300%的法术伤害",
+   "_parsed": [
+    {
+     "text": "立即使攻击范围内的至多2个敌人陷入沉睡7秒",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "在其醒来时会对周围小范围内所有敌人造成相当于攻击力300%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 300.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "封印的宝盒",
+   "condition": "精英2",
+   "text": "储存的攻击能量造成的伤害提升至130%"
+  }
+ ],
+ "_talent_parsed": []
+}

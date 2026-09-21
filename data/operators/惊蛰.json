@@ -1,0 +1,109 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "惊蛰"
+ },
+ "name": "惊蛰",
+ "class": "术师",
+ "branch": "链术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，且会在3个敌人间跳跃，每次跳跃伤害降低15%并造成短暂停顿(0.5s)（精英2后更新）",
+ "attack_interval": 2.3,
+ "atk": 635.0,
+ "atk_trust": 75.0,
+ "atk_potential": 28.0,
+ "skills": [
+  {
+   "name": "攻击力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "初雷",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 80.0,
+   "init_sp": 50.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 150.0
+   },
+   "_source": "攻击力+150%，攻击在跳跃时不再降低伤害",
+   "_parsed": [
+    {
+     "text": "攻击力+150%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 150.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "通流无阻",
+   "condition": "精英2",
+   "text": "攻击未被阻挡的敌人时攻击力提升至120%",
+   "conditional": {
+    "atk_mult": 1.2
+   },
+   "conditions": [
+    {
+     "text": "攻击未被阻挡的敌人时攻击力提升至120%",
+     "condition": "未被阻挡",
+     "fields": {
+      "atk_mult": 1.2
+     },
+     "reason": "含条件标记「未被阻挡」，是否生效取决于战场情况"
+    }
+   ]
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击未被阻挡的敌人时攻击力提升至120%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 120.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_conditional": {
+  "atk_mult": 1.2
+ }
+}

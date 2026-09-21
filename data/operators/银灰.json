@@ -1,0 +1,167 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "银灰"
+ },
+ "name": "银灰",
+ "class": "近卫",
+ "branch": "领主",
+ "rarity": 6.0,
+ "trait_text": "可以进行远程攻击，但此时攻击力降低至80%",
+ "attack_interval": 1.3,
+ "atk": 713.0,
+ "atk_trust": 50.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "强力击·γ型",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.9
+   },
+   "_source": "下次攻击的攻击力提高至290%",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提高至290%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 290.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "雪境生存法则",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "可以在下列状态和初始状态间切换：，攻击范围缩小，防御力+100%，每秒恢复最大生命的6.0%",
+   "_parsed": [
+    {
+     "text": "可以在下列状态和初始状态间切换：",
+     "attribute": "stance",
+     "relation": "unspecified",
+     "value": null,
+     "field": "stance"
+    }
+   ],
+   "_confidence": "exact",
+   "stance": true,
+   "_unparsed": [
+    {
+     "text": "防御力+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "真银斩",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 90.0,
+   "init_sp": 75.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 200.0,
+    "targets": 6
+   },
+   "_source": "防御力-70%，攻击力+200%，攻击范围扩大，同时攻击至多6个目标（视为近距离攻击）",
+   "_parsed": [
+    {
+     "text": "攻击力+200%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 200.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击至多6个目标（视为近距离攻击）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 6.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力-70%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / decrease」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 80.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.8
+ },
+ "_trait_conditions": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "condition": "但此时",
+   "fields": {
+    "atk_mult": 0.8
+   },
+   "reason": "含条件标记「但此时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "领袖",
+   "condition": "精英2",
+   "text": "攻击力+10%，编入队伍时所有可部署单位的再部署时间-10%"
+  },
+  {
+   "name": "鹰眼视觉",
+   "condition": "精英2",
+   "text": "攻击范围内敌人的隐匿效果失效"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内敌人的隐匿效果失效",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

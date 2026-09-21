@@ -1,0 +1,251 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "魔王"
+ },
+ "name": "魔王",
+ "class": "辅助",
+ "branch": "吟游者",
+ "rarity": 6.0,
+ "trait_text": "不攻击，持续恢复范围内所有友军生命（每秒相当于自身攻击力10%的生命），自身不受鼓舞影响",
+ "attack_interval": 1.3,
+ "atk": 369.0,
+ "atk_trust": 30.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "往昔萦绕身旁",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 65.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "自身特性效果提高至35%，“微尘”的重生速度加快，持续时间无限",
+   "_parsed": [
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "low",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "自身特性效果提高至35%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "“微尘”的重生速度加快",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "明日渺远不及",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_mult": 2.75
+   },
+   "_source": "“微尘”上限+3，立刻获得6枚“微尘”，“微尘”旋转半径扩大，攻击范围内所有其他友方单位获得相当于魔王100%攻击力的鼓舞效果，“微尘”不再碰撞友方干员，“微尘”碰撞敌方单位时造成相当于魔王攻击力275%的真实伤害，并使目标束缚3.5秒",
+   "_parsed": [
+    {
+     "text": "“微尘”碰撞敌方单位时造成相当于魔王攻击力275%的真实伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 275.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "立刻获得6枚“微尘”",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "“微尘”上限+3",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "“微尘”旋转半径扩大",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "“微尘”不再碰撞友方干员",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "攻击范围内所有其他友方单位获得相当于魔王100%攻击力的鼓舞效果",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / proportional」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "编织重构现世",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 55.0,
+   "init_sp": 35.0,
+   "duration": 30.0,
+   "effects": {},
+   "_source": "攻击范围扩大，自身特性效果提高至90%，“微尘”不再消失，攻击范围内所有其它友方单位获得相当于魔王100%的最大生命值的鼓舞效果，每隔2秒重新分配攻击范围内所有友方单位的生命",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "自身特性效果提高至90%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "“微尘”不再消失",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "攻击范围内所有其它友方单位获得相当于魔王100%的最大生命值的鼓舞效果",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / proportional」，但没能映射到引擎字段"
+    },
+    {
+     "text": "每隔2秒重新分配攻击范围内所有友方单位的生命",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "atk_mult": 0.1
+ },
+ "_trait_parsed": [
+  {
+   "text": "持续恢复范围内所有友军生命（每秒相当于自身攻击力10%的生命）",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 10.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "不攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "自身不受鼓舞影响",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_mult": 0.3,
+  "targets": 10
+ },
+ "_talent_meta": [
+  {
+   "name": "过往尘埃",
+   "condition": "精英2 X模组3级",
+   "text": "魔王周围持续围绕3枚“微尘”，“微尘”碰撞友方干员时，消失并使该干员受到魔王特性效果提升至1.6倍，持续6秒，消失的“微尘”在6秒后重生，干员受到“微尘”效果影响时立刻恢复相当于魔王30%攻击力的生命值",
+   "fallback": true
+  },
+  {
+   "name": "魔王残响",
+   "condition": "精英2",
+   "text": "在场时，所有友方单位受到【萨卡兹】敌人的伤害降低10%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "魔王周围持续围绕3枚“微尘”",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 3.0,
+   "field": "duration"
+  },
+  {
+   "text": "持续6秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 6.0,
+   "field": "duration"
+  },
+  {
+   "text": "干员受到“微尘”效果影响时立刻恢复相当于魔王30%攻击力的生命值",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 30.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "所有友方单位受到【萨卡兹】敌人的伤害降低10%",
+   "attribute": "targets",
+   "relation": "decrease",
+   "value": 10.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "“微尘”碰撞友方干员时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "消失并使该干员受到魔王特性效果提升至1.6倍",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "消失的“微尘”在6秒后重生",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

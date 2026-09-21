@@ -1,0 +1,100 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "安比尔"
+ },
+ "name": "安比尔",
+ "class": "狙击",
+ "branch": "神射手",
+ "rarity": 4.0,
+ "trait_text": "优先攻击攻击范围内防御力最低的敌方单位",
+ "attack_interval": 2.7,
+ "atk": 977.0,
+ "atk_trust": 75.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "阻挡弹",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 10.0,
+   "duration": 36.0,
+   "effects": {},
+   "_source": "攻击范围+1格，且攻击会使目标停顿1.2秒",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "攻击范围+1格",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "雷达定位",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 10.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 100.0,
+    "interval_flat": 0.9
+   },
+   "_source": "攻击力+100%，攻击范围扩大至整个战场，但攻击间隔略微增大(+0.9)，且在攻击超出原本攻击范围的敌方单位时攻击前摇增大",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "但攻击间隔略微增大(+0.9)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 0.9,
+     "field": "interval_flat"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "在攻击超出原本攻击范围的敌方单位时攻击前摇增大",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "精确打击",
+   "condition": "精英2",
+   "text": "攻击原本攻击范围以外的目标时，有25%的几率使其晕眩2秒"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击原本攻击范围以外的目标时",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

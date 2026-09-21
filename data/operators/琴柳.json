@@ -1,0 +1,181 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "琴柳"
+ },
+ "name": "琴柳",
+ "class": "先锋",
+ "branch": "执旗手",
+ "rarity": 6.0,
+ "trait_text": "技能发动期间阻挡数变为0",
+ "attack_interval": 1.3,
+ "atk": 546.0,
+ "atk_trust": 40.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "支援号令·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 26.0,
+   "init_sp": 15.0,
+   "duration": 8.0,
+   "effects": {},
+   "_source": "停止攻击，持续时间内回复总共18点部署费用",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "exact",
+   "attacks": false
+  },
+  {
+   "name": "信仰传承",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 29.0,
+   "init_sp": 15.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_mult": 0.5
+   },
+   "_source": "停止攻击，持续时间内回复总共20点部署费用；将军旗掷向范围内生命比例最低的干员所在位置，使其防御力+50%且每秒恢复相当于琴柳攻击力50%的生命值。技能结束时收回军旗。",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "每秒恢复相当于琴柳攻击力50%的生命值",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 50.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "技能结束时收回军旗",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "将军旗掷向范围内生命比例最低的干员所在位置",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "使其防御力+50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "光辉旗帜",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 7.0,
+   "duration": 10.0,
+   "effects": {},
+   "_source": "停止攻击，立即回复10点部署费用，将军旗掷向地面敌人所在位置，并对周围造成300%的物理伤害和3.5秒晕眩；期间军旗周围8格敌人受到停顿和30%的脆弱效果。技能结束时收回军旗。",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "partial",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "将军旗掷向地面敌人所在位置",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "技能结束时收回军旗",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 8.0
+ },
+ "_talent_meta": [
+  {
+   "name": "不退之旗",
+   "condition": "精英2",
+   "text": "部署时自身持有军旗；军旗周围8格的干员攻击速度+10，敌人的攻击速度-10"
+  },
+  {
+   "name": "精神感召",
+   "condition": "精英2",
+   "text": "部署后，下一名部署的干员费用-2"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "军旗周围8格的干员攻击速度+10",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 8.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "部署时自身持有军旗",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "敌人的攻击速度-10",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「aspd」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  },
+  {
+   "text": "部署后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "下一名部署的干员费用-2",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「cost / decrease」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

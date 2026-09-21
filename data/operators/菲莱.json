@@ -1,0 +1,135 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "菲莱"
+ },
+ "name": "菲莱",
+ "class": "重装",
+ "branch": "本源铁卫",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡三个敌人，可以造成元素损伤",
+ "attack_interval": 1.6,
+ "atk": 603.0,
+ "atk_trust": 40.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "灵河护佑",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 18.0,
+   "init_sp": 10.0,
+   "duration": 15.0,
+   "effects": {},
+   "_source": "生命上限+90%，立刻清除自身的元素损伤并获得1800点损伤屏障",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "生命上限+90%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "立刻清除自身的元素损伤并获得1800点损伤屏障",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「shield / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "冥河诅咒",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 45.0,
+   "init_sp": 20.0,
+   "duration": 40.0,
+   "effects": {
+    "targets": 200
+   },
+   "_source": "停止攻击，生命上限+50%，受到攻击时对周围的地面敌人造成攻击力200%的法术伤害并附带25%攻击力的凋亡损伤（每2秒最多触发一次）；若技能期间受到元素损伤则攻击力+100%至技能结束",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "受到攻击时对周围的地面敌人造成攻击力200%的法术伤害并附带25%攻击力的凋亡损伤（每2秒最多触发一次）",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 200.0,
+     "field": "targets"
+    },
+    {
+     "text": "若技能期间受到元素损伤则攻击力+100%至技能结束",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "atk_pct": 100.0
+   },
+   "_conditions": [
+    {
+     "text": "若技能期间受到元素损伤则攻击力+100%至技能结束",
+     "condition": "若",
+     "fields": {
+      "atk_pct": 100.0
+     },
+     "reason": "含条件标记「若」，是否生效取决于战场情况"
+    }
+   ],
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "生命上限+50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以造成元素损伤",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "神河谕使",
+   "condition": "精英2",
+   "text": "受到的元素损伤-10%，受到凋亡损伤时回复2点技力"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "受到的元素损伤-10%",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

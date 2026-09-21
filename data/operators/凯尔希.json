@@ -1,0 +1,164 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "凯尔希"
+ },
+ "name": "凯尔希",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 6.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 490.0,
+ "atk_trust": 0.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "指令：结构加固",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 10.0,
+   "duration": 40.0,
+   "effects": {},
+   "_source": "自身和Mon3tr的防御力+150%，且自身获得50%的物理格挡",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "自身获得50%的物理格挡",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "自身和Mon3tr的防御力+150%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "指令：战术协同",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 8.0,
+   "init_sp": 0.0,
+   "duration": 20.0,
+   "effects": {
+    "aspd": 100.0,
+    "atk_pct": 3.0,
+    "targets": 3
+   },
+   "_source": "自身的攻击速度+100，Mon3tr的攻击力+90%，Mon3tr可以攻击阻挡的所有敌人，该技能与Mon3tr绑定",
+   "_parsed": [
+    {
+     "text": "自身的攻击速度+100",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "aspd"
+    },
+    {
+     "text": "Mon3tr的攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 3.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "Mon3tr可以攻击阻挡的所有敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 3.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "该技能与Mon3tr绑定",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "指令：熔毁",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 0.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_mult": 2.6,
+    "damage_type": "true"
+   },
+   "_source": "Mon3tr的防御力+200%，技能期间攻击力从+260%逐渐降低至+0%且伤害类型变为真实，此期间如果未击杀任何敌人则技能结束后流失最大生命的50%。该技能与Mon3tr绑定",
+   "_parsed": [
+    {
+     "text": "技能期间攻击力从+260%逐渐降低至+0%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 260.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "伤害类型变为真实",
+     "attribute": "damage_type",
+     "relation": "set_to",
+     "value": null,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "该技能与Mon3tr绑定",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "Mon3tr的防御力+200%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "Mon3tr",
+   "condition": "精英2",
+   "text": "可以使用并治疗Mon3tr，拥有25秒再部署时间，优先治疗自身和Mon3tr；Mon3tr不在凯尔希攻击范围内时防御力降至0"
+  },
+  {
+   "name": "不毁重构",
+   "condition": "精英2",
+   "text": "Mon3tr在被击倒后（不包括撤退）使周围8格内所有敌人晕眩3秒并对其造成1200点真实伤害"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "Mon3tr不在凯尔希攻击范围内时防御力降至0",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

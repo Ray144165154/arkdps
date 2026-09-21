@@ -1,0 +1,221 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "菲亚梅塔"
+ },
+ "name": "菲亚梅塔",
+ "class": "狙击",
+ "branch": "炮手",
+ "rarity": 6.0,
+ "trait_text": "攻击造成群体物理伤害",
+ "attack_interval": 2.8,
+ "atk": 861.0,
+ "atk_trust": 100.0,
+ "atk_potential": 35.0,
+ "skills": [
+  {
+   "name": "“你须直面”",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 10.0,
+   "init_sp": 5.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击距离+1，攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "攻击距离+1",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "“你须愧悔”",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 7.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "向前发射灼痕弹且每飞行一段距离在弹道上留下灼痕，到达攻击范围最远距离时爆炸造成400%的物理伤害；之后灼痕依次爆炸造成200%的物理伤害",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "向前发射灼痕弹",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "每飞行一段距离在弹道上留下灼痕",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "之后灼痕依次爆炸造成200%的物理伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "到达攻击范围最远距离时爆炸造成400%的物理伤害",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "“你须偿还”",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.25
+   },
+   "_source": "持续固定攻击范围内正前方最远一格，爆炸范围扩大，攻击力提升至125%，对目标位置附近小范围内的敌人攻击力额外提升至220%，持续时间无限，可主动关闭技能",
+   "_parsed": [
+    {
+     "text": "攻击力提升至125%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 125.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    },
+    {
+     "text": "可主动关闭技能",
+     "attribute": "termination",
+     "relation": "unspecified",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "对目标位置附近小范围内的敌人攻击力额外提升至220%",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「atk」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    },
+    {
+     "text": "持续固定攻击范围内正前方最远一格",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体物理伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "aspd": 27.0
+ },
+ "_talent_meta": [
+  {
+   "name": "陈述苦难",
+   "condition": "精英2",
+   "text": "自身生命会不断流失（该效果不会使生命降至0）；生命值高于50%时获得+25%攻击力的精力充沛；高于80%效果翻倍",
+   "conditional": {
+    "atk_pct": 50.0
+   },
+   "conditions": [
+    {
+     "text": "生命值高于50%时获得+25%攻击力的精力充沛",
+     "condition": "生命值高于",
+     "fields": {
+      "atk_pct": 50.0
+     },
+     "reason": "含条件标记「生命值高于」，是否生效取决于战场情况"
+    }
+   ]
+  },
+  {
+   "name": "宣告终局",
+   "condition": "精英2",
+   "text": "技能持续期间外，攻击速度+27"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "生命值高于50%时获得+25%攻击力的精力充沛",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 50.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "攻击速度+27",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 27.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "自身生命会不断流失（该效果不会使生命降至0）",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "高于80%效果翻倍",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "技能持续期间外",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": false,
+ "_talent_conditional": {
+  "atk_pct": 50.0
+ }
+}

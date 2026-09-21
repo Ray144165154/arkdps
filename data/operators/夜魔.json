@@ -1,0 +1,117 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "夜魔"
+ },
+ "name": "夜魔",
+ "class": "术师",
+ "branch": "中坚术师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 622.0,
+ "atk_trust": 70.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "灵魂汲取",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 80.0,
+   "init_sp": 50.0,
+   "duration": 60.0,
+   "effects": {
+    "atk_mult": 0.02
+   },
+   "_source": "每次攻击对敌人造成伤害的同时会对范围内至多2名友方单位恢复相当于自身攻击力100%的生命值",
+   "_parsed": [
+    {
+     "text": "每次攻击对敌人造成伤害的同时会对范围内至多2名友方单位恢复相当于自身攻击力100%的生命值",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 2.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "夜魇魔影",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 20.0,
+   "init_sp": 0.0,
+   "duration": 10.0,
+   "effects": {
+    "targets": 5
+   },
+   "_source": "立即对攻击范围内最多5名敌人施加梦魇效果：，敌人的移动速度-60%，并令其在移动时受到正比于距离的真实伤害，持续10秒",
+   "_parsed": [
+    {
+     "text": "立即对攻击范围内最多5名敌人施加梦魇效果：",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 5.0,
+     "field": "targets"
+    },
+    {
+     "text": "持续10秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 10.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "并令其在移动时受到正比于距离的真实伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "敌人的移动速度-60%",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「movement」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 2.0
+ },
+ "_talent_meta": [
+  {
+   "name": "表里人格",
+   "condition": "精英2",
+   "text": "装备技能1时获得40%的物理和法术闪避，装备技能2时获得+15%攻击力"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "装备技能2时获得+15%攻击力",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 2.0,
+   "field": "atk_pct"
+  }
+ ]
+}

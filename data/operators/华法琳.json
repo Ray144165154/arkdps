@@ -1,0 +1,105 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "华法琳"
+ },
+ "name": "华法琳",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 5.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 505.0,
+ "atk_trust": 75.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "紧急包扎",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "下次治疗额外回复目标最大生命值的25%，只当目标生命值不满一半时才会触发，可充能4次",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "只当目标生命值不满一半时才会触发",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「hp」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "不稳定血浆",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 60.0,
+   "init_sp": 50.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 90.0
+   },
+   "_source": "自身和攻击范围内随机一名我方单位获得以下状态：，攻击力+90%，每秒流失3%最大生命值，持续15秒",
+   "_parsed": [
+    {
+     "text": "攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续15秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 15.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "自身和攻击范围内随机一名我方单位获得以下状态：",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "每秒流失3%最大生命值",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "血液样本回收",
+   "condition": "精英2",
+   "text": "攻击范围内有敌人倒下时，为自身和范围内随机一名友方单位回复2点技力"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内有敌人倒下时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

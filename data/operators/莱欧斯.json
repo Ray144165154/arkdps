@@ -1,0 +1,152 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "莱欧斯"
+ },
+ "name": "莱欧斯",
+ "class": "近卫",
+ "branch": "无畏者",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡一个敌人",
+ "attack_interval": 1.5,
+ "atk": 900.0,
+ "atk_trust": 75.0,
+ "atk_potential": 32.0,
+ "skills": [
+  {
+   "name": "胆小剑助",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 70.0
+   },
+   "_source": "生命值高于50%时，获得+70%攻击力的精力充沛，场上首次出现领袖敌人时，莱欧斯在15秒内无法攻击",
+   "_parsed": [
+    {
+     "text": "获得+70%攻击力的精力充沛",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "莱欧斯在15秒内无法攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "low",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "场上首次出现领袖敌人时",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "生命值高于50%时",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "威吓战法",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 16.0,
+   "init_sp": 10.0,
+   "duration": 10.0,
+   "effects": {},
+   "_source": "停止攻击，技能期间使阻挡的敌人战栗，技能结束时立即对阻挡的敌人造成相当于攻击力450%的物理伤害",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "技能期间使阻挡的敌人战栗",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    },
+    {
+     "text": "技能结束时立即对阻挡的敌人造成相当于攻击力450%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 450.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "targets_scope": "all_blocked",
+    "atk_mult": 4.5
+   },
+   "_conditions": [
+    {
+     "text": "技能期间使阻挡的敌人战栗",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "targets_scope": "all_blocked"
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    },
+    {
+     "text": "技能结束时立即对阻挡的敌人造成相当于攻击力450%的物理伤害",
+     "condition": "阻挡的敌人",
+     "fields": {
+      "atk_mult": 4.5
+     },
+     "reason": "含条件标记「阻挡的敌人」，是否生效取决于战场情况"
+    }
+   ],
+   "attacks": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "def_ignore": 40.0
+ },
+ "_talent_meta": [
+  {
+   "name": "迷宫魔物专家",
+   "condition": "精英2",
+   "text": "击倒敌人后，莱欧斯攻击所有同名敌人时无视其40%防御力"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "莱欧斯攻击所有同名敌人时无视其40%防御力",
+   "attribute": "defense",
+   "relation": "ignore",
+   "value": 40.0,
+   "field": "def_ignore"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "击倒敌人后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": false
+}

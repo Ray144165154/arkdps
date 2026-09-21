@@ -1,0 +1,55 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "香草"
+ },
+ "name": "香草",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 3.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 355.0,
+ "atk_trust": 50.0,
+ "atk_potential": 20.0,
+ "skills": [
+  {
+   "name": "冲锋号令·援军",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "",
+   "_parsed": [],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "_atk_from": "精英1_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 8.0
+ },
+ "_talent_meta": [
+  {
+   "name": "攻击提升",
+   "condition": "精英1 55级",
+   "text": "攻击力+8%",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+8%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 8.0,
+   "field": "atk_pct"
+  }
+ ]
+}

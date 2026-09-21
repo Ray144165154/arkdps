@@ -1,0 +1,82 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "红云"
+ },
+ "name": "红云",
+ "class": "狙击",
+ "branch": "速射手",
+ "rarity": 4.0,
+ "trait_text": "优先攻击空中单位",
+ "attack_interval": 1.0,
+ "atk": 485.0,
+ "atk_trust": 65.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "攻击力强化·β型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "双弦开弓",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 10.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 45.0
+   },
+   "_source": "攻击力+45%，每次攻击额外攻击1个目标",
+   "_parsed": [
+    {
+     "text": "攻击力+45%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "每次攻击额外攻击1个目标",
+     "attribute": "targets",
+     "relation": "per",
+     "value": 1.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "猎人的经验",
+   "condition": "精英2",
+   "text": "自身的技力自然回复速度+0.3/秒"
+  }
+ ],
+ "_talent_parsed": []
+}

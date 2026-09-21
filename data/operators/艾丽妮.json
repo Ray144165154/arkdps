@@ -1,0 +1,165 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "艾丽妮"
+ },
+ "name": "艾丽妮",
+ "class": "近卫",
+ "branch": "剑豪",
+ "rarity": 6.0,
+ "trait_text": "普通攻击连续造成两次伤害",
+ "attack_interval": 1.3,
+ "atk": 621.0,
+ "atk_trust": 80.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "起风",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 4.0
+   },
+   "_source": "下一次攻击对目标造成相当于攻击力200%的物理伤害并使其浮空1秒，再对其追加一次相当于攻击力200%的物理伤害",
+   "_parsed": [
+    {
+     "text": "下一次攻击对目标造成相当于攻击力200%的物理伤害并使其浮空1秒",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 200.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "再对其追加一次相当于攻击力200%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 200.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "裂潮",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 8.0,
+   "init_sp": 6.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.06
+   },
+   "_source": "对前方范围内最多6名地面敌人造成相当于攻击力400%的物理伤害并使其中重量小于等于3的目标浮空4秒，可充能2次",
+   "_parsed": [
+    {
+     "text": "对前方范围内最多6名地面敌人造成相当于攻击力400%的物理伤害并使其中重量小于等于3的目标浮空4秒",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 6.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "判决",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 24.0,
+   "init_sp": 16.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 7.5
+   },
+   "_source": "对周围所有地面敌人造成相当于攻击力300%的物理伤害并使其浮空4秒，然后快速轰击12次，每次对随机目标周围小范围内所有敌人造成相当于攻击力250%的物理伤害",
+   "_parsed": [
+    {
+     "text": "对周围所有地面敌人造成相当于攻击力300%的物理伤害并使其浮空4秒",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 300.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "每次对随机目标周围小范围内所有敌人造成相当于攻击力250%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 250.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "然后快速轰击12次",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "普通攻击连续造成两次伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "aspd": 18.0
+ },
+ "_talent_meta": [
+  {
+   "name": "审判之火",
+   "condition": "精英2",
+   "text": "对敌人造成物理伤害时有50%概率无视其50%防御力，对空中单位概率提升至100%"
+  },
+  {
+   "name": "净化之剑",
+   "condition": "精英2",
+   "text": "攻击速度+18，场上有【海怪】敌人时效果翻倍"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击速度+18",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 18.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "对敌人造成物理伤害时有50%概率无视其50%防御力",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「damage_type」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  },
+  {
+   "text": "对空中单位概率提升至100%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "场上有【海怪】敌人时效果翻倍",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

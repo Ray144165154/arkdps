@@ -1,0 +1,152 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "烈夏"
+ },
+ "name": "烈夏",
+ "class": "近卫",
+ "branch": "领主",
+ "rarity": 5.0,
+ "trait_text": "可以进行远程攻击，但此时攻击力降低至80%",
+ "attack_interval": 1.3,
+ "atk": 680.0,
+ "atk_trust": 40.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "迅捷打击·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 15.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 45.0,
+    "aspd": 45.0
+   },
+   "_source": "攻击力+45%，攻击速度+45",
+   "_parsed": [
+    {
+     "text": "攻击力+45%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+45",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "一呼百应",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 28.0,
+   "init_sp": 16.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 115.0
+   },
+   "_source": "立刻使技能就绪的【乌萨斯学生自治团】干员同时开启技能，自身攻击力+115%，额外攻击一个目标，远程攻击不再降低攻击力",
+   "_parsed": [
+    {
+     "text": "自身攻击力+115%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 115.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "额外攻击一个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    },
+    {
+     "text": "远程攻击不再降低攻击力",
+     "attribute": "trait",
+     "relation": "decrease",
+     "value": null,
+     "field": "overrides_trait"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "立刻使技能就绪的【乌萨斯学生自治团】干员同时开启技能",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 80.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.8
+ },
+ "_trait_conditions": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "condition": "但此时",
+   "fields": {
+    "atk_mult": 0.8
+   },
+   "reason": "含条件标记「但此时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 21.0
+ },
+ "_talent_meta": [
+  {
+   "name": "快点快点！",
+   "condition": "精英2",
+   "text": "开启技能时，【乌萨斯学生自治团】干员攻击速度+21，持续至技能结束"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "【乌萨斯学生自治团】干员攻击速度+21",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 21.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "开启技能时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "持续至技能结束",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": false
+}

@@ -1,0 +1,206 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "浊心斯卡蒂"
+ },
+ "name": "浊心斯卡蒂",
+ "class": "辅助",
+ "branch": "吟游者",
+ "rarity": 6.0,
+ "trait_text": "不攻击，持续恢复范围内所有友军生命（每秒相当于自身攻击力10%的生命），自身不受鼓舞影响",
+ "attack_interval": 1.3,
+ "atk": 368.0,
+ "atk_trust": 50.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "同归殊途之吟",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 30.0,
+   "duration": 30.0,
+   "effects": {},
+   "_source": "立即回复自身所有生命值且生命上限+170%，特性效果提高至80%，攻击范围内我方所有单位受到伤害的50%直接转移给浊心斯卡蒂承担（同类效果取最高）",
+   "_parsed": [],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "特性效果提高至80%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "生命上限+170%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "攻击范围内我方所有单位受到伤害的50%直接转移给浊心斯卡蒂承担（同类效果取最高）",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "同葬无光之愿",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 56.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "攻击范围内所有其他友方单位获得相当于浊心斯卡蒂60%攻击力与防御力的鼓舞效果，自身特性效果提高至20%，持续时间无限",
+   "_parsed": [
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "low",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "自身特性效果提高至20%",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "攻击范围内所有其他友方单位获得相当于浊心斯卡蒂60%攻击力与防御力的鼓舞效果",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / proportional」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "\"潮涌，潮枯\"",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 15.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_mult": 1.1
+   },
+   "_source": "特性变为自身每秒流失5%生命，使范围内所有敌人每秒受到70%攻击力的真实伤害（自身与海嗣造成的伤害可叠加），范围内所有友方单位获得相当于浊心斯卡蒂110%攻击力的鼓舞效果",
+   "_parsed": [
+    {
+     "text": "范围内所有友方单位获得相当于浊心斯卡蒂110%攻击力的鼓舞效果",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 110.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "使范围内所有敌人每秒受到70%攻击力的真实伤害（自身与海嗣造成的伤害可叠加）",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "特性变为自身每秒流失5%生命",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / set_to」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "atk_mult": 0.1
+ },
+ "_trait_parsed": [
+  {
+   "text": "持续恢复范围内所有友军生命（每秒相当于自身攻击力10%的生命）",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 10.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "不攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "自身不受鼓舞影响",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_pct": 21.0
+ },
+ "_talent_meta": [
+  {
+   "name": "远古血亲",
+   "condition": "精英2",
+   "text": "可以使用一个持续25秒的海嗣，海嗣的攻击范围视为自身攻击范围的延伸"
+  },
+  {
+   "name": "捕食习性",
+   "condition": "精英2",
+   "text": "自身或海嗣攻击范围内存在其他我方干员时，自身攻击力+6%；存在【深海猎人】干员时改为攻击力+15%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "可以使用一个持续25秒的海嗣",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 25.0,
+   "field": "duration"
+  },
+  {
+   "text": "自身攻击力+6%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 6.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "存在【深海猎人】干员时改为攻击力+15%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 15.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "海嗣的攻击范围视为自身攻击范围的延伸",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "自身或海嗣攻击范围内存在其他我方干员时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

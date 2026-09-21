@@ -1,0 +1,170 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "Raidian(卫戍协议)"
+ },
+ "name": "Raidian(卫戍协议)",
+ "class": "辅助",
+ "branch": "凝滞师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，并对敌人造成短暂的停顿",
+ "attack_interval": 1.9,
+ "atk": 500.0,
+ "atk_trust": 75.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "双声",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 24.0,
+   "init_sp": 15.0,
+   "duration": 24.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "攻击力+60%，额外攻击一个目标",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "额外攻击一个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "三形",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 20.0,
+   "effects": {
+    "interval_flat": -0.3,
+    "targets": 3
+   },
+   "_source": "攻击间隔较大幅度缩短(-0.3)，同时攻击三个目标，攻击造成的停顿时间延长至1.25秒",
+   "_parsed": [
+    {
+     "text": "攻击间隔较大幅度缩短(-0.3)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -0.3,
+     "field": "interval_flat"
+    },
+    {
+     "text": "同时攻击三个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 3.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "信号跃动",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 60.0,
+   "init_sp": 50.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 100.0,
+    "targets_scope": "all_in_range"
+   },
+   "_source": "攻击范围扩大，攻击力+100%，第一天赋的效果提升至3倍，攻击范围内所有敌人受到25%的脆弱效果和25%的虚弱效果",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击范围内所有敌人受到25%的脆弱效果和25%的虚弱效果",
+     "attribute": "range",
+     "relation": "unspecified",
+     "value": 25.0,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "第一天赋的效果提升至3倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 25.0
+ },
+ "_talent_meta": [
+  {
+   "name": "同调",
+   "condition": "精英2",
+   "text": "攻击速度+15，相邻的干员攻击速度+10"
+  },
+  {
+   "name": "诱引",
+   "condition": "精英2",
+   "text": "攻击范围内敌人的物理和法术命中率降低10%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击速度+15",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 15.0,
+   "field": "aspd"
+  },
+  {
+   "text": "相邻的干员攻击速度+10",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内敌人的物理和法术命中率降低10%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / decrease」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

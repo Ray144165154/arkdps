@@ -1,0 +1,182 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "溯光星源"
+ },
+ "name": "溯光星源",
+ "class": "辅助",
+ "branch": "凝滞师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，并对敌人造成短暂的停顿",
+ "attack_interval": 1.9,
+ "atk": 533.0,
+ "atk_trust": 75.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "星图闪烁",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%，攻击可在敌人间重复跳跃，最多跳跃3次",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "星束引力",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.45,
+    "targets": 3
+   },
+   "_source": "下次攻击选择攻击范围内距离目标点最远的2个敌人为目标，造成相当于攻击力145%的法术伤害，攻击造成的停顿时间延长至3秒，并分别链接目标附近的最多3个敌人中等力度地拉向目标所在位置同时造成相同的法术伤害",
+   "_parsed": [
+    {
+     "text": "造成相当于攻击力145%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 145.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "并分别链接目标附近的最多3个敌人中等力度地拉向目标所在位置同时造成相同的法术伤害",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 3.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "下次攻击选择攻击范围内距离目标点最远的2个敌人为目标",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "并流连锁",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 70.0,
+    "interval_flat": -0.7,
+    "targets": 25
+   },
+   "_source": "攻击范围扩大，攻击力+70%，攻击间隔缩短(-0.7)，持续锁定2个敌人进行攻击，被锁定的敌人会互相链接；每个被链接的敌人会把即将受到法术伤害的25%额外传导给其他链接目标",
+   "_parsed": [
+    {
+     "text": "攻击力+70%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击间隔缩短(-0.7)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -0.7,
+     "field": "interval_flat"
+    },
+    {
+     "text": "每个被链接的敌人会把即将受到法术伤害的25%额外传导给其他链接目标",
+     "attribute": "targets",
+     "relation": "per",
+     "value": 25.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 1.0
+ },
+ "_talent_meta": [
+  {
+   "name": "数据建模",
+   "condition": "精英2",
+   "text": "对敌人造成停顿效果时，自身的攻击速度+1，最多叠加18次"
+  },
+  {
+   "name": "能源解析",
+   "condition": "精英2",
+   "text": "攻击范围内的敌人受到10%的脆弱效果，敌人在溯光星源的攻击范围内停留超过7秒后，脆弱效果提升至14%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "自身的攻击速度+1",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 1.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "最多叠加18次",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "攻击范围内的敌人受到10%的脆弱效果",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "敌人在溯光星源的攻击范围内停留超过7秒后",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "脆弱效果提升至14%",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

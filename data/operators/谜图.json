@@ -1,0 +1,102 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "谜图"
+ },
+ "name": "谜图",
+ "class": "先锋",
+ "branch": "情报官",
+ "rarity": 5.0,
+ "trait_text": "再部署时间减少，可使用远程攻击",
+ "attack_interval": 1.0,
+ "atk": 566.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "关键线索",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 2.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.0
+   },
+   "_source": "下次攻击造成相当于攻击力300%的物理伤害，并获得3点部署费用",
+   "_parsed": [
+    {
+     "text": "下次攻击造成相当于攻击力300%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 300.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "疑点追踪",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 26.0,
+   "init_sp": 14.0,
+   "duration": 8.0,
+   "effects": {
+    "aspd": 70.0,
+    "atk_mult": 0.16
+   },
+   "_source": "攻击速度+70，攻击使目标在16秒内每秒受到相当于谜图攻击力15%的法术伤害，效果最多可叠加10次，每次攻击时获得1点部署费用。",
+   "_parsed": [
+    {
+     "text": "攻击速度+70",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 70.0,
+     "field": "aspd"
+    },
+    {
+     "text": "攻击使目标在16秒内每秒受到相当于谜图攻击力15%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 16.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "效果最多可叠加10次",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 1.2
+ },
+ "_talent_meta": [
+  {
+   "name": "序列",
+   "condition": "精英2",
+   "text": "攻击命中生命值为满的敌人时攻击力提升至120%，并额外回复2点技力"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击命中生命值为满的敌人时攻击力提升至120%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 120.0,
+   "field": "atk_mult"
+  }
+ ]
+}

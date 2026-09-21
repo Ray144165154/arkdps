@@ -1,0 +1,128 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "冰酿"
+ },
+ "name": "冰酿",
+ "class": "狙击",
+ "branch": "猎手",
+ "rarity": 5.0,
+ "trait_text": "攻击时需要消耗子弹且攻击力提升至120%，不攻击时会缓慢地装填子弹（最多4发，精英1后更新）",
+ "attack_interval": 1.6,
+ "atk": 958.0,
+ "atk_trust": 105.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "攻击力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "酣醉之夜",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 140.0
+   },
+   "_source": "装填间隔增大(+0.8)，攻击力+140%，攻击使目标停顿1秒",
+   "_parsed": [
+    {
+     "text": "攻击力+140%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 140.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "装填间隔增大(+0.8)",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "atk_mult": 1.2
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击力提升至120%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 120.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "攻击时需要消耗子弹",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "不攻击时会缓慢地装填子弹（最多4发，精英1后更新）",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_mult": 1.3
+ },
+ "_talent_meta": [
+  {
+   "name": "不甘示弱",
+   "condition": "精英2",
+   "text": "如果2秒内没有主动攻击过，下次攻击造成相当于攻击力130%的物理伤害"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "下次攻击造成相当于攻击力130%的物理伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 130.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "如果2秒内没有主动攻击过",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

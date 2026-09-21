@@ -1,0 +1,129 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "领主·Sharp"
+ },
+ "name": "领主·Sharp",
+ "class": "近卫",
+ "branch": "领主",
+ "rarity": 6.0,
+ "trait_text": "可以进行远程攻击，但此时攻击力降低至80%",
+ "attack_interval": 1.3,
+ "atk": 644.0,
+ "atk_trust": 75.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "沉默的爆发",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 42.0,
+   "init_sp": 27.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 225.0,
+    "aspd": 50.0,
+    "targets": 2
+   },
+   "_source": "攻击力+225%，攻击速度+50，同时攻击2个目标，远程攻击不再降低攻击力",
+   "_parsed": [
+    {
+     "text": "攻击力+225%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 225.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+50",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "aspd"
+    },
+    {
+     "text": "同时攻击2个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "远程攻击不再降低攻击力",
+     "attribute": "trait",
+     "relation": "decrease",
+     "value": null,
+     "field": "overrides_trait"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 80.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.8
+ },
+ "_trait_conditions": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "condition": "但此时",
+   "fields": {
+    "atk_mult": 0.8
+   },
+   "reason": "含条件标记「但此时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 20.0,
+  "aspd": 12.0
+ },
+ "_talent_meta": [
+  {
+   "name": "无声之锋",
+   "condition": "精英2",
+   "text": "攻击力+20%，获得25%的法术闪避"
+  },
+  {
+   "name": "陷阵勇气",
+   "condition": "精英2",
+   "text": "攻击范围内存在2名及以上敌人时，攻击速度+12"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+20%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 20.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "攻击速度+12",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 12.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内存在2名及以上敌人时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

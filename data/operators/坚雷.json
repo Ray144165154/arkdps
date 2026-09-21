@@ -1,0 +1,123 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "坚雷"
+ },
+ "name": "坚雷",
+ "class": "重装",
+ "branch": "驭法铁卫",
+ "rarity": 4.0,
+ "trait_text": "技能开启时普通攻击会造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 583.0,
+ "atk_trust": 65.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "攻击力强化·β型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "起盾回击",
+   "charge": "hit",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 12.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 80.0,
+    "targets_scope": "all_blocked"
+   },
+   "_source": "攻击力+80%，同时攻击阻挡的所有敌人",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击阻挡的所有敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "技能开启时普通攻击会造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_conditional": {
+  "damage_type": "arts"
+ },
+ "_trait_conditions": [
+  {
+   "text": "技能开启时普通攻击会造成法术伤害",
+   "condition": "开启时",
+   "fields": {
+    "damage_type": "arts"
+   },
+   "reason": "含条件标记「开启时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 7.0
+ },
+ "_talent_meta": [
+  {
+   "name": "攻守兼备",
+   "condition": "精英2",
+   "text": "攻击力+7%，防御力+7%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+7%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 7.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "防御力+7%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

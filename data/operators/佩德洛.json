@@ -1,0 +1,133 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "佩德洛"
+ },
+ "name": "佩德洛",
+ "class": "辅助",
+ "branch": "游击手",
+ "rarity": 5.0,
+ "trait_text": "可以使用触发型效果协助作战",
+ "attack_interval": 2.1,
+ "atk": 765.0,
+ "atk_trust": 45.0,
+ "atk_potential": 30.0,
+ "skills": [
+  {
+   "name": "标记射击",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.9700000000000006,
+    "targets": 2
+   },
+   "_source": "下次攻击的攻击力提升至135%，同时攻击2个目标并对目标施加触发型效果（不叠加，优先选择未持有该效果的目标）：受到法术伤害时，额外受到相当于佩德洛220%攻击力的法术伤害",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提升至135%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 135.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "同时攻击2个目标并对目标施加触发型效果（不叠加，优先选择未持有该效果的目标）：受到法术伤害时",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    },
+    {
+     "text": "额外受到相当于佩德洛220%攻击力的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 220.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "交替撤离",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 22.0,
+   "init_sp": 19.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.1
+   },
+   "_source": "对范围内的3名干员施加触发型效果（不叠加，优先选择未持有该效果的目标）：生命值不高于50%时，立刻治疗相当于佩德洛210%攻击力的生命值且在8秒内不容易受到攻击，可充能2次",
+   "_parsed": [
+    {
+     "text": "立刻治疗相当于佩德洛210%攻击力的生命值",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 210.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "在8秒内不容易受到攻击",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "对范围内的3名干员施加触发型效果（不叠加，优先选择未持有该效果的目标）：生命值不高于50%时",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以使用触发型效果协助作战",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_pct": 10.0
+ },
+ "_talent_meta": [
+  {
+   "name": "掩护战术",
+   "condition": "精英2",
+   "text": "攻击范围内至少有2名其他干员时，自身攻击力+10%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "自身攻击力+10%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 10.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内至少有2名其他干员时",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / min_of」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

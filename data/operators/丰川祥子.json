@@ -1,0 +1,273 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "丰川祥子"
+ },
+ "name": "丰川祥子",
+ "class": "近卫",
+ "branch": "领主",
+ "rarity": 6.0,
+ "trait_text": "可以进行远程攻击，但此时攻击力降低至80%",
+ "attack_interval": 1.3,
+ "atk": 725.0,
+ "atk_trust": 60.0,
+ "atk_potential": 26.0,
+ "skills": [
+  {
+   "name": "新月的苏醒",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 3.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "演奏出8个音符。每个音符造成的法术伤害依次从攻击力的100%逐渐降低至5%。，可充能2次，充能至最大层数时自动释放一次",
+   "_parsed": [
+    {
+     "text": "每个音符造成的法术伤害依次从攻击力的100%逐渐降低至5%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 100.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "演奏出8个音符",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "满月的舞会",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 110.0,
+    "aspd": 140.0,
+    "damage_type": "arts",
+    "hits_override": 2.0
+   },
+   "_source": "可以切换钢琴（初始）或风琴音色演奏：，钢琴：攻击力+110%，音符飞行速度加快，命中目标后穿过敌人造成物理伤害，风琴：攻击速度+140，音符造成法术伤害且飞行速度减缓 ，Fever期间变为当前音色的二连击",
+   "_parsed": [
+    {
+     "text": "钢琴：攻击力+110%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 110.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "风琴：攻击速度+140",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 140.0,
+     "field": "aspd"
+    },
+    {
+     "text": "音符造成法术伤害",
+     "attribute": "damage_type",
+     "relation": "unspecified",
+     "value": null,
+     "field": "damage_type"
+    },
+    {
+     "text": "Fever期间变为当前音色的二连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "命中目标后穿过敌人造成物理伤害",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「damage_type」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    },
+    {
+     "text": "可以切换钢琴（初始）或风琴音色演奏：",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "音符飞行速度加快",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "飞行速度减缓",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "残月的余响",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 42.0,
+   "init_sp": 34.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_mult": 0.02
+   },
+   "_source": "攻击范围扩大，攻击同时使用钢琴和风琴音色演奏，各自演奏2个造成相当于攻击力220%物理和法术伤害的音符，且分别追踪法术抗性和防御力最高的敌人。，Fever期间Ave Mujica成员受到致命伤害时不撤退，Fever结束后退场",
+   "_parsed": [
+    {
+     "text": "各自演奏2个造成相当于攻击力220%物理和法术伤害的音符",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 2.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "攻击同时使用钢琴和风琴音色演奏",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "分别追踪法术抗性和防御力最高的敌人",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "Fever期间Ave Mujica成员受到致命伤害时不撤退",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "Fever结束后退场",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 80.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.8
+ },
+ "_trait_conditions": [
+  {
+   "text": "但此时攻击力降低至80%",
+   "condition": "但此时",
+   "fields": {
+    "atk_mult": 0.8
+   },
+   "reason": "含条件标记「但此时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "res_ignore_pct": 3.0,
+  "targets": 3,
+  "aspd": 12.0
+ },
+ "_talent_meta": [
+  {
+   "name": "颂乐音符",
+   "condition": "精英2",
+   "text": "丰川祥子可以持续攻击且攻击会演奏追踪敌人的音符，音符飘出攻击范围一段时间后消失。每存在一个音符，Ave Mujica成员无视敌人3%的防御力和2%法术抗性（最多叠加至10层）"
+  },
+  {
+   "name": "毋畏遗忘",
+   "condition": "精英2",
+   "text": "对敌人造成伤害时使Fever+3；其他Ave Mujica成员的攻击范围若与自身原本攻击范围重合，则将其视作攻击范围的延伸；攻击范围内干员攻击速度+12"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "Ave Mujica成员无视敌人3%的防御力和2%法术抗性（最多叠加至10层）",
+   "attribute": "res",
+   "relation": "ignore",
+   "value": 3.0,
+   "field": "res_ignore_pct"
+  },
+  {
+   "text": "对敌人造成伤害时使Fever+3",
+   "attribute": "targets",
+   "relation": "increase",
+   "value": 3.0,
+   "field": "targets"
+  },
+  {
+   "text": "攻击范围内干员攻击速度+12",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 12.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "丰川祥子可以持续攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "攻击会演奏追踪敌人的音符",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "音符飘出攻击范围一段时间后消失",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "每存在一个音符",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "其他Ave Mujica成员的攻击范围若与自身原本攻击范围重合",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "则将其视作攻击范围的延伸",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

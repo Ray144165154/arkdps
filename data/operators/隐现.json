@@ -1,0 +1,115 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "隐现"
+ },
+ "name": "隐现",
+ "class": "狙击",
+ "branch": "速射手",
+ "rarity": 5.0,
+ "trait_text": "优先攻击空中单位",
+ "attack_interval": 1.0,
+ "atk": 522.0,
+ "atk_trust": 75.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "“不惹麻烦”",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 12.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.3
+   },
+   "_source": "每次攻击造成相当于攻击力230%的物理伤害，攻击装有4发弹药，打完后结束（可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "每次攻击造成相当于攻击力230%的物理伤害",
+     "attribute": "per_hit_mult",
+     "relation": "proportional",
+     "value": 230.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "打完后结束（可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "“解决麻烦”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 14.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 130.0,
+    "interval_flat": -30.0
+   },
+   "_source": "攻击力+130%，攻击间隔略微缩短(-30%)，优先攻击使用远程武器的敌人并且不容易成为敌人的攻击目标，攻击装有14发弹药，打完后结束（可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击力+130%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 130.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击间隔略微缩短(-30%)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -30.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "打完后结束（可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "不容易成为敌人的攻击目标",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "火力支援",
+   "condition": "精英2",
+   "text": "在场停留20秒后，自身弹药类技能弹药上限+3，其他随机一名【拉特兰】干员的弹药类技能弹药上限+1"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "在场停留20秒后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

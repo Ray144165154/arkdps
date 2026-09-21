@@ -1,0 +1,130 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "火龙S黑角"
+ },
+ "name": "火龙S黑角",
+ "class": "近卫",
+ "branch": "武者",
+ "rarity": 5.0,
+ "trait_text": "不成为其他角色的治疗目标，每次攻击到敌人后回复自身30生命（精英1后更新）",
+ "attack_interval": 1.2,
+ "atk": 726.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "居合拔刀气刃斩",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 8.0,
+   "init_sp": 5.0,
+   "duration": 6.0,
+   "effects": {
+    "atk_mult": 0.04
+   },
+   "_source": "纳刀后停止攻击，直到下一次受到攻击时抵挡此次伤害并选择范围内一名敌人造成4次相当于攻击力150%的物理伤害并立即触发一次第二天赋。，技能期间击倒敌人时再次纳刀触发技能",
+   "_parsed": [
+    {
+     "text": "纳刀后停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "直到下一次受到攻击时抵挡此次伤害并选择范围内一名敌人造成4次相当于攻击力150%的物理伤害并立即触发一次第二天赋",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 4.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "技能期间击倒敌人时再次纳刀触发技能",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "气刃兜割",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 22.0,
+   "init_sp": 10.0,
+   "duration": 1.4,
+   "effects": {
+    "atk_mult": 0.07
+   },
+   "_source": "对前方范围内一名敌人造成7次相当于攻击力180%的物理伤害。，技能结束后损失一层第二天赋加成,可充能2次",
+   "_parsed": [
+    {
+     "text": "对前方范围内一名敌人造成7次相当于攻击力180%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 7.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 50.0,
+  "hits_override": 5.0
+ },
+ "_talent_meta": [
+  {
+   "name": "坚韧",
+   "condition": "精英2",
+   "text": "在场时，自身获得最高+50攻击速度和最高+50%防御力的坚忍（损失70%生命值时达到最大加成）"
+  },
+  {
+   "name": "练气",
+   "condition": "精英2",
+   "text": "非技能期间，连续攻击5次后自身获得攻击力+7%（最多3层）"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "自身获得最高+50攻击速度和最高+50%防御力的坚忍（损失70%生命值时达到最大加成）",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 50.0,
+   "field": "aspd"
+  },
+  {
+   "text": "连续攻击5次后自身获得攻击力+7%（最多3层）",
+   "attribute": "hits",
+   "relation": "max_of",
+   "value": 5.0,
+   "field": "hits_override"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "非技能期间",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

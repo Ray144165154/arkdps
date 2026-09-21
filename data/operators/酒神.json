@@ -1,0 +1,217 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "酒神"
+ },
+ "name": "酒神",
+ "class": "辅助",
+ "branch": "巫役",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，可以造成元素损伤",
+ "attack_interval": 1.6,
+ "atk": 490.0,
+ "atk_trust": 40.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "暗夜回声",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 2.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.5
+   },
+   "_source": "下次攻击造成两次相当于攻击力150%的法术伤害并使目标束缚3秒，该次束缚期间目标受到的神经损伤提升至1.8倍，优先攻击未处于爆发期间的敌人",
+   "_parsed": [
+    {
+     "text": "下次攻击造成两次相当于攻击力150%的法术伤害并使目标束缚3秒",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 150.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "群体性谵妄",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 25.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "aspd": 35.0
+   },
+   "_source": "攻击速度+35，第一天赋溅射范围扩大；期间可以使用一个本能的召唤，部署后诱导至多4名进入范围的可达敌人（优先精英或领袖）10秒，首个目标到达后撤退并使周围所有敌人在6秒内停顿、每0.5秒受到酒神攻击力150%的法术伤害和攻击力25%的神经损伤，持续时间无限，本能的召唤有独立再部署时间",
+   "_parsed": [
+    {
+     "text": "攻击速度+35",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 35.0,
+     "field": "aspd"
+    },
+    {
+     "text": "部署后诱导至多4名进入范围的可达敌人（优先精英或领袖）10秒",
+     "attribute": "targets",
+     "relation": "max_of",
+     "value": 4.0,
+     "field": "targets"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "partial",
+   "_conditional": {
+    "targets": 4
+   },
+   "_conditions": [
+    {
+     "text": "部署后诱导至多4名进入范围的可达敌人（优先精英或领袖）10秒",
+     "condition": "精英",
+     "fields": {
+      "targets": 4
+     },
+     "reason": "含条件标记「精英」，是否生效取决于战场情况"
+    }
+   ],
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "每0.5秒受到酒神攻击力150%的法术伤害和攻击力25%的神经损伤",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "期间可以使用一个本能的召唤",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "空剧场",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 30.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 125.0
+   },
+   "_source": "攻击范围扩大，攻击力+125%，优先攻击未处于损伤爆发期间的敌人，技能期间酒神造成过神经损伤的敌人每秒受到攻击力10%的神经损伤直至爆发；范围内敌人神经损伤冷却恢复速度+50%，神经损伤爆发时在其地面位置生成/刷新一个迷狂牢笼",
+   "_parsed": [
+    {
+     "text": "攻击力+125%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 125.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "神经损伤爆发时在其地面位置生成/刷新一个迷狂牢笼",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "技能期间酒神造成过神经损伤的敌人每秒受到攻击力10%的神经损伤直至爆发",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以造成元素损伤",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_mult": 0.06
+ },
+ "_talent_meta": [
+  {
+   "name": "形为心役",
+   "condition": "精英2",
+   "text": "攻击附带相当于攻击力30%的神经损伤，并对目标周围其他敌人造成一次相当于攻击力20%的神经损伤"
+  },
+  {
+   "name": "堕梦",
+   "condition": "精英2",
+   "text": "在场时，全场处于神经损伤爆发期间的敌人攻击速度-12；攻击范围内的敌人普通攻击时受到70点神经损伤"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击附带相当于攻击力30%的神经损伤",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 30.0,
+   "field": "atk_mult"
+  },
+  {
+   "text": "并对目标周围其他敌人造成一次相当于攻击力20%的神经损伤",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 20.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在场时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "全场处于神经损伤爆发期间的敌人攻击速度-12",
+   "kind": "enemy_effect",
+   "affects_damage": true,
+   "reason": "原文说的是**敌人**的「aspd」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+  },
+  {
+   "text": "攻击范围内的敌人普通攻击时受到70点神经损伤",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

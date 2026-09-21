@@ -1,0 +1,162 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "铎铃"
+ },
+ "name": "铎铃",
+ "class": "近卫",
+ "branch": "重剑手",
+ "rarity": 5.0,
+ "trait_text": "同时攻击阻挡的所有敌人",
+ "attack_interval": 2.5,
+ "atk": 1438.0,
+ "atk_trust": 70.0,
+ "atk_potential": 40.0,
+ "skills": [
+  {
+   "name": "攻击力强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 100.0
+   },
+   "_source": "攻击力+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+100%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 100.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "乡心无改",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 10.0,
+   "duration": 5.0,
+   "effects": {
+    "atk_pct": 50.0
+   },
+   "_source": "停止攻击，获得40%的庇护，攻击力逐渐增至+50%。技能结束时对前方所有地面敌人造成此时攻击力230%的物理伤害并使其晕眩1秒，可主动关闭技能（期间可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "攻击力逐渐增至+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "技能结束时对前方所有地面敌人造成此时攻击力230%的物理伤害并使其晕眩1秒",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 230.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "可主动关闭技能（期间可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "partial",
+   "_conditional": {
+    "atk_mult": 2.3
+   },
+   "_conditions": [
+    {
+     "text": "技能结束时对前方所有地面敌人造成此时攻击力230%的物理伤害并使其晕眩1秒",
+     "condition": "此时",
+     "fields": {
+      "atk_mult": 2.3
+     },
+     "reason": "含条件标记「此时」，是否生效取决于战场情况"
+    }
+   ],
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "获得40%的庇护",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_blocked"
+ },
+ "_trait_parsed": [
+  {
+   "text": "同时攻击阻挡的所有敌人",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "走山路",
+   "condition": "精英2",
+   "text": "生命上限+5%，生命值高于50%时获得+20%攻击力的精力充沛",
+   "conditional": {
+    "atk_pct": 50.0
+   },
+   "conditions": [
+    {
+     "text": "生命值高于50%时获得+20%攻击力的精力充沛",
+     "condition": "生命值高于",
+     "fields": {
+      "atk_pct": 50.0
+     },
+     "reason": "含条件标记「生命值高于」，是否生效取决于战场情况"
+    }
+   ]
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "生命值高于50%时获得+20%攻击力的精力充沛",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 50.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "生命上限+5%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false,
+ "_talent_conditional": {
+  "atk_pct": 50.0
+ }
+}

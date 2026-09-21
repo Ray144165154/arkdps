@@ -1,0 +1,142 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "洛洛"
+ },
+ "name": "洛洛",
+ "class": "术师",
+ "branch": "驭械术师",
+ "rarity": 5.0,
+ "trait_text": "操作浮游单元造成法术伤害，单元攻击同一敌人伤害提升（最高造成干员110%攻击力的伤害）",
+ "attack_interval": 1.3,
+ "atk": 320.0,
+ "atk_trust": 60.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "战术咏唱·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 90.0
+   },
+   "_source": "攻击速度+90",
+   "_parsed": [
+    {
+     "text": "攻击速度+90",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "自负此轭",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 25.0,
+   "duration": 40.0,
+   "effects": {
+    "aspd": 80.0,
+    "atk_pct": 50.0
+   },
+   "_source": "攻击速度+80，释放浮游单元锁定敌人攻击，过载：特性浮游单元伤害上限提升至2倍，攻击力+50%，技能结束后晕眩过载持续时间的等长时间，浮游单元锁敌后直至敌人被击杀或技能结束后返回干员身边，可随时主动关闭技能",
+   "_parsed": [
+    {
+     "text": "攻击速度+80",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "aspd"
+    },
+    {
+     "text": "攻击力+50%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 50.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "可随时主动关闭技能",
+     "attribute": "termination",
+     "relation": "unspecified",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "过载：特性浮游单元伤害上限提升至2倍",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「summon / set_to」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts",
+  "atk_pct": 110.0
+ },
+ "_trait_parsed": [
+  {
+   "text": "操作浮游单元造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  },
+  {
+   "text": "单元攻击同一敌人伤害提升（最高造成干员110%攻击力的伤害）",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 110.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 4.0
+ },
+ "_talent_meta": [
+  {
+   "name": "立于磐石",
+   "condition": "精英2",
+   "text": "每在场上停留15秒，攻击力+4%，最多可以叠加4次"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力+4%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 4.0,
+   "field": "atk_pct"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "每在场上停留15秒",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "最多可以叠加4次",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

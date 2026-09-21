@@ -1,0 +1,176 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "赫德雷"
+ },
+ "name": "赫德雷",
+ "class": "近卫",
+ "branch": "重剑手",
+ "rarity": 6.0,
+ "trait_text": "同时攻击阻挡的所有敌人",
+ "attack_interval": 2.5,
+ "atk": 1576.0,
+ "atk_trust": 80.0,
+ "atk_potential": 45.0,
+ "skills": [
+  {
+   "name": "重锋不熄",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.6
+   },
+   "_source": "下次攻击造成相当于攻击力260%的物理伤害，并回复自身25%的生命",
+   "_parsed": [
+    {
+     "text": "下次攻击造成相当于攻击力260%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 260.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "余烬重荷",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 40.0,
+    "interval_flat": 0.5
+   },
+   "_source": "被动效果：攻击力+40%，主动触发可以在下列状态和初始状态间切换：，攻击间隔略微增大(+0.5)，阻挡数+1，攻击使目标晕眩1秒",
+   "_parsed": [
+    {
+     "text": "被动效果：攻击力+40%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 40.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "主动触发可以在下列状态和初始状态间切换：",
+     "attribute": "stance",
+     "relation": "unspecified",
+     "value": null,
+     "field": "stance"
+    },
+    {
+     "text": "攻击间隔略微增大(+0.5)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 0.5,
+     "field": "interval_flat"
+    }
+   ],
+   "_confidence": "exact",
+   "stance": true
+  },
+  {
+   "name": "死境硝烟",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 40.0,
+   "duration": 70.0,
+   "effects": {
+    "targets": 200,
+    "atk_pct": 120.0
+   },
+   "_source": "每秒流失100点生命，并使自身攻击过和攻击过自身的敌人每秒受到200点真实伤害；攻击距离+1，生命上限+60%，攻击力+120%，每次攻击回复自身5%的生命且有25%概率使目标晕眩5秒",
+   "_parsed": [
+    {
+     "text": "并使自身攻击过和攻击过自身的敌人每秒受到200点真实伤害",
+     "attribute": "targets",
+     "relation": "per",
+     "value": 200.0,
+     "field": "targets"
+    },
+    {
+     "text": "攻击力+120%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 120.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "每秒流失100点生命",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / per」，但没能映射到引擎字段"
+    },
+    {
+     "text": "攻击距离+1",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "生命上限+60%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_blocked"
+ },
+ "_trait_parsed": [
+  {
+   "text": "同时攻击阻挡的所有敌人",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 1.1
+ },
+ "_talent_meta": [
+  {
+   "name": "及锋而试",
+   "condition": "精英2",
+   "text": "攻击敌人时攻击力提升至110%，若目标处于晕眩、束缚则改为提升至140%"
+  },
+  {
+   "name": "余火之氅",
+   "condition": "精英2",
+   "text": "使自身与身后一格的友军获得18%的庇护"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击敌人时攻击力提升至110%",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 110.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "使自身与身后一格的友军获得18%的庇护",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

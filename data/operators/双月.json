@@ -1,0 +1,146 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "双月"
+ },
+ "name": "双月",
+ "class": "特种",
+ "branch": "傀儡师",
+ "rarity": 5.0,
+ "trait_text": "受到致命伤时不撤退，切换成作战（替身阻挡数为0），持续20s后自身再次替换",
+ "attack_interval": 1.2,
+ "atk": 708.0,
+ "atk_trust": 50.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "幻影诡雷",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 4.0
+   },
+   "_source": "切换为作战时，立即对攻击全息幻影的敌人及其周围所有敌人造成相当于攻击力400%的物理伤害",
+   "_parsed": [
+    {
+     "text": "立即对攻击全息幻影的敌人及其周围所有敌人造成相当于攻击力400%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 400.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "切换为作战时",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "全知者的战术",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 5.0,
+   "init_sp": 4.0,
+   "duration": 10.0,
+   "effects": {
+    "targets": 10,
+    "aspd": 300.0
+   },
+   "_source": "立即使周围的敌人在10秒内隐匿效果失效并切换为作战，持续时间内攻击速度+300并获得隐匿",
+   "_parsed": [
+    {
+     "text": "立即使周围的敌人在10秒内隐匿效果失效并切换为作战",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 10.0,
+     "field": "targets"
+    },
+    {
+     "text": "持续时间内攻击速度+300并获得隐匿",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 300.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "持续20s后自身再次替换",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 20.0,
+   "field": "duration"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "受到致命伤时不撤退",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "targets": 8
+ },
+ "_talent_meta": [
+  {
+   "name": "双子分身复制器",
+   "condition": "精英2",
+   "text": "部署时原地释放全息幻影，该幻影不会攻击，受到攻击时使攻击幻影的敌人在8秒内受到20%的脆弱且隐匿效果失效，并立即切换为作战"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "受到攻击时使攻击幻影的敌人在8秒内受到20%的脆弱",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 8.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "部署时原地释放全息幻影",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "该幻影不会攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "隐匿效果失效",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "并立即切换为作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

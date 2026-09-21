@@ -1,0 +1,158 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "夜莺"
+ },
+ "name": "夜莺",
+ "class": "医疗",
+ "branch": "群愈师",
+ "rarity": 6.0,
+ "trait_text": "同时恢复三个友方单位的生命",
+ "attack_interval": 2.85,
+ "atk": 350.0,
+ "atk_trust": 70.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "治疗强化·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_pct": 90.0
+   },
+   "_source": "攻击力+90%",
+   "_parsed": [
+    {
+     "text": "攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "法术护盾",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 8.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.9
+   },
+   "_source": "下次治疗使所有目标获得一个持续5秒的屏障，屏障能吸收相当于夜莺攻击力90%的法术伤害，同时使目标法术抗性+20；可充能3次",
+   "_parsed": [
+    {
+     "text": "屏障能吸收相当于夜莺攻击力90%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 90.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "同时使目标法术抗性+20",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「res」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "圣域",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 120.0,
+   "init_sp": 115.0,
+   "duration": 60.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击范围扩大，攻击力+80%，攻击范围内的友方单位法术抗性+150%并获得25%的法术闪避",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "白恶魔的庇护",
+   "condition": "精英2",
+   "text": "攻击范围内的友方单位法术抗性+15"
+  },
+  {
+   "name": "转瞬即逝的幻影",
+   "condition": "精英2",
+   "text": "可以使用幻影。幻影无法攻击和阻挡敌人，拥有75法术抗性，30%的物理闪避，并且更容易吸引敌人的攻击，同时每秒流失3%的最大生命"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "幻影无法攻击和阻挡敌人",
+   "attribute": "atk",
+   "relation": "stop",
+   "value": null,
+   "field": "attacks"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "攻击范围内的友方单位法术抗性+15",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「res / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "可以使用幻影",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "拥有75法术抗性",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「res / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "并",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "更容易吸引敌人的攻击",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "同时每秒流失3%的最大生命",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / per」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

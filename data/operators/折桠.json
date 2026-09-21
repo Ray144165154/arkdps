@@ -1,0 +1,117 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "折桠"
+ },
+ "name": "折桠",
+ "class": "重装",
+ "branch": "不屈者",
+ "rarity": 5.0,
+ "trait_text": "无法被友方角色治疗",
+ "attack_interval": 1.6,
+ "atk": 865.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "绝境抵抗",
+   "charge": "hit",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 10.0,
+   "duration": 12.0,
+   "effects": {},
+   "_source": "防御力+120%，获得抵抗",
+   "_parsed": [],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "获得抵抗",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "防御力+120%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "生存决心",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 18.0,
+   "init_sp": 5.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 150.0,
+    "targets_scope": "all_blocked"
+   },
+   "_source": "技能开启时使自身周围的地面敌人战栗5秒；攻击力+150%，防御力+50%，同时攻击阻挡的所有敌人",
+   "_parsed": [
+    {
+     "text": "技能开启时使自身周围的地面敌人战栗5秒",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "targets"
+    },
+    {
+     "text": "攻击力+150%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 150.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "同时攻击阻挡的所有敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "targets": 5
+   },
+   "_conditions": [
+    {
+     "text": "技能开启时使自身周围的地面敌人战栗5秒",
+     "condition": "开启时",
+     "fields": {
+      "targets": 5
+     },
+     "reason": "含条件标记「开启时」，是否生效取决于战场情况"
+    }
+   ],
+   "_unparsed": [
+    {
+     "text": "防御力+50%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "简易包扎",
+   "condition": "精英2",
+   "text": "技能结束时恢复自身50%最大生命值"
+  }
+ ],
+ "_talent_parsed": []
+}

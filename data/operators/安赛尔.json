@@ -1,0 +1,45 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "安赛尔"
+ },
+ "name": "安赛尔",
+ "class": "医疗",
+ "branch": "医师",
+ "rarity": 3.0,
+ "trait_text": "恢复友方单位生命",
+ "attack_interval": 2.85,
+ "atk": 362.0,
+ "atk_trust": 45.0,
+ "atk_potential": 20.0,
+ "skills": [
+  {
+   "name": "治疗范围强化",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "",
+   "_parsed": [],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "_atk_from": "精英1_满级_攻击",
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "附加治疗",
+   "condition": "精英1 55级",
+   "text": "有15%的几率额外治疗一名友方单位",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": []
+}

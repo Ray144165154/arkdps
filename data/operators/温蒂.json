@@ -1,0 +1,217 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "温蒂"
+ },
+ "name": "温蒂",
+ "class": "特种",
+ "branch": "推击手",
+ "rarity": 6.0,
+ "trait_text": "同时攻击阻挡的所有敌人，可以放置于远程位",
+ "attack_interval": 1.2,
+ "atk": 677.0,
+ "atk_trust": 45.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "炮管敲击",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.5
+   },
+   "_source": "下次攻击会把目标往攻击方向较大力地推开，造成相当于攻击力150%的物理伤害并令其晕眩1.2秒",
+   "_parsed": [
+    {
+     "text": "造成相当于攻击力150%的物理伤害并令其晕眩1.2秒",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 150.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "下次攻击会把目标往攻击方向较大力地推开",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "水炮模式",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 70.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "interval_flat": 220.0,
+    "atk_pct": 200.0
+   },
+   "_source": "攻击间隔增大(+220%)，攻击力+200%，攻击距离+2格且切换为远程群体攻击，且会把击中目标中等力度地推开，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击间隔增大(+220%)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 220.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+200%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 200.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "low",
+   "infinite_duration": true,
+   "_unparsed": [
+    {
+     "text": "切换为远程群体攻击",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "会把击中目标中等力度地推开",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "找到了属性词，但没能确定数值或关系"
+    },
+    {
+     "text": "攻击距离+2格",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "液氮大炮",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 33.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.5
+   },
+   "_source": "立即发射一个压缩液氮炮，造成相当于攻击力350%的群体法术伤害并将敌人大力地推开，令其8秒内移动时受到正比于距离的真实伤害；如果蓄水炮在周围4格内的话也会同样进行发射",
+   "_parsed": [
+    {
+     "text": "造成相当于攻击力350%的群体法术伤害并将敌人大力地推开",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 350.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "立即发射一个压缩液氮炮",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "令其8秒内移动时受到正比于距离的真实伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "如果蓄水炮在周围4格内的话也会同样进行发射",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_blocked"
+ },
+ "_trait_parsed": [
+  {
+   "text": "同时攻击阻挡的所有敌人",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以放置于远程位",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "工程蓄水炮",
+   "condition": "精英2",
+   "text": "可以使用一个持续20秒的蓄水炮，能攻击单个敌人并将其小力度地推开"
+  },
+  {
+   "name": "蓄水炮强化",
+   "condition": "精英2",
+   "text": "蓄水炮普通攻击和技能的推力增加一级，且在温蒂周围4格内时令其每3秒获得1点技力"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "可以使用一个持续20秒的蓄水炮",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 20.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "能攻击单个敌人并将其小力度地推开",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "蓄水炮普通攻击和技能的推力增加一级",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "在温蒂周围4格内时令其每3秒获得1点技力",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「sp / per」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

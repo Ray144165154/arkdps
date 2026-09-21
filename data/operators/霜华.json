@@ -1,0 +1,137 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "霜华"
+ },
+ "name": "霜华",
+ "class": "特种",
+ "branch": "陷阱师",
+ "rarity": 5.0,
+ "trait_text": "可以使用陷阱来协助作战，但陷阱无法放置于敌人已在的格子中",
+ "attack_interval": 0.85,
+ "atk": 529.0,
+ "atk_trust": 40.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "陷阱部署",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 12.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 3.5
+   },
+   "_source": "被动效果：迎宾踏垫触发时对目标造成相当于攻击力的350%的物理伤害，并使其晕眩1.5秒，主动效果：立即获得一个迎宾踏垫",
+   "_parsed": [
+    {
+     "text": "被动效果：迎宾踏垫触发时对目标造成相当于攻击力的350%的物理伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 350.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "主动效果：立即获得一个迎宾踏垫",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "击倒猎物",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 12.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.8
+   },
+   "_source": "被动效果：迎宾踏垫触发时造成200%的物理伤害，并使其束缚1.5秒；若其在攻击范围内,则立即对其进行攻击力180%的3次攻击；主动效果：立即获得一个迎宾踏垫",
+   "_parsed": [
+    {
+     "text": "则立即对其进行攻击力180%的3次攻击",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 180.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "被动效果：迎宾踏垫触发时造成200%的物理伤害",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "主动效果：立即获得一个迎宾踏垫",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "若其在攻击范围内",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以使用陷阱来协助作战",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "但陷阱无法放置于敌人已在的格子中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "迎宾踏垫",
+   "condition": "精英2",
+   "text": "可以使用8个迎宾踏垫（最多拥有10个），踩上去的第一个敌人会触发其效果"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "踩上去的第一个敌人会触发其效果",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 1.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "可以使用8个迎宾踏垫（最多拥有10个）",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

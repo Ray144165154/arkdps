@@ -1,0 +1,65 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "梓兰"
+ },
+ "name": "梓兰",
+ "class": "辅助",
+ "branch": "凝滞师",
+ "rarity": 3.0,
+ "trait_text": "攻击造成法术伤害，并对敌人造成短暂的停顿",
+ "attack_interval": 1.9,
+ "atk": 378.0,
+ "atk_trust": 40.0,
+ "atk_potential": 19.0,
+ "skills": [
+  {
+   "name": "迅捷打击·α型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "",
+   "_parsed": [],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "_atk_from": "精英1_满级_攻击",
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 9.0
+ },
+ "_talent_meta": [
+  {
+   "name": "施法速度提升",
+   "condition": "精英1 55级",
+   "text": "攻击速度+9",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击速度+9",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 9.0,
+   "field": "aspd"
+  }
+ ]
+}

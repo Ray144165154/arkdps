@@ -1,0 +1,356 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "机械师"
+ },
+ "name": "机械师",
+ "class": "重装",
+ "branch": "哨戒铁卫",
+ "rarity": 6.0,
+ "trait_text": "能够阻挡三个敌人，可以进行远程攻击",
+ "attack_interval": 1.2,
+ "atk": 513.0,
+ "atk_trust": 60.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "聚类分析",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 7.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "interval_flat": 1.3,
+    "hits_override": 5.0
+   },
+   "_source": "攻击间隔增大(+1.3)，攻击变为五连击的群体攻击，每次造成攻击力155%的范围物理伤害，攻击装有3发弹药，打完后结束（可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击间隔增大(+1.3)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 1.3,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击变为五连击的群体攻击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 5.0,
+     "field": "hits_override"
+    },
+    {
+     "text": "打完后结束（可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "每次造成攻击力155%的范围物理伤害",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / per」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "协防术式",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 35.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 150.0,
+    "atk_mult": 2.0
+   },
+   "_source": "攻击力+150%，自身和结构性原理立刻获得最大生命10%的屏障，屏障被摧毁时对周围敌人造成攻击力200%的法术伤害和3秒的战栗，并消耗1发弹药再次获得屏障，攻击装有8发弹药，打完后结束（可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击力+150%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 150.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "屏障被摧毁时对周围敌人造成攻击力200%的法术伤害和3秒的战栗",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 200.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "打完后结束（可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "自身和结构性原理立刻获得最大生命10%的屏障",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "工程学十字星",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 25.0,
+   "duration": 40.0,
+   "effects": {
+    "atk_pct": 280.0,
+    "interval_flat": 2.3,
+    "atk_mult": 7.800000000000001,
+    "targets": 50
+   },
+   "_source": "攻击力+280%，攻击间隔大幅增大(+2.3)，攻击变为对十字范围内所有敌人造成攻击力260%的法术伤害，可攻击结构性原理阻挡的目标，结构性原理向前方冲锋，碰到敌人或高台时对范围内所有敌人造成机械师攻击力300%的物理伤害并停下，周围的敌人获得逐渐衰减的50%的虚弱效果",
+   "_parsed": [
+    {
+     "text": "攻击力+280%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 280.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击间隔大幅增大(+2.3)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 2.3,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击变为对十字范围内所有敌人造成攻击力260%的法术伤害",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 260.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "碰到敌人或高台时对范围内所有敌人造成机械师攻击力300%的物理伤害并停下",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 300.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "周围的敌人获得逐渐衰减的50%的虚弱效果",
+     "attribute": "targets",
+     "relation": "decrease",
+     "value": 50.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "partial",
+   "_unparsed": [
+    {
+     "text": "可攻击结构性原理阻挡的目标",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「targets / unspecified」，但没能映射到引擎字段"
+    },
+    {
+     "text": "结构性原理向前方冲锋",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "结构性原理",
+   "condition": "精英2",
+   "text": "可以使用一个持续30秒的结构性原理，拥有独立的再部署时间"
+  },
+  {
+   "name": "生命方程",
+   "condition": "精英2",
+   "text": "自身和结构性原理部署时获得最大生命30%的屏障；来自自身的屏障可以抵挡超额的伤害"
+  },
+  {
+   "name": "后备精通Ⅰ",
+   "condition": "精英1",
+   "text": "在【沉沦者的黑流树海】中，进入1层时，机械师作为临时助力加入队伍",
+   "fallback": true
+  },
+  {
+   "name": "后备精通Ⅱ",
+   "condition": "精英2",
+   "text": "特勤分队效果提升"
+  },
+  {
+   "name": "招募精通Ⅰ",
+   "condition": "{{mdi|cards-diamond}} 精英2 提升Ⅱ",
+   "text": "在【沉沦者的黑流树海】中，被招募时希望消耗-4，被进阶时希望消耗-2",
+   "fallback": true
+  },
+  {
+   "name": "招募精通Ⅱ",
+   "condition": "{{mdi|cards-diamond}} 精英2 提升Ⅱ",
+   "text": "在【沉沦者的黑流树海】中，被招募时，使零件箱容量+2，被进阶时获得【结构性原理】",
+   "fallback": true
+  },
+  {
+   "name": "战斗精通Ⅰ",
+   "condition": "{{mdi|cards-diamond}} 精英2 提升Ⅱ",
+   "text": "在【沉沦者的黑流树海】中，机械师和其召唤物生命值、防御力+30%，法术抗性+15",
+   "fallback": true
+  },
+  {
+   "name": "战斗精通Ⅱ",
+   "condition": "{{mdi|cards-diamond}} 精英2 提升Ⅱ",
+   "text": "在【沉沦者的黑流树海】中，机械师和其召唤物每秒对阻挡的敌人造成攻击力50%的法术伤害",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "可以使用一个持续30秒的结构性原理",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 30.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "自身和结构性原理部署时获得最大生命30%的屏障",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「hp / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "来自自身的屏障可以抵挡超额的伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "在【沉沦者的黑流树海】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "进入1层时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "机械师作为临时助力加入队伍",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "特勤分队效果提升",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "在【沉沦者的黑流树海】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "被招募时希望消耗-4",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "被进阶时希望消耗-2",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "在【沉沦者的黑流树海】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "被招募时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "使零件箱容量+2",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "被进阶时获得【结构性原理】",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "在【沉沦者的黑流树海】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "机械师和其召唤物生命值",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  },
+  {
+   "text": "防御力+30%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "法术抗性+15",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「res / increase」，但没能映射到引擎字段"
+  },
+  {
+   "text": "在【沉沦者的黑流树海】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "机械师和其召唤物每秒对阻挡的敌人造成攻击力50%的法术伤害",
+   "kind": "unmapped",
+   "affects_damage": true,
+   "reason": "识别为「atk / per」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": true
+}

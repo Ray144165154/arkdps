@@ -1,0 +1,101 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "因陀罗"
+ },
+ "name": "因陀罗",
+ "class": "近卫",
+ "branch": "斗士",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡一个敌人",
+ "attack_interval": 0.78,
+ "atk": 530.0,
+ "atk_trust": 75.0,
+ "atk_potential": 23.0,
+ "skills": [
+  {
+   "name": "碎甲拳",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 4.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 140.0,
+    "targets": 60
+   },
+   "_source": "下次攻击的攻击力+140%，无视目标防御60%",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力+140%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 140.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "无视目标防御60%",
+     "attribute": "targets",
+     "relation": "ignore",
+     "value": 60.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "裂魂",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 50.0,
+   "init_sp": 25.0,
+   "duration": 25.0,
+   "effects": {
+    "atk_pct": 120.0,
+    "damage_type": "arts"
+   },
+   "_source": "攻击力+120%，伤害类型变为法术，每次攻击恢复相当于造成伤害25%的生命",
+   "_parsed": [
+    {
+     "text": "攻击力+120%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 120.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "伤害类型变为法术",
+     "attribute": "damage_type",
+     "relation": "set_to",
+     "value": null,
+     "field": "damage_type"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": 100.0
+ },
+ "_talent_meta": [
+  {
+   "name": "虎拳迅击",
+   "condition": "精英2",
+   "text": "有30%的概率闪避近战物理攻击，成功闪避后自身下一次攻击攻击力+100%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "成功闪避后自身下一次攻击攻击力+100%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 100.0,
+   "field": "atk_pct"
+  }
+ ]
+}

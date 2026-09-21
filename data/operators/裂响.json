@@ -1,0 +1,119 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "裂响"
+ },
+ "name": "裂响",
+ "class": "重装",
+ "branch": "本源铁卫",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡三个敌人，可以造成元素损伤",
+ "attack_interval": 1.6,
+ "atk": 602.0,
+ "atk_trust": 30.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "涤净",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 20.0,
+   "effects": {},
+   "_source": "生命上限+100%，自身每秒回复120点元素损伤",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "生命上限+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "溃决",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 12.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 0.35
+   },
+   "_source": "获得5层可叠加的防御力+20%的增益，受到攻击后消耗1层，并对周围所有地面敌人造成相当于攻击力35%的侵蚀损伤，增益最多叠加5层",
+   "_parsed": [
+    {
+     "text": "并对周围所有地面敌人造成相当于攻击力35%的侵蚀损伤",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 35.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "受到攻击后消耗1层",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "增益最多叠加5层",
+     "kind": "unknown",
+     "affects_damage": false,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "获得5层可叠加的防御力+20%的增益",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以造成元素损伤",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "劣质溶剂耐受",
+   "condition": "精英2",
+   "text": "自身受到的元素损伤-10%，若为侵蚀损伤则减少量增加10%"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "自身受到的元素损伤-10%",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "若为侵蚀损伤则减少量增加10%",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

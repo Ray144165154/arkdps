@@ -1,0 +1,195 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "安洁莉娜"
+ },
+ "name": "安洁莉娜",
+ "class": "辅助",
+ "branch": "凝滞师",
+ "rarity": 6.0,
+ "trait_text": "攻击造成法术伤害，并对敌人造成短暂的停顿",
+ "attack_interval": 1.9,
+ "atk": 542.0,
+ "atk_trust": 75.0,
+ "atk_potential": 25.0,
+ "skills": [
+  {
+   "name": "秘杖·速充模式",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 10.0,
+   "init_sp": 0.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 110.0
+   },
+   "_source": "攻击力+110%，技能自动开启",
+   "_parsed": [
+    {
+     "text": "攻击力+110%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 110.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "秘杖·微粒模式",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "interval_mult": 0.15,
+    "atk_mult": 0.45
+   },
+   "_source": "攻击间隔极大幅度缩短(*0.15)，但每次攻击只能造成相当于攻击力45%的法术伤害，技能未开启时无法普通攻击",
+   "_parsed": [
+    {
+     "text": "攻击间隔极大幅度缩短(*0.15)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": 0.15,
+     "field": "interval_mult"
+    },
+    {
+     "text": "但每次攻击只能造成相当于攻击力45%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 45.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "技能未开启时无法普通攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "attacks": false
+   },
+   "_conditions": [
+    {
+     "text": "技能未开启时无法普通攻击",
+     "condition": "未开启时",
+     "fields": {
+      "attacks": false
+     },
+     "reason": "含条件标记「未开启时」，是否生效取决于战场情况"
+    }
+   ]
+  },
+  {
+   "name": "秘杖·反重力模式",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 10.0,
+   "duration": 25.0,
+   "effects": {
+    "targets_scope": "all_in_range",
+    "atk_pct": 150.0,
+    "targets": 5
+   },
+   "_source": "全场所有敌人失重，攻击范围扩大，攻击力+150%，可以攻击5个敌人，技能未开启时无法普通攻击",
+   "_parsed": [
+    {
+     "text": "全场所有敌人失重",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": null,
+     "field": "targets_scope"
+    },
+    {
+     "text": "攻击力+150%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 150.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "可以攻击5个敌人",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 5.0,
+     "field": "targets"
+    },
+    {
+     "text": "技能未开启时无法普通攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "exact",
+   "_conditional": {
+    "attacks": false
+   },
+   "_conditions": [
+    {
+     "text": "技能未开启时无法普通攻击",
+     "condition": "未开启时",
+     "fields": {
+      "attacks": false
+     },
+     "reason": "含条件标记「未开启时」，是否生效取决于战场情况"
+    }
+   ]
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "aspd": 7.0
+ },
+ "_talent_meta": [
+  {
+   "name": "加速力场",
+   "condition": "精英2",
+   "text": "在场时全场友方单位攻速+7"
+  },
+  {
+   "name": "兼职工作",
+   "condition": "精英2",
+   "text": "技能未开启时，全场友方单位每秒回复20点生命"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "在场时全场友方单位攻速+7",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 7.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "技能未开启时",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

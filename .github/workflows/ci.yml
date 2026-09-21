@@ -1,0 +1,119 @@
+name: CI
+
+# 为什么把步骤拆得这么细：
+#
+# 失败时最容易用上的信息就是"哪一步挂了"。一个步骤里塞五件事，
+# 挂了只能看到一句"命令返回了退出码 1"，还得反复加调试输出重跑。
+# 拆开之后看一眼步骤名就知道是零依赖检查、冒烟测试还是单元测试出了问题。
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  # 本项目的输出全是中文。Windows 上标准输出被重定向时的默认编码是 GBK，
+  # 不强制 UTF-8 会在打印中文帮助文本时抛 UnicodeEncodeError。
+  PYTHONIOENCODING: utf-8
+  PYTHONUTF8: "1"
+
+jobs:
+  test:
+    name: 测试 · ${{ matrix.os }} · Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.10", "3.13"]
+        include:
+          # 中间版本只在一个平台上跑，免得矩阵膨胀到十几个任务
+          - os: ubuntu-latest
+            python: "3.11"
+          - os: ubuntu-latest
+            python: "3.12"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: 环境信息
+        run: python -c "import sys, platform; print(sys.version); print(platform.platform())"
+
+      - name: 运行时零依赖检查
+        run: python tools/check_zero_deps.py
+
+      - name: 命令行冒烟测试（内含打包配置检查）
+        run: python tools/ci_smoke.py
+
+      - name: 单元测试
+        run: python run_tests.py
+
+      - name: 安装成包
+        run: python -m pip install --quiet .
+
+      - name: 安装后的命令行入口可用
+        run: arkdps --version
+
+      - name: 安装后仍能算出正确结果（验证打包没丢数据路径回退）
+        run: python tools/ci_smoke.py
+
+  lint:
+    name: 静态检查
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装 ruff
+        run: python -m pip install --quiet ruff
+
+      - name: ruff check
+        # --output-format=github 会把每条问题变成**检查注解**，
+        # 带着文件、行号和消息。这样失败原因不必去翻原始 job 日志
+        # （原始日志要认证才能下载）就能看到。
+        run: ruff check --output-format=github .
+
+      - name: 语法编译检查（含 tests 与 tools）
+        run: python -m compileall -q arkdps tests tools run_tests.py conftest.py
+
+  data:
+    name: 数据完整性
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 干员草稿能全部载入
+        run: |
+          python - <<'PY'
+          import pathlib
+          from arkdps.loader import load_operators
+          ops = load_operators(pathlib.Path("data/operators"))
+          assert len(ops) > 100, f"只载入了 {len(ops)} 个干员"
+          bad = [o.name for o in ops if not (o.interval > 0) or not (o.base_atk > 0)]
+          assert not bad, f"这些干员的面板数据不可用: {bad[:10]}"
+          print(f"✔ {len(ops)} 个干员草稿全部可载入且面板数据可用")
+          PY
+
+      - name: 覆盖率报告存在且比例合理
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          report = json.loads(pathlib.Path("data/_coverage.json").read_text(encoding="utf-8"))
+          skills = report["skills"]
+          exact = report["confidence"].get("exact", 0)
+          ratio = exact / skills if skills else 0
+          assert skills > 500, f"技能总数只有 {skills}"
+          assert ratio > 0.50, f"完全解析比例只有 {ratio:.0%}，可能词表退化了"
+          print(f"✔ {skills} 个技能，完全解析 {ratio:.0%}，"
+                f"需人工复核 {report['skills_needing_review']}")
+          PY

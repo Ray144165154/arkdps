@@ -1,0 +1,106 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "嘉辛塔"
+ },
+ "name": "嘉辛塔",
+ "class": "先锋",
+ "branch": "执旗手",
+ "rarity": 5.0,
+ "trait_text": "技能发动期间阻挡数变为0",
+ "attack_interval": 1.3,
+ "atk": 502.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "支援号令·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 26.0,
+   "init_sp": 15.0,
+   "duration": 8.0,
+   "effects": {},
+   "_source": "停止攻击，持续时间内回复总共18点部署费用",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "exact",
+   "attacks": false
+  },
+  {
+   "name": "伞下乘荫",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "atk_mult": 0.01
+   },
+   "_source": "停止攻击，逐渐回复总共27点部署费用，技能持续期间使天赋效果的范围扩大且效果提升至2倍，并每秒治疗天赋范围内的1名友方干员相当于嘉辛塔25%攻击力的生命值",
+   "_parsed": [
+    {
+     "text": "停止攻击",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    },
+    {
+     "text": "并每秒治疗天赋范围内的1名友方干员相当于嘉辛塔25%攻击力的生命值",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 1.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "效果提升至2倍",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "淑女风范",
+   "condition": "精英2",
+   "text": "部署后，嘉辛塔自身与周围八格的友方单位获得13%的对空庇护"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "部署后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "嘉辛塔自身与周围八格的友方单位获得13%的对空庇护",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

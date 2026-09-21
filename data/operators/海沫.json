@@ -1,0 +1,125 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "海沫"
+ },
+ "name": "海沫",
+ "class": "近卫",
+ "branch": "收割者",
+ "rarity": 5.0,
+ "trait_text": "无法被友方角色治疗，攻击造成群体伤害，每攻击到一个敌人回复自身50生命，最大生效数等于阻挡数",
+ "attack_interval": 1.3,
+ "atk": 670.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "回首，断舍",
+   "charge": "attack",
+   "trigger": "自动触发",
+   "sp_cost": 2.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.65,
+    "hits_override": 2.0
+   },
+   "_source": "下次攻击的攻击力提升至165%，并连续攻击两次",
+   "_parsed": [
+    {
+     "text": "下次攻击的攻击力提升至165%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 165.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "并连续攻击两次",
+     "attribute": "hits",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "hits_override"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "泡影，殆尽",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 20.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_pct": 60.0
+   },
+   "_source": "攻击力+60%，获得60%的物理闪避，攻击范围内有敌人倒下时，恢复自身最大生命值的10%",
+   "_parsed": [
+    {
+     "text": "攻击力+60%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 60.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "攻击范围内有敌人倒下时",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "攻击造成群体伤害",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "aspd": 25.0
+ },
+ "_talent_meta": [
+  {
+   "name": "收割，给养",
+   "condition": "精英2",
+   "text": "每攻击到一个敌人回复自身30元素损伤，最大生效数等于阻挡数"
+  },
+  {
+   "name": "罹患，浸染",
+   "condition": "精英2",
+   "text": "在【水月与深蓝之树】中，攻击速度+25，阻挡数+1"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击速度+25",
+   "attribute": "aspd",
+   "relation": "increase",
+   "value": 25.0,
+   "field": "aspd"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "在【水月与深蓝之树】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

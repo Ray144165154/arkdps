@@ -1,0 +1,118 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "承曦格雷伊"
+ },
+ "name": "承曦格雷伊",
+ "class": "狙击",
+ "branch": "投掷手",
+ "rarity": 5.0,
+ "trait_text": "攻击对小范围的地面敌人造成两次物理伤害（第二次为余震，伤害降低至攻击力的一半）",
+ "attack_interval": 2.1,
+ "atk": 628.0,
+ "atk_trust": 60.0,
+ "atk_potential": 32.0,
+ "skills": [
+  {
+   "name": "迅捷打击·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 15.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 45.0,
+    "aspd": 45.0
+   },
+   "_source": "攻击力+45%，攻击速度+45",
+   "_parsed": [
+    {
+     "text": "攻击力+45%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击速度+45",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 45.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "晨曦信标",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 0.0,
+   "duration": 12.0,
+   "effects": {
+    "atk_mult": 0.015
+   },
+   "_source": "朝目标所在的位置发射一个雷电球，雷电球每1.5秒对周围所有敌人造成一次相当于攻击力130%的法术伤害并有40%的概率造成1.6秒的停顿，持续12秒，可充能2次",
+   "_parsed": [
+    {
+     "text": "朝目标所在的位置发射一个雷电球",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 1.0,
+     "field": "targets"
+    },
+    {
+     "text": "雷电球每1.5秒对周围所有敌人造成一次相当于攻击力130%的法术伤害并有40%的概率造成1.6秒的停顿",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 1.5,
+     "field": "atk_mult"
+    },
+    {
+     "text": "持续12秒",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": 12.0,
+     "field": "duration"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "攻击对小范围的地面敌人造成两次物理伤害（第二次为余震，伤害降低至攻击力的一半）",
+   "attribute": "atk",
+   "relation": "set_to",
+   "value": 1.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_trait_conditional": {
+  "atk_mult": 0.01
+ },
+ "_trait_conditions": [
+  {
+   "text": "攻击对小范围的地面敌人造成两次物理伤害（第二次为余震，伤害降低至攻击力的一半）",
+   "condition": "第二次",
+   "fields": {
+    "atk_mult": 0.01
+   },
+   "reason": "含条件标记「第二次」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "窃光链缚",
+   "condition": "精英2",
+   "text": "攻击时有40%的几率对攻击目标造成2秒的停顿"
+  }
+ ],
+ "_talent_parsed": []
+}

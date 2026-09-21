@@ -1,0 +1,93 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "刺玫"
+ },
+ "name": "刺玫",
+ "class": "医疗",
+ "branch": "咒愈师",
+ "rarity": 5.0,
+ "trait_text": "攻击造成法术伤害，攻击敌人时为攻击范围内一名友方干员治疗相当于50%伤害的生命值",
+ "attack_interval": 1.6,
+ "atk": 550.0,
+ "atk_trust": 30.0,
+ "atk_potential": 22.0,
+ "skills": [
+  {
+   "name": "战术咏唱·γ型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 90.0
+   },
+   "_source": "攻击速度+90",
+   "_parsed": [
+    {
+     "text": "攻击速度+90",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "aspd"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "荆藤庇荫",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 15.0,
+   "duration": 15.0,
+   "effects": {
+    "atk_pct": 80.0,
+    "atk_mult": 0.5
+   },
+   "_source": "攻击力+80%，使攻击范围内生命上限最高的友方角色嘲讽等级]]更容易受到敌人攻击，且该角色受到攻击时刺玫对目标造成攻击力50%的法术伤害并仅对该角色触发刺玫特性",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "该角色受到攻击时刺玫对目标造成攻击力50%的法术伤害并仅对该角色触发刺玫特性",
+     "attribute": "atk",
+     "relation": "unspecified",
+     "value": 50.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "土壤基肥改良",
+   "condition": "精英2",
+   "text": "攻击范围内生命上限最高的友方角色受到的治疗效果提升15%"
+  }
+ ],
+ "_talent_parsed": []
+}

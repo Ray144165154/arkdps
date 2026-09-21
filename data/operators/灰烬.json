@@ -1,0 +1,178 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "灰烬"
+ },
+ "name": "灰烬",
+ "class": "狙击",
+ "branch": "速射手",
+ "rarity": 6.0,
+ "trait_text": "优先攻击空中单位",
+ "attack_interval": 1.0,
+ "atk": 534.0,
+ "atk_trust": 90.0,
+ "atk_potential": 27.0,
+ "skills": [
+  {
+   "name": "支援射击",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 45.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_pct": 15.0,
+    "hits_override": 2.0
+   },
+   "_source": "攻击力+15%，攻击变为2连击，持续时间无限",
+   "_parsed": [
+    {
+     "text": "攻击力+15%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 15.0,
+     "field": "atk_pct"
+    },
+    {
+     "text": "攻击变为2连击",
+     "attribute": "hits",
+     "relation": "set_to",
+     "value": 2.0,
+     "field": "hits_override"
+    },
+    {
+     "text": "持续时间无限",
+     "attribute": "duration",
+     "relation": "unspecified",
+     "value": Infinity,
+     "field": "infinite_duration"
+    }
+   ],
+   "_confidence": "exact",
+   "infinite_duration": true
+  },
+  {
+   "name": "突击战术",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "interval_flat": -80.0,
+    "atk_mult": 2.5
+   },
+   "_source": "立即触发第一天赋，攻击间隔大幅度缩短(-80%)，且攻击被晕眩目标时攻击力提高至250%，攻击装有31发子弹，打完后技能结束（期间可随时停止技能）",
+   "_parsed": [
+    {
+     "text": "攻击间隔大幅度缩短(-80%)",
+     "attribute": "interval",
+     "relation": "decrease",
+     "value": -80.0,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击被晕眩目标时攻击力提高至250%",
+     "attribute": "atk",
+     "relation": "set_to",
+     "value": 250.0,
+     "field": "atk_mult"
+    },
+    {
+     "text": "打完后技能结束（期间可随时停止技能）",
+     "attribute": "termination",
+     "relation": "stop",
+     "value": null,
+     "field": "end_condition"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "立即触发第一天赋",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "攻击装有31发子弹",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "攻坚榴弹",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 25.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "targets": 300
+   },
+   "_source": "向前发射破墙弹，对沿途敌人造成300%的物理伤害并向后较大力度推动；爆炸对周围造成400%的物理伤害（从低地撞到高台直接爆炸且造成800%的物理伤害）；每次部署只能释放2次",
+   "_parsed": [
+    {
+     "text": "对沿途敌人造成300%的物理伤害并向后较大力度推动",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 300.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "向前发射破墙弹",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    },
+    {
+     "text": "爆炸对周围造成400%的物理伤害（从低地撞到高台直接爆炸且造成800%的物理伤害）",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "辅助装备",
+   "condition": "精英2",
+   "text": "部署后立即对攻击范围内一个敌人投掷闪光弹，使其和周围敌人晕眩4秒"
+  },
+  {
+   "name": "突击手",
+   "condition": "精英2",
+   "text": "首次部署时部署费用-3，并在部署后立即获得17技力"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "部署后立即对攻击范围内一个敌人投掷闪光弹",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「range / unspecified」，但没能映射到引擎字段"
+  },
+  {
+   "text": "并在部署后立即获得17技力",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「sp / unspecified」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

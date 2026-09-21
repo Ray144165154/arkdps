@@ -1,0 +1,139 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "狮蝎"
+ },
+ "name": "狮蝎",
+ "class": "特种",
+ "branch": "伏击客",
+ "rarity": 5.0,
+ "trait_text": "对攻击范围内所有敌人造成伤害，拥有50%的物理和法术闪避且不容易成为敌人的攻击目标",
+ "attack_interval": 3.5,
+ "atk": 811.0,
+ "atk_trust": 60.0,
+ "atk_potential": 30.0,
+ "skills": [
+  {
+   "name": "蝎毒",
+   "charge": "passive",
+   "trigger": "",
+   "sp_cost": 0.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "每次攻击会在5秒内令命中目标移动速度-50%",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "每次攻击会在5秒内令命中目标移动速度-50%",
+     "kind": "enemy_effect",
+     "affects_damage": true,
+     "reason": "原文说的是**敌人**的「movement」发生了变化，不是干员自己——不能套用到干员身上，需人工确认"
+    }
+   ],
+   "_needs_review": true
+  },
+  {
+   "name": "蓄力毒尾击",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 20.0,
+   "init_sp": 10.0,
+   "duration": 40.0,
+   "effects": {
+    "interval_flat": 1.7,
+    "atk_pct": 90.0
+   },
+   "_source": "攻击前摇和攻击间隔增大(+1.7)，攻击力+90%，使命中目标晕眩1秒",
+   "_parsed": [
+    {
+     "text": "攻击前摇和攻击间隔增大(+1.7)",
+     "attribute": "interval",
+     "relation": "increase",
+     "value": 1.7,
+     "field": "interval_flat"
+    },
+    {
+     "text": "攻击力+90%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "targets_scope": "all_in_range"
+ },
+ "_trait_parsed": [
+  {
+   "text": "对攻击范围内所有敌人造成伤害",
+   "attribute": "range",
+   "relation": "unspecified",
+   "value": null,
+   "field": "targets_scope"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "不容易成为敌人的攻击目标",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_trait_needs_review": true,
+ "_trait_confidence": "low",
+ "talent": {
+  "atk_pct": 50.0
+ },
+ "_talent_meta": [
+  {
+   "name": "隐匿的杀手·精英",
+   "condition": "精英2",
+   "text": "平时处于不可选中状态，攻击时会解除不可选中状态，且当次攻击的攻击力+50%。停止攻击5秒后，重新进入不可选中状态"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "当次攻击的攻击力+50%",
+   "attribute": "atk",
+   "relation": "increase",
+   "value": 50.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "停止攻击5秒后",
+   "attribute": "atk",
+   "relation": "stop",
+   "value": null,
+   "field": "attacks"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "平时处于不可选中状态",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "攻击时会解除不可选中状态",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "重新进入不可选中状态",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

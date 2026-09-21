@@ -1,0 +1,124 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "盟约·辅助干员"
+ },
+ "name": "盟约·辅助干员",
+ "class": "辅助",
+ "branch": "巫役",
+ "rarity": 4.0,
+ "trait_text": "攻击造成法术伤害，可以造成元素损伤",
+ "attack_interval": 1.6,
+ "atk": 427.0,
+ "atk_trust": 25.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "战术咏唱·双型",
+   "charge": "attack",
+   "trigger": "手动触发",
+   "sp_cost": 15.0,
+   "init_sp": 10.0,
+   "duration": 30.0,
+   "effects": {
+    "aspd": 90.0,
+    "targets": 2
+   },
+   "_source": "攻击速度+90，同时攻击2个目标",
+   "_parsed": [
+    {
+     "text": "攻击速度+90",
+     "attribute": "aspd",
+     "relation": "increase",
+     "value": 90.0,
+     "field": "aspd"
+    },
+    {
+     "text": "同时攻击2个目标",
+     "attribute": "targets",
+     "relation": "unspecified",
+     "value": 2.0,
+     "field": "targets"
+    }
+   ],
+   "_confidence": "exact"
+  }
+ ],
+ "_warnings": [],
+ "trait": {
+  "damage_type": "arts"
+ },
+ "_trait_parsed": [
+  {
+   "text": "攻击造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_unparsed": [
+  {
+   "text": "可以造成元素损伤",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {
+  "atk_mult": 0.2
+ },
+ "_talent_meta": [
+  {
+   "name": "迭代元素",
+   "condition": "精英2 X模组3级",
+   "text": "造成伤害时附带20%攻击力的神经损伤（优先）、灼燃损伤、凋亡损伤；优先攻击未处于损伤爆发的目标",
+   "fallback": true
+  },
+  {
+   "name": "灵便条约",
+   "condition": "精英0",
+   "text": "在【卫戍协议】中，隶属于盟约【调和】",
+   "fallback": true
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "造成伤害时附带20%攻击力的神经损伤（优先）",
+   "attribute": "atk",
+   "relation": "unspecified",
+   "value": 20.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "灼燃损伤",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "凋亡损伤",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "在【卫戍协议】中",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  },
+  {
+   "text": "隶属于盟约【调和】",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}

@@ -1,0 +1,114 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "泡泡"
+ },
+ "name": "泡泡",
+ "class": "重装",
+ "branch": "铁卫",
+ "rarity": 4.0,
+ "trait_text": "能够阻挡三个敌人",
+ "attack_interval": 1.2,
+ "atk": 370.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "防御力强化·β型",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 10.0,
+   "duration": 35.0,
+   "effects": {},
+   "_source": "防御力+80%",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+80%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "“挨打”",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 45.0,
+   "init_sp": 0.0,
+   "duration": 25.0,
+   "effects": {},
+   "_source": "停止攻击敌人；防御力+120%，自身嘲讽等级]]更易受敌人攻击，每次受到攻击时对目标造成相当于泡泡防御力50%的物理伤害",
+   "_parsed": [
+    {
+     "text": "停止攻击敌人",
+     "attribute": "atk",
+     "relation": "stop",
+     "value": null,
+     "field": "attacks"
+    }
+   ],
+   "_confidence": "exact",
+   "attacks": false,
+   "_unparsed": [
+    {
+     "text": "防御力+120%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    },
+    {
+     "text": "每次受到攻击时对目标造成相当于泡泡防御力50%的物理伤害",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / proportional」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_pct": -8.0
+ },
+ "_talent_meta": [
+  {
+   "name": "尖刺盾",
+   "condition": "精英2",
+   "text": "敌人攻击泡泡后，攻击力下降8%，持续5秒"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "攻击力下降8%",
+   "attribute": "atk",
+   "relation": "decrease",
+   "value": 8.0,
+   "field": "atk_pct"
+  },
+  {
+   "text": "持续5秒",
+   "attribute": "duration",
+   "relation": "unspecified",
+   "value": 5.0,
+   "field": "duration"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "敌人攻击泡泡后",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "找到了属性词，但没能确定数值或关系"
+  }
+ ],
+ "_talent_needs_review": true
+}

@@ -1,0 +1,83 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "讯使"
+ },
+ "name": "讯使",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 4.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 435.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "冲锋号令·β型",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 30.0,
+   "init_sp": 13.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得9点部署费用",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "冲锋号令·防御",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 17.0,
+   "duration": 15.0,
+   "effects": {},
+   "_source": "立即获得3点部署费用，技能持续期间内逐渐获得8点部署费用，防御力+80%",
+   "_parsed": [],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "防御力+80%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {
+  "targets": 2
+ },
+ "_talent_meta": [
+  {
+   "name": "雪境巡逻员",
+   "condition": "精英2",
+   "text": "阻挡两个及以上的敌人时，防御力+16%"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "阻挡两个及以上的敌人时",
+   "attribute": "targets",
+   "relation": "unspecified",
+   "value": 2.0,
+   "field": "targets"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "防御力+16%",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「defense / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

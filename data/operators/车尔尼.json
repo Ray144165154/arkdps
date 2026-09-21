@@ -1,0 +1,139 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "车尔尼"
+ },
+ "name": "车尔尼",
+ "class": "重装",
+ "branch": "驭法铁卫",
+ "rarity": 5.0,
+ "trait_text": "技能开启时普通攻击会造成法术伤害",
+ "attack_interval": 1.6,
+ "atk": 625.0,
+ "atk_trust": 40.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "纷飞十指",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 35.0,
+   "effects": {
+    "atk_pct": 80.0
+   },
+   "_source": "攻击力+80%，法术抗性+100%",
+   "_parsed": [
+    {
+     "text": "攻击力+80%",
+     "attribute": "atk",
+     "relation": "increase",
+     "value": 80.0,
+     "field": "atk_pct"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "法术抗性+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「res / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  },
+  {
+   "name": "曲惊四座",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 30.0,
+   "init_sp": 10.0,
+   "duration": 20.0,
+   "effects": {
+    "atk_mult": 2.5
+   },
+   "_source": "生命上限+100%，自身嘲讽等级]]更容易受到敌人攻击，每次受到攻击使自身攻击力提升+30%（最多10层），技能结束时对周围所有敌人造成相当于攻击力250%的法术伤害",
+   "_parsed": [
+    {
+     "text": "技能结束时对周围所有敌人造成相当于攻击力250%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 250.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "每次受到攻击使自身攻击力提升+30%（最多10层）",
+     "kind": "unmapped",
+     "affects_damage": true,
+     "reason": "识别为「atk / max_of」，但没能映射到引擎字段"
+    },
+    {
+     "text": "生命上限+100%",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「hp / increase」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [
+  {
+   "text": "技能开启时普通攻击会造成法术伤害",
+   "attribute": "damage_type",
+   "relation": "unspecified",
+   "value": null,
+   "field": "damage_type"
+  }
+ ],
+ "_trait_conditional": {
+  "damage_type": "arts"
+ },
+ "_trait_conditions": [
+  {
+   "text": "技能开启时普通攻击会造成法术伤害",
+   "condition": "开启时",
+   "fields": {
+    "damage_type": "arts"
+   },
+   "reason": "含条件标记「开启时」，是否生效取决于战场情况"
+  }
+ ],
+ "_trait_confidence": "exact",
+ "talent": {
+  "atk_mult": 0.8
+ },
+ "_talent_meta": [
+  {
+   "name": "回声",
+   "condition": "精英2",
+   "text": "法术抗性+10，每次受到法术攻击时对目标造成相当于车尔尼攻击力80%的法术伤害"
+  }
+ ],
+ "_talent_parsed": [
+  {
+   "text": "每次受到法术攻击时对目标造成相当于车尔尼攻击力80%的法术伤害",
+   "attribute": "atk",
+   "relation": "proportional",
+   "value": 80.0,
+   "field": "atk_mult"
+  }
+ ],
+ "_talent_unparsed": [
+  {
+   "text": "法术抗性+10",
+   "kind": "unmapped",
+   "affects_damage": false,
+   "reason": "识别为「res / increase」，但没能映射到引擎字段"
+  }
+ ],
+ "_talent_needs_review": false
+}

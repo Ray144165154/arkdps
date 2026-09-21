@@ -1,0 +1,102 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "雪雉"
+ },
+ "name": "雪雉",
+ "class": "特种",
+ "branch": "钩索师",
+ "rarity": 5.0,
+ "trait_text": "技能可以使敌人产生位移，可以放置于远程位",
+ "attack_interval": 1.8,
+ "atk": 745.0,
+ "atk_trust": 0.0,
+ "atk_potential": 0.0,
+ "skills": [
+  {
+   "name": "倒刺钩爪",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 5.0,
+   "init_sp": 0.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.7
+   },
+   "_source": "下次攻击会将目标较大力地拖拽至面前，并对其造成相当于攻击力170%的物理伤害并使其停顿1.6秒",
+   "_parsed": [
+    {
+     "text": "并对其造成相当于攻击力170%的物理伤害并使其停顿1.6秒",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 170.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact"
+  },
+  {
+   "name": "伸缩式电捕网",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 17.0,
+   "init_sp": 10.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 2.0
+   },
+   "_source": "向前方发射一个捕网，捕网会把目标地点周围的敌人全部较大力地拖拽至面前，对其造成相当于攻击力200%的法术伤害并使其停顿3.5秒",
+   "_parsed": [
+    {
+     "text": "对其造成相当于攻击力200%的法术伤害并使其停顿3.5秒",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 200.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "low",
+   "_unparsed": [
+    {
+     "text": "向前方发射一个捕网",
+     "kind": "unknown",
+     "affects_damage": true,
+     "reason": "既没有可识别的属性词，也不是已知的无关概念"
+    }
+   ],
+   "_needs_review": true
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_unparsed": [
+  {
+   "text": "可以放置于远程位",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_trait_needs_review": false,
+ "_trait_confidence": "partial",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "捕虫专家",
+   "condition": "精英2",
+   "text": "在拖拽【感染生物】时，力度提升一个等级并额外使其失去特殊能力4秒"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "力度提升一个等级并额外使其失去特殊能力4秒",
+   "kind": "unknown",
+   "affects_damage": true,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": true
+}

@@ -1,0 +1,83 @@
+{
+ "_schema": "arkdps/operator/1",
+ "_source": {
+  "wiki": "PRTS",
+  "page": "德克萨斯"
+ },
+ "name": "德克萨斯",
+ "class": "先锋",
+ "branch": "尖兵",
+ "rarity": 5.0,
+ "trait_text": "能够阻挡两个敌人",
+ "attack_interval": 1.05,
+ "atk": 500.0,
+ "atk_trust": 70.0,
+ "atk_potential": 24.0,
+ "skills": [
+  {
+   "name": "冲锋号令·γ型",
+   "charge": "auto",
+   "trigger": "自动触发",
+   "sp_cost": 35.0,
+   "init_sp": 20.0,
+   "duration": 0.0,
+   "effects": {},
+   "_source": "立即获得12点部署费用",
+   "_parsed": [],
+   "_confidence": "exact"
+  },
+  {
+   "name": "剑雨",
+   "charge": "auto",
+   "trigger": "手动触发",
+   "sp_cost": 40.0,
+   "init_sp": 30.0,
+   "duration": 0.0,
+   "effects": {
+    "atk_mult": 1.7
+   },
+   "_source": "立即获得12点费用；对周围所有敌人造成两次相当于攻击力170%的法术伤害，并令击中目标晕眩3秒",
+   "_parsed": [
+    {
+     "text": "对周围所有敌人造成两次相当于攻击力170%的法术伤害",
+     "attribute": "atk",
+     "relation": "proportional",
+     "value": 170.0,
+     "field": "atk_mult"
+    }
+   ],
+   "_confidence": "exact",
+   "_unparsed": [
+    {
+     "text": "立即获得12点费用",
+     "kind": "unmapped",
+     "affects_damage": false,
+     "reason": "识别为「cost / unspecified」，但没能映射到引擎字段"
+    }
+   ],
+   "_needs_review": false
+  }
+ ],
+ "_warnings": [],
+ "trait": {},
+ "_trait_parsed": [],
+ "_trait_confidence": "exact",
+ "talent": {},
+ "_talent_meta": [
+  {
+   "name": "战术快递",
+   "condition": "精英2",
+   "text": "编入队伍后，额外获得2点初始部署费用"
+  }
+ ],
+ "_talent_parsed": [],
+ "_talent_unparsed": [
+  {
+   "text": "编入队伍后",
+   "kind": "unknown",
+   "affects_damage": false,
+   "reason": "既没有可识别的属性词，也不是已知的无关概念"
+  }
+ ],
+ "_talent_needs_review": false
+}
