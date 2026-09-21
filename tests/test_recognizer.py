@@ -13,6 +13,7 @@ import math
 import unittest
 
 from fixtures import operator  # noqa: F401  （导入以设定 sys.path）
+
 from arkdps import lexicon, recognizer
 from arkdps.recognizer import Recognition, analyze, analyze_clause, split_clauses, summarize
 

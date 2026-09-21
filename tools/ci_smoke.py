@@ -73,15 +73,28 @@ def check_packaging() -> None:
     装出来的包会缺功能——而且直到有人调用它才会发现。
     本地跑源码时完全看不出来，因为源码是在当前目录里直接导入的。
     """
-    import tomllib
-
-    config = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
-    declared = set(config["tool"]["setuptools"]["packages"])
-
     actual: set[str] = set()
     for path in SRC.rglob("__init__.py"):
         rel = path.parent.relative_to(ROOT)
         actual.add(".".join(rel.parts).removesuffix(".__pycache__"))
+
+    pyproject = ROOT / "pyproject.toml"
+    text = pyproject.read_text(encoding="utf-8")
+
+    try:
+        import tomllib
+    except ModuleNotFoundError:
+        # ``tomllib`` 是 **Python 3.11** 才进标准库的，而本项目支持 3.10。
+        # 不能因为它就把最低版本抬到 3.11——改成退化的文本检查：
+        # 确认每个子包名在 pyproject.toml 里作为带引号的字符串出现过。
+        # 比解析 TOML 弱，但零依赖、跨版本可用，而且这里要防的错
+        # （漏列子包）一定会被抓到。
+        declared = {name for name in actual if f'"{name}"' in text}
+        print(f"  （当前 Python {sys.version_info.major}.{sys.version_info.minor} "
+              "没有 tomllib，改用文本检查）")
+    else:
+        config = tomllib.loads(text)
+        declared = set(config["tool"]["setuptools"]["packages"])
 
     missing = actual - declared
     if missing:

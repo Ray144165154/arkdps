@@ -38,6 +38,7 @@ import unittest
 
 from fixtures import operator  # noqa: F401  （导入以设定 sys.path）
 from fixtures import multi_talent_wikitext, sample_wikitext
+
 from arkdps.importers import wikitext
 from arkdps.importers.wikitext import (
     _template_display_value,

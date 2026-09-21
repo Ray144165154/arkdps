@@ -112,7 +112,7 @@ class Effects:
         """是否完全没有修正。"""
         return self == Effects()
 
-    def merged_with(self, other: "Effects") -> "Effects":
+    def merged_with(self, other: Effects) -> Effects:
         """把另一组修正叠加进来。
 
         叠加规则按游戏机制：

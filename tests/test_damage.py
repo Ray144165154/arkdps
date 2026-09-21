@@ -8,6 +8,7 @@ from __future__ import annotations
 import unittest
 
 from fixtures import effects, enemy
+
 from arkdps.damage import (
     effective_defense,
     effective_res,

@@ -16,6 +16,7 @@ import math
 import unittest
 
 from fixtures import enemy, operator, skill
+
 from arkdps.model import ChargeType, DamageType
 from arkdps.rotation import solve_operator, solve_skill
 from arkdps.rules import GameRules

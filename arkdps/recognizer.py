@@ -29,7 +29,6 @@ from .lexicon import (
     ATTRIBUTES,
     DAMAGE_CRITICAL,
     IRRELEVANT,
-    NON_DAMAGE,
     PENETRATION_ATTRIBUTES,
     find_attribute,
     find_irrelevant,

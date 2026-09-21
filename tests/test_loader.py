@@ -15,8 +15,6 @@
 技能能按名字查回来），不核对游戏数值——数值随版本漂，写死只会让测试变脆。
 """
 
-from fixtures import operator  # noqa: F401  —— 该模块把项目根插进 sys.path，必须最先导入
-
 import dataclasses
 import json
 import os
@@ -26,6 +24,8 @@ import unittest
 import uuid
 from contextlib import contextmanager
 from pathlib import Path
+
+from fixtures import operator  # noqa: F401  —— 它会把项目根插进 sys.path
 
 from arkdps import loader
 from arkdps.model import ChargeType, DamageType, Effects, Operator, Skill

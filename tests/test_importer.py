@@ -16,6 +16,7 @@ from __future__ import annotations
 import unittest
 
 from fixtures import conditional_wikitext, multi_talent_wikitext, sample_wikitext
+
 from arkdps.importers.prts import (
     DRAFT_SCHEMA,
     OPERATOR_CLASSES,

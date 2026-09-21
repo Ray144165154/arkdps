@@ -23,6 +23,7 @@ import unittest
 from pathlib import Path
 
 from fixtures import operator  # noqa: F401  （导入以设定 sys.path）
+
 from arkdps import (
     Clause,
     ChargeType,

@@ -16,6 +16,7 @@ from __future__ import annotations
 import unittest
 
 from fixtures import operator  # noqa: F401  （导入以设定 sys.path）
+
 from arkdps.mapping import (
     SKILL_LEVEL_FIELDS,
     MappingResult,

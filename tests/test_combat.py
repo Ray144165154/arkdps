@@ -10,6 +10,7 @@ from __future__ import annotations
 import unittest
 
 from fixtures import effects, operator, skill
+
 from arkdps.combat import build_state, effective_atk, effective_interval, merge_effects
 from arkdps.model import DamageType, Effects
 from arkdps.rules import GameRules

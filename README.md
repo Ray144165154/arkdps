@@ -256,6 +256,15 @@ CI 在 Linux / Windows / macOS × Python 3.10–3.13 上跑，
 
 ---
 
+## 文档
+
+| 文档 | 内容 |
+|---|---|
+| [docs/FORMULAS.md](docs/FORMULAS.md) | 三条伤害公式、攻击力合成、四种技能循环，每条都配可口算的例子 |
+| [docs/DATA-FORMAT.md](docs/DATA-FORMAT.md) | 草稿 JSON 的每个字段是什么意思，以及**怎么手写一份自己的干员数据** |
+
+---
+
 ## English summary
 
 **arkdps** is a data-driven DPS/DPH calculator for Arknights. The engine contains

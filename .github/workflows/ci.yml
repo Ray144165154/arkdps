@@ -80,6 +80,17 @@ jobs:
         # （原始日志要认证才能下载）就能看到。
         run: ruff check --output-format=github .
 
+      - name: 诊断：让 ruff 打印它自己的修正（临时）
+        # 本机装不了 ruff（沙箱禁止 pip 建临时目录），所以 import 顺序这类
+        # 拿不准的问题就让 CI 里的 ruff 直接给出答案：它 `--fix` 一遍，
+        # 再把改动作为 diff 打进日志，照着抄即可。
+        # 确认全绿之后**删掉这一步**。
+        if: always()
+        continue-on-error: true
+        run: |
+          ruff check --fix . || true
+          git --no-pager diff -- tests/ arkdps/ tools/
+
       - name: 语法编译检查（含 tests 与 tools）
         run: python -m compileall -q arkdps tests tools run_tests.py conftest.py
 

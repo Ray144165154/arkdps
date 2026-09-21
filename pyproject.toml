@@ -10,6 +10,13 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Ray144165154" }]
+# 本项目运行时**零依赖**，这一条是刻意留空的。
+#
+# ⚠️ 它必须待在 [project] 段里。放到 [tool.setuptools] 下会让
+# `pip install .` 直接失败（setuptools 校验报
+# "`tool.setuptools` must not contain {'dependencies'} properties"），
+# 而源码目录里跑 `python -m arkdps` 完全正常——所以只有装包时才暴露。
+dependencies = []
 keywords = [
     "arknights", "dps", "dph", "calculator", "damage-formula",
     "game-mechanics", "validator", "zero-dependency",
@@ -44,9 +51,6 @@ arkdps = "arkdps.cli:main"
 # 漏掉 "arkdps.importers" 装出来的包会缺掉整个导入器——
 # 而且直到有人调用它才会发现。
 packages = ["arkdps", "arkdps.importers"]
-
-# 本项目运行时零依赖，这一条是刻意留空的
-dependencies = []
 
 [project.optional-dependencies]
 # 仅开发用；运行 arkdps 本身不需要其中任何一个
