@@ -78,18 +78,10 @@ jobs:
         # --output-format=github 会把每条问题变成**检查注解**，
         # 带着文件、行号和消息。这样失败原因不必去翻原始 job 日志
         # （原始日志要认证才能下载）就能看到。
+        #
+        # 另外：GitHub 每个 step 最多保留 10 条注解。问题多的时候
+        # 注解是截断的，需要看完整清单就本地跑一次 ruff。
         run: ruff check --output-format=github .
-
-      - name: 诊断：让 ruff 打印它自己的修正（临时）
-        # 本机装不了 ruff（沙箱禁止 pip 建临时目录），所以 import 顺序这类
-        # 拿不准的问题就让 CI 里的 ruff 直接给出答案：它 `--fix` 一遍，
-        # 再把改动作为 diff 打进日志，照着抄即可。
-        # 确认全绿之后**删掉这一步**。
-        if: always()
-        continue-on-error: true
-        run: |
-          ruff check --fix . || true
-          git --no-pager diff -- tests/ arkdps/ tools/
 
       - name: 语法编译检查（含 tests 与 tools）
         run: python -m compileall -q arkdps tests tools run_tests.py conftest.py
